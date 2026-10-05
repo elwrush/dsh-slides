@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is it important to be punctual?</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="vendor/chartjs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================================
+           1. Title — the alarm clock sits behind the text at 84% white,
+           so the clock reads as a backdrop and the contrast is the
+           page's own. One number to tune: the two 0.84 values.
+           ============================================================ -->
+      <section id="title" class="section-divider" data-state="is-section-divider"
+        style="background-image: linear-gradient(rgba(255, 248, 247, 0.84), rgba(255, 248, 247, 0.84)), url('alarm-clock.jpg'); background-size: cover, cover; background-position: center, center; background-repeat: no-repeat, no-repeat;">
+        <h1 style="font-size: 56pt;">Is it important<br>to be punctual?</h1>
+        <p>Should schools punish lateness &mdash; or praise punctuality?</p>
+        <p style="font-size: 18pt; margin-top: 28px;">
+          <span class="chip chip-info">M3A</span>
+          <span class="chip chip-info">Reading</span>
+          <span class="chip chip-info">B1&ndash;B2</span>
+        </p>
+        <p style="font-size: 18pt; margin-top: 4px;">46 minutes &middot; Reciprocal Teaching</p>
+        <div class="footnote">Alarm clock: PIRO4D / Pixabay</div>
+      </section>
+
+      <!-- ============================================================
+           2. Where the data comes from. A provenance slide, so the class knows
+           what PISA is before any chart appears.
+
+           THE MARK IS THE OFFICIAL ASSET, SUPPLIED BY THE TEACHER as
+           PROJECTS/M3 - TARDINESS/SLIDES/PISA.jpg and copied into this folder as
+           pisa.jpg so the deck stays self-contained. It was NOT taken from a
+           logo-aggregator site and NOT generated: the PISA mark is an OECD
+           trademark, and the teacher's own file is the only correct source.
+           ============================================================ -->
+      <section id="provenance" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 22px;">Where the data comes from</p>
+        <!-- A WHITE card, because this asset is an opaque JPEG on a white
+             background — placing it straight on the near-white page leaves a
+             visible box edge. PISA's full name is still spelled out beneath it:
+             the mark shows the acronym, the line teaches what it means. -->
+        <div style="background: #FFFFFF; border: 1px solid var(--card-border); border-radius: var(--box-radius); padding: 16px 32px 18px 32px; margin-bottom: 30px;">
+          <img src="pisa.jpg" alt="PISA and OECD logos — the OECD Programme for International Student Assessment" style="display: block; height: 175px; width: auto; margin: 0 auto;">
+          <p class="text-muted" style="font-size: 18pt; margin: 14px 0 0 0;">OECD Programme for International Student Assessment</p>
+        </div>
+        <p style="font-size: 24pt; max-width: 1040px; color: var(--text-color);">The data we are going to look at now comes from the OECD. Every three years, students in classes all around the world are tested on how well they do in Reading, Science and Mathematics. Let&rsquo;s look at some of the data.</p>
+      </section>
+
+      <!-- ============================================================
+           3. The lateness trend. The question sits at the TOP, as it does on
+           every chart slide, followed by a legend the class can read from the
+           back of the room: the Thai flag plus the wording that identifies the
+           series. No source line is printed — the citation is in ADRS/0005 and
+           in PISA-reading-data-2000-2025.md, and at 11pt it was unreadable
+           anyway. Axis text is sized for a projector, not for a page.
+           ============================================================ -->
+      <section id="chart-lateness" style="display: flex; flex-direction: column; height: 100%;">
+        <h2>What is this graph communicating?</h2>
+        <div style="display: flex; align-items: center; gap: 18px; margin: 16px 0 0 0;">
+          <svg viewBox="0 0 9 6" width="78" height="52" role="img" aria-label="Flag of Thailand"
+               style="flex: 0 0 auto; border: 1px solid var(--card-border); border-radius: 3px;">
+            <rect width="9" height="6" fill="#F4F5F8"/>
+            <rect width="9" height="1" fill="#A51931"/>
+            <rect y="1" width="9" height="1" fill="#F4F5F8"/>
+            <rect y="2" width="9" height="2" fill="#2D2A4A"/>
+            <rect y="4" width="9" height="1" fill="#F4F5F8"/>
+            <rect y="5" width="9" height="1" fill="#A51931"/>
+          </svg>
+          <p style="margin: 0;">Thai 15-year-olds reporting they arrived late for school in the two weeks before the test.</p>
+        </div>
+        <div style="flex: 1; position: relative; min-height: 0; margin-top: 10px;">
+          <canvas data-chart="line">
+          <!--
+          {
+            "data": {
+              "labels": ["2018", "2022", "2025"],
+              "datasets": [
+                {
+                  "label": "arriving late",
+                  "data": [44, 41, 44],
+                  "borderColor": "#24609D",
+                  "backgroundColor": "rgba(36, 96, 157, 0.14)",
+                  "pointBackgroundColor": "#24609D",
+                  "pointBorderColor": "#FFF8F7",
+                  "pointBorderWidth": 4,
+                  "pointRadius": 11,
+                  "borderWidth": 6,
+                  "tension": 0.15,
+                  "fill": true
+                }
+              ]
+            },
+            "options": {
+              "maintainAspectRatio": false,
+              "layout": { "padding": { "top": 8, "right": 34 } },
+              "plugins": {
+                "legend": { "display": false },
+                "tooltip": { "enabled": false }
+              },
+              "scales": {
+                "y": {
+                  "beginAtZero": true,
+                  "max": 60,
+                  "title": { "display": true, "text": "% arriving late", "font": { "size": 26 } },
+                  "ticks": { "stepSize": 20, "font": { "size": 28 } },
+                  "grid": { "color": "rgba(211, 195, 194, 0.6)" }
+                },
+                "x": {
+                  "ticks": { "autoSkip": false, "font": { "size": 30 } },
+                  "grid": { "display": false }
+                }
+              }
+            }
+          }
+          -->
+          </canvas>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           4. Thailand against the OECD, 2006-2025. One HTML legend, sized for a
+           projector: the flag for Thailand, a dashed swatch for the OECD. The
+           dashes matter, because each cycle's OECD average covers whichever
+           members took part in THAT cycle, so the country set varies — that
+           caveat rides in the legend now rather than in a source line, and the
+           full citation lives in ADRS/0005. Do not put the lateness percentage
+           on this axis: one is percentage points, the other score points.
+           ============================================================ -->
+      <section id="chart-reading" style="display: flex; flex-direction: column; height: 100%;">
+        <h2>And what does this graph communicate?</h2>
+        <div style="display: flex; align-items: center; gap: 34px; margin: 16px 0 0 0;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <svg width="56" height="16" viewBox="0 0 56 16" aria-hidden="true" style="flex: 0 0 auto;">
+              <line x1="3" y1="8" x2="53" y2="8" stroke="#24609D" stroke-width="6"/>
+            </svg>
+            <svg viewBox="0 0 9 6" width="60" height="40" role="img" aria-label="Flag of Thailand"
+                 style="flex: 0 0 auto; border: 1px solid var(--card-border); border-radius: 3px;">
+              <rect width="9" height="6" fill="#F4F5F8"/>
+              <rect width="9" height="1" fill="#A51931"/>
+              <rect y="1" width="9" height="1" fill="#F4F5F8"/>
+              <rect y="2" width="9" height="2" fill="#2D2A4A"/>
+              <rect y="4" width="9" height="1" fill="#F4F5F8"/>
+              <rect y="5" width="9" height="1" fill="#A51931"/>
+            </svg>
+            <p style="margin: 0;">Thailand</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <svg width="56" height="16" viewBox="0 0 56 16" aria-hidden="true" style="flex: 0 0 auto;">
+              <line x1="3" y1="8" x2="53" y2="8" stroke="#7A2D34" stroke-width="5" stroke-dasharray="9 7"/>
+            </svg>
+            <p style="margin: 0;">OECD average <span class="text-muted">&mdash; each cycle&rsquo;s own country set</span></p>
+          </div>
+        </div>
+        <div style="flex: 1; position: relative; min-height: 0; margin-top: 10px;">
+          <canvas data-chart="line">
+          <!--
+          {
+            "data": {
+              "labels": ["2006", "2009", "2012", "2015", "2018", "2022", "2025"],
+              "datasets": [
+                {
+                  "label": "Thailand",
+                  "data": [417, 421, 441, 409, 393, 379, 392],
+                  "borderColor": "#24609D",
+                  "backgroundColor": "rgba(36, 96, 157, 0.10)",
+                  "pointBackgroundColor": "#24609D",
+                  "pointBorderColor": "#FFF8F7",
+                  "pointBorderWidth": 3,
+                  "pointRadius": 8,
+                  "borderWidth": 6,
+                  "tension": 0.2,
+                  "fill": true
+                },
+                {
+                  "label": "OECD average",
+                  "data": [null, 493, 496, 493, 487, 476, 461],
+                  "borderColor": "#7A2D34",
+                  "borderWidth": 5,
+                  "borderDash": [9, 7],
+                  "spanGaps": false,
+                  "pointRadius": 7,
+                  "pointBackgroundColor": "#7A2D34",
+                  "pointBorderColor": "#FFF8F7",
+                  "pointBorderWidth": 3,
+                  "tension": 0.2,
+                  "fill": false
+                }
+              ]
+            },
+            "options": {
+              "maintainAspectRatio": false,
+              "layout": { "padding": { "top": 6, "right": 34 } },
+              "plugins": {
+                "legend": { "display": false },
+                "tooltip": { "enabled": false }
+              },
+              "scales": {
+                "y": {
+                  "min": 350,
+                  "max": 520,
+                  "title": { "display": true, "text": "reading score (points)", "font": { "size": 26 } },
+                  "ticks": { "stepSize": 50, "font": { "size": 28 } },
+                  "grid": { "color": "rgba(211, 195, 194, 0.6)" }
+                },
+                "x": {
+                  "ticks": { "autoSkip": false, "font": { "size": 26 } },
+                  "grid": { "display": false }
+                }
+              }
+            }
+          }
+          -->
+          </canvas>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           5. Think, in PREP, for two minutes. The timer does not start
+           by itself: the teacher decides when the room is ready.
+           ============================================================ -->
+      <section id="think" style="display: flex; flex-direction: column; height: 100%;">
+        <h2>Do you think there is a connection between being on time and how well you do academically?</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 44px; align-items: center;">
+            <div>
+              <p class="imperative">Talk to each other.</p>
+            <p class="text-uppercase" style="font-size: 18pt; color: var(--muted-color); margin: 24px 0 14px 0;">Answer it in PREP</p>
+              <p style="margin: 0;">
+                <span class="chip">Position</span>
+                <i class="fa-solid fa-arrow-right" style="color: var(--muted-color); margin: 0 6px;"></i>
+                <span class="chip">Reason</span>
+                <i class="fa-solid fa-arrow-right" style="color: var(--muted-color); margin: 0 6px;"></i>
+                <span class="chip">Evidence</span>
+                <i class="fa-solid fa-arrow-right" style="color: var(--muted-color); margin: 0 6px;"></i>
+                <span class="chip">Position</span>
+              </p>
+              <p class="text-lg text-muted" style="margin: 18px 0 0 0;">Two minutes. Then you will read for some answers &mdash; and you will use this shape again at the end of the lesson.</p>
+            </div>
+            <div class="timer" data-timer-seconds="120" data-timer-label="thinking time"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           6. Plain bridge.
+           ============================================================ -->
+      <section id="bridge" class="section-divider" data-state="is-section-divider">
+        <p style="font-size: 44pt; max-width: 940px; color: var(--text-color);">Today we are going to read for some answers, and then you will write about your discoveries.</p>
+      </section>
+
+      <!-- ============================================================
+           7. Four jobs, previewed — the roles are then shown one at a
+           time, each with the dialog that models it.
+           ============================================================ -->
+      <section id="four-jobs" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 18px;">But first</p>
+        <h1 style="max-width: 960px;">Let&rsquo;s remember how to read together.</h1>
+        <p style="margin-top: 18px;">There are <strong>4 jobs</strong> in each group.</p>
+        <p style="font-size: 20pt; margin-top: 24px;">
+          <span class="chip">Predictor</span>
+          <span class="chip">Clarifier</span>
+          <span class="chip">Questioner</span>
+          <span class="chip">Summariser</span>
+        </p>
+      </section>
+
+      <!-- ============================================================
+           8-15. The four roles: what the job is, then the dialog that
+           models it. Each dialog slide carries its own audio, copied
+           into the deck's audio/ so the deck stays self-contained.
+           ============================================================ -->
+      <section id="role-predictor" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 16px;">First job</p>
+        <h1><i class="fa-solid fa-eye" style="color: var(--accent-text-color);"></i> The Predictor</h1>
+        <p style="font-size: 24pt; max-width: 980px; color: var(--text-color);">Your job is to read the <strong>headline</strong> and the <strong>image</strong>, and guess what the chunk is about. Then tell your group &mdash; like this:</p>
+      </section>
+
+      <section id="predictor-transcript" style="display: flex; flex-direction: column; height: 100%;">
+        <div style="display: flex; align-items: center; gap: 28px;">
+          <h2 style="margin: 0; white-space: nowrap;">Dialog 1 &mdash; the Predictor</h2>
+          <div style="flex: 1; min-width: 0;">
+            <audio controls preload="metadata" src="audio/M3-051026-READING-dialog1-predictor.mp3" style="width: 100%;"></audio>
+          </div>
+        </div>
+        <div class="content" style="padding-top: 10px; padding-bottom: 0;">
+          <div class="transcript">
+            <p class="turn"><span class="turn-who">Ava</span>I&rsquo;m the Predictor, and the heading says &ldquo;Lateness Costs Learning Time.&rdquo; I haven&rsquo;t read it yet, so this is a real guess. I think it&rsquo;s going to say you miss the beginning of the lesson, and the first minutes matter most, because that&rsquo;s when the teacher explains what to do.</p>
+            <p class="turn"><span class="turn-who">Marcus</span>I agree, and I can see it in the title &mdash; it asks if being on time affects your grades, so Section 1 has to say yes first. But it goes further: if somebody walks in late, the teacher stops and repeats everything, so the class loses time too. That&rsquo;s why it says costs.</p>
+            <p class="turn"><span class="turn-who">Ava</span>Right. And I think it&rsquo;ll give the habit a name &mdash; probably tardiness, the word in the glossary.</p>
+            <p class="turn"><span class="turn-who">Marcus</span>Let&rsquo;s read it and see if you&rsquo;re right.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="role-clarifier" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 16px;">Second job</p>
+        <h1><i class="fa-solid fa-magnifying-glass" style="color: var(--info-text-color);"></i> The Clarifier</h1>
+        <p style="font-size: 24pt; max-width: 980px; color: var(--text-color);">Your job is to find the <strong>words and sentences that stop you</strong>, and work out what they mean. Then tell your group &mdash; like this:</p>
+      </section>
+
+      <section id="clarifier-transcript" style="display: flex; flex-direction: column; height: 100%;">
+        <div style="display: flex; align-items: center; gap: 28px;">
+          <h2 style="margin: 0; white-space: nowrap;">Dialog 2 &mdash; the Clarifier</h2>
+          <div style="flex: 1; min-width: 0;">
+            <audio controls preload="metadata" src="audio/M3-051026-READING-dialog2-clarifier.mp3" style="width: 100%;"></audio>
+          </div>
+        </div>
+        <div class="content" style="padding-top: 10px; padding-bottom: 0;">
+          <div class="transcript">
+            <p class="turn"><span class="turn-who">Marcus</span>I&rsquo;m the Clarifier, so I&rsquo;ll go first. This bit stopped me: &ldquo;students who arrive late start the day behind.&rdquo; Behind what? There&rsquo;s nothing behind them.</p>
+            <p class="turn"><span class="turn-who">Ava</span>I think it means behind in the work. The sentence before says the others are ready to start learning.</p>
+            <p class="turn"><span class="turn-who">Marcus</span>Yes &mdash; so it&rsquo;s not about where you are. It&rsquo;s about where you are in the lesson. That&rsquo;s what makes it a problem.</p>
+            <p class="turn"><span class="turn-who">Ava</span>And the next sentence shows why. The lesson has already started without you.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="role-questioner" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 16px;">Third job</p>
+        <h1><i class="fa-solid fa-circle-question" style="color: var(--accent-text-color);"></i> The Questioner</h1>
+        <p style="font-size: 24pt; max-width: 980px; color: var(--text-color);">Your job is to ask a question the chunk has to answer &mdash; and notice <strong>what it still does not say</strong>. Then tell your group &mdash; like this:</p>
+      </section>
+
+      <section id="questioner-transcript" style="display: flex; flex-direction: column; height: 100%;">
+        <div style="display: flex; align-items: center; gap: 28px;">
+          <h2 style="margin: 0; white-space: nowrap;">Dialog 3 &mdash; the Questioner</h2>
+          <div style="flex: 1; min-width: 0;">
+            <audio controls preload="metadata" src="audio/M3-051026-READING-dialog3-questioner.mp3" style="width: 100%;"></audio>
+          </div>
+        </div>
+        <div class="content" style="padding-top: 10px; padding-bottom: 0;">
+          <div class="transcript">
+            <p class="turn"><span class="turn-who">Priya</span>I&rsquo;m the Questioner. What does the late student actually lose, and can they get it back?</p>
+            <p class="turn"><span class="turn-who">Ava</span>The text answers the first part. They miss the announcements, the instructions, and the first explanations of new work.</p>
+            <p class="turn"><span class="turn-who">Priya</span>And it never says anyone gives it back. It just adds the minutes up.</p>
+            <p class="turn"><span class="turn-who">Ava</span>So the answer is bigger than the question. The text says the whole class loses time too &mdash; so it isn&rsquo;t only the late student&rsquo;s problem.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="role-summariser" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 16px;">Fourth job</p>
+        <h1><i class="fa-solid fa-scissors" style="color: var(--info-text-color);"></i> The Summariser</h1>
+        <p style="font-size: 24pt; max-width: 980px; color: var(--text-color);">Your job is to put the chunk into <strong>one sentence</strong>, in as few words as you can. Then tell your group &mdash; like this:</p>
+      </section>
+
+      <section id="summariser-transcript" style="display: flex; flex-direction: column; height: 100%;">
+        <div style="display: flex; align-items: center; gap: 28px;">
+          <h2 style="margin: 0; white-space: nowrap;">Dialog 4 &mdash; the Summariser</h2>
+          <div style="flex: 1; min-width: 0;">
+            <audio controls preload="metadata" src="audio/M3-051026-READING-dialog4-summariser.mp3" style="width: 100%;"></audio>
+          </div>
+        </div>
+        <div class="content" style="padding-top: 10px; padding-bottom: 0;">
+          <div class="transcript">
+            <p class="turn"><span class="turn-who">Devon</span>I&rsquo;m the Summariser. One sentence for the whole section: small bits of lateness add up to a lot of lost teaching, and the class pays too, not only the student who was late.</p>
+            <p class="turn"><span class="turn-who">Marcus</span>That&rsquo;s the section, in half the words. But it leaves out the word the text uses for the habit.</p>
+            <p class="turn"><span class="turn-who">Devon</span>Tardiness. So &mdash; the text calls the habit tardiness, and says it costs real learning time: the late student&rsquo;s and the class&rsquo;s.</p>
+            <p class="turn"><span class="turn-who">Marcus</span>Now it&rsquo;s a summary I could carry into the next chunk. That&rsquo;s the point of it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           16-17. The groups take over. The session timer is the same
+           component as the thinking timer, with a longer clock.
+           ============================================================ -->
+      <section id="chunks-read" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 18px;">Reading time</p>
+        <h1 style="max-width: 980px;">We have seen how each job works for chunk one.</h1>
+        <p class="imperative" style="font-size: 24pt;">Now read the last <strong>three chunks</strong> in your group &mdash; <strong>10 minutes</strong>.</p>
+      </section>
+
+      <section id="change-roles" style="display: flex; flex-direction: column; height: 100%;">
+        <h2>After each chunk, change roles</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 44px; align-items: center;">
+            <div>
+              <p class="imperative" style="margin: 0;">Look at the <strong>starter sentences</strong> on your role card to help you.</p>
+              <p style="margin: 22px 0 0 0;">One position clockwise, every chunk. Keep <strong>one running summary</strong> of the whole article, and add to it as you go.</p>
+              <p style="font-size: 44pt; color: var(--accent-text-color); margin: 26px 0 0 0; font-family: var(--heading-font); font-weight: 600;">Go!</p>
+            </div>
+            <div class="timer" data-timer-seconds="600" data-timer-label="reading session"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           18. Discussion.
+           ============================================================ -->
+      <section id="discussion" class="section-divider" data-state="is-section-divider">
+        <p class="text-uppercase" style="font-size: 18pt; margin-bottom: 18px;">Quick class discussion</p>
+        <h1 style="max-width: 980px;">Do you think tardiness is a problem?</h1>
+      </section>
+
+      <!-- ============================================================
+           19. The writing task. Seven minutes is the plan's Stage 7
+           allowance; change data-timer-seconds here if the class
+           agrees a different limit.
+           ============================================================ -->
+      <section id="write-prep" style="display: flex; flex-direction: column; height: 100%;">
+        <h2>Now we are going to write in the PREP structure</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: 1fr 46px 1fr 46px 1fr 46px 1fr; align-items: stretch; gap: 6px;">
+            <div class="prep-move" style="flex-direction: column;">
+              <p>Position</p>
+            </div>
+            <div class="prep-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="prep-move" style="flex-direction: column;">
+              <p>Reason</p>
+            </div>
+            <div class="prep-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="prep-move" style="flex-direction: column;">
+              <p>Evidence</p>
+            </div>
+            <div class="prep-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="prep-move" style="flex-direction: column;">
+              <p>Position</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 44px; align-items: center; margin-top: 34px;">
+            <div>
+              <p class="imperative" style="margin: 0;">Write <strong>at least 70 words</strong> &mdash; and refer to the article when you write your answer.</p>
+          <p class="text-muted" style="margin: 14px 0 0 0;">The reference to the text is <strong>yours to find</strong>.</p>
+            </div>
+            <div class="timer" data-timer-seconds="420" data-timer-label="writing time"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           20. Close.
+           ============================================================ -->
+      <section id="close" class="section-divider" data-state="is-section-divider">
+        <h1>Thank you</h1>
+        <p class="imperative" style="font-size: 24pt; max-width: 900px;">Please give your writing to the teacher. You will get feedback soon.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
