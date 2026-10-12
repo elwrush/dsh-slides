@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Are We All Getting Dumber?</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="vendor/chartjs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" style="justify-content:center;">
+        <div style="position:absolute; top:0; right:0; width:44%; height:100%;">
+          <img src="bored-student.jpg" alt="A bored student in class" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div style="position:relative; z-index:1; max-width:54%;">
+          <div class="deck-badges">
+            <span class="chip">M3</span>
+            <span class="chip chip-info">Listening</span>
+          </div>
+          <h1 style="font-size:56pt; color:var(--text-color); text-align:left; margin:0 0 14px 0;">Are we all getting dumber?</h1>
+          <p style="color:var(--muted-color); text-align:left; margin:0;">Let's listen and find out.</p>
+        </div>
+      </section>
+
+      <section id="sources">
+        <h2>Two names you'll hear</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; flex: 1; align-items: stretch;">
+            <div class="panel" style="background: #FFFFFF; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px; padding: 24px 30px;">
+              <div style="height: 200px; width: 100%;">
+                <img src="trim-bbc.png" alt="BBC News" style="width:100%; height:100%; object-fit: contain;">
+              </div>
+              <p class="text-muted" style="margin: 0; font-size: 18pt;">the British Broadcasting Corporation — the broadcaster</p>
+            </div>
+            <div class="panel" style="background: #FFFFFF; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px; padding: 24px 30px;">
+              <div style="height: 200px; width: 100%;">
+                <img src="trim-pisa.jpg" alt="PISA" style="width:100%; height:100%; object-fit: contain;">
+              </div>
+              <p class="text-muted" style="margin: 0; font-size: 18pt;">the OECD Programme for International Student Assessment</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="graph">
+        <h2>One test, one clear trend</h2>
+        <div class="content">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span class="chip">Gen Z</span>
+            <p class="text-muted" style="margin: 0; font-size: 18pt;">OECD average reading score, 2012 to 2025</p>
+          </div>
+          <div style="flex: 1; position: relative; min-height: 0; margin-top: 12px;">
+            <canvas data-chart="line">
+            <!--
+            {
+              "data": {
+                "labels": ["2012", "2015", "2018", "2022", "2025"],
+                "datasets": [{
+                  "label": "OECD average reading score",
+                  "data": [496, 493, 487, 476, 461],
+                  "borderColor": "#98444A",
+                  "backgroundColor": "rgba(152, 68, 74, 0.10)",
+                  "fill": true,
+                  "tension": 0.3,
+                  "pointBackgroundColor": "#98444A",
+                  "pointBorderColor": "#F9F9F9",
+                  "pointBorderWidth": 3,
+                  "pointRadius": 7,
+                  "pointHoverRadius": 9,
+                  "borderWidth": 4
+                }]
+              },
+              "options": {
+                "maintainAspectRatio": false,
+                "plugins": { "legend": { "display": false } },
+                "layout": { "padding": { "top": 18, "bottom": 4 } },
+                "scales": {
+                  "y": { "min": 450, "max": 510, "border": { "display": false }, "grid": { "display": false }, "ticks": { "stepSize": 30, "font": { "size": 24, "weight": "600" }, "color": "#474747", "padding": 10 } },
+                  "x": { "offset": true, "grid": { "display": false }, "ticks": { "font": { "size": 28, "weight": "bold" }, "padding": 10 } }
+                }
+              }
+            }
+            -->
+            </canvas>
+          </div>
+          <p class="imperative">Talk to your partner: what is Gen Z — and what's happening to these scores?</p>
+        </div>
+      </section>
+
+      <section id="objectives">
+        <h2>Today, you will…</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; align-items: stretch;">
+            <div class="panel" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+              <div class="icon-circle"><i class="fa-solid fa-pen"></i></div>
+              <p style="margin: 0;"><strong>Take notes</strong> two ways — as linear notes, and as a mind map.</p>
+            </div>
+            <div class="panel" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+              <div class="icon-circle icon-circle-info"><i class="fa-solid fa-ear-listen"></i></div>
+              <p style="margin: 0;"><strong>Understand</strong> the gist and the detail.</p>
+            </div>
+            <div class="panel" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
+              <div class="icon-circle"><i class="fa-solid fa-comments"></i></div>
+              <p style="margin: 0;"><strong>Discuss</strong> the main findings as a class.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="divider-notes" class="section-divider" data-state="is-section-divider">
+        <h1>A skill for every lesson</h1>
+        <p>Taking notes — two ways to do it</p>
+      </section>
+
+      <section id="note-styles">
+        <h2>Two ways to take notes</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; flex: 1; align-items: stretch;">
+            <div class="panel" style="background:#FFFFFF; display:flex; flex-direction:column; justify-content:center;">
+              <p style="margin:0 0 10px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted"><i class="fa-solid fa-list"></i>&nbsp; Linear</p>
+              <p style="font-weight:600; margin:0 0 4px 0;">main idea</p>
+              <ul style="margin:0;">
+                <li>point one</li>
+                <li>point two
+                  <ul style="margin:4px 0 0 0;">
+                    <li>detail</li>
+                    <li>detail</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="panel" style="background:#FFFFFF; display:flex; flex-direction:column; justify-content:center;">
+              <p style="margin:0 0 10px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted"><i class="fa-solid fa-circle-nodes"></i>&nbsp; Mind map</p>
+              <div style="flex:1; min-height:0;">
+                <svg viewBox="0 0 560 360" style="width:100%; height:100%; display:block;" role="img" aria-label="Mind map notes: topic in the centre with who, what, why and when around it">
+                  <line x1="280" y1="142" x2="280" y2="86" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="356" y1="180" x2="412" y2="180" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="280" y1="218" x2="280" y2="274" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="204" y1="180" x2="148" y2="180" stroke="#7A2D34" stroke-width="2.5"/>
+                  <ellipse cx="280" cy="180" rx="76" ry="38" fill="#98444A"/>
+                  <text x="280" y="186" text-anchor="middle" fill="#FFFFFF" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">topic</text>
+                  <ellipse cx="280" cy="56" rx="70" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="280" y="62" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">who</text>
+                  <ellipse cx="482" cy="180" rx="70" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="482" y="186" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">what</text>
+                  <ellipse cx="280" cy="304" rx="70" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="280" y="310" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">why</text>
+                  <ellipse cx="78" cy="180" rx="70" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="78" y="186" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">when</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted" style="margin:16px 0 0 0; font-size:18pt;">Some people think in pictures, some in words — psychologists call them <strong>visualizers</strong> and <strong>verbalizers</strong>. That is what makes one style feel easier. But the material decides too: mind maps for connections, linear notes for sequence.</p>
+        </div>
+      </section>
+
+      <section id="why-notes-1" data-auto-animate>
+        <h2>Why take notes?</h2>
+        <div class="content">
+          <div data-id="original" style="width: 900px; max-width: 100%; margin: 0 auto;">
+            <p class="text-muted" style="margin:0 0 8px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;">Full text</p>
+            <div class="panel"><p style="margin:0;">PISA is a test that happens every three years. Over 750,000 fifteen-year-olds in 91 countries take it, and it measures how well they can use science, maths and reading to solve real-world problems.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-notes-2" data-auto-animate>
+        <h2>Why take notes?</h2>
+        <div class="content">
+          <div data-id="original" style="width: 900px; max-width: 100%; margin: 0 auto;">
+            <p class="text-muted" style="margin:0 0 8px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;">Full text</p>
+            <div class="panel"><p style="margin:0;">PISA is a test that happens every three years. Over 750,000 fifteen-year-olds in 91 countries take it, and it measures how well they can use science, maths and reading to solve real-world problems.</p></div>
+          </div>
+          <div data-id="notes" style="width: 900px; max-width: 100%; margin: 18px auto 0 auto;">
+            <p class="text-muted" style="margin:0 0 8px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;">Notes</p>
+            <div class="panel"><p style="margin:0;"><strong>PISA</strong> — every 3 yrs — 750k — 15-yr-olds — 91 countries<br>science + maths + reading -> real-world problems</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="divider-listen" class="section-divider" data-state="is-section-divider">
+        <h1>Time to show how well we can listen</h1>
+        <p>A BBC report, in two parts</p>
+      </section>
+
+      <section id="part1-intro">
+        <h2>Part 1</h2>
+        <div class="content">
+          <div style="margin-bottom:16px;"><span class="chip chip-info">0:00 – 1:08</span></div>
+          <div style="flex:1; min-height:0; display:flex; align-items:center; justify-content:center;">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/rDpUl8RE-uM?start=0&amp;end=68&amp;autoplay=1&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? Part 1" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            </div>
+          </div>
+          <p style="margin:14px 0 0 0; text-align:center; font-size:18pt;"><a href="https://www.youtube.com/watch?v=rDpUl8RE-uM&amp;t=0s" target="_blank" rel="noopener" style="color: var(--info-text-color);">Open in YouTube</a></p>
+        </div>
+      </section>
+
+      <section id="part1-linear">
+        <h2>Part 1 — the linear notes</h2>
+        <div class="content">
+          <div class="panel" style="background:#FFFFFF; flex:1;">
+            <p style="font-weight:600; margin:0 0 8px 0;">PISA</p>
+            <ul style="margin:0;">
+              <li>started 25 yrs ago</li>
+              <li>every 3 yrs</li>
+              <li>750k students, 91 countries</li>
+              <li>NOT an IQ test — real-world problems</li>
+              <li>scores <span class="text-negative">↓</span> since 2012</li>
+              <li>30 countries: all <span class="text-negative">↓</span></li>
+              <li>trend clear — reasons not</li>
+            </ul>
+          </div>
+          <p class="text-muted" style="margin:12px 0 0 0; font-size:18pt;">Abbreviations and symbols keep it fast.</p>
+        </div>
+      </section>
+
+      <section id="part1-graphical">
+        <h2>Part 1 — the mind map</h2>
+        <div class="content">
+          <div class="panel" style="background:#FFFFFF; flex:1; position:relative; min-height:0;">
+            <svg viewBox="0 0 560 360" style="position:absolute; inset:0; width:100%; height:100%; display:block;" role="img" aria-label="Mind map notes for Part 1: PISA falling, with since 2012, every three years, 750k teens and not an IQ test around it">
+              <line x1="280" y1="142" x2="280" y2="86" stroke="#7A2D34" stroke-width="2.5"/>
+              <line x1="356" y1="180" x2="412" y2="180" stroke="#7A2D34" stroke-width="2.5"/>
+              <line x1="280" y1="218" x2="280" y2="274" stroke="#7A2D34" stroke-width="2.5"/>
+              <line x1="204" y1="180" x2="148" y2="180" stroke="#7A2D34" stroke-width="2.5"/>
+              <ellipse cx="280" cy="180" rx="76" ry="38" fill="#98444A"/>
+              <text x="280" y="186" text-anchor="middle" fill="#FFFFFF" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">PISA ↓</text>
+              <ellipse cx="280" cy="56" rx="80" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+              <text x="280" y="62" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">since 2012</text>
+              <ellipse cx="482" cy="180" rx="80" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+              <text x="482" y="186" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">every 3 yrs</text>
+              <ellipse cx="280" cy="304" rx="80" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+              <text x="280" y="310" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">750k teens</text>
+              <ellipse cx="78" cy="180" rx="80" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+              <text x="78" y="186" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">NOT IQ test</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="part2-structure">
+        <h2>Part 2 — copy this structure</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div class="panel" style="background:#FFFFFF;">
+              <p style="margin:0 0 12px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted"><i class="fa-solid fa-list"></i>&nbsp; Linear</p>
+              <p style="font-weight:600; margin:0 0 6px 0;">Why the drop?</p>
+              <ul style="margin:0;">
+                <li>1. ____________
+                  <ul style="margin:6px 0 0 0;">
+                    <li>____________</li>
+                    <li>____________</li>
+                  </ul>
+                </li>
+                <li>2. ____________
+                  <ul style="margin:6px 0 0 0;">
+                    <li>____________</li>
+                    <li>____________</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="panel" style="background:#FFFFFF; display:flex; flex-direction:column;">
+              <p style="margin:0 0 12px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted"><i class="fa-solid fa-circle-nodes"></i>&nbsp; Mind map</p>
+              <div style="flex:1; min-height:0; position:relative;">
+                <svg viewBox="0 0 440 340" style="position:absolute; inset:0; width:100%; height:100%; display:block;" role="img" aria-label="Mind-map skeleton: the question Why the drop?, with two empty numbered factor branches">
+                  <line x1="110" y1="250" x2="26" y2="226" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="110" y1="250" x2="26" y2="274" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="330" y1="250" x2="414" y2="226" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="330" y1="250" x2="414" y2="274" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="220" y1="96" x2="110" y2="250" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="220" y1="96" x2="330" y2="250" stroke="#7A2D34" stroke-width="2.5"/>
+                  <ellipse cx="220" cy="96" rx="104" ry="42" fill="#98444A"/>
+                  <text x="220" y="103" text-anchor="middle" fill="#FFFFFF" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">Why the drop?</text>
+                  <ellipse cx="110" cy="250" rx="52" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="110" y="257" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">1</text>
+                  <ellipse cx="330" cy="250" rx="52" ry="30" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="330" y="257" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">2</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="imperative">Copy the structure in the style you prefer.</p>
+        </div>
+      </section>
+
+      <section id="part2-listen">
+        <h2>Part 2</h2>
+        <div class="content">
+          <div style="margin-bottom:16px;"><span class="chip chip-info">1:08 – 2:24</span></div>
+          <div style="flex:1; min-height:0; display:flex; align-items:center; justify-content:center;">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/rDpUl8RE-uM?start=68&amp;end=144&amp;autoplay=1&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? Part 2" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            </div>
+          </div>
+          <p style="margin:14px 0 0 0; text-align:center; font-size:18pt;"><a href="https://www.youtube.com/watch?v=rDpUl8RE-uM&amp;t=68s" target="_blank" rel="noopener" style="color: var(--info-text-color);">Open in YouTube</a></p>
+        </div>
+      </section>
+
+      <section id="part2-answers">
+        <h2>Part 2 — the completed notes</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1.25fr; gap: 30px;">
+            <div class="panel" style="background:#FFFFFF;">
+              <p style="margin:0 0 12px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted"><i class="fa-solid fa-list"></i>&nbsp; Linear</p>
+              <p style="font-weight:600; margin:0 0 6px 0;">Why the drop?</p>
+              <ul style="margin:0;">
+                <li>1. COVID
+                  <ul style="margin:6px 0 0 0;">
+                    <li>school closures</li>
+                    <li>but scores fell before it</li>
+                  </ul>
+                </li>
+                <li>2. Technology
+                  <ul style="margin:6px 0 0 0;">
+                    <li>tablets, not textbooks</li>
+                    <li>screens and memory</li>
+                    <li>reading fell most</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="panel" style="background:#FFFFFF; display:flex; flex-direction:column;">
+              <p style="margin:0 0 12px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted"><i class="fa-solid fa-circle-nodes"></i>&nbsp; Mind map</p>
+              <div style="flex:1; min-height:0; position:relative;">
+                <svg viewBox="0 0 560 330" style="position:absolute; inset:0; width:100%; height:100%; display:block;" role="img" aria-label="Completed mind map: why the drop, branched to COVID and Technology, with school closures and scores fell before it under COVID, and tablets not textbooks, screens and memory, reading fell most under Technology">
+                  <line x1="130" y1="166" x2="130" y2="188" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="430" y1="166" x2="430" y2="188" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="280" y1="74" x2="130" y2="114" stroke="#7A2D34" stroke-width="2.5"/>
+                  <line x1="280" y1="74" x2="430" y2="114" stroke="#7A2D34" stroke-width="2.5"/>
+                  <ellipse cx="280" cy="40" rx="104" ry="34" fill="#98444A"/>
+                  <text x="280" y="47" text-anchor="middle" fill="#FFFFFF" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">Why the drop?</text>
+                  <ellipse cx="130" cy="140" rx="62" ry="26" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="130" y="147" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">COVID</text>
+                  <ellipse cx="430" cy="140" rx="88" ry="26" fill="#D3E4FF" stroke="#A1C9FF" stroke-width="1.5"/>
+                  <text x="430" y="147" text-anchor="middle" fill="#001C38" font-size="18pt" font-family="Source Sans 3, sans-serif" font-weight="600">Technology</text>
+                  <text x="130" y="214" text-anchor="middle" fill="#1B1B1B" font-size="18pt" font-family="Source Sans 3, sans-serif">school closures</text>
+                  <text x="130" y="250" text-anchor="middle" fill="#1B1B1B" font-size="18pt" font-family="Source Sans 3, sans-serif">scores fell before it</text>
+                  <text x="430" y="214" text-anchor="middle" fill="#1B1B1B" font-size="18pt" font-family="Source Sans 3, sans-serif">tablets, not textbooks</text>
+                  <text x="430" y="250" text-anchor="middle" fill="#1B1B1B" font-size="18pt" font-family="Source Sans 3, sans-serif">screens and memory</text>
+                  <text x="430" y="286" text-anchor="middle" fill="#1B1B1B" font-size="18pt" font-family="Source Sans 3, sans-serif">reading fell most</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="divider-write" class="section-divider" data-state="is-section-divider">
+        <h1>Now — write what you hear</h1>
+        <p>Seven questions, dictated</p>
+      </section>
+
+      <section id="dictation">
+        <h2>Listen and complete the questions</h2>
+        <div class="content">
+          <p style="margin:0 0 14px 0;">Seven questions. Look at your worksheet and write the missing words as you listen.</p>
+          <div class="panel" style="background:#FFFFFF; padding: 34px 40px;">
+            <p style="margin:0 0 10px 0;"><strong>Track</strong> — the seven questions</p>
+            <audio controls preload="metadata" src="audio/M3-061026-LISTENING-questions.mp3" style="width:100%;"></audio>
+          </div>
+        </div>
+      </section>
+
+      <section id="dictation-answers">
+        <h2>The missing words</h2>
+        <div class="content">
+          <div class="panel" style="background:#FFFFFF; flex:1;">
+            <p style="margin:0 0 12px 0;"><strong>1.</strong> What is the report trying to <span style="color:var(--primary-color); font-weight:700;">explain</span>?</p>
+            <p style="margin:0 0 12px 0;"><strong>2.</strong> PISA is an <span style="color:var(--primary-color); font-weight:700;">IQ</span> test.</p>
+            <p style="margin:0 0 12px 0;"><strong>3.</strong> Using screens for <span style="color:var(--primary-color); font-weight:700;">fun</span> at school <span style="color:var(--primary-color); font-weight:700;">improves</span> your scores.</p>
+            <p style="margin:0 0 12px 0;"><strong>4.</strong> In which subject is the drop <span style="color:var(--primary-color); font-weight:700;">steepest</span>?</p>
+            <p style="margin:0 0 12px 0;"><strong>5.</strong> What is the fall in reading <span style="color:var(--primary-color); font-weight:700;">equivalent</span> to?</p>
+            <p style="margin:0 0 12px 0;"><strong>6.</strong> Why doesn't banning phones at school <span style="color:var(--primary-color); font-weight:700;">solve</span> the <span style="color:var(--primary-color); font-weight:700;">problem</span>?</p>
+            <p style="margin:0;"><strong>7.</strong> Does the report say this is a <span style="color:var(--primary-color); font-weight:700;">problem</span> only for <span style="color:var(--primary-color); font-weight:700;">teenagers</span>?</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="free-listen">
+        <h2>Free listening</h2>
+        <div class="content">
+          <div style="margin-bottom:16px;"><span class="chip chip-info">2:24 – 7:12</span></div>
+          <div style="flex:1; min-height:0; display:flex; align-items:center; justify-content:center;">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/rDpUl8RE-uM?start=144&amp;autoplay=1&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? — free listening" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            </div>
+          </div>
+          <p style="margin:14px 0 0 0; text-align:center; font-size:18pt;"><a href="https://www.youtube.com/watch?v=rDpUl8RE-uM&amp;t=144s" target="_blank" rel="noopener" style="color: var(--info-text-color);">Open in YouTube</a></p>
+          <p class="imperative">Take notes as you listen. Use a mind map, or linear notes.</p>
+        </div>
+      </section>
+
+      <section id="answer">
+        <h2>Answer the questions</h2>
+        <div class="content">
+          <p style="margin:0 0 20px 0;">Use your notes to answer the seven questions.</p>
+          <div class="timer" data-timer-seconds="300" data-timer-label="time to answer the questions"></div>
+        </div>
+      </section>
+
+      <section id="answers">
+        <h2>The answers</h2>
+        <div class="content">
+          <div class="panel" style="background:#FFFFFF; flex:1;">
+            <p style="margin:0 0 10px 0;"><strong>1.</strong> Why scores are falling — and it is not one cause.</p>
+            <p style="margin:0 0 10px 0;"><strong>2.</strong> False — it tests real-world problem-solving in science, maths and reading.</p>
+            <p style="margin:0 0 10px 0;"><strong>3.</strong> False — screens for fun (social media, games) meant lower scores.</p>
+            <p style="margin:0 0 10px 0;"><strong>4.</strong> Reading — one of the biggest falls the researchers have seen.</p>
+            <p style="margin:0 0 10px 0;"><strong>5.</strong> A whole year of school.</p>
+            <p style="margin:0 0 10px 0;"><strong>6.</strong> Because devices are everywhere at home, not only at school.</p>
+            <p style="margin:0;"><strong>7.</strong> No — other generations are struggling to focus too.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="question" class="section-divider" data-state="is-section-divider">
+        <h1>Are screens making us dumber?</h1>
+      </section>
+
+      <section id="prep">
+        <h2>Discuss — in PREP</h2>
+        <div class="content">
+          <div style="display: flex; align-items: stretch; gap: 10px;">
+            <div class="prep-move" style="flex:1;"><p>Position</p><p>your view</p></div>
+            <div class="prep-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="prep-move" style="flex:1;"><p>Reason</p><p>why</p></div>
+            <div class="prep-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="prep-move" style="flex:1;"><p>Example</p><p>prove it</p></div>
+            <div class="prep-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="prep-move" style="flex:1;"><p>Position</p><p>say it again</p></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
+            <div class="panel">
+              <p style="margin:0 0 8px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted">Agree / disagree</p>
+              <ul style="margin:0;">
+                <li>I agree, because…</li>
+                <li>That's a good point, but…</li>
+                <li>I see it differently —</li>
+                <li>I'm not sure that's right.</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <p style="margin:0 0 8px 0; font-size:18pt; text-transform:uppercase; letter-spacing:0.06em; font-weight:600;" class="text-muted">Bring it to a close</p>
+              <ul style="margin:0;">
+                <li>So, we agree that…</li>
+                <li>Most of us think…</li>
+                <li>To sum up, the main point is…</li>
+                <li>Let's agree to disagree.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="imperative">Discuss in your group, then we'll share as a class.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element, so it
+       costs a deck that uses none nothing but the request. See references/timers.md. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    // Enumerate data points: paint each value above its point at projector size.
+    // Chart.js has no built-in data labels, and the chart config is JSON (no
+    // callbacks), so a small registered plugin draws them. Canvas text is
+    // invisible to the 24pt HTML floor, so this size is chosen for a room.
+    Chart.register({
+      id: 'valueLabels',
+      afterDatasetsDraw(chart) {
+        const ctx = chart.ctx;
+        chart.data.datasets.forEach((ds, di) => {
+          const meta = chart.getDatasetMeta(di);
+          meta.data.forEach((el, i) => {
+            ctx.save();
+            ctx.font = '600 34px "Source Sans 3", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            // Halo the value in the page colour so it stays readable wherever it
+            // lands — over the line, the fill, or a gridline-free background.
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = '#F9F9F9';
+            ctx.fillStyle = '#1B1B1B';
+            ctx.strokeText(ds.data[i], el.x, el.y - 12);
+            ctx.fillText(ds.data[i], el.x, el.y - 12);
+            ctx.restore();
+          });
+        });
+      }
+    });
+
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      /* Instant morph when exporting/screenshotting, so a capture shows the
+         settled layout rather than a frame of the auto-animate. */
+      autoAnimateDuration: window.location.search.includes('export') ? 0 : 1,
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
