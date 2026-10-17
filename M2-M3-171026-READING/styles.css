@@ -1,0 +1,1108 @@
+/* Base reveal.js styles
+ *
+ * Copy this file as styles.css for each new presentation.
+ * Customize the CSS variables (especially colors) for your theme.
+ *
+ * IMPORTANT: All font sizes use pt (points) for predictable sizing.
+ * Base text is intentionally small (16pt) to fit content-heavy slides.
+ * Use .text-lg, .text-xl, etc. classes when slides have less content.
+ */
+
+/* ===========================================
+   TYPEFACES - self-hosted, no network
+
+   Source Sans 3 (body) and Source Serif 4 (headings), Adobe, SIL OFL 1.1.
+   The files live in the deck's own `vendor/fonts/`, copied there by the
+   scaffold, and their licences travel beside them exactly as OFL 1.1 requires.
+
+   `url()` resolves against THIS FILE's location, which is the deck root once
+   the scaffold has copied it to styles.css — hence `vendor/fonts/…` and not
+   `../vendor/fonts/…`. Do not "fix" the path by opening this file in place.
+
+   font-display:block, not swap: a local file loads immediately, and `swap`
+   would let the fallback face paint into a screenshot or the exported PDF if
+   the timing were unlucky.
+   =========================================== */
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal; font-weight: 400; font-display: block;
+  src: url("vendor/fonts/source-sans-3-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: italic; font-weight: 400; font-display: block;
+  src: url("vendor/fonts/source-sans-3-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal; font-weight: 600; font-display: block;
+  src: url("vendor/fonts/source-sans-3-latin-600-normal.woff2") format("woff2");
+}
+/* Headings are pinned to weight 600 below, and only the 600 cut is shipped —
+   a 400 heading would be synthesised and would look wrong at 36pt. */
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal; font-weight: 600; font-display: block;
+  src: url("vendor/fonts/source-serif-4-latin-600-normal.woff2") format("woff2");
+}
+
+/* ===========================================
+   CSS VARIABLES - Customize these for each presentation
+   =========================================== */
+:root {
+  /* ===========================================
+     PALETTE - Material 3 tonal palettes, generated in HCT
+     (material-color-utilities 0.4.0 — see references/colour.md)
+
+     maroon  hue 16   ·   blue  hue 256   ·   neutral  hue 16, chroma 3
+     maroon and blue are exactly 240 degrees apart, so with gray on the neutral
+     axis this is a TRIADIC pair. The third vertex (hue 136) is unused.
+
+     The tones are ROLES, the way Material assigns them:
+       4-12   text and the darkest surfaces    90-96  tints (containers)
+       20-30  secondary text                    98-99  page background
+       40     a solid fill, with tone 100 on it
+
+     Every pairing below was measured. Do NOT use tone 50 for text: it measures
+     4.26:1, under AA. The measured table is in references/colour.md.
+     =========================================== */
+
+  /* ---- maroon — hue 16, chroma 44 ---- */
+  --maroon-10: #40010C;  --maroon-20: #5D161F;  --maroon-30: #7A2D34;
+  --maroon-40: #98444A;  --maroon-50: #B65B61;  --maroon-60: #D57479;
+  --maroon-70: #F58E93;  --maroon-80: #FFB3B5;  --maroon-90: #FFDADA;
+  --maroon-95: #FFEDEC;  --maroon-99: #FFFBFF;  --maroon-100: #FFFFFF;
+
+  /* ---- blue — hue 256, chroma 44 ---- */
+  --blue-10: #001C38;    --blue-20: #00325B;    --blue-30: #004880;
+  --blue-40: #24609D;    --blue-50: #427AB8;    --blue-60: #5E93D3;
+  --blue-70: #7AAEF0;    --blue-80: #A1C9FF;    --blue-90: #D3E4FF;
+  --blue-95: #EAF1FF;    --blue-99: #FDFCFF;    --blue-100: #FFFFFF;
+
+  /* ---- neutral — hue 16, chroma 3 (a near-neutral warm gray) ---- */
+  --neutral-4: #110D0D;  --neutral-6: #171212;  --neutral-10: #1F1A1A;
+  --neutral-12: #231E1E; --neutral-20: #352F2F; --neutral-30: #4C4545;
+  --neutral-90: #EBE0E0; --neutral-94: #F6EBEB; --neutral-95: #F9EEEE;
+  --neutral-96: #FCF1F0; --neutral-98: #FFF8F7; --neutral-99: #FFFBFF;
+
+  /* ---- neutral variant — hue 16, chroma 6 (borders, secondary text) ---- */
+  --neutral-variant-30: #504444;  --neutral-variant-50: #827474;
+  --neutral-variant-60: #9C8D8D;  --neutral-variant-80: #D3C3C2;
+  --neutral-variant-90: #F0DEDE;  --neutral-variant-95: #FFEDEC;
+
+  /* ---- status families ---- */
+  --negative-20: #690005;  --negative-30: #93000A;  --negative-40: #BA1A1A;  --negative-90: #FFDAD6;
+  --positive-20: #003920;  --positive-30: #005230;  --positive-40: #006D42;  --positive-90: #93F7BB;
+  --highlight-20: #402D00; --highlight-30: #5C4300; --highlight-40: #795900; --highlight-90: #FFDEA0;
+
+  /* ===========================================
+     SEMANTIC MAPPING - what the rest of this file uses
+
+     Measured against --background-color (#FFF8F7):
+       16.40:1  body text          8.89:1  muted text
+        6.44:1  white on the maroon fill (AA at ANY size, not large-text only)
+       13.34:1  body text on the maroon tint (the accessible chip)
+     =========================================== */
+  --background-color: var(--neutral-98);
+  --section-divider-bg: var(--neutral-98);
+
+  /* A card tint is a SCREEN treatment. Measured against --background-color,
+     every tone 90-96 fill lands at 1.06-1.24:1, which a projector loses first,
+     so on a projector separate a card with --card-border as well. Border
+     measures 1.62:1; tone 90 tint measures 1.23:1. Material's own surface
+     containers are tone 94-96 and assume a monitor at arm's length, not a
+     room — this is a deliberate departure. */
+  --surface-tint: var(--neutral-94);
+  --card-border: var(--neutral-variant-80);
+
+  /* Typography - ALWAYS use pt for font sizes */
+  --heading-font: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --body-font: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  --base-font-size: 32px;   /* Only px value - sets reveal.js base */
+  --text-size: 24pt;        /* Base body text - the ARL 24pt slide minimum */
+  /* 56pt, not the scaffold's 48pt: this deck's ladder is 18/24/36/44/56, and a
+     bare h1 at 48 would sit 9% from the 44pt statement size — a near-pair the
+     design check reports as a CRAP contrast failure. */
+  --h1-size: 56pt;
+  --h2-size: 36pt;
+  --h3-size: 24pt;
+  --footnote-size: 18pt;    /* an attribution still has to be legible */
+
+  /* Colors — every ratio measured; see references/colour.md for the table */
+  --text-color: var(--neutral-10);      /* 16.40:1 on --background-color */
+  --muted-color: var(--neutral-variant-30); /* 8.89:1, comfortably AA */
+  --primary-color: var(--maroon-40);    /* a SOLID fill; tone 100 goes on it */
+  --on-primary-color: var(--maroon-100);
+  --accent-text-color: var(--maroon-30); /* 8.89:1 as text on the background */
+  --secondary-color: var(--blue-40);    /* the triadic partner, as a fill */
+  --on-secondary-color: var(--blue-100);
+  --info-text-color: var(--blue-30);    /* 8.94:1 as text */
+  --positive-color: var(--positive-40);
+  --negative-color: var(--negative-40);
+  --highlight-color: var(--highlight-40);
+  --outline: var(--neutral-variant-50);   /* 4.26:1 — a border or focus ring, NEVER text */
+  --line-color: var(--neutral-variant-80); /* decorative only: 1.62:1 */
+
+  /* Layout */
+  --slide-padding: 60px;
+  --slide-padding-top: 40px;
+  --content-gap: 30px;
+
+  /* Border radius for custom components */
+  --box-radius: 8px;           /* Set to 0 for sharp corners */
+}
+
+/* ===========================================
+   BASE STYLES - Override reveal.js defaults
+   =========================================== */
+
+.reveal {
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+}
+
+/* Restore bold after reset.css strips it with font: inherit */
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+/* Apply background colors */
+.reveal-viewport {
+  background-color: var(--background-color);
+}
+
+/* Section divider background via data-state */
+.reveal-viewport.is-section-divider .slide-background.present {
+  background-color: var(--section-divider-bg) !important;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: var(--heading-font);
+  text-transform: none;
+  color: var(--text-color);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.reveal h1 { font-size: var(--h1-size); }
+.reveal h2 { font-size: var(--h2-size); margin-bottom: 0; }
+.reveal h3 { font-size: var(--h3-size); }
+
+.reveal p,
+.reveal li,
+.reveal td,
+.reveal th,
+.reveal blockquote {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* ===========================================
+   LISTS
+   =========================================== */
+
+.reveal ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.reveal ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.reveal ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  background: var(--text-color);
+  border-radius: 50%;
+}
+
+.reveal ul ul li::before {
+  background: var(--muted-color);
+  width: 6px;
+  height: 6px;
+}
+
+/* Prevent double-sizing for nested elements */
+.reveal blockquote p {
+  font-size: inherit;
+}
+
+/* ===========================================
+   SLIDE LAYOUT
+   =========================================== */
+
+.reveal .slides section {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: var(--slide-padding-top) var(--slide-padding) var(--slide-padding) var(--slide-padding) !important;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Vertical stack wrapper - no padding, just pass through */
+.reveal .slides section.stack {
+  padding: 0 !important;
+}
+
+/* Content area - fills remaining space */
+.reveal .slides section > .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: var(--content-gap);
+  text-align: left;
+}
+
+/* Footnotes at bottom */
+.reveal .slides section > .footnote {
+  position: absolute;
+  bottom: 15px;
+  left: var(--slide-padding);
+  right: var(--slide-padding);
+  font-size: var(--footnote-size);
+  color: var(--muted-color);
+}
+
+/* ===========================================
+   SECTION DIVIDERS - Centered title slides
+   =========================================== */
+
+.reveal .slides section.section-divider {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+
+/* TWO TIERS, NOT FIVE. A divider title is one of exactly two sizes: 44pt for
+   every statement and role title, and 56pt for the deck's cover, which is set
+   inline on that one slide. It used to be five sizes — 38, 40, 46, 52, 56 —
+   which is the classic CRAP failure: 46 and 52 are neither the same nor
+   clearly different, so the eye reads them as a mistake rather than a rank.
+   56 vs 44 is 27% apart, which reads as deliberate. */
+.reveal .slides section.section-divider h1 {
+  font-size: 44pt;
+  text-align: center;
+}
+
+.reveal .slides section.section-divider p {
+  font-size: 24pt;
+  color: var(--muted-color);
+}
+
+/* ===========================================
+   TEXT SIZE UTILITIES
+
+   Base text is 24pt — the classroom floor (references/type-scale.md). Use these
+   to scale UP when a slide has less content.
+
+   Every step is at least ~17% from its neighbour, because a step the eye cannot
+   see is not a rank, it is noise: CRAP's contrast rule is that two things are
+   either the same or *really* different. An earlier ladder put 26pt next to a
+   24pt body and 20pt next to an 18pt label, and both pairs read as accidents
+   rather than as hierarchy.
+   =========================================== */
+
+.text-lg { font-size: 24pt !important; }   /* Body floor - same as base text */
+.text-xl { font-size: 36pt !important; }   /* A slide title's size */
+.text-2xl { font-size: 44pt !important; }  /* A statement, or a big figure */
+.text-3xl { font-size: 56pt !important; }  /* The cover */
+.text-4xl { font-size: 56pt !important; }  /* Deliberately the same as .text-3xl:
+                                               the scaffold's 48pt here would sit
+                                               9% from the 44pt rung above. */
+
+/* Other text utilities */
+.text-muted { color: var(--muted-color) !important; }
+.text-accent { color: var(--accent-text-color) !important; }   /* 8.89:1, AA */
+.text-info { color: var(--info-text-color) !important; }       /* 8.94:1, AA */
+.text-positive { color: var(--positive-30) !important; }       /* 8.90:1, AA */
+.text-negative { color: var(--negative-30) !important; }       /* 8.92:1, AA */
+.text-center { text-align: center !important; }
+.text-uppercase { text-transform: uppercase; letter-spacing: 0.1em; }
+.font-light { font-weight: 300; }
+.font-bold { font-weight: 600; }
+
+/* ===========================================
+   CHIPS - a tinted label
+
+   A tone-90 tint behind tone-10 text, which measures 13.3:1 — legal at any
+   size. White on a tone-40 fill also passes here (6.4:1), but the tint
+   separator keeps a chip legible as a chip rather than a block.
+   =========================================== */
+
+.chip {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: var(--box-radius);
+  background: var(--maroon-90);
+  color: var(--neutral-10);
+  font-size: 18pt;
+  font-weight: 600;
+}
+.chip-info { background: var(--blue-90); }
+.chip-positive { background: var(--positive-90); }
+.chip-negative { background: var(--negative-90); }
+.chip-highlight { background: var(--highlight-90); }
+
+/* ===========================================
+   LAYOUT COMPONENTS
+
+   Callout surfaces, stat cards and two small tokens. These are generic: they
+   name a visual role, not a subject, so they belong in the stylesheet every
+   deck is scaffolded with rather than being rewritten per deck.
+
+   Every surface carries --card-border. A tone-94 fill measures 1.11:1 against
+   --background-color and Material's own tone-96 container only 1.055:1, so a
+   panel without a border is invisible on a projector however good it looks on
+   a monitor. See references/colour.md.
+   =========================================== */
+
+/* A tinted, bordered surface. Use for any block that must read as a panel. */
+.panel {
+  background: var(--surface-tint);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 22px 26px;
+  box-sizing: border-box;
+}
+
+/* A surface for data, tinted blue so figures never compete with prose. */
+.panel-data {
+  background: var(--blue-95);
+  border-color: var(--blue-80);
+}
+
+/* An idea with a maroon edge, for a paraphrase or pull-quote block. */
+.beat {
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 5px solid var(--primary-color);
+  border-radius: var(--box-radius);
+  padding: 18px 24px;
+}
+
+/* A big single figure with its label beneath. */
+.stat {
+  text-align: center;
+}
+.stat-number {
+  display: block;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 54pt;
+  line-height: 1.0;
+  color: var(--text-color);
+}
+/* `.reveal` prefixed: see .timer-readout. On a <p>, `.reveal p` (0,1,1) beat the
+   bare `.stat-label` (0,1,0), so this label's size and colour were dead. */
+.reveal .stat-label {
+  margin: 6px 0 0 0;
+  font-size: 20pt;
+  color: var(--muted-color);
+}
+
+/* A card that names something and says what it is: icon, title, one line. */
+.role-card {
+  background: var(--surface-tint);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 20px 22px;
+  height: 100%;
+  box-sizing: border-box;
+}
+.role-card h3 {
+  margin: 0 0 4px 0;
+  font-size: 26pt;
+}
+.role-card p {
+  margin: 0;
+  font-size: 20pt;
+  color: var(--muted-color);
+  line-height: 1.4;
+}
+.role-icon {
+  display: block;
+  font-size: 32pt;
+  color: var(--accent-text-color);
+  margin-bottom: 10px;
+}
+.role-icon-info { color: var(--info-text-color); }
+
+/* One step of a short process, laid out as a row across the slide. */
+.prep-move {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 66px;
+  padding: 10px 8px;
+  border-radius: var(--box-radius);
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  text-align: center;
+}
+.prep-move p {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  color: var(--accent-text-color);
+  line-height: 1.2;
+}
+.prep-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 24pt;
+}
+
+/* A small token, for one word pulled out of a list: a transition, a keyword. */
+.word-token {
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 0 8px 10px 0;
+  border-radius: var(--box-radius);
+  background: var(--blue-90);
+  border: 1px solid var(--blue-80);
+  color: var(--text-color);
+  font-size: 20pt;
+}
+
+/* One question given the weight of a heading, for the slide that poses the task.
+   `.reveal` prefixed for the reason set out at .timer-readout: on a <p>, a bare
+   class loses to `.reveal p` and its size, leading and colour never apply. */
+.reveal .big-question {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 40pt;
+  line-height: 1.22;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* ===========================================
+   COUNTDOWN TIMER
+
+   Markup contract and behaviour live in `vendor/timer/timer.js`, documented in
+   `references/timers.md`. The script builds the readout and the buttons, so a
+   deck writes one empty element:
+
+     <div class="timer" data-timer-seconds="120"></div>
+
+   MODULAR, NOT A PILL. The container has no surface of its own: it is a column
+   of separate blocks with a 10px gap, so the readout is one panel and the two
+   buttons are two more. A single bordered box wrapping all three reads as one
+   object and shrinks the numerals to fit inside it; separate blocks let the
+   number be the size a classroom needs.
+
+   The digits are set at 100pt because this is read from the back of a room —
+   it is the largest text in any deck, larger than an h1. The readout is a
+   fixed-width centred box rather than shrink-to-fit: `min-width` exceeds the
+   widest string the clock can show (10:00), so the block cannot twitch as the
+   digits change. tabular-nums is a progressive enhancement on top of that, not
+   the fix — the vendored subset may not carry the `tnum` feature.
+   =========================================== */
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+/* THE SELECTOR MUST START WITH `.reveal`, AND THAT IS NOT COSMETIC.
+   `.reveal p { font-size: var(--text-size) }` has specificity (0,1,1), which
+   BEATS a bare single class (0,1,0). So a component rule written as
+   `.timer-readout { font-size: 100pt }` is silently overridden and the digits
+   render at body size — 16pt — however emphatic the declaration looks. That
+   bug shipped once: the readout was believed to be 64pt and was actually 16pt.
+   Any component rule that sets font-size, line-height or colour ON A <p> needs
+   the `.reveal` prefix. `.role-card p` gets away with two classes for the same
+   reason. */
+.reveal .timer-readout {
+  margin: 0;
+  padding: 16px 26px;
+  box-sizing: border-box;
+  min-width: 3em;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 100pt;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  background: var(--surface-tint);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  color: var(--text-color);
+}
+
+/* Running takes the accent, the final ticks and the zero take the negative
+   colour — and each carries the number too, so state is never colour alone. */
+.timer[data-timer-state="running"] .timer-readout {
+  color: var(--accent-text-color);
+  border-color: var(--accent-text-color);
+}
+.timer[data-timer-urgent="true"] .timer-readout {
+  color: var(--negative-30);
+  border-color: var(--negative-30);
+}
+.timer[data-timer-state="finished"] .timer-readout {
+  color: var(--negative-30);
+  border-color: var(--negative-30);
+}
+
+/* Two equal tiles, so the controls are modules too rather than a button bar. */
+.timer-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0;
+}
+
+.timer-btn {
+  font-family: var(--body-font);
+  font-size: 24pt;
+  font-weight: 600;
+  padding: 14px 12px;
+  border-radius: var(--box-radius);
+  border: 1px solid var(--card-border);
+  background: var(--background-color);
+  color: var(--text-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.timer-btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--on-primary-color);
+}
+
+.timer-btn:focus-visible {
+  outline: 3px solid var(--outline);
+  outline-offset: 2px;
+}
+
+/* ===========================================
+   TRANSCRIPT
+
+   One turn per paragraph, the speaker's name inline at the head of it. Used for
+   the model dialogs a class hears before it reads.
+
+   THE NAME IS INLINE, NOT ON ITS OWN LINE, AND THAT IS A SIZE DECISION. On its
+   own line the name costs a full line per turn — four of them on a four-turn
+   dialog — which is what let this text reach the 24pt body floor and still fit
+   on one slide. Inline it costs nothing and reads the way a printed transcript
+   does.
+
+   IT SITS AT THE FLOOR, NOT BELOW IT. An earlier revision set 22pt here as a
+   recorded exception; that is gone, because 22 and 24 are 8% apart and CRAP's
+   contrast rule says two sizes that close read as an accident rather than a
+   rank. The room to reach 24pt came from layout, not from cutting anything: the
+   inline names above, dropping the .content bottom padding these slides do not
+   need, and the per-dialog prompt moving to the role instruction slide — where a
+   class reads it *before* it listens, which is better teaching anyway.
+   =========================================== */
+
+.transcript .turn {
+  margin: 0 0 12px 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+
+.transcript .turn:last-child {
+  margin-bottom: 0;
+}
+
+.transcript .turn .turn-who {
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--info-text-color);
+  margin-right: 10px;
+}
+
+/* Slide content must clear the footnote, which is absolutely positioned. */
+.reveal .slides section > .content {
+  padding-bottom: 40px;
+}
+
+/* ===========================================
+   BLOCKQUOTES
+   =========================================== */
+
+.reveal blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  background: none;
+  box-shadow: none;
+  width: 100%;
+  max-width: none;
+}
+
+.reveal blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  color: var(--muted-color);
+}
+
+/* ===========================================
+   OPTIONAL: TITLE WITH UNDERLINE
+
+   Add this to presentations where you want
+   a line under the slide title.
+   =========================================== */
+
+/*
+.reveal .slides section > h1,
+.reveal .slides section > h2 {
+  flex-shrink: 0;
+  margin: 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--line-color);
+}
+*/
+
+/* ===========================================
+   OPTIONAL: DECORATIVE ELEMENTS
+   =========================================== */
+
+/* Top decorative line on all slides */
+/*
+.reveal .slides section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-color);
+}
+*/
+
+/* Bottom decorative line */
+/*
+.reveal .slides section::after {
+  content: '';
+  position: absolute;
+  bottom: 40px;
+  left: var(--slide-padding);
+  right: var(--slide-padding);
+  height: 2px;
+  background: var(--line-color);
+}
+*/
+
+/* ===========================================
+   CLASSROOM IMPERATIVE
+
+   A cue that tells the class to act, set apart
+   from the body text around it: maroon and BOLD,
+   on its own line, insetted behind a maroon rule
+   that hugs the text.
+
+   BOLD IS 600, NOT 700. Only 400 and 600 normal
+   are vendored (plus a 400 italic), so 600 is the
+   heaviest real cut the deck owns — and it is the
+   same cut `.reveal strong` ends up using, because
+   CSS resolves a requested 700 down to the nearest
+   declared weight. Measured 2026-10-06: at 64px
+   the string "Write at least 70 words" advances
+   619.33px at 600, at 700 AND at 800, i.e. all
+   three render the one 600 face with no synthesised
+   bold. Declaring 600 is therefore not a workaround
+   — it states which face is meant rather than
+   leaning on fallback.
+
+   The consequence is deliberate: a <strong> inside
+   a cue no longer reads as heavier, because the
+   whole cue is already at the deck's one bold
+   weight.
+
+   font-style is pinned to normal so a cue that
+   ever lands in an italic context is not slanted.
+
+   The second selector exists to outrank
+   .reveal .slides section.section-divider p
+   (0,3,2), which would otherwise win the colour
+   on a divider slide.
+   =========================================== */
+
+.reveal .imperative,
+.reveal .slides section.section-divider p.imperative {
+  display: inline-block;
+  /* width, not display, is what makes the rule hug the text: a grid or flex item
+     has its inline-block blockified, so display alone left the rule spanning the
+     whole slide. fit-content holds in both cases. */
+  width: fit-content;
+  font-family: var(--body-font);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent-text-color);
+  border-left: 4px solid var(--primary-color);
+  padding: 2px 0 2px 18px;
+  margin: 0.7em 0 0 0;
+}
+
+/* On a centred divider the cue's box is centred with it, so the rule hugs the
+   text instead of hanging off the left of a centred line. */
+.reveal .slides section.section-divider p.imperative {
+  margin: 0.7em auto 0 auto;
+}
+/* ===========================================================
+   DECK-SPECIFIC STYLES — M2/M3 Independent Reading
+
+   The type ladder this deck uses is 18 / 24 / 36 / 44 / 56 pt and
+   nothing else. Every step is at least 22% from its neighbour, so
+   check-design.js can never report a near-pair, and no element here
+   may introduce a sixth size.
+   =========================================================== */
+
+/* ---- full-bleed picture slides ----------------------------- */
+
+/* NO `position: relative` HERE, and that is not an oversight. reveal positions
+   every `.slides > section` with `position: absolute`; giving the section
+   `position: relative` pulls it back into normal flow and pushes every later
+   slide 691px down the page. Navigation then advances the slide number while
+   the viewport still shows the first slide: a deck that looks blank in every
+   capture tool and cannot be advanced in a browser. A section that is already
+   `position: absolute` IS a containing block, so the children below need
+   nothing more. */
+.reveal .slides section.bleed {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* THE PICTURE FILLS THE SLIDE, NOT THE WINDOW — and that is a decision, not an
+ * oversight. The slide is a fixed 1280x720 that reveal scales to fit, so on a
+ * window that is not 16:9 there are warm-white bands around it. Sizing the
+ * picture to the window instead removes the bands but CROPS the composition:
+ * measured at 900x760, covering the window cut the student's feet and the
+ * plant off the right edge. The teacher's call, 2026-10-17: a whole picture
+ * inside bars beats a cropped one. Do not "fix" the bands by enlarging these. */
+.bleed-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* A scrim, so the promise is legible on the picture's quiet side. Dark on the
+   left only — the student stays lit on the right. It wraps the slide for the
+   same reason the picture does. */
+.bleed-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(31, 26, 26, 0.94) 0%,
+    rgba(31, 26, 26, 0.88) 36%,
+    rgba(31, 26, 26, 0.42) 60%,
+    rgba(31, 26, 26, 0) 80%);
+}
+
+.cover-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+  padding: 0 0 0 76px;
+  box-sizing: border-box;
+}
+
+.reveal .cover-copy h1 {
+  font-size: 56pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.reveal .cover-copy .cover-sub {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 44pt;
+  line-height: 1.2;
+  color: #F6EBEB;
+  margin: 22px 0 0;
+}
+
+/* ---- series key above the chart ---------------------------- */
+
+.series-key {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px 0;
+}
+
+.key-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+}
+
+.key-dot-th { background: #98444A; }
+.key-dot-oecd { background: #24609D; margin-left: 26px; }
+
+.reveal .series-key p.key-label {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+/* ---- figures and their captions ---------------------------- */
+
+/* The verdict line under a panel's figures. Without the rule and the gap it
+ * reads as one more caption and the claim gets lost among the evidence — the
+ * defect reported on the "minutes a day, words a year" panel, where the
+ * conclusion sat 14px under the last figure and looked like part of it. */
+.reveal .panel-verdict {
+  font-size: 24pt;
+  line-height: 1.4;
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--card-border);
+}
+
+.reveal .stat-figure {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 44pt;
+  line-height: 1.05;
+  color: var(--accent-text-color);
+  margin: 0;
+}
+
+.reveal .stat-cap {
+  font-size: 24pt;
+  line-height: 1.35;
+  color: var(--text-color);
+  margin: 10px 0 0;
+}
+
+.reveal .mini-kicker {
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+  margin: 0 0 16px;
+}
+
+.panel-icon {
+  font-size: 34pt;
+  color: var(--accent-text-color);
+  line-height: 1;
+}
+
+/* ---- book slides ------------------------------------------- */
+
+/* Author, form and prizes on ONE row. Stacked, they cost ~104px of chrome
+ * before a single word of prose, which is what pushed all three book slides
+ * over the slide height. The chips still draw their own background, so the row
+ * reads as a badge strip rather than a sentence. */
+.book-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 0 0 6px;
+}
+
+.book-head .book-meta,
+.book-head .book-chips {
+  margin: 0;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  gap: 40px;
+  flex: 1;
+  min-height: 0;
+  align-items: start;
+}
+
+.book-cover {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--card-border);
+}
+
+.reveal .book-meta {
+  font-size: 18pt;
+  line-height: 1.25;
+  color: var(--muted-color);
+  margin: 0;
+}
+
+.book-chips {
+  margin: 12px 0 18px;
+}
+
+.reveal .book-text {
+  font-size: 24pt;
+  line-height: 1.26;
+  margin: 0 0 12px;
+}
+
+.reveal .book-text:last-child {
+  margin-bottom: 0;
+}
+
+/* The one-line bragging right under the chips: the fact that makes the book
+ * worth opening, set at body size rather than chat size, in the accent colour. */
+.reveal .book-claim {
+  font-size: 24pt;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--accent-text-color);
+  margin: 0 0 6px;
+}
+
+/* The prize, explained, under the claim it belongs to. 18pt because it is a
+ * caption on the claim rather than a second headline — and because at 24pt the
+ * explanation alone costs three lines and pushes the three book slides over. */
+.reveal .book-claim-sub {
+  font-size: 18pt;
+  line-height: 1.25;
+  color: var(--muted-color);
+  margin: 0 0 10px;
+}
+
+/* "Why you'll like it" — three situations the class recognises. Tight leading
+ * and a short bottom margin, because this block is the last thing on the slide
+ * and it is the one that has to fit. */
+.reveal .book-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.reveal .book-list li {
+  position: relative;
+  font-size: 24pt;
+  line-height: 1.3;
+  padding-left: 26px;
+  margin: 0 0 5px;
+}
+
+.reveal .book-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+.reveal .book-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- glossed-word screenshots ------------------------------ */
+
+.reveal .gloss-lead {
+  font-size: 24pt;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+/* A gloss marker is a small raised numeral. It is pinned to 18pt on purpose:
+   the browser default for <sup> is 0.83em, which at a 24pt parent is 20pt — a
+   size that exists nowhere on the ladder and would trip the near-pair test. */
+.reveal .gloss-lead sup {
+  font-size: 18pt;
+  line-height: 0;
+  vertical-align: super;
+}
+
+.gloss-shot {
+  display: block;
+  border: 1px solid var(--card-border);
+  background: #FFFFFF;
+}
+
+/* Content starts a little higher than the base sheet's 30px: the three book
+ * slides carry a cover-height column of prose and are the tightest in the deck. */
+.reveal .slides section > .content {
+  padding-top: 14px;
+}
+
+/* ---- the printable log ------------------------------------- */
+
+/* A footnote must be ONE line.
+ *
+ * `.footnote` is absolutely positioned at `bottom: 15px`, and the base sheet
+ * leaves `.content` only 40px of bottom padding — room for one 18pt line (27px)
+ * and not for two. A wrapped source note therefore prints straight through the
+ * last line of content, and `check-overflow.js` cannot see it: the content box
+ * is the right size, the collision is with an element taken out of flow.
+ * Measured 2026-10-17 on the "69-point gap" slide, where a two-line source note
+ * ran through the closing sentence.
+ *
+ * Deepening the padding for every slide fixes the symptom and costs every slide
+ * ~38px — which then overflowed two of them. So the rule is content discipline:
+ * keep each note short enough to sit on one line, and MEASURE the footnote's own
+ * height (27px = one line, 54 = two) rather than assuming. */
+
+.log-shot {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--card-border);
+}
+
+/* ---- the closing statement ---------------------------------
+   The house's one inverted slide: a full maroon field, a white heading and a
+   yellow sub-line. Measured on #98444A: 6.46:1 white, 4.55:1 on #FFD54F, the
+   latter AA at large text, which 44pt is. Yellow appears on no content slide.
+   ------------------------------------------------------------ */
+
+.reveal-viewport.is-section-divider .slide-background.present {
+  background-color: var(--primary-color) !important;
+}
+
+.reveal .slides section.section-divider h1 {
+  color: #FFFFFF;
+}
+
+.reveal .slides section.section-divider p.divider-sub {
+  font-size: 24pt;
+  line-height: 1.4;
+  color: #FFD54F;
+  max-width: 26em;
+  margin: 28px auto 0 auto;
+}
+

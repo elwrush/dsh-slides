@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's build a reading habit</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="vendor/chartjs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 ── The cover carries no text at all: the picture does the inviting. -->
+      <section id="cover" class="bleed">
+        <img class="bleed-img" src="reader.jpg"
+             alt="Pen and ink illustration: a Thai student curled up on a sofa, absorbed in a paperback">
+      </section>
+
+      <!-- 2 ── The same picture, held, with the promise written over its quiet side. -->
+      <section id="hook" class="bleed">
+        <img class="bleed-img" src="reader.jpg" alt="">
+        <div class="bleed-veil"></div>
+        <div class="cover-copy">
+          <h1>Let's build a reading habit</h1>
+          <p class="cover-sub">The rewards are very large</p>
+        </div>
+      </section>
+
+      <!-- 3 ── the evidence -->
+      <section id="pisa" style="display:flex; flex-direction:column; height:100%;">
+        <h2>Reading is falling across the rich world</h2>
+        <p class="text-muted" style="margin:2px 0 0; font-size:24pt;">OECD: down <strong>35 points</strong> in 13 years &mdash; 2 school years.<br>Thailand: down <strong>49</strong> &mdash; 2&frac12; school years.</p>
+        <div class="content" style="flex:1; min-height:0;">
+          <div class="series-key">
+            <span class="key-dot key-dot-th"></span><p class="key-label">Thailand</p>
+            <span class="key-dot key-dot-oecd"></span><p class="key-label">OECD average</p>
+          </div>
+          <div style="flex:1; position:relative; min-height:0;">
+            <canvas data-chart="line">
+            <!--
+            {
+              "data": {
+                "labels": ["2012", "2015", "2018", "2022", "2025"],
+                "datasets": [
+                  {
+                    "label": "Thailand",
+                    "data": [441, 409, 393, 379, 392],
+                    "borderColor": "#98444A",
+                    "backgroundColor": "rgba(152, 68, 74, 0.08)",
+                    "fill": false,
+                    "tension": 0.25,
+                    "pointBackgroundColor": "#98444A",
+                    "pointBorderColor": "#FFF8F7",
+                    "pointBorderWidth": 3,
+                    "pointRadius": 8,
+                    "pointHoverRadius": 10,
+                    "borderWidth": 4
+                  },
+                  {
+                    "label": "OECD average",
+                    "data": [496, 493, 487, 476, 461],
+                    "borderColor": "#24609D",
+                    "backgroundColor": "rgba(36, 96, 157, 0.08)",
+                    "fill": false,
+                    "tension": 0.25,
+                    "pointBackgroundColor": "#24609D",
+                    "pointBorderColor": "#FFF8F7",
+                    "pointBorderWidth": 3,
+                    "pointRadius": 8,
+                    "pointHoverRadius": 10,
+                    "borderWidth": 4
+                  }
+                ]
+              },
+              "options": {
+                "maintainAspectRatio": false,
+                "plugins": { "legend": { "display": false } },
+                "layout": { "padding": { "top": 34, "bottom": 10, "left": 4, "right": 20 } },
+                "scales": {
+                  "y": {
+                    "min": 330,
+                    "max": 540,
+                    "border": { "display": false },
+                    "grid": { "color": "rgba(31, 26, 26, 0.10)", "drawTicks": false },
+                    "ticks": { "stepSize": 30, "font": { "size": 24, "weight": "600" }, "color": "#4C4545", "padding": 12 },
+                    "title": { "display": true, "text": "Reading score", "font": { "size": 24, "weight": "600" }, "color": "#4C4545" }
+                  },
+                  "x": {
+                    "offset": false,
+                    "grid": { "display": false },
+                    "ticks": { "font": { "size": 24, "weight": "600" }, "color": "#4C4545", "padding": 10 }
+                  }
+                }
+              }
+            }
+            -->
+            </canvas>
+          </div>
+          <div class="beat" style="margin-top:14px;">
+            <p style="margin:0; font-size:24pt;"><strong>OECD</strong> &mdash; the Organisation for Economic Co-operation and Development: 38 of the world's richest countries. Its average is the line every country is measured against.</p>
+          </div>
+        </div>
+        <p class="footnote">Source: OECD, <em>PISA 2025 Results (Volume I)</em>, published 8 September 2026.</p>
+      </section>
+
+      <!-- 4 -->
+      <section id="gap">
+        <h2>What a 69-point gap looks like</h2>
+        <p class="text-muted" style="margin:4px 0 0; font-size:24pt;">Thailand's 13-point rise is real &mdash; and only gets back to 2018.</p>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; flex:1; align-content:center;">
+            <div>
+              <p class="stat-figure">3&frac12; years</p>
+              <p class="stat-cap">of schooling behind the OECD average &mdash; the OECD counts 20 points as one school year</p>
+            </div>
+            <div>
+              <p class="stat-figure">59%</p>
+              <p class="stat-cap">of Thai 15-year-olds are below the baseline (PISA Level 2) &mdash; where reading starts to work as a tool for learning</p>
+            </div>
+            <div>
+              <p class="stat-figure">&asymp;0%</p>
+              <p class="stat-cap">reach the top levels (PISA 5&ndash;6): reading that lets you judge what a source is really saying. The OECD average is 6%</p>
+            </div>
+          </div>
+          <div class="beat" style="margin-top:12px;">
+            <p style="margin:0; font-size:24pt;"><strong>A degree is the ticket. The reading sets the price.</strong> Among graduates, <strong>67%</strong> of the strongly skilled are in the best-paid 40%, against <strong>32%</strong> of the weakly skilled. Admissions essays are reading tests too.</p>
+          </div>
+        </div>
+        <p class="footnote">Sources: OECD, <em>PISA 2025</em> (Thailand country note); OECD, <em>Education at a Glance 2026</em>, Indicator A4.</p>
+      </section>
+
+      <!-- 5 ── psychology -->
+      <section id="psychology">
+        <h2>Why some people read and others don't</h2>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; flex:1; align-content:center;">
+            <div class="panel">
+              <i class="fa-solid fa-arrows-rotate panel-icon"></i>
+              <p style="margin:16px 0 0;"><strong>The loop.</strong> Good readers read more, so they get better. Weak readers stop, so the gap grows. It runs for years &mdash; and it can be broken.</p>
+            </div>
+            <div class="panel">
+              <i class="fa-solid fa-hand-pointer panel-icon"></i>
+              <p style="margin:16px 0 0;"><strong>Interest first.</strong> Nobody starts reading because it is good for them. You start because something in the book sounds like you.</p>
+            </div>
+            <div class="panel">
+              <i class="fa-solid fa-flag-checkered panel-icon"></i>
+              <p style="margin:16px 0 0;"><strong>Finish something.</strong> A finished book is evidence that you are a reader. Short chapters, pictures, a series you already like &mdash; all of it counts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section id="why">
+        <h2>And it works from the inside out</h2>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; flex:1; align-content:center;">
+
+            <div class="panel panel-data">
+              <p class="mini-kicker">Minutes a day, words a year</p>
+              <p class="stat-figure" style="color:var(--info-text-color);">282,000</p>
+              <p class="stat-cap">words a year, at <strong>4.6 minutes</strong> a day &mdash; the median child</p>
+              <p class="stat-figure" style="color:var(--info-text-color); margin-top:10px;">1,823,000</p>
+              <p class="stat-cap">words a year, at <strong>21 minutes</strong> a day &mdash; the top tenth</p>
+              <p class="panel-verdict">Sixteen more minutes a day. <strong>Six and a half times</strong> the words.</p>
+            </div>
+
+            <div class="panel">
+              <p class="mini-kicker">Habit against background</p>
+              <p class="stat-figure">540</p>
+              <p class="stat-cap">keen reader, poorest families</p>
+              <p class="stat-figure" style="margin-top:10px;">491</p>
+              <p class="stat-cap">reluctant reader, richest families</p>
+              <p class="panel-verdict">The habit beat the background by <strong>49 points</strong>.</p>
+            </div>
+
+          </div>
+        </div>
+        <p class="footnote">Sources: Anderson, Wilson &amp; Fielding (1988); OECD, <em>Reading for Change</em> (2002), p.121.</p>
+      </section>
+
+      <!-- 7 ── the programme -->
+      <section id="programme">
+        <h2>One session a week</h2>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; flex:1; align-content:center;">
+            <div class="panel">
+              <i class="fa-solid fa-calendar-week panel-icon"></i>
+              <p style="margin:16px 0 0;"><strong>A whole lesson</strong>, the same day every week, until the end of the year.</p>
+            </div>
+            <div class="panel">
+              <i class="fa-solid fa-layer-group panel-icon"></i>
+              <p style="margin:16px 0 0;"><strong>A book chosen for you</strong> &mdash; at your reading level, so the page is work but not a wall.</p>
+            </div>
+            <div class="panel">
+              <i class="fa-solid fa-book-open-reader panel-icon"></i>
+              <p style="margin:16px 0 0;"><strong>No test.</strong> Nobody sets questions on the book, and nobody collects the book.</p>
+            </div>
+          </div>
+          <div style="display:flex; gap:16px; align-items:center; margin-top:24px;">
+            <span class="chip chip-info">A2 &middot; New Kid</span>
+            <span class="chip chip-info">B1 &middot; Hello, Universe</span>
+            <span class="chip chip-info">B2 &middot; Savvy</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section id="book-new-kid">
+        <h2>New Kid</h2>
+        <div class="content">
+          <div class="book-grid">
+            <img class="book-cover" src="cover-new-kid.jpg" alt="Cover of New Kid by Jerry Craft">
+            <div>
+              <div class="book-head"><p class="book-meta">Jerry Craft &middot; graphic novel</p><p class="book-chips"><span class="chip chip-info">A2</span> <span class="chip">Newbery Medal 2020</span> <span class="chip">Coretta Scott King 2020</span></p></div>
+              <p class="book-claim">The first graphic novel ever to win the Newbery Medal.</p>
+              <p class="book-claim-sub">The prize for the best children's book published in the United States.</p>
+              <p class="book-text">Jordan is twelve and wants to draw comics. Instead he is sent to a private school where almost everyone is white. He is one of the very few Black students, and nothing said to him is shocking &mdash; the small things wear him down.</p>
+              <p class="book-why"><strong>Why you'll like it.</strong> This story is about the emotions and fear you experience when you are the &ldquo;new kid&rdquo; in a place where everyone is different to you: something everyone in this class has experienced. It also shows you how to survive being different.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section id="book-hello-universe">
+        <h2>Hello, Universe</h2>
+        <div class="content">
+          <div class="book-grid">
+            <img class="book-cover" src="cover-hello-universe.jpg" alt="Cover of Hello, Universe by Erin Entrada Kelly">
+            <div>
+              <div class="book-head"><p class="book-meta">Erin Entrada Kelly &middot; novel, 42 short chapters</p><p class="book-chips"><span class="chip chip-info">B1</span> <span class="chip">Newbery Medal 2018</span></p></div>
+              <p class="book-claim">The 2018 winner of that same prize.</p>
+              <p class="book-claim-sub">America's best children's book of the year, chosen by the same librarians.</p>
+              <p class="book-text">Four children in one Philadelphia neighbourhood, one summer day. Virgil is shy, Valencia is deaf, Kaori says she is psychic, and Chet makes everyone's life harder. Then a prank sends Virgil's backpack to the bottom of a well.</p>
+              <p class="book-why"><strong>Why you'll like it.</strong> This is a story about bullying &mdash; the ordinary kind, in an ordinary week, aimed at a boy who has done nothing. Virgil is the quiet one; Chet makes his day harder on purpose. Four children, and one of them has to decide whether to say something.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section id="book-savvy">
+        <h2>Savvy</h2>
+        <div class="content">
+          <div class="book-grid">
+            <img class="book-cover" src="cover-savvy.jpg" alt="Cover of Savvy by Ingrid Law">
+            <div>
+              <div class="book-head"><p class="book-meta">Ingrid Law &middot; novel</p><p class="book-chips"><span class="chip chip-info">B2</span> <span class="chip">Newbery Honor 2009</span></p></div>
+              <p class="book-claim">A Newbery Honor book.</p>
+              <p class="book-claim-sub">Runner-up for that same prize &mdash; one of only a few chosen each year.</p>
+              <p class="book-text">Every Beaumont child gets a <em>savvy</em> at thirteen: a power that belongs to that child alone. Mibs is two days short of it and has no idea what hers will be. Then her father is badly hurt in a crash far away, and she decides her savvy must be the power to wake him.</p>
+              <p class="book-why"><strong>Why you'll like it.</strong> Mibs is the youngest, so nobody tells her anything &mdash; and the whole book is what she does about that. If you have ever been the last person to find out, you will recognise every page.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 ── the glossing -->
+      <section id="gloss">
+        <h2>The hard words are already translated</h2>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px 34px; flex:1; align-content:center; align-items:center;">
+
+            <img class="gloss-shot" src="gloss-b1.png" style="width:100%; max-width:520px;"
+                 alt="Footer of a Hello, Universe page: five numbered Thai glosses, from อุปสรรค (hurdle) to ของหนักอึ้งที่กดทับอก (anvil)">
+            <div>
+              <p style="margin:0 0 10px;"><span class="chip chip-info">B1</span></p>
+              <p class="gloss-lead">A small number after a word &mdash; &hellip;a sack<sup>4</sup> of disappointment &hellip; like an anvil<sup>5</sup> &mdash; sends you to the bottom of the page.</p>
+            </div>
+
+            <img class="gloss-shot" src="gloss-b2.png" style="width:100%;"
+                 alt="Footer of a Savvy page: two numbered English glosses, 2 awkward, clumsy young person and 3 a special magic power that runs in the family">
+            <div>
+              <p style="margin:0 0 10px;"><span class="chip chip-info">B2</span></p>
+              <p class="gloss-lead">The same mechanism, defined in easy English: <sup>2</sup> awkward, clumsy young person; <sup>3</sup> a special magic power that runs in the family.</p>
+            </div>
+
+          </div>
+        </div>
+        <p class="footnote">Screenshots: <em>Hello, Universe</em> p.1, <em>Savvy</em> p.2. The A2 book is a graphic novel, so it needs none.</p>
+      </section>
+
+      <!-- 12 -->
+      <section id="own-book">
+        <h2>You don't have to read my book</h2>
+        <div class="content">
+          <div class="beat" style="margin-bottom:26px;">
+            <p style="margin:0; font-size:24pt;">Would you rather bring your own? Good. Bring it &mdash; in English &mdash; and I look at it before you start.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; align-content:center;">
+            <div class="panel">
+              <p style="margin:0;"><strong>It has to be a book.</strong> A novel, a graphic novel, a biography. Not a textbook, not a magazine, not a website.</p>
+            </div>
+            <div class="panel">
+              <p style="margin:0;"><strong>It has to be English.</strong> Your own taste, in the language we are working in.</p>
+            </div>
+            <div class="panel">
+              <p style="margin:0;"><strong>It has to fit you.</strong> If you want a dictionary on every page, it is not the right book yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13 ── the routine, no timer: this is an expository lesson -->
+      <section id="routine">
+        <h2>35 minutes reading, 10 minutes writing</h2>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; flex:1; align-content:center;">
+
+            <div class="panel">
+              <p class="mini-kicker">35 minutes &middot; silent</p>
+              <p style="margin:0 0 16px; font-size:24pt;">Phone away, face down. No talking, no sharing, no dictionary &mdash; keep going and let the sentence come round.</p>
+              <p style="margin:0; font-size:24pt;">If a page is still a wall after five minutes, tell me. A book at the wrong level is my problem to fix, not yours.</p>
+            </div>
+
+            <div class="panel">
+              <p class="mini-kicker">10 minutes &middot; writing</p>
+              <p style="margin:0 0 16px; font-size:24pt;">One paragraph in your notebook. What did you enjoy, or not enjoy? What would you tell a friend about it?</p>
+              <p style="margin:0; font-size:24pt;">It is not a book report. Nobody is marking your spelling. Say what you actually thought.</p>
+            </div>
+
+          </div>
+          <div class="beat" style="margin-top:14px;">
+            <p style="margin:0; font-size:24pt;">The 45 minutes is not the point. What it teaches you to do alone is.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 ── the log in the book -->
+      <section id="log">
+        <h2>Then you fill in the log</h2>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:38px; flex:1; align-items:center;">
+            <img class="log-shot" src="log-example.png"
+                 alt="The log at the front of the book: three columns headed NAME, CLASS and LAST PAGE READ, with one row filled in">
+            <div>
+              <p class="mini-kicker">One line, every time you read</p>
+              <p style="margin:0 0 14px; font-size:24pt;"><strong>Your name</strong> and <strong>your class</strong>, so the book can be traced back to you.</p>
+              <p style="margin:0 0 14px; font-size:24pt;"><strong>The last page you read</strong> &mdash; the number only. <em>p. 47</em> is enough.</p>
+              <p style="margin:0; font-size:24pt;">The grid is the first page of your book. Use it up, then carry on in your notebook.</p>
+            </div>
+          </div>
+        </div>
+        <p class="footnote">Screenshot: page one of the A2 book, with one row filled in as an example.</p>
+      </section>
+
+      <!-- 15 ── and the same session goes online -->
+      <section id="website">
+        <h2>And the same session goes on the website</h2>
+        <div class="content">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; flex:1; align-content:center;">
+            <div class="panel">
+              <i class="fa-solid fa-book panel-icon"></i>
+              <p style="margin:16px 0 0;"><strong>In the book</strong> &mdash; one line on the grid at the front, every time you read.</p>
+            </div>
+            <div class="panel panel-data">
+              <i class="fa-solid fa-laptop-file panel-icon" style="color:var(--info-text-color);"></i>
+              <p style="margin:16px 0 0;"><strong>On the class site</strong> &mdash; fill in the reading form after your session. It is the site you already use for your grades, and the login is the same.</p>
+            </div>
+          </div>
+          <div class="beat" style="margin-top:26px;">
+            <p style="margin:0; font-size:24pt;">Both, every week. The book log travels with the book; the form is how I see your reading when the book is at home.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 ── the close -->
+      <section id="close" class="section-divider" data-state="is-section-divider">
+        <h1 style="font-size:44pt; max-width:20em;">Thirty-five minutes, once, changes nothing. Thirty-five minutes every week changes everything.</h1>
+        <p class="divider-sub">Your book is on the desk. Open it and read the first page &mdash; that is the programme, and it starts now.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <script>
+    /* Print a value beside every data point. The chart config is JSON, so it
+       cannot carry a callback — hence a registered plugin rather than a
+       `ticks.callback`. Without this the axis carries the trend and the exact
+       scores are invisible, which for a slide whose whole argument is a 69-point
+       gap is the argument lost.
+
+       The first and last labels are aligned INWARD. Centred, the 2012 labels
+       overhang the left edge of the plot and print straight through the y-axis
+       tick values ("520" and "496" collided); the same happens at 2025 on the
+       right. Alignment is a property of the point's position, not of the series,
+       so it is decided per index rather than per dataset. */
+    Chart.register({
+      id: 'pointValues',
+      afterDatasetsDraw(chart) {
+        const { ctx } = chart;
+        const last = chart.data.labels.length - 1;
+        ctx.save();
+        ctx.font = 'bold 26px "Source Sans 3", "Segoe UI", Arial, sans-serif';
+        chart.data.datasets.forEach((ds, di) => {
+          const above = di === 1;
+          ctx.fillStyle = ds.borderColor;
+          ctx.textBaseline = above ? 'bottom' : 'top';
+          chart.getDatasetMeta(di).data.forEach((pt, i) => {
+            let dx = 0;
+            ctx.textAlign = 'center';
+            if (i === 0) { ctx.textAlign = 'left'; dx = 10; }
+            if (i === last) { ctx.textAlign = 'right'; dx = -10; }
+            ctx.fillText(String(ds.data[i]), pt.x + dx, pt.y + (above ? -16 : 20));
+          });
+        });
+        ctx.restore();
+      }
+    });
+
+    Reveal.initialize({
+
+      // 16:9 at 1280x720, margin 0 — the house slide size, and the three keys the
+      // scaffold writes. reveal's own default is 960x700, which is nearly 4:3: a
+      // three-column layout drops to 218px of text per column and every card
+      // overflows. margin 0 is what lets a full-bleed picture reach every edge.
+      width: 1280,
+      height: 720,
+      margin: 0,
+
+      // Register the chart plugin. Serving its <script> tag is not enough:
+      // reveal 4+ only initialises a plugin that is listed here, and an
+      // unregistered one fails silently — the canvas keeps its 300x150 default
+      // and no chart is ever constructed, with nothing in the console.
+      plugins: [ RevealChart ],
+
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      hash: true,
+      keyboard: true,
+      center: false,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      help: true,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: null,
+      parallaxBackgroundVertical: null
+    });
+
+  </script>
+</body>
+</html>
