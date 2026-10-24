@@ -204,7 +204,7 @@
           <div style="margin-bottom:16px;"><span class="chip chip-info">0:00 – 1:08</span></div>
           <div style="flex:1; min-height:0; display:flex; align-items:center; justify-content:center;">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/rDpUl8RE-uM?start=0&amp;end=68&amp;autoplay=1&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? Part 1" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+              <iframe data-video="https://www.youtube.com/embed/rDpUl8RE-uM?start=0&amp;end=68&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? Part 1" allowfullscreen allow="encrypted-media"></iframe>
             </div>
           </div>
           <p style="margin:14px 0 0 0; text-align:center; font-size:18pt;"><a href="https://www.youtube.com/watch?v=rDpUl8RE-uM&amp;t=0s" target="_blank" rel="noopener" style="color: var(--info-text-color);">Open in YouTube</a></p>
@@ -306,7 +306,7 @@
           <div style="margin-bottom:16px;"><span class="chip chip-info">1:08 – 2:24</span></div>
           <div style="flex:1; min-height:0; display:flex; align-items:center; justify-content:center;">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/rDpUl8RE-uM?start=68&amp;end=144&amp;autoplay=1&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? Part 2" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+              <iframe data-video="https://www.youtube.com/embed/rDpUl8RE-uM?start=68&amp;end=144&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? Part 2" allowfullscreen allow="encrypted-media"></iframe>
             </div>
           </div>
           <p style="margin:14px 0 0 0; text-align:center; font-size:18pt;"><a href="https://www.youtube.com/watch?v=rDpUl8RE-uM&amp;t=68s" target="_blank" rel="noopener" style="color: var(--info-text-color);">Open in YouTube</a></p>
@@ -399,7 +399,7 @@
           <div style="margin-bottom:16px;"><span class="chip chip-info">2:24 – 7:12</span></div>
           <div style="flex:1; min-height:0; display:flex; align-items:center; justify-content:center;">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/rDpUl8RE-uM?start=144&amp;autoplay=1&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? — free listening" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+              <iframe data-video="https://www.youtube.com/embed/rDpUl8RE-uM?start=144&amp;rel=0" title="BBC News: Is Gen Z getting less intelligent? — free listening" allowfullscreen allow="encrypted-media"></iframe>
             </div>
           </div>
           <p style="margin:14px 0 0 0; text-align:center; font-size:18pt;"><a href="https://www.youtube.com/watch?v=rDpUl8RE-uM&amp;t=144s" target="_blank" rel="noopener" style="color: var(--info-text-color);">Open in YouTube</a></p>
@@ -529,6 +529,36 @@
         }, window.location.search.includes('export') ? { animation: false } : {})
       }
     });
+
+    /* YouTube loads on demand, and only while its own slide is on screen.
+       The embeds used to carry autoplay=1, so all three players started the
+       moment the deck was opened - long before the class reached the listening
+       slides. The URL now sits in data-video instead of src, so a player exists
+       only on the slide that holds it: arriving loads the thumbnail and stops
+       there, and the play button is the teacher's to press. Leaving the slide
+       unloads the player, so nothing carries on talking over the next slide;
+       coming back reloads it from the clip's own start= time. */
+    (function () {
+      function loadCurrentVideo() {
+        var current = Reveal.getCurrentSlide();
+        Reveal.getSlides().forEach(function (slide) {
+          slide.querySelectorAll('iframe[data-video]').forEach(function (frame) {
+            if (slide === current) {
+              if (!frame.getAttribute('src')) {
+                frame.setAttribute('src', frame.getAttribute('data-video'));
+              }
+            } else if (frame.getAttribute('src')) {
+              /* about:blank, not removeAttribute('src'): a frame left without a
+                 source can keep its audio playing, whereas navigating it away
+                 ends the player. */
+              frame.setAttribute('src', 'about:blank');
+            }
+          });
+        });
+      }
+      Reveal.on('ready', loadCurrentVideo);
+      Reveal.on('slidechanged', loadCurrentVideo);
+    }());
   </script>
 </body>
 </html>
