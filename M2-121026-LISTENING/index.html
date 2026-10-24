@@ -547,11 +547,15 @@
         var current = Reveal.getCurrentSlide();
         Reveal.getSlides().forEach(function (slide) {
           slide.querySelectorAll('iframe[data-video]').forEach(function (frame) {
+            var wanted = frame.getAttribute('data-video');
             if (slide === current) {
-              if (!frame.getAttribute('src')) {
-                frame.setAttribute('src', frame.getAttribute('data-video'));
+              /* Compare against data-video rather than testing for a missing
+                 src: on a return to the slide the frame is about:blank, which
+                 is a src, and a "no src" guard would leave it blank for ever. */
+              if (frame.getAttribute('src') !== wanted) {
+                frame.setAttribute('src', wanted);
               }
-            } else if (frame.getAttribute('src')) {
+            } else if (frame.getAttribute('src') && frame.getAttribute('src') !== 'about:blank') {
               /* about:blank, not removeAttribute('src'): a frame left without a
                  source can keep its audio playing, whereas navigating it away
                  ends the player. */
