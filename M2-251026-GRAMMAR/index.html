@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>If ... Conditional sentences</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- This deck's own components: chutes, rules grid, exercise lines -->
+  <link rel="stylesheet" href="deck.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="vendor/chartjs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. Splash. No words: the picture asks the question. -->
+      <section id="splash"
+               data-background-image="images/splash-phone.jpg"
+               data-background-size="cover"
+               data-background-color="#FFF8F7">
+      </section>
+
+      <!-- 2. Cover. Two drawings, one per kind: the book, and the book imagined. -->
+      <section id="title" class="cover">
+        <h1>If...</h1>
+        <div class="cover-split">
+          <div class="cover-side">
+            <div class="cover-art"><img src="images/cover-real.jpg" alt=""></div>
+            <p class="cover-term">real</p>
+            <p class="cover-note">it can happen, so you plan for it</p>
+          </div>
+          <div class="cover-side right">
+            <div class="cover-art"><img src="images/cover-imaginary.jpg" alt=""></div>
+            <p class="cover-term imaginary">imaginary</p>
+            <p class="cover-note">it could happen too &mdash; but you are imagining, not planning</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. The book's three opening examples, as a cline -->
+      <section id="three-ways">
+        <h2>Three ways to talk about what happens</h2>
+        <div class="content">
+          <div class="cline">
+            <div class="panel">
+              <span class="chip">1</span>
+              <p class="sentence">When my friends and I get together, we laugh a lot.</p>
+              <span class="chip chip-info badge fragment">always true</span>
+            </div>
+            <div class="panel">
+              <span class="chip">2</span>
+              <p class="sentence">We won't eat outside if it's cold tomorrow.</p>
+              <span class="chip chip-info badge fragment">possible</span>
+            </div>
+            <div class="panel">
+              <span class="chip">3</span>
+              <p class="sentence">If I had a twin brother, would he look like me?</p>
+              <span class="chip badge fragment">can never happen</span>
+            </div>
+          </div>
+          <div class="cline-foot">
+            <p class="imperative">What does each one do?</p>
+            <p class="note fragment">a fact &middot; a real plan &middot; a thing imagined</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Divider: the lesson's question -->
+      <section id="divider-real" class="section-divider" data-state="is-section-divider">
+        <h1>Real or imaginary?</h1>
+      </section>
+
+      <!-- 6. Contrast pair. No boxes: one mark per sentence, made big enough to
+           be the first thing seen, and the underline does the explaining. -->
+      <section id="will-pair">
+        <h2>Two versions of the same sentence</h2>
+        <div class="content">
+          <div class="verdict-rows">
+            <div class="verdict-row">
+              <span class="verdict-mark wrong"><i class="fa-solid fa-xmark"></i></span>
+              <p class="sentence-big">If it <span class="mark">will rain</span> tomorrow, we will stay home.</p>
+            </div>
+            <div class="verdict-row">
+              <span class="verdict-mark right"><i class="fa-solid fa-check"></i></span>
+              <p class="sentence-big">If it <span class="mark">rains</span> tomorrow, we will stay home.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. The verb form drops one step and changes: one slide, one click -->
+      <section id="verb-1">
+        <h2>The if-clause goes back one step</h2>
+        <div class="content">
+          <div class="chutes">
+            <div class="chute">
+              <p class="label">if-clause</p>
+              <div class="slot slot-a"><span class="tok tok-go fragment custom" data-fragment-index="1">rains</span></div>
+              <div class="slot slot-b"><span class="tok tok-land fragment custom" data-fragment-index="1">rained</span></div>
+            </div>
+            <div class="chute">
+              <p class="label">result clause</p>
+              <div class="slot slot-a"><span class="tok tok-go fragment custom" data-fragment-index="1">will</span></div>
+              <div class="slot slot-b"><span class="tok tok-land fragment custom" data-fragment-index="1">would</span></div>
+            </div>
+          </div>
+          <p class="sentence-big fragment model" data-fragment-index="2">If it <span class="text-accent">rained</span> tomorrow, we <span class="text-accent">would</span> stay home.</p>
+        </div>
+      </section>
+
+      <!-- 8. The pair, and what each one is for -->
+      <section id="verb-3">
+        <h2>What each one is for</h2>
+        <div class="content">
+          <div class="for-rows">
+            <div class="for-row">
+              <span class="chip chip-info">real</span>
+              <p class="sentence-big">If it rains tomorrow, we will stay home.</p>
+              <p class="note">It can happen, so we plan for it.</p>
+            </div>
+            <div class="for-row">
+              <span class="chip">imaginary</span>
+              <p class="sentence-big">If it rained tomorrow, we would stay home.</p>
+              <p class="note">It could happen too, but we are imagining, not planning.</p>
+            </div>
+          </div>
+          <p class="for-rule">The past form in the if-clause is what tells you it is not real.</p>
+        </div>
+      </section>
+
+      <!-- 9. The rule -->
+      <section id="rules">
+        <h2>The two forms</h2>
+        <div class="content">
+          <div class="rules">
+            <p class="rules-corner"></p>
+            <p class="rules-head">if-clause</p>
+            <p class="rules-head">result clause</p>
+
+            <p class="rules-rowlabel">Real</p>
+            <div class="panel"><p class="sentence">if + present</p></div>
+            <div class="panel"><p class="sentence">will + verb</p></div>
+
+            <p class="rules-rowlabel">Imaginary</p>
+            <div class="panel"><p class="sentence">if + past</p></div>
+            <div class="panel"><p class="sentence">would + verb</p></div>
+          </div>
+          <p class="sentence">The if-clause never takes <strong>will</strong>. If the if-clause comes first, put a comma after it.</p>
+        </div>
+      </section>
+
+      <!-- 10. Exercise 1: match the halves, then judge -->
+      <section id="ex1">
+        <p class="kicker">Exercise 1 &middot; page 127</p>
+        <h2>Match 1&#8211;6 with a&#8211;f</h2>
+        <div class="content">
+          <div class="pair">
+            <div class="match-list">
+              <div class="match-row"><p class="item">1&nbsp;&nbsp;I never look at my phone</p><span class="ans fragment" data-fragment-index="1">e</span></div>
+              <div class="match-row"><p class="item">2&nbsp;&nbsp;If someone smiles at me,</p><span class="ans fragment" data-fragment-index="1">c</span></div>
+              <div class="match-row"><p class="item">3&nbsp;&nbsp;If I do well in school,</p><span class="ans fragment" data-fragment-index="1">a</span></div>
+              <div class="match-row"><p class="item">4&nbsp;&nbsp;I'll be very sad</p><span class="ans fragment" data-fragment-index="2">d</span></div>
+              <div class="match-row"><p class="item">5&nbsp;&nbsp;If I had more time,</p><span class="ans fragment" data-fragment-index="2">b</span></div>
+              <div class="match-row"><p class="item">6&nbsp;&nbsp;I wouldn't like it</p><span class="ans fragment" data-fragment-index="2">f</span></div>
+            </div>
+            <div class="match-list halves">
+              <p class="item">a&nbsp;&nbsp;I will go to college.</p>
+              <p class="item">b&nbsp;&nbsp;I'd do some volunteer work.</p>
+              <p class="item">c&nbsp;&nbsp;I always smile back at them.</p>
+              <p class="item">d&nbsp;&nbsp;if it rains tomorrow.</p>
+              <p class="item">e&nbsp;&nbsp;when I eat a meal with my family.</p>
+              <p class="item">f&nbsp;&nbsp;if someone shouted at me in the street.</p>
+            </div>
+          </div>
+          <p class="imperative">Which two are imaginary?<span class="chip fragment ans-chip" data-fragment-index="3">5 and 6 &mdash; had, wouldn't</span></p>
+        </div>
+      </section>
+
+      <!-- 11. Exercise 2, items 1-3: choose the word, boxed on a click -->
+      <section id="ex2a">
+        <p class="kicker">Exercise 2 &middot; page 127</p>
+        <h2>Choose the correct words</h2>
+        <div class="content">
+          <p class="item">1&nbsp;&nbsp;If I can't sleep tonight, I <strong>listen</strong> / <strong class="pick fragment custom" data-fragment-index="1">'ll listen</strong> to music.</p>
+          <p class="item">2&nbsp;&nbsp;What <strong class="pick fragment custom" data-fragment-index="2">would</strong> / <strong>will</strong> you do if a stranger gave you $100?</p>
+          <p class="item">3&nbsp;&nbsp;If people <strong>don't</strong> / <strong class="pick fragment custom" data-fragment-index="3">didn't</strong> litter so much, the streets would be much cleaner.</p>
+        </div>
+      </section>
+
+      <!-- 12. Exercise 2, items 4-6 -->
+      <section id="ex2b">
+        <p class="kicker">Exercise 2 &middot; page 127</p>
+        <h2>Choose the correct words</h2>
+        <div class="content">
+          <p class="item">4&nbsp;&nbsp;<strong>When</strong> / <strong class="pick fragment custom" data-fragment-index="1">If</strong> I were a world leader, I wouldn't start any wars.</p>
+          <p class="item">5&nbsp;&nbsp;My sister <strong>wouldn't</strong> / <strong class="pick fragment custom" data-fragment-index="2">doesn't</strong> like it when I take her things without asking.</p>
+          <p class="item">6&nbsp;&nbsp;When I don't feel well, I <strong class="pick fragment custom" data-fragment-index="3">go</strong> / <strong>'ll go</strong> to bed.</p>
+        </div>
+      </section>
+
+      <!-- 13. Exercise 2, items 7-8 -->
+      <section id="ex2c">
+        <p class="kicker">Exercise 2 &middot; page 127</p>
+        <h2>Choose the correct words</h2>
+        <div class="content">
+          <p class="item">7&nbsp;&nbsp;If you're not careful, you <strong>would</strong> / <strong class="pick fragment custom" data-fragment-index="1">might</strong> fall.</p>
+          <p class="item">8&nbsp;&nbsp;What do you do when you're on a train or bus and you <strong class="pick fragment custom" data-fragment-index="2">have</strong> / <strong>had</strong> nothing to do?</p>
+        </div>
+      </section>
+
+      <!-- 14. Exercise 3, conversations 1-2: answers slot into the gaps -->
+      <section id="ex3a">
+        <p class="kicker">Exercise 3 &middot; page 127</p>
+        <h2>Complete the conversations</h2>
+        <div class="content">
+          <div class="conv">
+            <span class="conv-num">1</span>
+            <div>
+              <p class="item"><span class="who">A</span> How <span class="gap fragment custom" data-fragment-index="1">would you feel</span> <span class="prompt">(you / feel)</span> if you <span class="gap fragment custom" data-fragment-index="1">stopped</span> <span class="prompt">(stop)</span> eating candy completely?</p>
+              <p class="item"><span class="who">B</span> You know me! That's never going to happen!</p>
+            </div>
+          </div>
+          <div class="conv">
+            <span class="conv-num">2</span>
+            <div>
+              <p class="item"><span class="who">A</span> <span class="gap fragment custom" data-fragment-index="2">Do you cry</span> <span class="prompt">(cry)</span> when you <span class="gap fragment custom" data-fragment-index="2">watch</span> <span class="prompt">(watch)</span> sad movies?</p>
+              <p class="item"><span class="who">B</span> Sometimes, yes!</p>
+            </div>
+          </div>
+          <p class="imperative">A reads A. B reads B.</p>
+        </div>
+      </section>
+
+      <!-- 15. Exercise 3, conversations 3-4 -->
+      <section id="ex3b">
+        <p class="kicker">Exercise 3 &middot; page 127</p>
+        <h2>Complete the conversations</h2>
+        <div class="content">
+          <div class="conv">
+            <span class="conv-num">3</span>
+            <div>
+              <p class="item"><span class="who">A</span> Oh no! There's no milk left.</p>
+              <p class="item"><span class="who">B</span> If you <span class="gap fragment custom" data-fragment-index="1">give</span> <span class="prompt">(give)</span> me some money, I <span class="gap fragment custom" data-fragment-index="1">will go</span> <span class="prompt">(go)</span> and get some.</p>
+            </div>
+          </div>
+          <div class="conv">
+            <span class="conv-num">4</span>
+            <div>
+              <p class="item"><span class="who">A</span> If you <span class="gap fragment custom" data-fragment-index="2">could</span> <span class="prompt">(can)</span> have one magical superpower, what <span class="gap fragment custom" data-fragment-index="2">would it be</span> <span class="prompt">(it / be)</span>?</p>
+              <p class="item"><span class="who">B</span> I think I <span class="gap fragment custom" data-fragment-index="2">would want to be able to</span> <span class="prompt">(want / be able to)</span> fly.</p>
+            </div>
+          </div>
+          <p class="imperative">A reads A. B reads B.</p>
+        </div>
+      </section>
+
+      <!-- 15b. Exercise 3, conversations 5-6 -->
+      <section id="ex3c">
+        <p class="kicker">Exercise 3 &middot; page 127</p>
+        <h2>Complete the conversations</h2>
+        <div class="content">
+          <div class="conv">
+            <span class="conv-num">5</span>
+            <div>
+              <p class="item"><span class="who">A</span> Imagine if everyone only <span class="gap fragment custom" data-fragment-index="1">worked</span> <span class="prompt">(work)</span> three days a week.</p>
+              <p class="item"><span class="who">B</span> We <span class="gap fragment custom" data-fragment-index="1">would have</span> <span class="prompt">(have)</span> lots more free time!</p>
+            </div>
+          </div>
+          <div class="conv">
+            <span class="conv-num">6</span>
+            <div>
+              <p class="item"><span class="who">A</span> I sometimes get fed up with social media &ndash; too many messages, too many things to think about!</p>
+              <p class="item"><span class="who">B</span> When that <span class="gap fragment custom" data-fragment-index="2">happens</span> <span class="prompt">(happen)</span> to me, I <span class="gap fragment custom" data-fragment-index="2">turn off</span> <span class="prompt">(turn off)</span> my phone for a day.</p>
+            </div>
+          </div>
+          <p class="imperative">A reads A. B reads B.</p>
+        </div>
+      </section>
+
+      <!-- 15c. Exercise 3, conversations 7-8 -->
+      <section id="ex3d">
+        <p class="kicker">Exercise 3 &middot; page 127</p>
+        <h2>Complete the conversations</h2>
+        <div class="content">
+          <div class="conv">
+            <span class="conv-num">7</span>
+            <div>
+              <p class="item"><span class="who">A</span> Are you going to the park after school on Friday?</p>
+              <p class="item"><span class="who">B</span> If I <span class="gap fragment custom" data-fragment-index="1">don't have</span> <span class="prompt">(not have)</span> too much homework I <span class="gap fragment custom" data-fragment-index="1">'ll come</span> <span class="prompt">(come)</span> too.</p>
+            </div>
+          </div>
+          <div class="conv">
+            <span class="conv-num">8</span>
+            <div>
+              <p class="item"><span class="who">A</span> What <span class="gap fragment custom" data-fragment-index="2">would you do</span> <span class="prompt">(you / do)</span> if Joe <span class="gap fragment custom" data-fragment-index="2">asked</span> <span class="prompt">(ask)</span> you to dance at the party?</p>
+              <p class="item"><span class="who">B</span> When people <span class="gap fragment custom" data-fragment-index="2">see</span> <span class="prompt">(see)</span> how I dance, they <span class="gap fragment custom" data-fragment-index="2">don't ask</span> <span class="prompt">(not / ask)</span> me!</p>
+            </div>
+          </div>
+          <p class="imperative">A reads A. B reads B.</p>
+        </div>
+      </section>
+
+      <!-- 16. Divider: freer production -->
+      <section id="divider-chain" class="section-divider" data-state="is-section-divider">
+        <h1>Keep the chain going</h1>
+      </section>
+
+      <!-- 17. The chain -->
+      <section id="chain">
+        <h2>The chain</h2>
+        <div class="content">
+          <ol class="chain-rules">
+            <li>I give the if-clause.</li>
+            <li>You finish it.</li>
+            <li>The next person starts with your result clause as their if-clause.</li>
+            <li>Round one is real. Round two is imaginary.</li>
+          </ol>
+          <div class="chain-example">
+            <p class="label">real</p>
+            <div>
+              <p class="sentence">If I pass my exams, I'll <span class="text-accent">go to college</span>.</p>
+              <p class="sentence">If I <span class="text-accent">go to college</span>, I'll study design.</p>
+            </div>
+            <p class="label">imaginary</p>
+            <p class="sentence">If I had ten million baht, I'd buy a house.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18. Exit -->
+      <section id="exit">
+        <h2>Before you go</h2>
+        <div class="content">
+          <p class="sentence-big">One imaginary sentence about your own life.</p>
+          <p class="note">For example: If I had a free year, I would learn to dive.</p>
+          <p class="imperative">Say it at the door.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element, so it
+       costs a deck that uses none nothing but the request. See references/timers.md. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
