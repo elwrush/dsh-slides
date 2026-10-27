@@ -1,0 +1,724 @@
+/* ============================================================
+   DECK-ONLY COMPONENTS — M3-271026-DISCUSSION
+
+   styles.css is the scaffold's and a re-scaffold overwrites it, so
+   every component this deck invents lives here instead. It is linked
+   AFTER styles.css.
+
+   EVERY RULE IS PREFIXED `.reveal`. This is not decoration: `styles.css`
+   sets `.reveal p, .reveal li { font-size: 24pt }` at (0,1,1), which beats
+   a bare class selector at (0,1,0) — so `.tier-example { font-size: 18pt }`
+   is silently dead and the text renders at 24pt. Measured on this deck:
+   ten topic rows came out at 32px (24pt) and pushed the slide 42px past the
+   frame. The prefix makes each rule (0,2,0) and it takes effect.
+
+   TYPE LADDER — the whole deck uses exactly these sizes, because the
+   near-pair check is deck-wide (12% limit): 18 (labels, card speech,
+   list items), 24 (body), 30 (the planning question), 36 (h2), 44
+   (section-divider h1, set in styles.css), 54 (the PREP letters).
+   No 20, no 22, no 28: each of those is within 12% of 18 or 24 and
+   would read as a mistake rather than a rank.
+   ============================================================ */
+
+/* ---------- 1. The graph slide: full-bleed, no text ----------
+   The chart fills the frame with nothing around it, so the class reads
+   the data and nothing else. The section is already absolutely
+   positioned by reveal.js, so `inset` on the child resolves against it —
+   and the section itself must NOT be given position: relative. */
+#graph {
+  padding: 0 !important;
+}
+#graph .chart-fill {
+  position: absolute;
+  inset: 30px 52px 34px 52px;
+}
+
+/* ---------- 2. Today's three aims ---------- */
+.reveal .aim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.reveal .aim-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 26px 22px;
+}
+.reveal .aim-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  margin: 0 auto 16px auto;
+  background: var(--primary-color);
+  color: var(--maroon-100);
+  font-size: 30pt;
+  line-height: 1;
+}
+.reveal .aim-icon-blue {
+  background: var(--secondary-color);
+}
+.reveal .aim-title {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.15;
+}
+.reveal .aim-text {
+  margin: 8px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.25;
+  color: var(--muted-color);
+}
+
+/* ---------- 3. The five recall questions ---------- */
+.reveal .qlist {
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+/* 8px, not 12: the slide carries the cue above the list and the tape below it,
+   and the whole slide has 6px to spare when the rows are loose. */
+.reveal .qlist li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  font-size: 24pt;
+  line-height: 1.22;
+  margin: 0 0 8px 0;
+}
+.reveal .qlist li:last-child {
+  margin-bottom: 0;
+}
+.reveal .q-number {
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+.reveal .gap {
+  font-weight: 600;
+  color: var(--accent-text-color);
+  letter-spacing: 0.06em;
+}
+
+/* ---------- 4. Suggested answers ---------- */
+.reveal .answers {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.reveal .answer-row {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  border-top: 1px solid var(--card-border);
+  padding-top: 6px;
+}
+.reveal .answer-said {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.12;
+}
+.reveal .answer-text {
+  margin: 2px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+
+/* ---------- 5. PREP — the four moves as tiles ---------- */
+.reveal .prep-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+}
+.reveal .prep-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 20px 12px;
+}
+.reveal .prep-card .prep-letter {
+  margin: 0 0 6px 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 54pt;
+  line-height: 1;
+  color: var(--primary-color);
+}
+.reveal .prep-card .prep-word {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+.reveal .prep-card .prep-gloss {
+  margin: 6px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+
+/* ---------- 6. Evidence, strongest first (the four tiers) ---------- */
+.reveal .tier {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 10px 20px;
+  margin-bottom: 9px;
+  border-radius: var(--box-radius);
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-left: 5px solid var(--neutral-90);
+}
+.reveal .tier:last-child {
+  margin-bottom: 0;
+}
+.reveal .tier-king {
+  background: var(--maroon-95);
+  border-left-color: var(--primary-color);
+}
+.reveal .tier-icon {
+  flex: none;
+  width: 44px;
+  text-align: center;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--muted-color);
+}
+.reveal .tier-king .tier-icon {
+  color: var(--primary-color);
+}
+.reveal .tier-name {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .tier-example {
+  margin: 2px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+/* ---------- 7. The shape of a discussion ---------- */
+.reveal .confluence-figure {
+  width: 100%;
+  display: block;
+}
+.reveal .rally-legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+.reveal .legend-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.reveal .legend-icon {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--blue-90);
+  color: var(--blue-30);
+  font-size: 18pt;
+  line-height: 1;
+}
+.reveal .legend-name {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .legend-gloss {
+  margin: 3px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+
+/* ---------- 8. The transcript, with the useful language boxed ---------- */
+#transcript .turn {
+  font-size: 24pt;
+  line-height: 1.1;
+  margin: 0 0 4px 0;
+}
+#transcript .turn.turn-note {
+  font-size: 18pt;
+  font-style: italic;
+  color: var(--muted-color);
+  margin-bottom: 6px;
+}
+#transcript .turn .turn-who {
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--info-text-color);
+  margin-right: 10px;
+}
+/* A boxed phrase the class can pick up and use. Horizontal padding only, so
+   boxing a phrase never changes the height of the line it sits on. */
+.reveal mark.say {
+  background: var(--maroon-95);
+  border: 1px solid var(--maroon-80);
+  border-radius: 6px;
+  padding: 0 5px;
+  color: var(--text-color);
+}
+
+/* ---------- 9. The ten topics ----------
+   ONE COLUMN, 30pt. Ten topics are read from the back of the room: at 18pt they
+   were fine print, and even at 24pt in two columns every topic wrapped and the
+   grid carried five short rows. One column fits each topic on a single line at
+   the 30pt step the ladder already has, so no new size is introduced. The number
+   stays at 24pt so it labels the row instead of competing with it. */
+.reveal .topic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px 0;
+  margin-top: 12px;
+}
+.reveal .topic {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  margin: 0;
+  font-size: 30pt;
+  line-height: 1.06;
+}
+.reveal .topic-number {
+  font-size: 24pt;
+  font-weight: 600;
+  color: var(--muted-color);
+}
+
+/* ---------- 10. The six moves, as a flow ---------- */
+.reveal .flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+.reveal .flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.reveal .flow-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background: var(--primary-color);
+  color: var(--maroon-100);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1;
+}
+/* Step 4 is the only two-line name ("Rebut and debate"), so every name reserves
+   two lines: the six glosses then start on one baseline instead of stepping down
+   under it. A rank the eye cannot see is noise. */
+.reveal .flow-name {
+  margin: 0;
+  min-height: 2.2em;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .flow-gloss {
+  margin: 5px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+
+/* ---------- 11. A card: the six moves with what to say ---------- */
+.reveal .card-rows {
+  display: flex;
+  flex-direction: column;
+}
+.reveal .card-row {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  padding: 7px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .card-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .card-move {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--accent-text-color);
+}
+/* Move 4 is two moves in one — rebut, then argue it out — so its second half sits
+   under the name at the card's own label size rather than pushing the name into
+   a third line at 24pt. */
+.reveal .card-move-sub {
+  display: block;
+  font-size: 18pt;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--muted-color);
+}
+.reveal .card-say {
+  margin: 0;
+  font-size: 18pt;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+/* Where the other half of the pair comes in: a card is a script, so the turn the
+   partner takes is part of what the card teaches. A dashed rule, not a solid one,
+   because it is not something you say. */
+.reveal .card-partner {
+  margin: 3px 0;
+  padding-left: 14px;
+  font-size: 18pt;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--muted-color);
+  border-left: 3px dashed var(--card-border);
+}
+/* A fill-in the pair completes: a study, a number, the other side's point. */
+.reveal .fill {
+  display: inline-block;
+  min-width: 130px;
+  border-bottom: 2px dashed var(--card-border);
+  vertical-align: baseline;
+}
+
+/* ---------- 12. Speed dating and group discussion ---------- */
+.reveal .howto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.reveal .howto li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+.reveal .timers {
+  display: flex;
+  gap: 26px;
+  align-items: stretch;
+}
+.reveal .timers > .timer {
+  flex: 1;
+}
+
+/* ---------- 13. The planning frame ---------- */
+.reveal .plan-question {
+  margin: 0;
+  padding: 16px 24px;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--text-color);
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-top: 5px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+.reveal .plan-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+.reveal .plan-cell {
+  display: flex;
+  flex-direction: column;
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 16px 16px 20px 16px;
+}
+.reveal .plan-cell .prep-letter {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 54pt;
+  line-height: 1;
+  color: var(--primary-color);
+}
+.reveal .plan-cell .prep-word {
+  margin: 4px 0 0 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .plan-blank {
+  flex: 1;
+  min-height: 26px;
+  margin-top: 14px;
+  border-bottom: 2px dashed var(--card-border);
+}
+
+/* ---------- 14. Content sits centred, as in yesterday's deck ----------
+   The scaffold's base stylesheet top-aligns `.content`, which dumps a sparse
+   slide's material in the top third and leaves the bottom half empty. Yesterday's
+   deck in this same lesson overrode it to centre, and this deck follows, so the
+   two lessons look like one course. Dense slides are unaffected — they fill the
+   box either way. Same specificity as the base rule, and this file loads after it. */
+.reveal .slides section > .content {
+  justify-content: center;
+}
+/* The transcript slide now carries the dialogue tape as well as the text, so its
+   content box gets back the clearance the base stylesheet reserves for a footnote
+   this slide does not have. Without it the slide overshoots the frame by 19px. */
+#transcript .content {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* The ten topics are read aloud and matched to a card, so they are set at body
+   size, not as small print: 18pt was the floor and read as fine print from the
+   back of the room. The grid buys the height back — tighter row gap, and this
+   slide has no footnote to clear. */
+#topics .content {
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
+
+/* ---------- 15. The cover: one question, one drawing ----------
+   CRAP, in order:
+   CONTRAST    a maroon field and a cream drawing side by side; white 44pt on
+               maroon measures 6.44:1, AA at any size. 44pt against the 24pt
+               sub-line is 83% apart, so the heading is a rank, not a nudge.
+   REPETITION  maroon-40 (#98444A) and the yellow sub-line are the same pair
+               yesterday's deck used for its divider, so the two lessons read
+               as one course; 44pt is already the deck's divider size, so this
+               slide adds no new step to the ladder.
+   ALIGNMENT   heading and sub-line share one left edge at the deck's 60px
+               padding, and sit as one block, centred in the panel.
+   PROXIMITY   question and cue are 20px apart; the drawing is behind its own
+               edge, so nothing reads as belonging to the wrong half.
+   Both halves are absolutely positioned against the section, which reveal.js
+   already lays out absolutely — the section itself stays out of the flow. */
+#ask {
+  padding: 0 !important;
+}
+.reveal #ask .cover-text {
+  position: absolute;
+  inset: 0 48% 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 48px 0 60px;
+  background: var(--primary-color);
+}
+.reveal #ask h1 {
+  margin: 0;
+  font-size: 44pt;
+  line-height: 1.1;
+  text-align: left;
+  color: var(--maroon-100);
+}
+.reveal #ask p {
+  margin: 20px 0 0 0;
+  font-size: 24pt;
+  text-align: left;
+  color: #FFD54F;
+}
+.reveal #ask .cover-art {
+  position: absolute;
+  inset: 0 0 0 52%;
+}
+.reveal #ask .cover-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 40%, not centre: it keeps the face and both hands and moves the coffee cup
+     off the edge, so nothing is cut in half by the seam. */
+  object-position: 40% center;
+}
+
+/* ---------- 16. Break slides: the two structural markers ----------
+   A statement slide, not a content slide. Maroon field with white 44pt and the
+   yellow sub-line: the same two colours yesterday's deck used for its dividers,
+   so a break looks the same across the course. Centred, which is the one place
+   this deck centres text — the role is different, so the alignment is too. */
+.reveal .slides section.break {
+  background: var(--primary-color);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.break h2 {
+  margin: 0;
+  font-size: 44pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+}
+.reveal .slides section.break p {
+  margin: 16px 0 0 0;
+  font-size: 24pt;
+  color: #FFD54F;
+}
+
+/* ---------- 17. The card slides (1A / 1B) ----------
+   The slide borrows the paper card's grammar so the two read as one object:
+   the identifier is the title, a heavy rule closes the head, the topic sits at
+   body-plus size, and the six moves run down one left edge. CRAP, in order:
+   CONTRAST    54pt identifier against 24pt move names against 18pt lines —
+               125% and 33% apart, so each is a rank and not a nudge.
+   REPETITION  the same six moves, in the same order, with the same words as the
+               printed card; the own side carries the same "your side" line.
+   ALIGNMENT   one left edge for the identifier, the topic, every move name and
+               every line; the partner markers hang off the same edge.
+   PROXIMITY   the topic and the side line are one block under the identifier;
+               the cue sits at the foot, away from the script. */
+.reveal .card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  border-bottom: 3pt solid var(--primary-color);
+  padding-bottom: 14px;
+  margin-bottom: 10px;
+}
+.reveal .card-id {
+  font-family: var(--heading-font);
+  font-size: 54pt;
+  font-weight: 600;
+  line-height: 0.88;
+  color: var(--accent-text-color);
+}
+.reveal .card-topic {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.15;
+}
+.reveal .card-side {
+  margin: 8px 0 0 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+.reveal .card-foot {
+  margin: 14px 0 0 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+
+/* ---------- 18. The closing slide ----------
+   Five instructions, the topic, and a five-minute clock. The timer's readout is
+   the deck's 100pt display size, which is right on a slide that is only a clock
+   and too big here: 54pt keeps the digits a rank above the 24pt instructions
+   without pushing the slide past the frame. */
+#final .timer-readout {
+  font-size: 54pt;
+}
+#final .howto {
+  gap: 8px;
+}
+#final .howto li {
+  line-height: 1.15;
+}
+#final .plan-question {
+  padding: 10px 20px;
+  font-size: 30pt;
+  line-height: 1.1;
+}
+#final .content {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* The numbered steps carry their own number in a span, so the house bullet that
+   every `ul li` draws sits in front of it as a stray dot. Remove it. */
+.reveal .howto li::before {
+  content: none;
+  display: none;
+}
+
+/* A break must own the WHOLE frame, not the 16:9 box inside it.
+   reveal.js adds each slide's data-state as a CLASS on the viewport — which, on a
+   full-page deck, is document.body — so a break's maroon paints the letterbox
+   bands above and below the slide as well as the slide itself. Measured
+   2026-10-27: without this, a 1366x900 window showed cream bands at the top and
+   bottom of every break while the slide area was maroon. */
+.reveal-viewport.is-break {
+  background-color: var(--primary-color);
+}
+
+/* The cover owns the frame too, in both of its halves.
+   A break slide needs one colour; the cover needs two, so the viewport paints
+   them itself — maroon across the left 52%, the drawing across the rest — and the
+   section's own panels go transparent, leaving it to hold the text only. In a
+   window taller than 16:9 the slide is full width and the 52% seam lands exactly
+   where the panels used to meet; the bands above and below become maroon on the
+   left and drawing on the right, so nothing is left cream. */
+.reveal-viewport.is-cover {
+  background-color: var(--primary-color);
+}
+/* The drawing is its OWN fixed layer across the right 48% of the window, not a
+   background on the body: a body-wide cover crop puts the image's right-hand side
+   in the visible half and crops the man's face away (measured 2026-10-27 — hands,
+   tablet and cup, no head). A fixed layer crops the panel, as the panel used to.
+   The slide background is made transparent so the same layer shows through the
+   slide area and the bands alike: one image, no seam at the slide's edges. */
+.reveal-viewport.is-cover::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 52%;
+  right: 0;
+  background: url("confused-adult-ipad.jpg") 20% center / cover no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+.reveal-viewport.is-cover .reveal {
+  position: relative;
+  z-index: 1;
+}
+.reveal-viewport.is-cover .slide-background {
+  background-color: transparent !important;
+}
+.reveal-viewport.is-cover #ask .cover-text {
+  background: transparent;
+}
+.reveal-viewport.is-cover #ask .cover-art {
+  display: none;
+}
