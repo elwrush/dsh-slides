@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The passive</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles. styles.css is the scaffold's and gets overwritten by a
+       re-scaffold, so this deck's own components live in deck.css. -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="deck.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="vendor/chartjs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. Splash: one drawing, torn in two - the broken window, and the boy. -->
+      <section id="splash"
+               data-background-image="images/cover-diptych.jpg"
+               data-background-size="cover"
+               data-background-color="#FFF8F7">
+      </section>
+
+      <!-- 2. Title. The maroon is a reveal BACKGROUND, not a background on the
+           section: the section only ever covers the 16:9 slide box, so on a
+           window that is not 16:9 the bands above and below stayed cream. -->
+      <section id="title" class="section-divider invert" data-background-color="#7A2D34">
+        <h1 class="cover-title">The passive</h1>
+        <p class="divider-sub">A handy trick to hide responsibility</p>
+      </section>
+
+      <!-- 3. The function -->
+      <section id="when">
+        <h2>When do we use the passive?</h2>
+        <div class="content">
+          <div class="when-split">
+            <div>
+              <p class="sentence-big">We use the passive when <span class="text-accent">who or what does an action</span> is not known or not important.</p>
+              <p class="note">Somebody threw a stone at the window. Nobody saw who.</p>
+              <p class="sentence" style="margin-top: 18px;">The window was broken.</p>
+            </div>
+            <img src="images/window.jpg" alt="A classroom window with its lower pane smashed and a stone on the sill">
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Test 1: does the passive do its job? Two of these five work. -->
+      <section id="t1-1" class="test">
+        <p class="kicker">Test 1 &middot; sentence 1 of 5</p>
+        <h2>Is this passive doing its job?</h2>
+        <div class="content">
+          <p class="stmt">All our sandwiches are served with salad.</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark good"><i class="fa-solid fa-check"></i></span>
+            <p class="vreason">Who serves them? The waiters &mdash; and that is not important.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="t1-2" class="test">
+        <p class="kicker">Test 1 &middot; sentence 2 of 5</p>
+        <h2>Is this passive doing its job?</h2>
+        <div class="content">
+          <p class="stmt">The party was arrived at by the guests.</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark bad"><i class="fa-solid fa-xmark"></i></span>
+            <p class="vreason"><em>Arrive</em> has no object, so there is no passive in it. Say: <strong>The guests arrived at the party.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="t1-3" class="test">
+        <p class="kicker">Test 1 &middot; sentence 3 of 5</p>
+        <h2>Is this passive doing its job?</h2>
+        <div class="content">
+          <p class="stmt">The cake was eaten by me.</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark bad"><i class="fa-solid fa-xmark"></i></span>
+            <p class="vreason">You know who ate it. It was you &mdash; so there is nothing to hide. Say: <strong>I ate the cake.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="t1-4" class="test">
+        <p class="kicker">Test 1 &middot; sentence 4 of 5</p>
+        <h2>Is this passive doing its job?</h2>
+        <div class="content">
+          <p class="stmt">Have these tomatoes been washed?</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark good"><i class="fa-solid fa-check"></i></span>
+            <p class="vreason">Nobody knows who washed them, and it does not matter.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="t1-5" class="test">
+        <p class="kicker">Test 1 &middot; sentence 5 of 5</p>
+        <h2>Is this passive doing its job?</h2>
+        <div class="content">
+          <p class="stmt">The window was broken by somebody.</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark bad"><i class="fa-solid fa-xmark"></i></span>
+            <p class="vreason">&ldquo;Somebody&rdquo; is not a name. Name them, or drop the phrase: <strong>The window was broken.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. The form: the active sentence, then the transformation underneath on
+           one click, so both sentences are on the slide together and the class can
+           read across from one to the other. The lower row is a fragment, so its
+           space is reserved from the start and nothing reflows. Its two noun cards
+           do not simply appear: each starts at the end it occupies in the active
+           row and swaps to the other, so "the boy" travels right-to-left into the
+           subject seat and "by the dog" travels left-to-right to the end. -->
+      <section id="form">
+        <h2>How do we use the passive?</h2>
+        <div class="content">
+          <div class="frows">
+            <div class="frow">
+              <p class="frow-label">active</p>
+              <div class="fslot"><div class="fcard" data-id="agent">the dog</div></div>
+              <div class="fslot"><div class="fcard" data-id="verb">bit</div></div>
+              <div class="fslot"><div class="fcard" data-id="patient">the boy</div></div>
+            </div>
+            <div class="frow fragment" data-fragment-index="1">
+              <p class="frow-label">passive</p>
+              <div class="fslot"><div class="fcard swap swap-from-right" data-id="patient">the boy</div></div>
+              <div class="fslot"><div class="fcard" data-id="verb">was bitten</div></div>
+              <div class="fslot"><div class="fcard swap swap-from-left" data-id="agent">by the dog</div></div>
+            </div>
+          </div>
+          <p class="fnote fragment" data-fragment-index="1">The receiver is the subject now. The doer goes to the end &mdash; or disappears.</p>
+        </div>
+      </section>
+
+      <!-- 12. Only be changes -->
+      <section id="tenses">
+        <h2>Only <em>be</em> changes</h2>
+        <div class="content">
+          <div class="rrules">
+            <p class="rhead">tense</p>
+            <p class="rhead">the passive</p>
+
+            <p class="rlabel">present</p>
+            <p class="sentence">Not many fresh products <strong>are grown</strong> in my region.</p>
+
+            <p class="rlabel">past</p>
+            <p class="sentence">This market <strong>was built</strong> over 100 years ago.</p>
+
+            <p class="rlabel">present perfect</p>
+            <p class="sentence">All the tables <strong>have been cleaned</strong>.</p>
+
+            <p class="rlabel">future</p>
+            <p class="sentence">All these bags <strong>will be thrown away</strong>.</p>
+
+            <p class="rlabel">modal</p>
+            <p class="sentence">These berries <strong>can be eaten</strong> raw.</p>
+          </div>
+          <p class="for-rule">The past participle carries the meaning. <em>Be</em> carries the tense.</p>
+        </div>
+      </section>
+
+      <!-- 13-17. Test 2: the form. Two of these five work. Where the form is
+           wrong, one click strikes the faulty verb and brings the corrected
+           sentence up under it, so the class sees the verb change. -->
+      <section id="t2-1" class="test">
+        <p class="kicker">Test 2 &middot; sentence 1 of 5</p>
+        <h2>Is the form right?</h2>
+        <div class="content">
+          <p class="stmt">The window was <span class="glitch fragment custom" data-fragment-index="1">broke</span> by the storm.</p>
+          <div class="verdict fragment fade-up" data-fragment-index="1">
+            <span class="vmark bad"><i class="fa-solid fa-xmark"></i></span>
+            <div>
+              <p class="vreason">The participle is <em>broken</em>, not <em>broke</em>.</p>
+              <p class="fixline">The window was <span class="repaired">broken</span> by the storm.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="t2-2" class="test">
+        <p class="kicker">Test 2 &middot; sentence 2 of 5</p>
+        <h2>Is the form right?</h2>
+        <div class="content">
+          <p class="stmt">These songs are played every morning.</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark good"><i class="fa-solid fa-check"></i></span>
+            <p class="vreason"><em>are</em> + <em>played</em> &mdash; and the doer is not important.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="t2-3" class="test">
+        <p class="kicker">Test 2 &middot; sentence 3 of 5</p>
+        <h2>Is the form right?</h2>
+        <div class="content">
+          <p class="stmt">The thief <span class="glitch fragment custom" data-fragment-index="1">caught</span> by the police last night.</p>
+          <div class="verdict fragment fade-up" data-fragment-index="1">
+            <span class="vmark bad"><i class="fa-solid fa-xmark"></i></span>
+            <div>
+              <p class="vreason">No <em>be</em> at all &mdash; every passive needs it.</p>
+              <p class="fixline">The thief <span class="repaired">was caught</span> by the police last night.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="t2-4" class="test">
+        <p class="kicker">Test 2 &middot; sentence 4 of 5</p>
+        <h2>Is the form right?</h2>
+        <div class="content">
+          <p class="stmt">My bike has been repaired by my uncle.</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark good"><i class="fa-solid fa-check"></i></span>
+            <p class="vreason"><em>has been</em> + <em>repaired</em> &mdash; and the doer is new information, so <em>by</em> stays.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="t2-5" class="test">
+        <p class="kicker">Test 2 &middot; sentence 5 of 5</p>
+        <h2>Is the form right?</h2>
+        <div class="content">
+          <p class="stmt">The floor was being <span class="glitch fragment custom" data-fragment-index="1">clean</span> when I came in.</p>
+          <div class="verdict fragment" data-fragment-index="1">
+            <span class="vmark bad"><i class="fa-solid fa-xmark"></i></span>
+            <div>
+              <p class="vreason">After <em>being</em> you still need the participle.</p>
+              <p class="fixline">The floor was being <span class="repaired">cleaned</span> when I came in.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18-19. Exercise 1: the answer fills the gap where the book puts it.
+           One answer per click - each gap carries its own fragment index, so the
+           class commits to 1 before 2 is on the screen. -->
+      <section id="ex1a">
+        <p class="kicker">Exercise 1 &middot; page 117</p>
+        <h2>Complete the second sentence</h2>
+        <div class="content">
+          <div class="ex">
+            <div class="ex-stem"><span class="ex-num">1</span>They grow strawberries here.</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="1">Strawberries are grown</span> here.</p>
+
+            <div class="ex-stem"><span class="ex-num">2</span>Someone&rsquo;s planning the menu right now.</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="2">The menu is being planned</span> right now.</p>
+
+            <div class="ex-stem"><span class="ex-num">3</span>They haven&rsquo;t baked the cookies yet.</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="3">The cookies haven&rsquo;t been</span> baked yet.</p>
+
+            <div class="ex-stem"><span class="ex-num">4</span>Did they take all the trash away?</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="4">Was all the trash taken away</span>?</p>
+
+            <div class="ex-stem"><span class="ex-num">5</span>Nobody had cleaned the cupboards.</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="5">The cupboards hadn&rsquo;t been cleaned</span>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ex1b">
+        <p class="kicker">Exercise 1 &middot; page 117</p>
+        <h2>Complete the second sentence</h2>
+        <div class="content">
+          <div class="ex">
+            <div class="ex-stem"><span class="ex-num">6</span>Has someone added salt to this soup?</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="1">Has salt been added</span> to this soup?</p>
+
+            <div class="ex-stem"><span class="ex-num">7</span>Someone was repairing the fridge when I arrived.</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="2">The fridge was being repaired</span> when I arrived.</p>
+
+            <div class="ex-stem"><span class="ex-num">8</span>People shouldn&rsquo;t advertise junk food.</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="3">Junk food shouldn&rsquo;t be advertised</span>.</p>
+
+            <div class="ex-stem"><span class="ex-num">9</span>They used to pick all the grapes by hand.</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="4">All the grapes used to be picked</span> by hand.</p>
+
+            <div class="ex-stem"><span class="ex-num">10</span>Will anyone use these bags again?</div>
+            <p class="ex-line"><span class="ex-gap fragment custom" data-fragment-index="5">Will these bags be used</span> again?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 20-21. Exercise 2: active or passive, chosen from the meaning -->
+      <section id="ex2a">
+        <p class="kicker">Exercise 2 &middot; page 117</p>
+        <h2>Complete the article</h2>
+        <div class="content">
+          <div class="article">
+            <p>What <span class="gapword fragment custom" data-fragment-index="1">can be done</span> <span class="prompt">(can / do)</span> with the huge amount of food that <span class="gapword fragment custom" data-fragment-index="2">is wasted</span> <span class="prompt">(waste)</span> every day? Here are two solutions.</p>
+            <p>Shaanxi Yihong Agricultural Technology Company <span class="gapword fragment custom" data-fragment-index="3">was set up by</span> <span class="prompt">(set up)</span> 23-year-old Qinyu Zhang in 2014. Zhang grew up in Shaanxi, an area of China where a lot of apples <span class="gapword fragment custom" data-fragment-index="4">are grown</span> <span class="prompt">(grow)</span>. He was shocked to see how much fruit <span class="gapword fragment custom" data-fragment-index="5">was thrown away by</span> <span class="prompt">(throw away)</span> farmers.</p>
+            <p>Thanks to Zhang, since 2014, thousands of tons of fruit from Shaanxi <span class="gapword fragment custom" data-fragment-index="6">have been sold</span> <span class="prompt">(sell)</span> directly to people who want it instead of being wasted.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ex2b">
+        <p class="kicker">Exercise 2 &middot; page 117</p>
+        <h2>Complete the article</h2>
+        <div class="content">
+          <div class="article">
+            <p>What happens to the food in the supermarket that nobody buys? Last year 7,360 tons of unwanted food from stores and caf&eacute;s <span class="gapword fragment custom" data-fragment-index="1">were given away to</span> <span class="prompt">(give away)</span> FareShare, an independent charity in the U.K.</p>
+            <p>The food <span class="gapword fragment custom" data-fragment-index="2">is collected by</span> <span class="prompt">(collect)</span> volunteers who then <span class="gapword fragment custom" data-fragment-index="3">share</span> <span class="prompt">(share)</span> it among 2,020 charities across the country.</p>
+            <p>Without FareShare, thousands of tons of good food <span class="gapword fragment custom" data-fragment-index="4">would be wasted</span> <span class="prompt">(would / waste)</span>. Instead, it goes to people who really need it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 22-27. Controlled practice: five pictures, one sentence each -->
+      <section id="div-write" class="section-divider invert" data-background-color="#7A2D34">
+        <h1>Now write</h1>
+        <p class="divider-sub">One sentence about each picture.</p>
+        <p class="divider-sub">Past simple passive.</p>
+      </section>
+
+      <section id="p1" class="pic">
+        <div class="pic-frame"><img src="images/window.jpg" alt="A classroom window with its lower pane smashed and a stone on the sill"></div>
+        <div class="pic-foot">
+          <p class="pic-num">Picture 1</p>
+          <p class="pic-verb">shatter</p>
+          <p class="pic-task">past simple passive</p>
+        </div>
+      </section>
+
+      <section id="p2" class="pic">
+        <div class="pic-frame"><img src="images/paint.jpg" alt="A school wall, half repainted cream and half still faded green, with a paint roller in a tray"></div>
+        <div class="pic-foot">
+          <p class="pic-num">Picture 2</p>
+          <p class="pic-verb">coat</p>
+          <p class="pic-task">past simple passive</p>
+        </div>
+      </section>
+
+      <section id="p3" class="pic">
+        <div class="pic-frame"><img src="images/serve.jpg" alt="Four trays of rice and curry portioned on a canteen table, empty chairs around it"></div>
+        <div class="pic-foot">
+          <p class="pic-num">Picture 3</p>
+          <p class="pic-verb">portion</p>
+          <p class="pic-task">past simple passive</p>
+        </div>
+      </section>
+
+      <section id="p4" class="pic">
+        <div class="pic-frame"><img src="images/collect.jpg" alt="Green rubbish bins outside a school building with a rubbish truck collecting them"></div>
+        <div class="pic-foot">
+          <p class="pic-num">Picture 4</p>
+          <p class="pic-verb">haul</p>
+          <p class="pic-task">past simple passive</p>
+        </div>
+      </section>
+
+      <section id="p5" class="pic">
+        <div class="pic-frame"><img src="images/pick.jpg" alt="A bamboo basket full of mangoes under a mango tree, a picking pole against the trunk"></div>
+        <div class="pic-foot">
+          <p class="pic-num">Picture 5</p>
+          <p class="pic-verb">pluck</p>
+          <p class="pic-task">past simple passive</p>
+        </div>
+      </section>
+
+      <!-- 25. Passing the books. It comes BEFORE the suggested answers, so the
+           class marks each other's five sentences before any model is on screen. -->
+      <section id="passing">
+        <h2>Pass the books</h2>
+        <div class="content">
+          <ol class="prules">
+            <li>Pass your book one place to the <strong>left</strong>.</li>
+            <li>Mark sentence 1: tick it if it has <strong>be + past participle</strong>. Correct it if it does not.</li>
+            <li>Pass left again. Mark sentence 2.</li>
+            <li>Keep going until all five sentences are marked.</li>
+            <li>The book goes back to its owner.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 26-30. The suggested answers, after the pictures and the marking, so
+           nobody sees a model before they have written and checked their own. -->
+      <section id="a1" class="answer">
+        <p class="kicker">Suggested answer &middot; picture 1</p>
+        <div class="content">
+          <p class="stmt">The classroom window was <span class="repaired">shattered</span> by a formidable hunk of rock, and the splinters were left scattered across the sill.</p>
+        </div>
+      </section>
+
+      <section id="a2" class="answer">
+        <p class="kicker">Suggested answer &middot; picture 2</p>
+        <div class="content">
+          <p class="stmt">The tired wall was <span class="repaired">coated</span> in fresh cream paint, and the roller was abandoned in its tray at the foot of it.</p>
+        </div>
+      </section>
+
+      <section id="a3" class="answer">
+        <p class="kicker">Suggested answer &middot; picture 3</p>
+        <div class="content">
+          <p class="stmt">The rice and curry were <span class="repaired">portioned</span> into four steel trays and left waiting on the canteen table, with a stack of clean plates beside them.</p>
+        </div>
+      </section>
+
+      <section id="a4" class="answer">
+        <p class="kicker">Suggested answer &middot; picture 4</p>
+        <div class="content">
+          <p class="stmt">The rubbish was <span class="repaired">hauled</span> away before the lane was properly awake, and the empty bins were left standing in a row.</p>
+        </div>
+      </section>
+
+      <section id="a5" class="answer">
+        <p class="kicker">Suggested answer &middot; picture 5</p>
+        <div class="content">
+          <p class="stmt">The ripe mangoes were <span class="repaired">plucked</span> by hand and gathered into a bamboo basket, and one of them was cut open on the grass.</p>
+        </div>
+      </section>
+
+      <!-- 31-33. Freer practice -->
+      <section id="div-coverup" class="section-divider invert" data-background-color="#7A2D34">
+        <h1>The cover-up</h1>
+        <p class="divider-sub">If we have time.</p>
+      </section>
+
+      <section id="coverup">
+        <h2>The cover-up</h2>
+        <div class="content">
+          <ol class="prules">
+            <li>Work in pairs.</li>
+            <li>Write three sentences about things that really happened at this school &mdash; each one naming the person who did it.</li>
+            <li>Rewrite each one in the passive, so that person disappears.</li>
+            <li>Read yours out. The class names who you are protecting.</li>
+          </ol>
+          <div class="worked">
+            <p class="worked-label">before</p>
+            <p class="sentence">Mali broke the window in the science lab.</p>
+            <p class="worked-label">after</p>
+            <p class="sentence">The window in the science lab <strong>was broken</strong>.</p>
+            <p class="worked-label">hidden</p>
+            <p class="sentence">Mali</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 32. Exit -->
+      <section id="exit">
+        <h2>Before you go</h2>
+        <div class="content">
+          <p class="stmt">One sentence about today &mdash; with nobody in it.</p>
+          <p class="note">For example: The window was broken at break time.</p>
+          <p class="imperative">Say it at the door.</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
