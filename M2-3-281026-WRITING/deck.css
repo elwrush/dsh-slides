@@ -1,0 +1,234 @@
+/* Deck-only components — Six Little Stories.
+
+   styles.css is the scaffold's file and a re-scaffold overwrites it, so anything
+   this deck adds of its own lives here and is linked after it.
+
+   Sizes come only from the deck's ladder — 48 / 36 / 30 / 24 / 18 — so no two
+   distinct sizes sit inside the 12% near-pair test. */
+
+/* One size per role. `styles.css` sets h1 to 48pt but divider headings to 44pt,
+   which puts two h1 sizes 8% apart on one ladder — a near-pair. Settling every
+   h1 at the divider's 44pt gives the role a single size. */
+.reveal h1 {
+  font-size: 44pt;
+}
+
+/* Bloom's taxonomy, drawn as a pyramid: six bars, widest at the base. Built in
+   markup rather than generated as a picture — every label has to stay legible
+   and editable, and text baked into an image cannot be corrected. The top three
+   levels carry the maroon fill because they are the ones this lesson works. */
+.reveal .bloom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+.reveal .bloom-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  border-radius: 4px;
+  font-size: 24pt;
+  font-weight: 600;
+}
+.reveal .bloom-base {
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+}
+.reveal .bloom-top {
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: var(--on-primary-color);
+}
+
+/* A label sitting under a step number. The floor is what stops a two-line label
+   and a one-line label from putting their gloss on different baselines — the
+   ragged row was measured 13px out before it was pinned. 3.25em clears the
+   two-line height (103px at this type) so every label in a row is identical. */
+.reveal .step-label {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  line-height: 1.5;
+  min-height: 3.25em;
+}
+
+/* Inverted dividers. The field is painted by `data-background-color` on the
+   section — not by CSS — so it fills the letterbox bands on a non-16:9 window
+   as well as the slide itself. `data-state="is-section-divider"` is deliberately
+   NOT used: the scaffold's viewport rule would beat the background on these
+   slides. White heading, pale-yellow sub-line, the house divider idiom. */
+.reveal section.is-dark h1 {
+  color: var(--maroon-100);
+}
+.reveal .slides section.section-divider.is-dark p {
+  color: var(--highlight-90);
+}
+
+/* Cover: a split composition — words in one column, the drawing in another,
+   nothing on top of anything. The panel is absolutely positioned against the
+   slide (reveal positions every section, which is the containing block) so it
+   runs to the top, right and bottom edges; the text column carries a matching
+   right padding and can never reach it. */
+.reveal .cover-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 430px;
+  overflow: hidden;
+}
+.reveal .cover-panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* "Go." — the one word that starts a sprint. Bigger than the slide title,
+   because the command is the content of that slide. 44pt is the h1 rung. */
+.reveal .go-cue {
+  margin: 18px 0 0 0;
+  padding-left: 22px;
+  border-left: 8px solid var(--primary-color);
+  font-size: 44pt;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--accent-text-color);
+}
+
+/* The five beats drawn as a mountain: bar heights rise to the problem and
+   fall away after it. The numbers are what tie a bar to its line in the list
+   beside it. */
+.reveal .mountain {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 420px;
+}
+.reveal .mountain-col {
+  flex: 1;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-top: 5px solid var(--primary-color);
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.reveal .mountain-col span {
+  padding-top: 10px;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 24pt;
+  color: var(--accent-text-color);
+}
+
+/* The model story's panel: the drawing on one side, the text on the other. */
+.reveal .panel-figure {
+  display: block;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+
+/* Names the deck's place in the unit, above a title. */
+.reveal .kicker {
+  margin: 0 0 12px 0;
+  font-size: 18pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+/* Short maroon bar under the cover title. */
+.reveal .accent-rule {
+  width: 120px;
+  height: 4px;
+  margin: 28px 0;
+  border: 0;
+  background: var(--primary-color);
+}
+
+/* A cue: the class acts now. Offset behind a maroon rule. Reserved for the
+   three "go" moments and the listener's one rule — if everything is offset,
+   nothing is. */
+.reveal .imperative {
+  margin: 24px 0 0 0;
+  padding-left: 20px;
+  border-left: 6px solid var(--primary-color);
+  font-size: 24pt;
+  color: var(--accent-text-color);
+}
+
+/* The three example stories: one per line, big, hairline between. */
+.reveal .story-line {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 30pt;
+  line-height: 1.3;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .story-line:last-of-type {
+  border-bottom: 0;
+}
+
+/* The model story, set as a text rather than as instruction. 24pt, not 30pt:
+   the drawing now takes a column, so 30pt runs to twelve lines and overflows
+   the slide. The maroon panel and the picture carry the emphasis instead. */
+.reveal .model-text {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.34;
+}
+
+/* One beat of the model: number, name, and the line that carries it.
+   The name column is a fixed width so a revealed name shifts nothing. */
+.beat-row {
+  display: grid;
+  grid-template-columns: 54px 200px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.beat-row:last-child {
+  border-bottom: 0;
+}
+.beat-num {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--accent-text-color);
+}
+.beat-name {
+  font-size: 24pt;
+  font-weight: 600;
+}
+.beat-line {
+  font-size: 24pt;
+  color: var(--muted-color);
+}
+
+/* A numbered rule, for the reading routine. */
+.reveal .rule-item {
+  margin: 0 0 16px 0;
+  font-size: 24pt;
+  line-height: 1.35;
+}
+.reveal .rule-item .n {
+  display: inline-block;
+  width: 42px;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  color: var(--accent-text-color);
+}

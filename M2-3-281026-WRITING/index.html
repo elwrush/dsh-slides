@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Six Little Stories</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Deck-only components. Loaded after styles.css so it wins, and kept out of
+       styles.css because a re-scaffold overwrites that file. -->
+  <link rel="stylesheet" href="deck.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="vendor/chartjs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 · COVER -->
+      <section id="cover">
+        <div class="cover-panel">
+          <img src="img/cover.png" alt="A watercolour and ink drawing of an open exercise book on a school desk, a pencil in the gutter and a small brass key beside it, in warm afternoon light.">
+        </div>
+        <div class="content" style="height: 100%; padding-right: 470px; justify-content: center;">
+          <p class="kicker">Creative writing &middot; Lesson 1</p>
+          <h1 style="font-size: 56pt;">Six Little Stories</h1>
+          <hr class="accent-rule">
+          <p class="text-xl" style="margin: 0;">Five stories before you write one.</p>
+        </div>
+      </section>
+
+      <!-- 2 · THE PROMISE -->
+      <section id="no-marks">
+        <div class="content" style="justify-content: center; height: 100%;">
+          <h1>Nothing today is marked.</h1>
+          <p style="margin: 20px 0 0 0;">No corrections. No red pen. Nothing goes in the book.</p>
+        </div>
+      </section>
+
+      <!-- 3 · WHY WE DO THIS -->
+      <section id="why">
+        <h2>Why we do this</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: 560px 1fr; gap: 54px; align-items: start;">
+            <div>
+              <p style="font-size: 44pt; line-height: 1.22; margin: 0 0 22px 0;">Schools all over the world teach creative writing.</p>
+              <p style="margin: 0;">Because it builds the highest kinds of thinking.</p>
+            </div>
+            <div style="text-align: center;">
+              <p class="kicker" style="margin: 6px 0 14px 0;">Bloom&rsquo;s taxonomy</p>
+              <div class="bloom">
+                <div class="bloom-row bloom-top" style="width: 40%;">Create</div>
+                <div class="bloom-row bloom-top" style="width: 52%;">Evaluate</div>
+                <div class="bloom-row bloom-top" style="width: 64%;">Analyse</div>
+                <div class="bloom-row bloom-base" style="width: 76%;">Apply</div>
+                <div class="bloom-row bloom-base" style="width: 88%;">Understand</div>
+                <div class="bloom-row bloom-base" style="width: 100%;">Remember</div>
+              </div>
+            </div>
+          </div>
+          <p style="font-size: 30pt; margin: 32px 0 0 0; padding-top: 26px; border-top: 1px solid var(--line-color);">Today, we learn to do it in an organised and interesting way.</p>
+        </div>
+      </section>
+
+      <!-- 4 · WHAT WE ARE DOING TODAY -->
+      <section id="today">
+        <h2>What we are doing today</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); align-items: start;">
+            <div style="padding-right: 28px; border-right: 1px solid var(--line-color);">
+              <p class="beat-num" style="margin: 0 0 12px 0; font-size: 44pt;">1</p>
+              <p class="step-label">Five stories, six words each</p>
+              <p style="margin: 0;">Seven minutes. Bad ones allowed.</p>
+            </div>
+            <div style="padding: 0 28px; border-right: 1px solid var(--line-color);">
+              <p class="beat-num" style="margin: 0 0 12px 0; font-size: 44pt;">2</p>
+              <p class="step-label">One of them, grown</p>
+              <p style="margin: 0;">About fifty words. One paragraph.</p>
+            </div>
+            <div style="padding-left: 28px;">
+              <p class="beat-num" style="margin: 0 0 12px 0; font-size: 44pt;">3</p>
+              <p class="step-label">Two people hear it</p>
+              <p style="margin: 0;">They each say one thing they saw.</p>
+            </div>
+          </div>
+          <p class="text-xl" style="margin: 36px 0 0 0; padding-top: 28px; border-top: 1px solid var(--line-color);">By the end, you will have written a story and heard it read back.</p>
+        </div>
+      </section>
+
+      <!-- 5 · PART ONE -->
+      <section id="part-1" class="section-divider is-dark" data-background-color="#7A2D34">
+        <h1>Six words</h1>
+        <p>A whole story, in six words.</p>
+      </section>
+
+      <!-- 6 · THE THREE EXAMPLES, AND WHY THEY WORK -->
+      <section id="six-words">
+        <h2>Read these three</h2>
+        <div class="content">
+          <p class="story-line">For sale: baby shoes, never worn.</p>
+          <p class="story-line">Class trip. I stayed on the bus.</p>
+          <p class="story-line" style="border-bottom: 0;">The dog knew before we did.</p>
+          <p style="font-size: 18pt; color: var(--muted-color); margin: 12px 0 0 0;">The first is usually credited to Ernest Hemingway.</p>
+
+          <!-- The explanation arrives on one click, so the class reads the three
+               stories first and meets the machinery afterwards. -->
+          <div class="fragment" data-fragment-index="0" style="margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line-color);">
+            <p class="imperative" style="margin: 0 0 16px 0;">Find all three in the stories above.</p>
+            <div style="display: grid; grid-template-columns: 60px 1fr; gap: 10px 26px; align-items: baseline;">
+              <span class="beat-num" style="margin: 0;">1</span>
+              <p style="margin: 0;"><strong>A person</strong> &mdash; someone it happens to.</p>
+              <span class="beat-num" style="margin: 0;">2</span>
+              <p style="margin: 0;"><strong>A turn</strong> &mdash; something changes, and usually not for the better.</p>
+              <span class="beat-num" style="margin: 0;">3</span>
+              <p style="margin: 0;"><strong>A gap</strong> &mdash; what the writer leaves out. The reader fills it in.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · SPARKS -->
+      <section id="sparks">
+        <h2>If you are stuck</h2>
+        <div class="content">
+          <p style="margin: 0 0 22px 0;">Take one thing from each column and put them together.</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px;">
+            <div>
+              <p class="kicker" style="margin: 0 0 16px 0;"><i class="fa-solid fa-key"></i>&nbsp; A thing</p>
+              <p style="margin: 0 0 12px 0;">a single glove</p>
+              <p style="margin: 0 0 12px 0;">a house key</p>
+              <p style="margin: 0;">a cracked watch</p>
+            </div>
+            <div>
+              <p class="kicker" style="margin: 0 0 16px 0;"><i class="fa-solid fa-location-dot"></i>&nbsp; A place</p>
+              <p style="margin: 0 0 12px 0;">the back of the bus</p>
+              <p style="margin: 0 0 12px 0;">a lost property box</p>
+              <p style="margin: 0;">the car park at night</p>
+            </div>
+            <div>
+              <p class="kicker" style="margin: 0 0 16px 0;"><i class="fa-solid fa-user"></i>&nbsp; A person</p>
+              <p style="margin: 0 0 12px 0;">the quiet one</p>
+              <p style="margin: 0 0 12px 0;">the new student</p>
+              <p style="margin: 0;">the brother who left</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 · GO: FIVE IN SEVEN -->
+      <section id="go-five">
+        <h2>Five stories. Seven minutes.</h2>
+        <div class="content">
+          <p>Short, strange, unfinished. Bad ones are fine &mdash; you are looking for one worth growing.</p>
+          <p class="go-cue">Go.</p>
+          <div class="timer" data-timer-seconds="420" data-timer-label="seven minutes"></div>
+        </div>
+      </section>
+
+      <!-- 9 · PART TWO -->
+      <section id="part-2" class="section-divider is-dark" data-background-color="#7A2D34">
+        <h1>Fifty words</h1>
+        <p>Now take one and grow it.</p>
+      </section>
+
+      <!-- 10 · THE GROW FRAME -->
+      <section id="grow">
+        <h2>Only three things</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            <div>
+              <p class="beat-num" style="margin: 0 0 12px 0; font-size: 44pt;">1</p>
+              <p class="step-label">One person</p>
+              <p style="margin: 0;">Who they are, and what they want.</p>
+            </div>
+            <div>
+              <p class="beat-num" style="margin: 0 0 12px 0; font-size: 44pt;">2</p>
+              <p class="step-label">One place</p>
+              <p style="margin: 0;">Where we are standing. One room is enough.</p>
+            </div>
+            <div>
+              <p class="beat-num" style="margin: 0 0 12px 0; font-size: 44pt;">3</p>
+              <p class="step-label">One thing goes wrong</p>
+              <p style="margin: 0;">In the next minute, not next week.</p>
+            </div>
+          </div>
+          <p class="text-xl" style="margin: 36px 0 0 0; padding-top: 28px; border-top: 1px solid var(--line-color);">About fifty words. One paragraph.</p>
+        </div>
+      </section>
+
+      <!-- 11 · GO: TWELVE -->
+      <section id="go-fifty">
+        <h2>Twelve minutes.</h2>
+        <div class="content">
+          <p>Finish the paragraph. Leave the spelling for the editing lesson.</p>
+          <p class="go-cue">Go.</p>
+          <div class="timer" data-timer-seconds="720" data-timer-label="twelve minutes"></div>
+        </div>
+      </section>
+
+      <!-- 12 · PART THREE -->
+      <section id="part-3" class="section-divider is-dark" data-background-color="#7A2D34">
+        <h1>Readers</h1>
+        <p>A story is finished when somebody else has heard it.</p>
+      </section>
+
+      <!-- 13 · THE MODEL STORY -->
+      <section id="model-story">
+        <h2>Here is one</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: 1fr 330px; gap: 30px; align-items: center;">
+            <div class="beat">
+              <p class="model-text">They warn you not to walk through the wood alone. I go every Thursday, with a basket for my grandmother. Last Thursday a wolf fell into step beside me and asked where I was going. I told him, although he had already guessed. By the time I reached the cottage he had got there first. Her voice was wrong: too low, too close. I asked about his eyes. I asked about his teeth. &lsquo;The better to eat you with,&rsquo; he said. &lsquo;Not yet,&rsquo; I said, and stepped back out, pulling the door shut. I bolted it from the outside and sat on the step until the shouting stopped. I still go every Thursday. The basket is for him now.</p>
+            </div>
+            <div>
+              <img class="panel-figure" src="img/door.png" style="height: 360px;" alt="A watercolour and ink drawing of a cottage door shut fast with a rusted bolt and padlock, a wicker basket and a red cloak left on the stone step.">
+              <p style="font-size: 18pt; color: var(--muted-color); margin: 18px 0 10px 0;">Listen to it read aloud.</p>
+              <audio controls preload="metadata" src="audio/model-story.mp3" style="width: 100%;"></audio>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 · THE READING ROUTINE -->
+      <section id="read-aloud">
+        <h2>Read it to two people</h2>
+        <div class="content">
+          <p class="rule-item"><span class="n">1</span>Listeners close their eyes.</p>
+          <p class="rule-item"><span class="n">2</span>Read it out loud, slowly.</p>
+          <p class="rule-item"><span class="n">3</span>Then say nothing at all.</p>
+          <p class="rule-item"><span class="n">4</span>Each listener says one thing they saw.</p>
+          <p class="imperative">One thing you saw. Not whether you liked it.</p>
+          <p style="margin: 24px 0 0 0;"><strong>A story works when you see something.</strong> &lsquo;I liked it&rsquo; doesn&rsquo;t tell the writer what you saw; &lsquo;I saw the basket on the step&rsquo; does.</p>
+        </div>
+      </section>
+
+      <!-- 15 · THE SHAPE -->
+      <section id="the-shape">
+        <h2>The shape underneath</h2>
+        <div class="content" style="justify-content: center;">
+          <div style="display: grid; grid-template-columns: 420px 1fr; gap: 44px; align-items: center;">
+            <div class="mountain">
+              <div class="mountain-col" style="height: 126px;"><span>1</span></div>
+              <div class="mountain-col" style="height: 254px;"><span>2</span></div>
+              <div class="mountain-col" style="height: 420px;"><span>3</span></div>
+              <div class="mountain-col" style="height: 254px;"><span>4</span></div>
+              <div class="mountain-col" style="height: 126px;"><span>5</span></div>
+            </div>
+            <div>
+              <p class="rule-item"><span class="n">1</span><strong>Beginning</strong> &mdash; someone, somewhere, one odd detail.</p>
+              <p class="rule-item"><span class="n">2</span><strong>Build-up</strong> &mdash; something starts to be wrong.</p>
+              <p class="rule-item"><span class="n">3</span><strong>Problem</strong> &mdash; the thing they cannot ignore.</p>
+              <p class="rule-item"><span class="n">4</span><strong>Problem solved</strong> &mdash; they do something about it.</p>
+              <p class="rule-item"><span class="n">5</span><strong>Ending</strong> &mdash; what it cost, or what they never found out.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 · THE FIVE BEATS IN IT -->
+      <section id="beats-in-model">
+        <h2>What you already did</h2>
+        <div class="content">
+          <p style="margin: 0 0 10px 0;">Which beat is this? Say it before it appears.</p>
+          <div class="beat-row">
+            <span class="beat-num">1</span>
+            <span class="beat-name fragment" data-fragment-index="0">Beginning</span>
+            <span class="beat-line">They warn you not to walk through the wood alone.</span>
+          </div>
+          <div class="beat-row">
+            <span class="beat-num">2</span>
+            <span class="beat-name fragment" data-fragment-index="1">Build-up</span>
+            <span class="beat-line">Last Thursday a wolf fell into step beside me.</span>
+          </div>
+          <div class="beat-row">
+            <span class="beat-num">3</span>
+            <span class="beat-name fragment" data-fragment-index="2">Problem</span>
+            <span class="beat-line">Her voice was wrong: too low, too close.</span>
+          </div>
+          <div class="beat-row">
+            <span class="beat-num">4</span>
+            <span class="beat-name fragment" data-fragment-index="3">Problem solved</span>
+            <span class="beat-line">I bolted it from the outside.</span>
+          </div>
+          <div class="beat-row">
+            <span class="beat-num">5</span>
+            <span class="beat-name fragment" data-fragment-index="4">Ending</span>
+            <span class="beat-line">I still go every Thursday. The basket is for him now.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 17 · EXIT -->
+      <section id="exit">
+        <div class="content" style="justify-content: center; height: 100%;">
+          <h2>Before you go</h2>
+          <p class="text-xl" style="margin: 16px 0 0 0;">The story you would write next. One sentence.</p>
+          <p class="imperative">Say it to the person beside you.</p>
+        </div>
+      </section>
+
+      <!-- 18 · CLOSE -->
+      <section id="close" class="section-divider is-dark" data-background-color="#7A2D34">
+        <h1>You wrote five stories today.</h1>
+        <p>The next one is easier.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element, so it
+       costs a deck that uses none nothing but the request. See references/timers.md. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
