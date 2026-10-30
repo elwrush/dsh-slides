@@ -383,11 +383,52 @@
         <p class="divider-sub">Your book is on the desk. Open it and read the first page &mdash; that is the programme, and it starts now.</p>
       </section>
 
+      <!-- 17 ── the reading session itself.
+           1800 seconds is 30 minutes, and 30 is this sitting's allowance, not the
+           programme's 35 — so the number lives in this one attribute and nowhere
+           else. The copy deliberately does not restate a duration: the clock says
+           it, and a slide cannot disagree with a timer it does not mention.
+           The timer never starts by itself (vendor/timer/timer.js), because only
+           the teacher knows when the room is ready. -->
+      <section id="read-now">
+        <h2>Read now</h2>
+        <div class="content" style="justify-content:center;">
+          <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
+            <div class="beat">
+              <p class="mini-kicker">Silent &mdash; no writing</p>
+              <p style="margin:0; font-size:24pt;">Phone face down. No talking, no sharing, no dictionary &mdash; keep going and let the sentence come round.</p>
+              <p style="margin:16px 0 0; font-size:24pt;">If a page is still a wall after five minutes, tell me. A book at the wrong level is my problem to fix, not yours.</p>
+            </div>
+            <div class="timer" data-timer-seconds="1800" data-timer-label="reading time"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 ── the short written response that closes the session. The prompt is
+           the teacher's wording, kept whole and verbatim; the heading is the deck's
+           own voice. 600 seconds is the ten minutes the prompt states. -->
+      <section id="write-reaction">
+        <h2>Your reaction to the book</h2>
+        <div class="content" style="justify-content:center;">
+          <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
+            <div class="beat">
+              <p class="mini-kicker">In your notebook</p>
+              <p class="big-question" style="font-size:36pt;">What do you think about the book so far? Give your reaction, and say why.</p>
+              <p style="margin:18px 0 0; font-size:24pt;">Try to write at least 70 words. You have 10 minutes.</p>
+            </div>
+            <div class="timer" data-timer-seconds="600" data-timer-label="writing time"></div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>
 
   <script src="vendor/reveal/reveal.js"></script>
   <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element, so it
+       costs a deck that uses none nothing but the request. -->
+  <script src="vendor/timer/timer.js"></script>
   <script>
     /* Print a value beside every data point. The chart config is JSON, so it
        cannot carry a callback — hence a registered plugin rather than a
