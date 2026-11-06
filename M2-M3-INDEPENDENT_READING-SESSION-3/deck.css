@@ -1,0 +1,195 @@
+/* Deck-only components — Independent reading (M2/M3, 06-11-26).
+
+   Four slides and one job each: a cover, the rundown, a thirty-three-minute
+   reading sit, a thirteen-minute writing sit with the four prompts.
+
+   Sizes come only from the deck's ladder — 56 / 36 / 44 / 30 / 24 / 18 — and
+   each rung is at least 17% from its neighbour, so no two distinct sizes sit
+   inside the 12% near-pair test. 44pt exists only for the writing clock, which
+   has to share its slide with an h1 at 56 (21% apart). */
+
+/* One size for the h1 role. `styles.css` ships 48pt; the cover statement, the
+   "Read." and the "Write." are all the same role, so they are all 56pt. */
+.reveal h1 {
+  font-size: 56pt;
+  line-height: 1.08;
+}
+
+/* Names what the slide is for, above the title. */
+.reveal .kicker {
+  margin: 0 0 12px 0;
+  font-size: 18pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+/* ---- full-bleed cover -------------------------------------- */
+
+/* NO `position: relative` HERE: reveal positions every `.slides > section`
+   absolutely, and a relative section drops every later slide by a slide-height. */
+.reveal .slides section.bleed {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.bleed-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* A wash, not a scrim, and horizontal: the art leaves its whole left half empty,
+   so the type writes into that emptiness instead of covering the boy. Light at the
+   edge (0.92 falling to nothing by 54%): the paper is already near-white and
+   anything heavier erases the sunlit floor and the pen strokes that make it a
+   drawing rather than a photograph. */
+.bleed-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(255, 250, 244, 0.92) 0%,
+    rgba(255, 250, 244, 0.86) 26%,
+    rgba(255, 250, 244, 0.42) 42%,
+    rgba(255, 250, 244, 0) 54%);
+}
+
+/* The type column is the picture's own empty half: centred on the left, so the
+   reader sits against a block of type rather than above or below one. */
+.cover-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+  padding: 0 0 0 76px;
+  box-sizing: border-box;
+}
+
+.reveal .cover-copy h1 {
+  color: var(--maroon-30);
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* ---- the rundown ------------------------------------------- */
+
+.reveal .agenda-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 0 20px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .agenda-row:first-of-type {
+  border-top: 1px solid var(--line-color);
+}
+.reveal .agenda-num {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 36pt;
+  line-height: 1;
+  color: var(--accent-text-color);
+}
+.reveal .agenda-text {
+  margin: 0;
+  font-size: 30pt;
+  line-height: 1.3;
+}
+
+/* ---- a cue: the class acts now ------------------------------ */
+
+.reveal .imperative {
+  margin: 26px 0 0 0;
+  padding-left: 20px;
+  border-left: 6px solid var(--primary-color);
+  font-size: 24pt;
+  color: var(--accent-text-color);
+}
+
+/* ---- the four prompts -------------------------------------- */
+
+/* The heading and the clock share one row at the top, so the table below gets the
+   full slide width: four complete instructions at 24pt need about 620px of line
+   length, and a clock column taken out of the middle of them cost a line on every
+   row. The heading block keeps its kicker, so "Write." is still labelled. */
+.reveal .write-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 14px;
+}
+
+/* Laid out as the table the class reads: book in the left column, its question in
+   the right. A grid rather than a <table> because a table's cells cannot be aligned
+   on the baseline of a 24pt line without fighting the element's own metrics, and
+   this is a two-column list, not tabular data.
+
+   The book column stays at 232px. "Hello, Universe" measures 278px unwrapped in the
+   24pt serif, and giving it a single line costs 46px of the question column, which
+   pushed two rows onto an extra line and overflowed the slide by 118px. It wraps to
+   two lines instead, which matches the two-line question beside it, so the rows still
+   balance. */
+.reveal .q-row {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  gap: 0 24px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .q-row:first-of-type {
+  border-top: 1px solid var(--line-color);
+}
+.reveal .q-book {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 24pt;
+  line-height: 1.2;
+  color: var(--accent-text-color);
+}
+.reveal .q-task {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.22;
+}
+
+/* The starter words in the A2 row are italic, and the italic is DECLARED rather
+   than inherited: in this deck a bare <em> computes to `font-style: normal`
+   whatever the browser's own sheet says, measured on slide 4 with getComputedStyle
+   before and after this rule. Over file:// every sheet reports itself unreadable
+   through `cssRules`, so the rule that flattens it cannot be named from the
+   document - the declaration is what works. Source Sans 3 ships a real italic
+   (styles.css declares the face), so this is a drawn italic, not a synthesised
+   slant. */
+.reveal .q-task em {
+  font-style: italic;
+}
+.reveal .q-foot {
+  margin: 12px 0 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+
+/* ---- the writing clock -------------------------------------- */
+
+/* The scaffolded readout is 100pt, sized for a slide where the clock is the only
+   thing on it. Here it shares the slide with a four-row table and an h1, so it
+   takes 44pt: 21% from the h1 above it, 22% from the 36pt numerals of the rundown
+   — both clear of the 12% near-pair test. The reading clock keeps the 100pt it
+   was designed for, because it has the slide to itself. */
+#write .timer-readout {
+  font-size: 44pt;
+  padding: 12px 20px;
+}
+#write .timer-btn {
+  font-size: 18pt;
+}
