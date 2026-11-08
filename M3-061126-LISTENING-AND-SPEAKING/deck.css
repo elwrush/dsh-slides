@@ -1,0 +1,694 @@
+/* ============================================================================
+   M3-061126-LISTENING-AND-SPEAKING — deck styles
+   The scaffold's styles.css carries the palette, the type scale and the timer.
+   This file carries only what this deck adds. Every size below is one of the
+   deck's roles: 48 (cover title / the word), 44 (break), 36 (slide title),
+   30 (IPA), 24 (body floor), 18 (kicker, attribution).
+   ========================================================================== */
+
+/* ---------- Thai. Vendored, because the scaffold's latin subsets have no
+   Thai glyphs and a system fallback would silently break the offline
+   guarantee. Written literally, never as entities. ---------- */
+@font-face {
+  font-family: "Sarabun Deck";
+  src: url("vendor/fonts/Sarabun-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Sarabun Deck";
+  src: url("vendor/fonts/Sarabun-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+
+.reveal .thai {
+  font-family: "Sarabun Deck", "Leelawadee UI", Tahoma, sans-serif;
+  font-weight: 400;
+}
+.reveal .thai-strong {
+  font-family: "Sarabun Deck", "Leelawadee UI", Tahoma, sans-serif;
+  font-weight: 600;
+}
+
+/* ---------- Phonemic script. The vendored Source Sans 3 subsets carry no IPA,
+   so a bare /ˈvʌlnərəbl/ would paint in a system face and the deck would stop
+   being self-contained for exactly the glyphs this lesson teaches. Charis SIL
+   (SIL OFL) covers the IPA block and is vendored for that job alone. ---------- */
+@font-face {
+  font-family: "Charis SIL Deck";
+  src: url("vendor/fonts/CharisSIL-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+.reveal .ipa {
+  font-family: "Charis SIL Deck", "Source Sans 3", sans-serif;
+  font-weight: 400;
+}
+
+/* ---------- 1. Cover, part one: the drawing alone, no type ---------- */
+.reveal #cover-art .cover-plate {
+  position: absolute;
+  inset: 0;
+}
+.reveal #cover-art .cover-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* ---------- 2. Cover, part two: the same drawing, with the caption band ----
+   The art's own left third was asked for empty and was not given, so the type
+   goes in a band across the water instead: opaque paper, maroon rule above,
+   and the figures, the spire and the tuk-tuk all stay uncovered. */
+.reveal #cover-text .cover-plate {
+  position: absolute;
+  inset: 0;
+}
+.reveal #cover-text .cover-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+.reveal #cover-text .caption-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 54px 60px 30px 60px;
+  /* A soft top edge, not a clean cut: the three figures wade into the band, so
+     their legs fade out under the paper rather than being sliced off by it. */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 248, 247, 0) 0%,
+    rgba(255, 248, 247, 0.86) 22%,
+    rgba(255, 248, 247, 0.97) 40%,
+    rgba(255, 248, 247, 0.97) 100%
+  );
+}
+.reveal #cover-text .caption-band::before {
+  content: '';
+  display: block;
+  width: 84px;
+  height: 6px;
+  margin-bottom: 18px;
+  background: var(--maroon-40);
+}
+.reveal #cover-text h1 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.05;
+  color: var(--accent-text-color);
+}
+.reveal #cover-text .caption-band p {
+  margin: 8px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+/* ---------- 3. Break slides ---------- */
+.reveal .slides section.break {
+  background: var(--primary-color);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.break h2 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+}
+.reveal .slides section.break p {
+  margin: 16px 0 0 0;
+  font-size: 24pt;
+  color: var(--maroon-90);
+}
+.reveal-viewport.is-break {
+  background-color: var(--primary-color);
+}
+
+/* ---------- 4. Today: four numbered aims ---------- */
+.reveal .aim-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 22px;
+  height: 100%;
+}
+.reveal .aim-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  text-align: left;
+  background: var(--neutral-98);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--maroon-40);
+  border-radius: var(--box-radius);
+  padding: 22px 26px;
+}
+.reveal .aim-num {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--maroon-100);
+  font-size: 30pt;
+  font-weight: 600;
+  line-height: 1;
+}
+.reveal .aim-card p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.15;
+}
+
+/* ---------- 5. A chart that fills the slide below its title ---------- */
+.reveal .chart-fill {
+  position: absolute;
+  inset: 96px 52px 74px 52px;
+}
+.reveal .chart-question {
+  position: absolute;
+  left: 52px;
+  right: 52px;
+  bottom: 18px;
+  margin: 0;
+  font-size: 24pt;
+  color: var(--accent-text-color);
+}
+.reveal .chart-source {
+  position: absolute;
+  right: 52px;
+  bottom: 18px;
+  margin: 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+.reveal .chart-side {
+  position: absolute;
+  left: 52px;
+  top: 96px;
+  width: 340px;
+  bottom: 74px;
+}
+.reveal .chart-side h2 {
+  margin: 0 0 14px 0;
+  font-size: 36pt;
+  line-height: 1.08;
+}
+.reveal .chart-side p {
+  margin: 0 0 12px 0;
+  font-size: 24pt;
+  line-height: 1.16;
+}
+.reveal .chart-offset {
+  position: absolute;
+  left: 430px;
+  right: 52px;
+  top: 96px;
+  bottom: 74px;
+}
+.reveal .chart-side .chart-source {
+  position: static;
+  font-size: 18pt;
+  line-height: 1.2;
+}
+
+/* ---------- 5b. Research: how much of the city is below the tide line ---- */
+.reveal .flood-step {
+  margin: 0 0 8px 0;
+}
+.reveal .flood-height {
+  margin: 0 0 8px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.reveal .flood-track {
+  height: 18px;
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.reveal .flood-bar {
+  height: 100%;
+}
+.reveal .flood-bar-1 { background: var(--maroon-30); }
+.reveal .flood-bar-2 { background: var(--maroon-40); }
+.reveal .flood-bar-3 { background: var(--blue-40); }
+.reveal .flood-figure {
+  margin: 8px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.14;
+  color: var(--text-color);
+}
+.reveal .note-line {
+  /* A conclusion revealed on a click is styled neutrally: the accent colour
+     already means "the class acts now", and an answer must not read as a cue. */
+  margin: 10px 0 0 0;
+  padding: 8px 16px;
+  font-size: 24pt;
+  line-height: 1.18;
+  color: var(--text-color);
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+
+/* ---------- 5b. Research: the league table, with the number printed ------
+   Seven numbers do not need an axis. Each bar grows on its own click and the
+   figure rides at the end of it, so the comparison is readable without
+   decoding ticks and the teacher controls the pace of the reveal.
+   The width lives in a custom property so CSS can animate it up from zero. */
+.reveal .rank-list {
+  margin: 14px 0 0 0;
+}
+.reveal .rank-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 9px 0;
+}
+.reveal .rank-city {
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .rank-plot {
+  position: relative;
+  display: block;
+  /* Margin, not padding: the label is positioned as a percentage of the track,
+     so the plot must stay exactly as wide as the track and let the label hang
+     into the margin. With padding the label lands 104px too far right. */
+  margin-right: 104px;
+}
+.reveal .rank-track {
+  position: relative;
+  display: block;
+  height: 26px;
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  /* Not clipped: a full-width bar's label sits just outside the track. */
+  overflow: visible;
+}
+.reveal .rank-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 4px;
+  background: #C9BDBE;
+  transition: width 620ms cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+.reveal .rank-fragment.visible .rank-bar {
+  width: var(--w, 0%);
+}
+.reveal .rank-bar-key {
+  background: var(--maroon-40);
+}
+.reveal .rank-label {
+  position: absolute;
+  top: 50%;
+  left: var(--w, 0%);
+  transform: translate(10px, -50%);
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-color);
+  opacity: 0;
+  /* The number waits for the bar to finish growing. */
+  transition: opacity 240ms ease-out 430ms;
+}
+.reveal .rank-fragment.visible .rank-label {
+  opacity: 1;
+}
+
+/* ---------- 5c. Research: what a flood costs ---------- */.reveal .stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.reveal .stat-card {
+  background: var(--neutral-98);
+  border: 1px solid var(--card-border);
+  border-top: 6px solid var(--maroon-40);
+  border-radius: var(--box-radius);
+  padding: 24px 24px 20px 24px;
+}
+.reveal .stat-big {
+  margin: 0;
+  font-size: 48pt;
+  line-height: 1.02;
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+.reveal .stat-cap {
+  margin: 12px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.16;
+  color: var(--text-color);
+}
+
+/* ---------- 6. The six words — the house three-stage pattern ----------
+   Say it (the phonemic script, alone) -> Spell it (the word and its part of
+   speech) -> Use it (a context sentence the class can work the meaning out
+   from). One fragment per stage, document order is click order, and the
+   stages ACCUMULATE into a single left-aligned column (ADR 0027).
+   The IPA face is Charis SIL: the vendored Source Sans 3 subsets carry no
+   IPA, and the house deck's phonemic line was silently painting in a system
+   fallback. 400 weight, because only the Regular cut is vendored. */
+.reveal .word-wrap {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  /* .content is a flex box with flex-start on the main axis, so the column
+     would otherwise sit at the top edge; centring it is what the house deck
+     does, and a stage that has only one line on it needs it. */
+  align-self: center;
+}
+.reveal .word-label {
+  font-family: var(--body-font);
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+  margin: 0 0 6px 0;
+}
+.reveal .phonemic {
+  display: inline-block;
+  margin: 0 0 18px 0;
+  padding: 8px 26px;
+  font-family: "Charis SIL Deck", "Source Sans 3", sans-serif;
+  font-size: 56pt;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: var(--info-text-color);
+  background: var(--blue-95);
+  border: 1px solid var(--blue-70);
+  border-radius: var(--box-radius);
+}
+.reveal .target-word {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin: 0 0 16px 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 48pt;
+  line-height: 1.1;
+  color: var(--text-color);
+}
+.reveal .word-pos {
+  font-family: var(--body-font);
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+/* A word with a visible referent gets a drawing instead of a sentence: the
+   third stage is the thing itself, cropped to a 3.4:1 strip so it sits under
+   the word without pushing the slide over. object-fit keeps the strip honest
+   if the image is ever replaced at a different ratio. */
+.reveal .word-figure {
+  margin: 0;
+}
+.reveal .word-figure img {
+  display: block;
+  width: 100%;
+  height: 272px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+.reveal .gap-word {
+  background: var(--maroon-95);
+  border: 2px solid var(--maroon-40);
+  border-radius: 6px;
+  padding: 0 8px;
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+/* ---------- 7. Task slides: the cue, the list, the player ---------- */
+.reveal .qlist {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+.reveal .qlist li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  margin: 0 0 10px 0;
+  font-size: 24pt;
+  line-height: 1.18;
+}
+.reveal .q-number {
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+.reveal .gap {
+  font-weight: 600;
+  color: var(--accent-text-color);
+  letter-spacing: 0.06em;
+}
+
+/* ---------- 8. Suggested answers ---------- */
+.reveal .answers {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.reveal .answer-row {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  border-top: 1px solid var(--card-border);
+  padding-top: 4px;
+}
+.reveal .answer-said {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.12;
+}
+.reveal .answer-text {
+  margin: 2px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+
+/* ---------- 8b. The model answer to a freer writing task ----------
+   Revealed on a click, after the class has written, so it is compared with
+   rather than copied. Neutral ink on a neutral panel: the accent colour means
+   "act now", and a model is not a cue. */
+.reveal .model-summary {
+  background: var(--neutral-90);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 22px 26px 18px 26px;
+}
+.reveal .model-summary p {
+  margin: 0 0 14px 0;
+  font-size: 24pt;
+  line-height: 1.22;
+  color: var(--text-color);
+}
+.reveal .model-summary p:last-child {
+  margin-bottom: 0;
+}
+.reveal .model-summary .q-number {
+  font-weight: 600;
+  color: var(--muted-color);
+  margin-right: 10px;
+}
+
+/* ---------- 9. The video frame ---------- */
+.reveal .video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: var(--box-radius);
+  overflow: hidden;
+}
+.reveal .video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* An embedded third-party map: it takes every pixel the slide can give it,
+   because a student has to be able to find their own street on it. */
+.reveal .map-frame {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  overflow: hidden;
+  background: var(--neutral-94);
+}
+.reveal .map-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.reveal .video-link {
+  margin: 10px 0 0 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+.reveal .video-link a {
+  color: var(--info-text-color);
+}
+
+/* ---------- 10. Timers ---------- */
+.reveal .timers {
+  display: flex;
+  gap: 26px;
+  align-items: stretch;
+}
+.reveal .timers > .timer {
+  flex: 1;
+}
+
+/* ---------- 11. The celebration break: flags, stars, the line ---------- */
+.reveal .slides section.celebrate {
+  background: var(--primary-color);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+  overflow: hidden;
+}
+.reveal section.celebrate .thai-line {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.24;
+  color: #FFFFFF;
+}
+.reveal section.celebrate .en-line {
+  position: relative;
+  z-index: 2;
+  margin: 14px 0 0 0;
+  font-size: 24pt;
+  color: var(--maroon-90);
+}
+.reveal section.celebrate .deco {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.85;
+}
+.reveal .thai-flag {
+  display: inline-block;
+  width: 96px;
+  height: 64px;
+  border-radius: 4px;
+  /* red / white / blue (double) / white / red — the Thai flag's five bands */
+  background: linear-gradient(
+    to bottom,
+    #A51931 0%, #A51931 16.66%,
+    #F4F5F8 16.66%, #F4F5F8 33.33%,
+    #2D2A4A 33.33%, #2D2A4A 66.66%,
+    #F4F5F8 66.66%, #F4F5F8 83.33%,
+    #A51931 83.33%, #A51931 100%
+  );
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+.reveal-viewport.is-celebrate {
+  background-color: var(--primary-color);
+}
+
+/* ---------- 12. Alt text and small print ---------- */
+.reveal .slides section > .footnote {
+  position: absolute;
+  left: 60px;
+  right: 60px;
+  bottom: 16px;
+  margin: 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+
+/* ── Answer keys in the worksheet's own shape ───────────────────────────────
+   The sheet's notes are a marker ladder — 1) then a. then i., alternating — and
+   its map is a set of branches. A flat list of answers hides that structure, so
+   the key is set as nested lists and the markers are generated by the ladder:
+   the slide then shows the same shape the class wrote in their notebooks. */
+.reveal .notes {
+  font-size: 18pt;
+  line-height: 1.32;
+  text-align: left;
+}
+.reveal .notes ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: note;
+}
+.reveal .notes ol ol {
+  margin-left: 28px;
+}
+.reveal .notes li {
+  position: relative;
+  padding-left: 40px;
+  margin: 2px 0;
+}
+.reveal .notes li::before {
+  counter-increment: note;
+  position: absolute;
+  left: 0;
+  width: 34px;
+  font-weight: 700;
+  color: var(--accent-text-color);
+}
+.reveal .notes > ol > li::before { content: counter(note) ")"; }
+.reveal .notes ol ol > li::before { content: counter(note, lower-alpha) "."; }
+.reveal .notes ol ol ol > li::before { content: counter(note, lower-roman) "."; }
+.reveal .notes ol ol ol ol > li::before { content: counter(note, lower-alpha) "."; }
+/* A line the sheet already prints, and a line the class had to fill. */
+.reveal .notes .given { color: #6f6f6f; }
+.reveal .notes .answer { font-weight: 700; }
+.reveal .notes-label {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  margin: 0 0 6px 0;
+}
+.reveal .notes ol ol ol ol ol > li::before { content: counter(note, lower-roman) "."; }
+.reveal .notes ol ol ol ol ol ol > li::before { content: counter(note, lower-alpha) "."; }
