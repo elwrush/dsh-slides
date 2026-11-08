@@ -1,0 +1,367 @@
+/* ── M2 Listening · Online Grooming ─────────────────────────────────────────
+   Only the classes this deck needs. styles.css carries the palette, the type
+   ladder, .chip, .panel, .stat, .imperative and the text utilities.
+   ------------------------------------------------------------------------- */
+
+/* Thai. The scaffold's Source Sans 3 is a latin subset: it has no Thai glyphs,
+   so a Thai line would paint in a system fallback and the deck would stop being
+   self-contained. Vendored, declared here, used through .thai only. */
+@font-face {
+  font-family: "Sarabun Deck";
+  src: url("vendor/fonts/Sarabun-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: "Sarabun Deck";
+  src: url("vendor/fonts/Sarabun-SemiBold.ttf") format("truetype");
+  font-weight: 600; font-style: normal; font-display: block;
+}
+.thai { font-family: "Sarabun Deck", "Leelawadee UI", Tahoma, sans-serif; }
+
+/* IPA. Source Sans 3's latin subset carries none of ˈ ʌ ə ʊ ɪ ɑː ɡ, so a
+   phonemic transcription would silently fall back. */
+@font-face {
+  font-family: "Charis IPA";
+  src: url("vendor/fonts/CharisSIL-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: block;
+}
+.ipa { font-family: "Charis IPA", "Charis SIL", Georgia, serif; }
+
+/* ── Cover: art in its own full-height column, type padded clear ────────── */
+.cover { padding: 0 !important; }
+.cover-art {
+  position: absolute; top: 0; right: 0;
+  width: 430px; height: 720px;
+  object-fit: cover; object-position: 62% center;
+}
+.cover-text {
+  position: absolute; top: 0; left: 0;
+  width: calc(100% - 430px); height: 720px;
+  box-sizing: border-box;
+  padding: 76px 56px 76px 76px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.reveal .cover-kicker {
+  font-size: 18pt; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--maroon-30); margin: 0 0 28px 0;
+}
+.reveal .cover-bubble {
+  display: inline-block; align-self: flex-start;
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px 28px;
+  font-size: 48pt; line-height: 1.15; font-weight: 600;
+  margin: 0; color: var(--text-color);
+}
+.reveal .cover-strap {
+  font-size: 24pt; color: var(--muted-color); margin: 34px 0 0 0;
+}
+
+/* ── Section dividers: one heading, nothing else ────────────────────────── */
+.reveal .slides .section-divider h1 {
+  font-size: 56pt !important; color: #FFFFFF; margin: 0;
+}
+.reveal .section-divider p.divider-strap {
+  font-size: 24pt !important;
+  color: #FFFFFF !important;
+  margin: 18px 0 0 0;
+}
+
+/* ── Task box: a tinted panel whose label says how the class acts ───────── */
+.task-box {
+  background: var(--neutral-94);
+  border-left: 6px solid var(--maroon-40);
+  padding: 16px 24px 18px 24px;
+  margin: 18px 0 0 0;
+}
+.task-box .label {
+  display: block;
+  font-size: 18pt; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--maroon-30);
+  margin: 0 0 8px 0;
+}
+.task-box p { font-size: 24pt; margin: 4px 0; }
+.task-box p:last-child { margin-bottom: 0; }
+
+/* ── The one big number ─────────────────────────────────────────────────── */
+.reveal .bigstat { font-size: 96pt; line-height: 1; font-weight: 600; margin: 0; }
+.bigstat-note { font-size: 24pt; margin: 14px 0 0 0; }
+
+/* ── Question list ──────────────────────────────────────────────────────── */
+.qlist { list-style: none; margin: 10px 0 0 0; padding: 0; }
+.qlist li { font-size: 24pt; margin: 0 0 12px 0; display: flex; gap: 14px; }
+.qlist .num { flex: 0 0 1.4em; font-weight: 600; color: var(--maroon-30); }
+
+/* ── Answer chips: neutral, so an answer never reads as a cue ───────────── */
+.answer-row { display: flex; gap: 16px; align-items: baseline; margin: 0 0 12px 0; }
+.answer-row .num { flex: 0 0 1.6em; font-weight: 600; color: var(--muted-color); }
+.answer-row .val {
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  padding: 2px 14px;
+}
+
+/* ── Model answer panel ─────────────────────────────────────────────────── */
+.model-summary {
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  padding: 20px 26px;
+  margin: 16px 0 0 0;
+}
+.model-summary ol { margin: 0; padding-left: 1.3em; }
+.model-summary li { font-size: 24pt; margin: 0 0 12px 0; }
+.model-summary li:last-child { margin-bottom: 0; }
+
+/* ── Video ──────────────────────────────────────────────────────────────── */
+.video-frame {
+  width: 620px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--card-border);
+  margin: 12px 0 0 0;
+}
+.video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.video-fallback { font-size: 18pt; margin: 10px 0 0 0; }
+
+/* ── Vocabulary slide: three stages accumulating down one column ────────── */
+.vocab-say {
+  display: inline-block;
+  background: var(--blue-90);
+  border: 1px solid var(--card-border);
+  padding: 6px 20px;
+  font-size: 30pt;
+}
+.reveal .vocab-word { font-size: 48pt; font-weight: 600; margin: 14px 0 0 0; }
+.reveal .vocab-pos {
+  font-size: 18pt; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted-color); margin: 4px 0 0 0;
+}
+.reveal .vocab-use { font-size: 24pt; margin: 18px 0 0 0; max-width: 900px; }
+.vocab-use .gap-word { font-weight: 600; color: var(--maroon-30); }
+
+/* ── The five-word box ──────────────────────────────────────────────────── */
+.wordbox {
+  display: inline-block;
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  padding: 8px 20px;
+  font-size: 24pt; letter-spacing: .02em;
+}
+
+/* ── Today: the M3 aim-card grid ───────────────────────────────────────────
+   A numbered card per aim, number in a filled circle, border-left accent.
+   Five aims: 2 + 2 + 1, the last card spanning the full width. */
+.reveal .aim-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  height: 100%;
+}
+.reveal .aim-card {
+  display: flex; flex-direction: row; align-items: center; gap: 20px;
+  text-align: left;
+  background: var(--neutral-98);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--maroon-40);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.reveal .aim-card.wide { grid-column: 1 / -1; }
+.reveal .aim-num {
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #FFFFFF;
+  font-size: 30pt; font-weight: 600; line-height: 1;
+}
+.reveal .aim-card p { margin: 0; font-size: 24pt; line-height: 1.15; }
+
+/* ── Vocabulary: the M3 three-stage, ported ────────────────────────────────
+   Say it / Spell it / Use it (or See it), accumulating down one left-aligned
+   column. No heading on the slide: the break slide introduces the section. */
+.reveal .word-wrap { width: 100%; max-width: 100%; text-align: left; align-self: center; }
+.reveal .word-label {
+  font-family: var(--body-font);
+  font-size: 18pt; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted-color);
+  margin: 0 0 6px 0;
+}
+.reveal .phonemic {
+  display: inline-block; margin: 0 0 18px 0; padding: 8px 26px;
+  font-family: "Charis IPA", "Charis SIL", Georgia, serif;
+  font-size: 56pt; line-height: 1.15; letter-spacing: 0.02em;
+  color: var(--info-text-color);
+  background: var(--blue-95);
+  border: 1px solid var(--blue-70);
+  border-radius: var(--box-radius);
+}
+.reveal .target-word {
+  display: flex; align-items: baseline; gap: 18px;
+  margin: 0 0 16px 0;
+  font-family: var(--heading-font); font-weight: 600;
+  font-size: 48pt; line-height: 1.1; color: var(--text-color);
+}
+.reveal .word-pos {
+  font-family: var(--body-font);
+  font-size: 18pt; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted-color);
+}
+.reveal .word-figure { margin: 0; }
+.reveal .word-figure img {
+  display: block; width: 100%; height: 250px;
+  object-fit: cover; object-position: 50% 50%;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+.reveal .gap-word {
+  background: var(--maroon-95);
+  border: 2px solid var(--maroon-40);
+  border-radius: 6px; padding: 0 8px;
+  font-weight: 600; color: var(--text-color); white-space: nowrap;
+}
+
+/* ── The video introduction: the badge, then one sentence ───────────────── */
+.reveal .police-logo {
+  display: block;
+  align-self: flex-start;
+  /* Both dimensions fixed AND object-fit: contain, so no parent rule and no
+     flex stretch can ever distort the badge. The ratio is the file's own. */
+  width: 142px !important;
+  height: 174px !important;
+  object-fit: contain;
+  margin: 0 0 22px 0;
+}
+.reveal .video-intro {
+  font-size: 30pt; line-height: 1.35; max-width: 940px; margin: 0;
+}
+
+/* ── M3 layout language: the kicker above a short title, and a two-column
+   task slide with the instructions on the left and the player on the right. */
+.reveal .kicker {
+  font-family: var(--body-font);
+  font-size: 18pt; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--maroon-30);
+  margin: 0 0 4px 0;
+}
+.reveal .video-link { font-size: 18pt; margin: 10px 0 0 0; }
+.reveal .video-frame { width: 100%; }
+
+/* ── Break slides: the maroon punctuation mark, M3's rule ───────────────── */
+.reveal .slides section.break {
+  background: var(--primary-color);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.break h2 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+}
+.reveal-viewport.is-break { background-color: var(--primary-color); }
+
+/* ── Research: the stat cards, M3's pattern ─────────────────────────────── */
+.reveal .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.reveal .stat-card {
+  background: var(--neutral-98);
+  border: 1px solid var(--card-border);
+  border-top: 6px solid var(--maroon-40);
+  border-radius: var(--box-radius);
+  padding: 22px 22px 18px 22px;
+}
+.reveal .stat-big {
+  margin: 0; font-size: 48pt; line-height: 1.02; font-weight: 600;
+  color: var(--accent-text-color);
+}
+.reveal .stat-cap {
+  margin: 12px 0 0 0; font-size: 24pt; line-height: 1.16; color: var(--text-color);
+}
+
+/* ── The cue: a question the class can see BEFORE the answer is revealed.
+   It is the guidance the slide was missing: the reader knows what to think
+   about, and the fragment under it answers that question. */
+.reveal .cue {
+  font-size: 24pt; font-weight: 600; color: var(--maroon-30);
+  margin: 16px 0 2px 0;
+}
+
+/* ── Victoria Police slide: CRAP. The badge is not a sticker between the
+   heading and the sentence — it stands in its own half of a two-column grid,
+   exactly where the video player sits on the slides that follow (repetition),
+   and the sentence is one aligned block on the left (proximity). */
+.reveal .logo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reveal .police-logo {
+  align-self: center;
+  width: 245px !important;
+  height: 300px !important;
+  object-fit: contain;
+  margin: 0;
+}
+.reveal .base {
+  font-size: 24pt;
+  color: var(--muted-color);
+  display: inline-block;
+  min-width: 210px;
+}
+
+/* ── Task 1 answers: the sentence itself is the slide, and the answer fills
+   its blank in place. The slot keeps its width while the fragment is hidden,
+   so the rule is visible and nothing reflows when the word lands. */
+.reveal .fill { font-size: 24pt; line-height: 1.55; margin: 0 0 18px 0; }
+.reveal .slot {
+  display: inline-block;
+  min-width: 150px;
+  line-height: 1.2;
+  vertical-align: baseline;
+  text-align: center;
+  border-bottom: 2px solid var(--maroon-40);
+  padding: 0 8px;
+}
+.reveal .keep { white-space: nowrap; }
+
+/* The model answer is a paragraph, not a numbered list: it has to look like the
+   thing the class is being asked to write. */
+.reveal .model-summary p {
+  font-size: 24pt;
+  line-height: 1.45;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* ── The lead-in. A task slide that only instructs reads like a form; one
+   line above the box, in the teacher's voice, says why we are doing this. */
+.reveal .lead {
+  font-size: 30pt;
+  line-height: 1.3;
+  margin: 0 0 18px 0;
+  color: var(--text-color);
+}
+
+/* ── The strap: a wide drawing across the foot of the slide, holding the
+   bottom edge so the text above it keeps its own space. */
+.reveal .strap {
+  display: block;
+  width: 100%;
+  height: 236px;
+  object-fit: cover;
+  object-position: 50% 58%;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  margin: 24px 0 0 0;
+}
+
+/* ── The gaming-time chart ──────────────────────────────────────────────── */
+.reveal .chart-box { position: relative; height: 300px; margin: 10px 0 0 0; }
+.reveal .chart-box canvas { width: 100% !important; height: 100% !important; }
+.reveal .chart-source { font-size: 18pt; line-height: 1.25; color: var(--muted-color); margin: 14px 0 0 0; }
