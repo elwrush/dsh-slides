@@ -1,0 +1,234 @@
+/* Deck-only components — Krisana Kraisintu independent reading (M2, 09-11-26).
+
+   Sizes come only from the deck's ladder, and every rung is at least 17% from its
+   neighbour so nothing trips the 12% near-pair test:
+     56 (h1, every break and the cover), 44 (h2), 36 (a question stem),
+     30 (agenda rows), 24 (body, options, task text), 18 (kicker, credit, cue).
+
+   Nothing here is scaffolding: `styles.css` ships the palette and the type, and a
+   re-scaffold overwrites it, so every house class this deck needs lives in this file. */
+
+.reveal h1 { font-size: 56pt; line-height: 1.08; }
+.reveal h2 { font-size: 44pt; line-height: 1.12; }
+.reveal h3 { font-size: 36pt; line-height: 1.2; }
+
+.reveal .kicker {
+  margin: 0 0 12px 0;
+  font-size: 18pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+/* ---- a break: the lesson changes gear ------------------------------
+   Heading only. No sub-line, no number, no citation: the slide is a
+   punctuation mark, and anything else on it turns it back into a slide
+   the class has to read. */
+
+.reveal .slides section.break {
+  padding: 0 96px !important;
+}
+.reveal .break h1 {
+  color: #fff;
+  margin: 0;
+  text-wrap: balance;
+  max-width: 15ch;
+}
+
+/* ---- full-bleed cover ---------------------------------------------
+   NO `position: relative` on the section: reveal positions every
+   `.slides > section` absolutely, and a relative section drops every
+   later slide by a slide-height. */
+
+.reveal .slides section.bleed {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.bleed-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% center;   /* keeps her face; the shelves take the left */
+  display: block;
+}
+
+/* A horizontal wash, light at the edge and gone by 58%: the drawing is ink on
+   near-white paper, so a heavier scrim erases the pen strokes that make it a
+   drawing. The type sits in the empty shelf half, never over her. */
+.bleed-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(255, 250, 244, 0.97) 0%,
+    rgba(255, 250, 244, 0.94) 34%,
+    rgba(255, 250, 244, 0.62) 52%,
+    rgba(255, 250, 244, 0) 66%);
+}
+
+.cover-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  /* 44%, not 52%: her shoulder reaches about x=600 of 1280 and the column ran to
+     665, so the lede's last words printed on the drawing. The type now stops at
+     563 and the wash carries a little further. */
+  width: 44%;
+  padding: 0 0 0 76px;
+  box-sizing: border-box;
+}
+
+.reveal .cover-copy h1 {
+  color: var(--maroon-30);
+  margin: 0;
+  text-wrap: balance;
+}
+.reveal .cover-copy .lede {
+  margin: 22px 0 0 0;
+  font-size: 30pt;
+  line-height: 1.25;
+  color: var(--neutral-30);
+}
+
+/* ---- the rundown -------------------------------------------------- */
+
+.reveal .agenda-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 0 20px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .agenda-row:first-of-type { border-top: 1px solid var(--line-color); }
+.reveal .agenda-num {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--accent-text-color);
+}
+.reveal .agenda-text { margin: 0; font-size: 30pt; line-height: 1.3; }
+
+/* ---- photo and text side by side ----------------------------------
+   The picture keeps its own column; nothing is written over the boy. */
+
+.reveal .split {
+  display: grid;
+  grid-template-columns: 1fr 46%;
+  gap: 48px;
+  align-items: center;
+  height: 100%;
+}
+.reveal .split-photo {
+  position: relative;
+  height: 78vh;
+  max-height: 620px;
+  overflow: hidden;
+}
+.reveal .split-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% center;
+  display: block;
+}
+/* No credit overlay: the photograph carries "AP Photo / David Longstreth, 2001"
+   in its own corner, and a second label printed straight on top of the first. */
+
+/* ---- the quiz ----------------------------------------------------- */
+
+/* A flex row, not the usual negative text-indent trick: an option letter that
+   hangs left of the text block reads as a page margin and, measured here, sat
+   46px outside the question above it. The letter is a column of its own. */
+.reveal .opt {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 12px 0;
+  font-size: 24pt;
+  line-height: 1.22;
+}
+.reveal .opt b {
+  flex: 0 0 32px;
+  font-family: var(--heading-font);
+  color: var(--accent-text-color);
+}
+
+/* The revealed answer: one click, and it names the letter as well as the reason,
+   because the class is marking a letter on paper, not reading an explanation. */
+.reveal .answer {
+  margin: 18px 0 0 0;
+  padding: 12px 18px;
+  font-size: 24pt;
+  line-height: 1.25;
+  color: #fff;
+  background: var(--positive-40);
+  border-left: 6px solid var(--positive-30);
+}
+.reveal .answer b { font-weight: 700; }
+
+/* ---- a point the class acts on ------------------------------------ */
+
+.reveal .task-box {
+  margin: 18px 0 0 0;
+  padding: 16px 20px;
+  background: var(--neutral-94);
+  border-left: 6px solid var(--maroon-30);
+}
+.reveal .task-label {
+  margin: 0 0 8px 0;
+  font-size: 18pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--maroon-30);
+}
+.reveal .task-box p { font-size: 24pt; line-height: 1.25; margin: 0 0 6px 0; }
+.reveal .task-box p:last-child { margin-bottom: 0; }
+
+/* The scaffold's own mechanism, kept: an absolutely positioned marker with padding
+   reserved for it. A flex row was tried first and was wrong — text inside a flex
+   container becomes an anonymous flex item, and the wrapped second line of an item
+   then aligned to that item's own box instead of the sentence. Only the glyph and
+   its width change: an arrow for a tip, not a dot for a list. */
+.reveal .slides section .tips { margin: 0; padding: 0; list-style: none; }
+.reveal .slides section .tips li {
+  position: relative;
+  padding-left: 34px;
+  margin: 0 0 14px 0;
+  font-size: 24pt;
+  line-height: 1.25;
+  text-align: left;
+}
+.reveal .slides section .tips li::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  color: var(--accent-text-color);
+}
+
+/* ---- clocks -------------------------------------------------------
+   The reading clock has its slide; the writing clock shares its own. */
+
+#write .timer-readout { font-size: 44pt; padding: 12px 20px; }
+#write .timer-btn { font-size: 18pt; }
+
+/* ---- vertical placement -------------------------------------------
+   The quiz, the tips and the tasks are short blocks on a 720px slide; left
+   top-aligned they float in the upper half. Centred, the block is the slide. */
+/* Same specificity as the scaffold's .reveal .slides section > .content
+   (0,3,1): a two-class selector loses to it, and the block stays top-aligned
+   however the rule is written. Ours loads second, so it wins the tie. */
+.reveal .slides section > .content {
+  justify-content: center;
+}
