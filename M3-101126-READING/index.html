@@ -19,15 +19,20 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- 1 ── cover. The drawing leaves its own left third pale, so the type sits
-           there and nothing is printed over the figure. -->
-      <section id="cover" class="bleed">
-        <img class="bleed-img" src="img/cover.jpg"
-             alt="Colour illustration of a hooded figure at a laptop beside a half-open vault door, coins pouring into a sack">
-        <div class="bleed-veil"></div>
+      <!-- 1 ── cover. Type on the house maroon, the illustration as a framed plate. The
+           earlier versions ran the drawing full-bleed behind a cream gradient, and every
+           one of them had the same fault: the type had to sit over the picture, so either
+           the gradient showed as a milky band across the vault, or the panel edge cut the
+           vault door. A plate has neither — nothing is written over the artwork. -->
+      <section id="cover" class="bleed cover-maroon">
         <div class="cover-copy">
+          <p class="cover-kicker">Reading &middot; M3</p>
           <h1>The Binance hack</h1>
-          <p class="lede">Let&rsquo;s read about the biggest cryptocurrency theft in history.</p>
+          <p class="lede">What one theft teaches every business.</p>
+        </div>
+        <div class="cover-plate">
+          <img src="img/cover.jpg"
+               alt="Colour illustration of a hooded figure at a laptop beside a half-open vault door, coins pouring into a sack">
         </div>
       </section>
 
@@ -45,11 +50,11 @@
           </div>
           <div class="agenda-row">
             <p class="agenda-num">3</p>
-            <p class="agenda-text">Read.</p>
+            <p class="agenda-text">Work it out: the answer the text never gives.</p>
           </div>
           <div class="agenda-row">
             <p class="agenda-num">4</p>
-            <p class="agenda-text">Work it out: the answer the text never gives.</p>
+            <p class="agenda-text">Read, and use what you learned.</p>
           </div>
           <div class="agenda-row">
             <p class="agenda-num">5</p>
@@ -76,69 +81,88 @@
             <li>Cryptocurrency is <strong>digital money</strong>. There is no coin in your pocket.</li>
             <li>A <strong>wallet</strong> holds the keys that prove the money is yours. Lose the keys, lose the money.</li>
             <li>An <strong>exchange</strong> is a company where people buy and sell it. Binance is one.</li>
-            <li>In this theft, US$6.3 billion went &mdash; about <strong>211,000 ล้านบาท</strong>.</li>
+            <li>About <strong>US$6.3 billion</strong> was stolen &mdash; roughly <strong>211,000 ล้านบาท</strong>.</li>
           </ul>
         </div>
       </section>
 
-      <!-- 5-8 ── four questions, one click each. The answer names the letter as well as
-           the reason: the class marks a letter on paper, not an explanation. -->
+      <!-- 5-8 ── four questions, no answers on the slides. The correct options were
+           shuffled under seed 20261110 so the letters do not run A-B-C-D;
+           _probe/deck-shuffle-mcq.py regenerates them from that seed. -->
       <section>
         <div class="content">
           <p class="kicker">Question 1 of 4</p>
           <h3>What is cryptocurrency?</h3>
-          <p class="opt"><b>A</b> Money that exists only on computers.</p>
-          <p class="opt"><b>B</b> Paper money you can hold.</p>
-          <p class="opt"><b>C</b> A kind of bank account.</p>
-          <p class="opt"><b>D</b> A company that lends money.</p>
-          <p class="answer fragment"><b>A.</b> It is digital money &mdash; nothing physical changes hands.</p>
+          <p class="opt"><b>A</b> Paper money you can hold.</p>
+          <p class="opt"><b>B</b> Money that exists only on computers.</p>
+          <p class="opt"><b>C</b> A company that lends money.</p>
+          <p class="opt"><b>D</b> A kind of bank account.</p>
         </div>
       </section>
-
       <section>
         <div class="content">
           <p class="kicker">Question 2 of 4</p>
           <h3>What does a crypto-wallet actually hold?</h3>
-          <p class="opt"><b>A</b> The coins themselves.</p>
-          <p class="opt"><b>B</b> The keys that prove the money is yours.</p>
-          <p class="opt"><b>C</b> Your bank account number.</p>
-          <p class="opt"><b>D</b> A list of everything you bought.</p>
-          <p class="answer fragment"><b>B.</b> The money is on the blockchain. The wallet holds the keys to it.</p>
+          <p class="opt"><b>A</b> The keys that prove the money is yours.</p>
+          <p class="opt"><b>B</b> Your bank account number.</p>
+          <p class="opt"><b>C</b> A list of everything you bought.</p>
+          <p class="opt"><b>D</b> The coins themselves.</p>
         </div>
       </section>
-
       <section>
         <div class="content">
           <p class="kicker">Question 3 of 4</p>
           <h3>What is an exchange like Binance for?</h3>
-          <p class="opt"><b>A</b> Sending letters.</p>
-          <p class="opt"><b>B</b> Keeping paper money safe.</p>
-          <p class="opt"><b>C</b> Buying and selling cryptocurrency.</p>
-          <p class="opt"><b>D</b> Insuring a mobile phone.</p>
-          <p class="answer fragment"><b>C.</b> An exchange is a company where customers buy and sell digital money.</p>
+          <p class="opt"><b>A</b> Keeping paper money safe.</p>
+          <p class="opt"><b>B</b> Insuring a mobile phone.</p>
+          <p class="opt"><b>C</b> Sending letters.</p>
+          <p class="opt"><b>D</b> Buying and selling cryptocurrency.</p>
         </div>
       </section>
-
       <section>
         <div class="content">
           <p class="kicker">Question 4 of 4</p>
           <h3>Why is a stolen laptop dangerous for someone who owns cryptocurrency?</h3>
-          <p class="opt"><b>A</b> It is expensive to replace.</p>
-          <p class="opt"><b>B</b> It holds their holiday photographs.</p>
-          <p class="opt"><b>C</b> It uses a lot of electricity.</p>
-          <p class="opt"><b>D</b> The keys to the money may be on it.</p>
-          <p class="answer fragment"><b>D.</b> A password or a key on the machine can open the money.</p>
+          <p class="opt"><b>A</b> It holds their holiday photographs.</p>
+          <p class="opt"><b>B</b> It uses a lot of electricity.</p>
+          <p class="opt"><b>C</b> The keys to the money may be on it.</p>
+          <p class="opt"><b>D</b> It is expensive to replace.</p>
         </div>
       </section>
 
-      <!-- 9 ── break into the reading. -->
+      <!-- 9 ── the four answers, together and only now, so the quiz keeps its suspense and
+           no answer hints at the next question. One fragment per row. -->
+      <section id="answers">
+        <div class="content">
+          <p class="kicker">The answers</p>
+          <h2>Check yours</h2>
+          <div class="step fragment" style="margin-top:24px;">
+            <p class="step-num">1</p>
+            <p><strong>B</strong> &mdash; money that exists only on computers.</p>
+          </div>
+          <div class="step fragment">
+            <p class="step-num">2</p>
+            <p><strong>A</strong> &mdash; the keys that prove the money is yours.</p>
+          </div>
+          <div class="step fragment">
+            <p class="step-num">3</p>
+            <p><strong>D</strong> &mdash; buying and selling cryptocurrency.</p>
+          </div>
+          <div class="step fragment">
+            <p class="step-num">4</p>
+            <p><strong>C</strong> &mdash; the keys to the money may be on it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 ── break into the reading. -->
       <section class="break" data-background-color="#7A2D34">
         <div class="content" style="justify-content:center;">
           <h1>Get ready to read</h1>
         </div>
       </section>
 
-      <!-- 10 ── reading behaviour, and the no-glosses rule said out loud, because a
+      <!-- 11 ── reading behaviour, and the no-glosses rule said out loud, because a
            class that has never seen a sheet without a word list will sit and wait. -->
       <section id="ready">
         <div class="content">
@@ -156,31 +180,18 @@
         </div>
       </section>
 
-      <!-- 11 ── the reading clock. One clock for the room, so everyone finishes
-           together; the seconds live in the attribute and nowhere in the copy. -->
-      <section id="read">
-        <div class="content" style="justify-content:center;">
-          <div style="display:grid; grid-template-columns:1fr auto; gap:64px; align-items:center;">
-            <div>
-              <p class="kicker">Silent reading</p>
-              <h1>Read.</h1>
-              <ul class="tips" style="margin-top:22px;">
-                <li>Answer the questions as you go.</li>
-                <li>A hard sentence? Read it twice &mdash; once fast, once slowly.</li>
-              </ul>
-            </div>
-            <div class="timer" data-timer-seconds="600" data-timer-label="reading time"></div>
-          </div>
-        </div>
-      </section>
+      <!-- 12 ── the focus area M2 did not have, and it now comes BEFORE the reading:
+           the skill is pre-taught, then applied while they read. The model text is a
+           PARALLEL one, never the text in front of them — doing it on their own text
+           would hand over the answer to a sheet question.
 
-      <!-- 12 ── the focus area M2 did not have. An inference question is modelled on a
-           PARALLEL text, never on the text the class has just read: the target text is
-           still in front of them, and doing the example on it would hand over the answer
-           to a sheet question. -->
+           The heading carries "(inferences)" inside the same <h1>, on a wider measure
+           than the usual 15ch: the class needs the word to take away, and putting it on
+           a second line at a smaller size would turn the punctuation mark into a slide
+           they have to read, which is what these slides exist to avoid. -->
       <section class="break" data-background-color="#7A2D34">
         <div class="content" style="justify-content:center;">
-          <h1>Questions the text never answers</h1>
+          <h1 style="max-width:28ch;">Questions the text never answers (inferences)</h1>
         </div>
       </section>
 
@@ -191,11 +202,11 @@
           <p class="kicker">A worked example &mdash; not from your text</p>
           <h2>The shop on the corner</h2>
           <div class="specimen">
-            Mr Somchai&rsquo;s shop opens at seven every morning. On Tuesday its shutters were
+            Mr Korn&rsquo;s shop opens at seven every morning. On Tuesday its shutters were
             still down at nine, and the sign above the door was gone. His brother was working
             at the stall two doors along.
           </div>
-          <h3>What has happened to Mr Somchai&rsquo;s shop?</h3>
+          <h3>What has happened to Mr Korn&rsquo;s shop?</h3>
           <div class="task-box">
             <p class="task-label">In your notebook</p>
             <p>Answer the question. Then write the three things in the text that made you sure.</p>
@@ -241,55 +252,84 @@
         </div>
       </section>
 
-      <!-- 16 ── the transfer. Both levels are named because the room is mixed and the
-           two sheets carry the item at a different number; A2 has no inference item, so
-           the A2 line is honest about that rather than inventing one. -->
+      <!-- 16 ── the transfer. Both levels are named because the room is mixed and the two
+           sheets carry the item at a different number; A2 has no inference item, so the A2
+           line is honest about that rather than inventing one. It is a LOOK-FOR slide, not
+           a do-it-now slide: the reading has not started. -->
       <section id="yours">
         <div class="content">
-          <p class="kicker">Now your own text</p>
-          <h2>Find your question</h2>
+          <p class="kicker">When you read</p>
+          <h2>Your question</h2>
           <ul class="tips" style="margin-top:22px;">
             <li><strong>B1</strong> &mdash; question 5: what does it tell us about how accounts are really stolen?</li>
             <li><strong>B2</strong> &mdash; question 4: your own account, and how someone would get into it.</li>
-            <li><strong>A2</strong> &mdash; you have no question of this kind. Do the four steps on the shop, then help your partner.</li>
+            <li><strong>A2</strong> &mdash; you have no question of this kind.</li>
           </ul>
           <div class="task-box">
             <p class="task-label">In your notebook</p>
-            <p>Nothing in the text says the answer. Use the four steps, and name the two facts you added together.</p>
+            <p>Nothing in the text says the answer. When you reach your question, use the four steps and name the two facts you added together.</p>
           </div>
         </div>
       </section>
 
-      <!-- 17 ── break into checking. -->
+      <!-- 17 ── the reading clock, after the skill. One clock for the room, so everyone
+           finishes together; the seconds live in the attribute and nowhere in the copy. -->
+      <section id="read">
+        <div class="content" style="justify-content:center;">
+          <div style="display:grid; grid-template-columns:1fr auto; gap:64px; align-items:center;">
+            <div>
+              <p class="kicker">Silent reading</p>
+              <h1>Read.</h1>
+              <ul class="tips" style="margin-top:22px;">
+                <li>Answer the questions as you go &mdash; your inference question included.</li>
+                <li>Use the four steps on it. Do not guess from memory.</li>
+              </ul>
+            </div>
+            <div class="timer" data-timer-seconds="600" data-timer-label="reading time"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 ── break into checking. -->
       <section class="break" data-background-color="#7A2D34">
         <div class="content" style="justify-content:center;">
           <h1>Check your comprehension</h1>
         </div>
       </section>
 
-      <!-- 18 ── self-check. "Do not change your answer" is the instruction that matters:
-           a corrected paper hides what the class still needs teaching. -->
+      <!-- 19 ── self-check. "Do not change your answer" is the instruction that matters:
+           a corrected paper hides what the class still needs teaching. The clock runs 6
+           minutes (teacher's call, 2026-11-10 — it was 4): enough to mark six answers
+           against the key, find the sentence behind each wrong one, and read the notes
+           under the answers.
+
+           The heading is OUTSIDE the grid on purpose. When the grid held the h2 as well,
+           the heading was squeezed into the 1fr column and broke as "Check your own /
+           answers", while the clock centred itself against a column of the wrong height. -->
       <section id="check">
         <div class="content">
           <p class="kicker">Self-check</p>
           <h2>Check your own answers</h2>
-          <div class="task-box">
-            <p class="task-label">On your own</p>
-            <p>Take the answer page. Do not change your answers &mdash; mark each one right or wrong.</p>
-            <p>For every wrong answer, find the sentence in the text that shows why.</p>
-            <p>Write your score at the top of the sheet.</p>
+          <div style="display:grid; grid-template-columns:1fr auto; gap:56px; align-items:start; margin-top:16px;">
+            <div class="task-box" style="margin-top:0;">
+              <p class="task-label">On your own</p>
+              <p>Take the answer page. Do not change your answers &mdash; mark each one right or wrong.</p>
+              <p>For every wrong answer, find the sentence in the text that shows why.</p>
+              <p>Write your score at the top of the sheet.</p>
+            </div>
+            <div class="timer" data-timer-seconds="360" data-timer-label="checking time"></div>
           </div>
         </div>
       </section>
 
-      <!-- 19 ── break into writing. -->
+      <!-- 20 ── break into writing. -->
       <section class="break" data-background-color="#7A2D34">
         <div class="content" style="justify-content:center;">
           <h1>Write</h1>
         </div>
       </section>
 
-      <!-- 20-22 ── one task per level. Each student writes the task that matches the
+      <!-- 21-23 ── one task per level. Each student writes the task that matches the
            letter on their sheet, so the letter is the first thing on the slide. -->
       <section id="task-a2">
         <div class="content">
@@ -327,7 +367,7 @@
         </div>
       </section>
 
-      <!-- 23 ── the writing sit. Shorter than a full article task, so the clock is 12
+      <!-- 24 ── the writing sit. Shorter than a full article task, so the clock is 12
            minutes, not the 15 the previous deck used. -->
       <section id="write">
         <div class="content" style="justify-content:center;">
@@ -375,6 +415,26 @@
       backgroundTransition: 'fade',
       viewDistance: 3
     });
+
+    /* Paint the page behind the stage to match the current slide, so a non-16:9 window
+       shows no white letterbox: the bars continue the slide's own colour. Reveal has no
+       "cover the viewport" mode, and the bars are outside the stage, so the only place
+       they can be coloured is the page itself. data-background-color on a section wins,
+       which covers the cover and every break slide. */
+    (function () {
+      var PAGE = '#FFF8F7';   // --neutral-98, the content-slide background
+      function paint() {
+        var s = Reveal.getCurrentSlide();
+        var bg = (s && s.getAttribute('data-background-color')) ||
+                 (s && s.classList.contains('cover-maroon') ? '#7A2D34' : PAGE);
+        document.documentElement.style.backgroundColor = bg;
+        document.body.style.backgroundColor = bg;
+      }
+      Reveal.on('ready', paint);
+      Reveal.on('slidechanged', paint);
+      Reveal.on('fragmentshown', paint);
+      paint();
+    })();
   </script>
 </body>
 </html>

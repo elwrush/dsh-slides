@@ -55,42 +55,88 @@
   display: block;
 }
 
-/* The drawing already leaves its left third pale cream, so the wash only has to
-   carry the type a little way past it. Heavier than this and it greys the wall. */
-.bleed-veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg,
-    rgba(247, 243, 234, 0.96) 0%,
-    rgba(247, 243, 234, 0.92) 30%,
-    rgba(247, 243, 234, 0.55) 40%,
-    rgba(247, 243, 234, 0) 46%);
+/* ---- cover: maroon field, illustration as a plate ------------------
+   Two earlier covers ran the drawing full-bleed behind a cream gradient. Both failed for
+   the same structural reason: the type had to sit OVER the picture, so the gradient read
+   as a milky band across the vault, or the cream panel's edge cut the vault door. Neither
+   is fixable by tuning — it is the layout.
+
+   A plate removes the problem: the artwork is never written over, the type sits on a flat
+   field, and the maroon matches the break slides, so the cover belongs to the deck. */
+
+.reveal .slides section.cover-maroon {
+  background: #7A2D34;
+  padding: 0 !important;
+  overflow: hidden;
 }
 
-.cover-copy {
-  position: relative;
-  z-index: 2;
+.reveal .cover-copy {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  padding: 0 0 0 84px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
-  /* 40%: the wall starts at about x=480 of 1280, so the type stops just short of it. */
-  width: 40%;
-  padding: 0 0 0 76px;
-  box-sizing: border-box;
+  z-index: 2;
 }
 
+.reveal .cover-kicker {
+  margin: 0 0 18px 0;
+  font-size: 18pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(242, 236, 214, 0.72);
+}
+
+/* Cream, not white: the illustration's own paper is rgb(242,236,214), so the type and the
+   artwork share one off-white instead of meeting as two whites. */
 .reveal .cover-copy h1 {
-  color: var(--maroon-30);
+  color: rgb(242, 236, 214);
   margin: 0;
+  font-size: 56pt;
+  line-height: 1.06;
   text-wrap: balance;
 }
+
 .reveal .cover-copy .lede {
-  margin: 22px 0 0 0;
+  margin: 26px 0 0 0;
   font-size: 30pt;
   line-height: 1.25;
-  color: var(--neutral-30);
+  color: rgba(242, 236, 214, 0.88);
+  /* No max-width: at 15ch it broke into three short lines ("What one theft / teaches
+     every / business."). The column is 52% wide and the line now sets in two. */
 }
+
+/* The plate. A 6px cream stroke separates it from the maroon without a shadow, and the
+   whole thing is sized off the slide height so it can never touch the edges. */
+.reveal .cover-plate {
+  position: absolute;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44%;
+  aspect-ratio: 16 / 9;
+  border: 6px solid rgb(242, 236, 214);
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.reveal .cover-plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Kept for the record: the full-bleed classes are no longer used by this deck. Deleting
+   them would make the next reader re-derive why they were abandoned. */
+.bleed-img { display: none; }
+.bleed-veil { display: none; }
 
 /* ---- the rundown -------------------------------------------------- */
 
@@ -243,4 +289,19 @@
    rule is written. Ours loads second, so it wins the tie. */
 .reveal .slides section > .content {
   justify-content: center;
+}
+
+/* ---- no letterbox ---------------------------------------------------
+   Reveal scales a fixed 1280x720 stage and centres it, so any window that is not 16:9
+   gets bars above and below. They were the page's white, which made the maroon cover
+   look like a stripe pasted onto paper.
+
+   The stage cannot be made to "cover" the window — reveal has no such mode — so the page
+   BEHIND it is painted to match whichever slide is showing. The bars then continue the
+   slide's own colour. The colour is set in JS (see the init script) because it has to
+   follow data-background-color, which the cover and the break slides both use. */
+
+.reveal,
+.reveal-viewport {
+  background: transparent !important;
 }
