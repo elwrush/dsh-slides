@@ -1,0 +1,622 @@
+/* ============================================================
+   DECK-ONLY COMPONENTS — M2-101126-DISCUSSION
+
+   styles.css belongs to the scaffold and is overwritten on a
+   re-scaffold, so everything this deck invents lives here.
+   It is linked after styles.css.
+
+   EVERY RULE IS PREFIXED `.reveal`. `styles.css` sets
+   `.reveal p, .reveal li { font-size: 24pt }` at (0,1,1), which
+   beats a bare class selector at (0,1,0) — so an unprefixed rule
+   is silently dead and the text renders at 24pt.
+
+   TYPE LADDER — the deck uses exactly these sizes, because the
+   near-pair check is deck-wide (12% limit):
+     18  labels, table cells, card speech
+     24  body
+     30  a statement worth its own slide
+     36  h2
+     48  cover h1
+     56  section-divider h1
+   No 20, no 22, no 28: each is within 12% of 18 or 24 and would
+   read as a mistake rather than a rank.
+   ============================================================ */
+
+/* ---------- 0. Thai script ----------
+   The vendored Source Sans 3 / Source Serif 4 subsets are latin only, so a
+   Thai glyph falls through to a system face: it renders, but heavier, with
+   the tone marks cramped, and the deck stops being self-contained for that
+   character. Sarabun is vendored beside them and covers Thai. */
+@font-face {
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("vendor/fonts/Sarabun-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("vendor/fonts/Sarabun-SemiBold.ttf") format("truetype");
+}
+
+/* ---------- 1. Cover: maroon field, ink drawing beside it ---------- */
+#cover {
+  padding: 0 !important;
+  background: var(--maroon-30);
+}
+.reveal .cover-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.22fr;
+  height: 720px;
+}
+.reveal .cover-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 52px;
+  color: #fff;
+}
+.reveal .cover-text .kicker {
+  font-size: 18pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--maroon-90);
+  margin: 0 0 18px 0;
+}
+.reveal .cover-text h1 {
+  font-size: 56pt;
+  line-height: 1.04;
+  color: #fff;
+  margin: 0 0 22px 0;
+}
+.reveal .cover-text .sub {
+  font-size: 18pt;
+  line-height: 1.45;
+  color: var(--maroon-95);
+  margin: 0;
+}
+.reveal .cover-art {
+  width: 100%;
+  height: 720px;
+  object-fit: cover;
+  object-position: 55% 42%;
+  display: block;
+}
+
+/* ---------- 2. Aims: three cards ---------- */
+.reveal .aim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.reveal .aim-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 30px 22px;
+  min-height: 460px;
+}
+.reveal .aim-card i {
+  font-size: 60pt;
+  color: var(--maroon-40);
+  margin-bottom: 16px;
+}
+.reveal .aim-card p {
+  font-size: 30pt;
+  line-height: 1.35;
+  margin: 0;
+}
+.reveal .aim-card strong {
+  display: block;
+  font-size: 30pt;
+  margin-bottom: 8px;
+  color: var(--maroon-30);
+}
+
+/* ---------- 3. The six parts of a discussion ---------- */
+.reveal .chain {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.reveal .chain-step {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 20px 22px;
+  min-height: 170px;
+}
+.reveal .chain-num {
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--maroon-30);
+  color: #fff;
+  font-size: 30pt;
+  line-height: 60px;
+  text-align: center;
+}
+.reveal .chain-step p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.28;
+}
+.reveal .chain-step strong {
+  display: block;
+  font-size: 30pt;
+  line-height: 1.15;
+  color: var(--maroon-30);
+  margin-bottom: 6px;
+}
+
+/* ---------- 4. What it is not: three cards ---------- */
+.reveal .not-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.reveal .not-card {
+  background: #fff;
+  border: 2px solid var(--neutral-variant-80);
+  border-radius: 10px;
+  padding: 30px 24px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.reveal .not-card h3 {
+  font-size: 30pt;
+  margin: 0 0 12px 0;
+  color: var(--neutral-10);
+}
+.reveal .not-card p {
+  font-size: 24pt;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+}
+.reveal .not-card p:last-child {
+  font-style: italic;
+  color: var(--muted-color);
+}
+
+/* ---------- 5. Thai norms + English rules: two-column compare ---------- */
+.reveal table.cmp {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18pt;
+}
+.reveal table.cmp th {
+  text-align: left;
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 24pt;
+  color: var(--muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--card-border);
+  padding: 6px 10px;
+}
+.reveal table.cmp td {
+  font-size: 24pt;
+  line-height: 1.32;
+  padding: 16px 10px;
+  border-bottom: 1px solid var(--neutral-94);
+  vertical-align: top;
+}
+.reveal table.cmp td:first-child {
+  color: var(--muted-color);
+  width: 26%;
+}
+.reveal table.cmp td:last-child {
+  color: var(--maroon-30);
+  font-weight: 600;
+}
+
+/* Thai term block on the norms slide */
+.reveal .thai-norm {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  gap: 10px 22px;
+  align-items: baseline;
+}
+.reveal .thai-norm dt {
+  font-family: "Sarabun", "Source Sans 3", sans-serif;
+  font-weight: 600;
+  font-size: 24pt;
+  font-weight: 600;
+  color: var(--maroon-30);
+  margin: 0;
+}
+.reveal .thai-norm dd {
+  font-size: 24pt;
+  line-height: 1.3;
+  margin: 0 0 10px 0;
+}
+
+/* ---------- 6. The five faults ---------- */
+.reveal .fault {
+  display: grid;
+  grid-template-columns: 3.1fr 3.6fr;
+  gap: 12px 24px;
+  align-items: start;
+}
+.reveal .fault dt {
+  font-size: 18pt;
+  line-height: 1.26;
+  color: var(--muted-color);
+  margin: 0 0 8px 0;
+}
+.reveal .fault dt strong {
+  display: block;
+  font-size: 24pt;
+  color: var(--neutral-10);
+  margin-bottom: 2px;
+}
+.reveal .fault dd {
+  padding-top: 6px;
+  font-size: 18pt;
+  line-height: 1.26;
+  margin: 0 0 8px 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--maroon-40);
+  color: var(--maroon-30);
+  font-weight: 600;
+}
+
+/* ---------- 7. The two chart tables ---------- */
+.reveal table.chart {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18pt;
+}
+.reveal table.chart th {
+  text-align: left;
+  font-family: var(--body-font);
+  font-size: 18pt;
+  font-weight: 600;
+  color: var(--muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--card-border);
+  padding: 4px 10px;
+}
+.reveal table.chart td {
+  font-size: 18pt;
+  line-height: 1.25;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--neutral-94);
+  vertical-align: top;
+}
+.reveal table.chart td:first-child {
+  width: 44px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--maroon-30);
+}
+.reveal table.chart td:nth-child(2) {
+  width: 48%;
+}
+.reveal table.chart td:nth-child(3) {
+  width: 34%;
+  color: var(--muted-color);
+}
+.reveal table.chart .blank {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px dotted var(--neutral-variant-80);
+  min-height: 22px;
+}
+
+/* ---------- 8. The shape: six numbered steps, 3 by 2 ----------
+   The arrows were the problem: six boxes across a 1280px slide leave
+   ~185px each, and at 24pt the wraps read as rubble. Numbers carry the
+   order, so the arrows go. */
+.reveal .shape-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 18px;
+  min-height: 330px;
+}
+.reveal .shape-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.reveal .shape-step .num {
+  flex: 0 0 auto;
+  font-family: var(--heading-font);
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--maroon-40);
+}
+.reveal .shape-step p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.25;
+}
+/* ---------- 9. Language table + the two phrases ---------- */
+.reveal table.lang {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18pt;
+}
+.reveal table.lang th {
+  text-align: left;
+  font-family: var(--body-font);
+  font-size: 18pt;
+  font-weight: 600;
+  color: var(--muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--card-border);
+  padding: 5px 10px;
+}
+.reveal table.lang td {
+  font-size: 24pt;
+  line-height: 1.3;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--neutral-94);
+  vertical-align: top;
+}
+.reveal table.lang td:first-child {
+  width: 24%;
+  font-weight: 600;
+  color: var(--maroon-30);
+}
+.reveal .big-line {
+  font-size: 30pt;
+  line-height: 1.3;
+  margin: 0 0 18px 0;
+}
+.reveal .big-line .q {
+  color: var(--maroon-30);
+  font-weight: 600;
+}
+
+/* ---------- 10. The assessment slide ---------- */
+.reveal .facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 6px;
+}
+.reveal .fact {
+  min-height: 330px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: #fff;
+}
+.reveal .fact .n {
+  font-size: 30pt;
+  font-weight: 600;
+  color: var(--maroon-30);
+  line-height: 1.1;
+  margin: 0 0 4px 0;
+}
+.reveal .fact p {
+  font-size: 24pt;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* ---------- 11. The task box ----------
+   Every slide where the class acts carries one, and the label names
+   the mode. This is the house pattern for a lesson deck: the label is
+   what tells a student where the work goes without being told. */
+.reveal .task-box {
+  border: 2px solid var(--maroon-40);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.reveal .task-box .label {
+  display: block;
+  background: var(--maroon-30);
+  color: #fff;
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+}
+.reveal .task-box .body {
+  padding: 10px 16px;
+  font-size: 24pt;
+  line-height: 1.32;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* ---------- 12. The audio slide ---------- */
+.reveal .track {
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  background: var(--neutral-94);
+  padding: 14px 18px;
+  margin-top: 8px;
+}
+.reveal .track p {
+  font-size: 24pt;
+  margin: 0 0 8px 0;
+}
+.reveal .track p strong {
+  color: var(--maroon-30);
+}
+
+/* ---------- 13. A transition that carries a second line ----------
+   The house punctuation slide is one 56pt statement on the maroon field
+   with nothing under it. This one is the exception the teacher asked for:
+   a heading and one quiet line beneath, so the maroon carries a thought
+   rather than a full stop. The scaffold's .is-section-divider rule paints
+   the background cream with !important, so the field is set on the section
+   itself, which sits over it. */
+/* The field is painted by reveal's own background element (data-background-color),
+   which fills the frame; a background on the section left a cream inset. */#divider-thai {
+  background: transparent;
+}
+/* Every transition slide is a maroon field, so every divider's statement is
+   white on it. The light sub-line below is the Thai divider's alone. */
+.reveal .slides section.section-divider[data-background-color] h1 {
+  color: #fff;
+}
+.reveal #divider-thai .divider-sub {
+  color: var(--maroon-90);
+  font-size: 30pt;
+  line-height: 1.3;
+  margin: 18px 0 0 0;
+  max-width: 880px;
+  text-align: center;
+}
+/* ---------- 14. The three-column comparison ----------
+   The two-column version put both sides inside one maroon cell while the
+   headers promised two columns, so every row had to be read twice to work
+   out which half belonged to which room. Three columns, one fact per cell. */
+.reveal table.cmp-three td:first-child {
+  width: 20%;
+}
+.reveal table.cmp-three td:nth-child(2) {
+  width: 40%;
+}
+.reveal table.cmp-three td:nth-child(2),
+.reveal table.cmp-three td:nth-child(3) {
+  line-height: 1.3;
+}
+/* ---------- 15. Column labels for the faults table ----------
+   Five faults and five rules sat in two unlabelled columns, so the reader
+   had to work out which side was which. One header row does that work. */
+.reveal .fault-head {
+  display: grid;
+  grid-template-columns: 3.1fr 3.6fr;
+  gap: 12px 24px;
+  font-size: 18pt;
+  font-weight: 600;
+  color: var(--muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--card-border);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+/* An example inside a rule cell: same size as the rule, but not bold and not
+   maroon, so it reads as an illustration rather than a second rule. */
+.reveal .fault dd .eg {
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted-color);
+}
+/* ---------- 16. The transcript, in two columns ----------
+   Read while the tape plays the second time. Speaker names in maroon, the
+   words in ink, so the eye can find whose turn it is without reading. */
+.reveal .script {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.reveal .script p {
+  font-size: 18pt;
+  line-height: 1.22;
+  margin: 0 0 6px 0;
+}
+.reveal .script .who {
+  color: var(--maroon-30);
+}
+/* ---------- 17. The answer tables ----------
+   The transcript table with the answers filled in: turn, the words, the move,
+   and why that move. The reason column is the point of these slides. */
+.reveal table.ans {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18pt;
+}
+.reveal table.ans th {
+  text-align: left;
+  font-family: var(--body-font);
+  font-size: 18pt;
+  font-weight: 600;
+  color: var(--muted-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--card-border);
+  padding: 6px 10px;
+}
+.reveal table.ans td {
+  font-size: 24pt;
+  line-height: 1.28;
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--neutral-94);
+  vertical-align: top;
+}
+.reveal table.ans td:nth-child(1) { width: 6%; color: var(--maroon-30); font-weight: 600; }
+.reveal table.ans td:nth-child(2) { width: 40%; }
+.reveal table.ans td:nth-child(3) { width: 8%; text-align: center; color: var(--maroon-30); font-weight: 600; }
+.reveal table.ans td:nth-child(4) { width: 46%; color: var(--muted-color); }
+/* ---------- 18. The phrases quiz ----------
+   One question a slide: a situation, four phrases, one answer on a click.
+   The answer's letter comes from the seed, not from the author. */
+.reveal .quiz-kicker {
+  font-size: 18pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--maroon-30);
+  margin: 0 0 6px 0;
+}
+.reveal .options p {
+  font-size: 30pt;
+  line-height: 1.22;
+  margin: 0 0 22px 0;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.reveal .options .letter {
+  flex: 0 0 34px;
+  font-weight: 600;
+  color: var(--maroon-30);
+}
+.reveal .answer {
+  font-size: 30pt;
+  font-weight: 600;
+  color: var(--maroon-30);
+  margin-top: 10px;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 16px;
+}
+/* The arrow column: reserved on every row, filled only on the correct one.
+   The option that holds a revealed arrow turns maroon, so the answer reads as
+   the phrase itself rather than a sentence about it. */
+.reveal .options .mark {
+  flex: 0 0 34px;
+  width: 34px;
+  text-align: right;
+}
+.reveal .options .mark i {
+  color: var(--maroon-40);
+  font-size: 24pt;
+}
+.reveal .options p:has(.mark .fragment.visible) {
+  color: var(--maroon-30);
+  font-weight: 600;
+}
