@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Binance hack &mdash; reading lesson</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- `styles.css` is the scaffold's palette and type and is overwritten by a
+       re-scaffold, so every class this deck needs lives in `deck.css`. -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 ── cover. The drawing leaves its own left third pale, so the type sits
+           there and nothing is printed over the figure. -->
+      <section id="cover" class="bleed">
+        <img class="bleed-img" src="img/cover.jpg"
+             alt="Colour illustration of a hooded figure at a laptop beside a half-open vault door, coins pouring into a sack">
+        <div class="bleed-veil"></div>
+        <div class="cover-copy">
+          <h1>The Binance hack</h1>
+          <p class="lede">Let&rsquo;s read about the biggest cryptocurrency theft in history.</p>
+        </div>
+      </section>
+
+      <!-- 2 ── the lesson, in order. No times: each stage slide carries its own clock. -->
+      <section id="today">
+        <div class="content" style="justify-content:center;">
+          <p class="kicker">Today</p>
+          <div class="agenda-row">
+            <p class="agenda-num">1</p>
+            <p class="agenda-text">Cryptocurrency &mdash; what do you know?</p>
+          </div>
+          <div class="agenda-row">
+            <p class="agenda-num">2</p>
+            <p class="agenda-text">Get ready to read.</p>
+          </div>
+          <div class="agenda-row">
+            <p class="agenda-num">3</p>
+            <p class="agenda-text">Read.</p>
+          </div>
+          <div class="agenda-row">
+            <p class="agenda-num">4</p>
+            <p class="agenda-text">Work it out: the answer the text never gives.</p>
+          </div>
+          <div class="agenda-row">
+            <p class="agenda-num">5</p>
+            <p class="agenda-text">Check your answers, then write.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 ── break. Punctuation mark: heading only. -->
+      <section class="break" data-background-color="#7A2D34">
+        <div class="content" style="justify-content:center;">
+          <h1>What do you know about cryptocurrency?</h1>
+        </div>
+      </section>
+
+      <!-- 4 ── the three things the text will assume. No bank knowledge required and
+           no numbers that are not on the sheet: the fourth line is the scale in baht,
+           which is the figure the sheet prints in brackets. -->
+      <section id="crypto">
+        <div class="content">
+          <p class="kicker">Before we read</p>
+          <h2>Three things to know</h2>
+          <ul class="tips" style="margin-top:26px;">
+            <li>Cryptocurrency is <strong>digital money</strong>. There is no coin in your pocket.</li>
+            <li>A <strong>wallet</strong> holds the keys that prove the money is yours. Lose the keys, lose the money.</li>
+            <li>An <strong>exchange</strong> is a company where people buy and sell it. Binance is one.</li>
+            <li>In this theft, US$6.3 billion went &mdash; about <strong>211,000 ล้านบาท</strong>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5-8 ── four questions, one click each. The answer names the letter as well as
+           the reason: the class marks a letter on paper, not an explanation. -->
+      <section>
+        <div class="content">
+          <p class="kicker">Question 1 of 4</p>
+          <h3>What is cryptocurrency?</h3>
+          <p class="opt"><b>A</b> Money that exists only on computers.</p>
+          <p class="opt"><b>B</b> Paper money you can hold.</p>
+          <p class="opt"><b>C</b> A kind of bank account.</p>
+          <p class="opt"><b>D</b> A company that lends money.</p>
+          <p class="answer fragment"><b>A.</b> It is digital money &mdash; nothing physical changes hands.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <p class="kicker">Question 2 of 4</p>
+          <h3>What does a crypto-wallet actually hold?</h3>
+          <p class="opt"><b>A</b> The coins themselves.</p>
+          <p class="opt"><b>B</b> The keys that prove the money is yours.</p>
+          <p class="opt"><b>C</b> Your bank account number.</p>
+          <p class="opt"><b>D</b> A list of everything you bought.</p>
+          <p class="answer fragment"><b>B.</b> The money is on the blockchain. The wallet holds the keys to it.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <p class="kicker">Question 3 of 4</p>
+          <h3>What is an exchange like Binance for?</h3>
+          <p class="opt"><b>A</b> Sending letters.</p>
+          <p class="opt"><b>B</b> Keeping paper money safe.</p>
+          <p class="opt"><b>C</b> Buying and selling cryptocurrency.</p>
+          <p class="opt"><b>D</b> Insuring a mobile phone.</p>
+          <p class="answer fragment"><b>C.</b> An exchange is a company where customers buy and sell digital money.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="content">
+          <p class="kicker">Question 4 of 4</p>
+          <h3>Why is a stolen laptop dangerous for someone who owns cryptocurrency?</h3>
+          <p class="opt"><b>A</b> It is expensive to replace.</p>
+          <p class="opt"><b>B</b> It holds their holiday photographs.</p>
+          <p class="opt"><b>C</b> It uses a lot of electricity.</p>
+          <p class="opt"><b>D</b> The keys to the money may be on it.</p>
+          <p class="answer fragment"><b>D.</b> A password or a key on the machine can open the money.</p>
+        </div>
+      </section>
+
+      <!-- 9 ── break into the reading. -->
+      <section class="break" data-background-color="#7A2D34">
+        <div class="content" style="justify-content:center;">
+          <h1>Get ready to read</h1>
+        </div>
+      </section>
+
+      <!-- 10 ── reading behaviour, and the no-glosses rule said out loud, because a
+           class that has never seen a sheet without a word list will sit and wait. -->
+      <section id="ready">
+        <div class="content">
+          <p class="kicker">Three things that help</p>
+          <h2>Read with a purpose</h2>
+          <ul class="tips" style="margin-top:22px;">
+            <li>Read the questions <strong>first</strong>. They tell you what to look for.</li>
+            <li>Use what you already know about money and phones.</li>
+            <li>Do not stop at every new word. Keep going.</li>
+          </ul>
+          <div class="task-box">
+            <p class="task-label">On your sheet</p>
+            <p>There is no word list. If a word stops you, ask the person beside you, or ask me.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 ── the reading clock. One clock for the room, so everyone finishes
+           together; the seconds live in the attribute and nowhere in the copy. -->
+      <section id="read">
+        <div class="content" style="justify-content:center;">
+          <div style="display:grid; grid-template-columns:1fr auto; gap:64px; align-items:center;">
+            <div>
+              <p class="kicker">Silent reading</p>
+              <h1>Read.</h1>
+              <ul class="tips" style="margin-top:22px;">
+                <li>Answer the questions as you go.</li>
+                <li>A hard sentence? Read it twice &mdash; once fast, once slowly.</li>
+              </ul>
+            </div>
+            <div class="timer" data-timer-seconds="600" data-timer-label="reading time"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 ── the focus area M2 did not have. An inference question is modelled on a
+           PARALLEL text, never on the text the class has just read: the target text is
+           still in front of them, and doing the example on it would hand over the answer
+           to a sheet question. -->
+      <section class="break" data-background-color="#7A2D34">
+        <div class="content" style="justify-content:center;">
+          <h1>Questions the text never answers</h1>
+        </div>
+      </section>
+
+      <!-- 13 ── the specimen. Deliberately about a shop, with nothing to do with
+           cryptocurrency, so the skill is visible on its own. -->
+      <section id="specimen">
+        <div class="content">
+          <p class="kicker">A worked example &mdash; not from your text</p>
+          <h2>The shop on the corner</h2>
+          <div class="specimen">
+            Mr Somchai&rsquo;s shop opens at seven every morning. On Tuesday its shutters were
+            still down at nine, and the sign above the door was gone. His brother was working
+            at the stall two doors along.
+          </div>
+          <h3>What has happened to Mr Somchai&rsquo;s shop?</h3>
+          <div class="task-box">
+            <p class="task-label">In your notebook</p>
+            <p>Answer the question. Then write the three things in the text that made you sure.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 ── the model answer, revealed in the order a reader does the work: the
+           three stated facts, then the sum. Only the conclusion carries .answer; the
+           three facts carry .stated, so the slide has one answer and three clues. -->
+      <section id="model">
+        <div class="content">
+          <p class="kicker">How that was done</p>
+          <h2>The shop has closed</h2>
+          <p class="stated fragment">The shutters are still down at nine.</p>
+          <p class="stated fragment">The sign above the door is gone.</p>
+          <p class="stated fragment">His brother is working somewhere else.</p>
+          <p class="answer fragment"><b>So:</b> the shop has closed &mdash; and the text never says so. You say it.</p>
+        </div>
+      </section>
+
+      <!-- 15 ── the method, named. Four steps, in the order they are used. -->
+      <section id="method">
+        <div class="content">
+          <p class="kicker">The method</p>
+          <h2>Four steps</h2>
+          <div class="step" style="margin-top:26px;">
+            <p class="step-num">1</p>
+            <p>Find what the text <strong>does</strong> say.</p>
+          </div>
+          <div class="step">
+            <p class="step-num">2</p>
+            <p>Ask what those facts add up to.</p>
+          </div>
+          <div class="step">
+            <p class="step-num">3</p>
+            <p>Answer with the conclusion <strong>and</strong> the clues you used.</p>
+          </div>
+          <div class="step">
+            <p class="step-num">4</p>
+            <p>Do not add a fact that is not there.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 ── the transfer. Both levels are named because the room is mixed and the
+           two sheets carry the item at a different number; A2 has no inference item, so
+           the A2 line is honest about that rather than inventing one. -->
+      <section id="yours">
+        <div class="content">
+          <p class="kicker">Now your own text</p>
+          <h2>Find your question</h2>
+          <ul class="tips" style="margin-top:22px;">
+            <li><strong>B1</strong> &mdash; question 5: what does it tell us about how accounts are really stolen?</li>
+            <li><strong>B2</strong> &mdash; question 4: your own account, and how someone would get into it.</li>
+            <li><strong>A2</strong> &mdash; you have no question of this kind. Do the four steps on the shop, then help your partner.</li>
+          </ul>
+          <div class="task-box">
+            <p class="task-label">In your notebook</p>
+            <p>Nothing in the text says the answer. Use the four steps, and name the two facts you added together.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 17 ── break into checking. -->
+      <section class="break" data-background-color="#7A2D34">
+        <div class="content" style="justify-content:center;">
+          <h1>Check your comprehension</h1>
+        </div>
+      </section>
+
+      <!-- 18 ── self-check. "Do not change your answer" is the instruction that matters:
+           a corrected paper hides what the class still needs teaching. -->
+      <section id="check">
+        <div class="content">
+          <p class="kicker">Self-check</p>
+          <h2>Check your own answers</h2>
+          <div class="task-box">
+            <p class="task-label">On your own</p>
+            <p>Take the answer page. Do not change your answers &mdash; mark each one right or wrong.</p>
+            <p>For every wrong answer, find the sentence in the text that shows why.</p>
+            <p>Write your score at the top of the sheet.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 19 ── break into writing. -->
+      <section class="break" data-background-color="#7A2D34">
+        <div class="content" style="justify-content:center;">
+          <h1>Write</h1>
+        </div>
+      </section>
+
+      <!-- 20-22 ── one task per level. Each student writes the task that matches the
+           letter on their sheet, so the letter is the first thing on the slide. -->
+      <section id="task-a2">
+        <div class="content">
+          <p class="kicker">Writing task &middot; A2</p>
+          <h2>A message to a friend</h2>
+          <div class="task-box">
+            <p class="task-label">If your sheet says A2</p>
+            <p>Your friend did not hear about the Binance theft. Write a short message and tell them about it.</p>
+            <p>Say how much money the hackers took, and how they got into Binance. About 60 words.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="task-b1">
+        <div class="content">
+          <p class="kicker">Writing task &middot; B1</p>
+          <h2>A message to a friend</h2>
+          <div class="task-box">
+            <p class="task-label">If your sheet says B1</p>
+            <p>Your friend wants to buy cryptocurrency for the first time. Write a short message to them.</p>
+            <p>Say in one sentence what happened at Binance, and tell them one thing to be careful about. About 80 words.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="task-b2">
+        <div class="content">
+          <p class="kicker">Writing task &middot; B2</p>
+          <h2>An email to a small business owner</h2>
+          <div class="task-box">
+            <p class="task-label">If your sheet says B2</p>
+            <p>Your aunt runs a small online shop selling clothes. She has read about the Binance theft and asks you whether a business like hers should worry. Write her an email.</p>
+            <p>Say what happened, which of the writer&rsquo;s three lessons matters most for a shop her size, and one thing to do this week. About 100 words.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 23 ── the writing sit. Shorter than a full article task, so the clock is 12
+           minutes, not the 15 the previous deck used. -->
+      <section id="write">
+        <div class="content" style="justify-content:center;">
+          <div style="display:grid; grid-template-columns:1fr auto; gap:64px; align-items:center;">
+            <div>
+              <p class="kicker">Writing time</p>
+              <h1>Write.</h1>
+              <ul class="tips" style="margin-top:22px;">
+                <li>Your task is the one with your letter on it.</li>
+                <li>Use your own words &mdash; do not copy sentences from the text.</li>
+              </ul>
+            </div>
+            <div class="timer" data-timer-seconds="720" data-timer-label="writing time"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      hash: true,
+      keyboard: true,
+      center: false,
+      touch: true,
+      loop: false,
+      fragments: true,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      viewDistance: 3
+    });
+  </script>
+</body>
+</html>

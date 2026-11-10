@@ -1,0 +1,246 @@
+/* Deck-only components — The Binance hack, reading lesson (M3, 10-11-26).
+
+   Sizes come only from the house ladder, and every rung is at least 17% from its
+   neighbour so nothing trips the 12% near-pair test:
+     56 (h1, every break and the cover), 44 (h2), 36 (h3, a question stem),
+     30 (agenda rows), 24 (body, options, task text), 18 (kicker, cue).
+
+   Nothing here is scaffolding: `styles.css` ships the palette and the type, and a
+   re-scaffold overwrites it, so every house class this deck needs lives in this file. */
+
+.reveal h1 { font-size: 56pt; line-height: 1.08; }
+.reveal h2 { font-size: 44pt; line-height: 1.12; }
+.reveal h3 { font-size: 36pt; line-height: 1.2; }
+
+.reveal .kicker {
+  margin: 0 0 12px 0;
+  font-size: 18pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+/* ---- a break: the lesson changes gear ------------------------------
+   Heading only. No sub-line, no number, no citation: the slide is a
+   punctuation mark, and anything else on it turns it back into a slide
+   the class has to read. */
+
+.reveal .slides section.break {
+  padding: 0 96px !important;
+}
+.reveal .break h1 {
+  color: #fff;
+  margin: 0;
+  text-wrap: balance;
+  max-width: 15ch;
+}
+
+/* ---- full-bleed cover ---------------------------------------------
+   NO `position: relative` on the section: reveal positions every
+   `.slides > section` absolutely, and a relative section drops every
+   later slide by a slide-height. */
+
+.reveal .slides section.bleed {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.bleed-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% center;   /* keeps the figure and the vault; cream takes the left */
+  display: block;
+}
+
+/* The drawing already leaves its left third pale cream, so the wash only has to
+   carry the type a little way past it. Heavier than this and it greys the wall. */
+.bleed-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(247, 243, 234, 0.96) 0%,
+    rgba(247, 243, 234, 0.92) 30%,
+    rgba(247, 243, 234, 0.55) 40%,
+    rgba(247, 243, 234, 0) 46%);
+}
+
+.cover-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  /* 40%: the wall starts at about x=480 of 1280, so the type stops just short of it. */
+  width: 40%;
+  padding: 0 0 0 76px;
+  box-sizing: border-box;
+}
+
+.reveal .cover-copy h1 {
+  color: var(--maroon-30);
+  margin: 0;
+  text-wrap: balance;
+}
+.reveal .cover-copy .lede {
+  margin: 22px 0 0 0;
+  font-size: 30pt;
+  line-height: 1.25;
+  color: var(--neutral-30);
+}
+
+/* ---- the rundown -------------------------------------------------- */
+
+.reveal .agenda-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 0 20px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .agenda-row:first-of-type { border-top: 1px solid var(--line-color); }
+.reveal .agenda-num {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--accent-text-color);
+}
+.reveal .agenda-text { margin: 0; font-size: 30pt; line-height: 1.3; }
+
+/* ---- the quiz ----------------------------------------------------- */
+
+/* A flex row, not the negative text-indent trick: the letter is a column of its
+   own, so a wrapped second line aligns to the sentence and not to the margin. */
+.reveal .opt {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 12px 0;
+  font-size: 24pt;
+  line-height: 1.22;
+}
+.reveal .opt b {
+  flex: 0 0 32px;
+  font-family: var(--heading-font);
+  color: var(--accent-text-color);
+}
+
+.reveal .answer {
+  margin: 18px 0 0 0;
+  padding: 12px 18px;
+  font-size: 24pt;
+  line-height: 1.25;
+  color: #fff;
+  background: var(--positive-40);
+  border-left: 6px solid var(--positive-30);
+}
+.reveal .answer b { font-weight: 700; }
+
+/* ---- a point the class acts on ------------------------------------ */
+
+.reveal .task-box {
+  margin: 18px 0 0 0;
+  padding: 16px 20px;
+  background: var(--neutral-94);
+  border-left: 6px solid var(--maroon-30);
+}
+.reveal .task-label {
+  margin: 0 0 8px 0;
+  font-size: 18pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--maroon-30);
+}
+.reveal .task-box p { font-size: 24pt; line-height: 1.25; margin: 0 0 6px 0; }
+.reveal .task-box p:last-child { margin-bottom: 0; }
+
+/* The scaffold's own mechanism, kept: an absolutely positioned marker with padding
+   reserved for it. A flex row was tried in the previous deck and was wrong — text in
+   a flex container becomes an anonymous item and its wrapped second line then aligns
+   to that item's box. Only the glyph and its width change: an arrow for a tip. */
+.reveal .slides section .tips { margin: 0; padding: 0; list-style: none; }
+.reveal .slides section .tips li {
+  position: relative;
+  padding-left: 34px;
+  margin: 0 0 14px 0;
+  font-size: 24pt;
+  line-height: 1.25;
+  text-align: left;
+}
+.reveal .slides section .tips li::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  color: var(--accent-text-color);
+}
+
+/* ---- worked example (the inference model) -------------------------
+   A quoted mini-text: it is a specimen, not body prose, so it is inset and
+   barred rather than run as ordinary text. */
+
+.reveal .specimen {
+  margin: 0 0 26px 0;
+  padding: 16px 22px;
+  border-left: 6px solid var(--accent-text-color);
+  background: var(--neutral-94);
+  font-size: 24pt;
+  line-height: 1.32;
+}
+
+/* A fact the text states, as opposed to the conclusion the reader supplies. Quiet,
+   with a hairline rule: on the model-answer slide the three stated facts should read
+   as evidence, and the ONE green block below them as the answer. Giving all four the
+   .answer treatment turned the slide into four green bars and made the facts look
+   like four separate conclusions. */
+.reveal .stated {
+  margin: 0 0 14px 0;
+  padding: 2px 0 2px 20px;
+  /* --neutral-variant-60, not --neutral-70: that token does not exist in styles.css and an
+     undefined var() in a border falls back to nothing, so the rule drew no line at all. */
+  border-left: 3px solid var(--neutral-variant-60);
+  font-size: 24pt;
+  line-height: 1.25;
+}
+
+/* The four steps are numbered, so they are an ordered list built as rows: the number
+   is a column, and the text wraps inside its own column. */
+.reveal .step {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 0 18px;
+  align-items: baseline;
+  margin: 0 0 16px 0;
+}
+.reveal .step-num {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--accent-text-color);
+}
+.reveal .step p { margin: 0; font-size: 24pt; line-height: 1.25; }
+
+/* ---- clocks -------------------------------------------------------
+   Each clock has its slide; the readout is the biggest thing on it. */
+
+.timer-readout { font-size: 44pt; padding: 12px 20px; }
+.timer-btn { font-size: 18pt; }
+
+/* ---- vertical placement -------------------------------------------
+   Short blocks on a 720px slide float in the upper half when top-aligned.
+   Same specificity as the scaffold's `.reveal .slides section > .content` (0,3,1):
+   a two-class selector loses to it, and the block stays top-aligned however the
+   rule is written. Ours loads second, so it wins the tie. */
+.reveal .slides section > .content {
+  justify-content: center;
+}
