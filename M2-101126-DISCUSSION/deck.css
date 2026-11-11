@@ -565,14 +565,18 @@
 .reveal table.ans td {
   font-size: 24pt;
   line-height: 1.28;
-  padding: 14px 10px;
+  /* 8px, not 14: a turn that does two jobs needs a longer quotation in column two, and the
+     four rows of answers-1 ran 23px past the bottom of the slide at four rows of 14px. */
+  padding: 8px 10px;
   border-bottom: 1px solid var(--neutral-94);
   vertical-align: top;
 }
 .reveal table.ans td:nth-child(1) { width: 6%; color: var(--maroon-30); font-weight: 600; }
-.reveal table.ans td:nth-child(2) { width: 40%; }
-.reveal table.ans td:nth-child(3) { width: 8%; text-align: center; color: var(--maroon-30); font-weight: 600; }
-.reveal table.ans td:nth-child(4) { width: 46%; color: var(--muted-color); }
+.reveal table.ans td:nth-child(2) { width: 38%; }
+/* A turn can carry two moves ("5 + 3"), so the move column holds two characters and a space
+   where it used to hold one digit. */
+.reveal table.ans td:nth-child(3) { width: 12%; text-align: center; color: var(--maroon-30); font-weight: 600; }
+.reveal table.ans td:nth-child(4) { width: 44%; color: var(--muted-color); }
 /* ---------- 18. The phrases quiz ----------
    One question a slide: a situation, four phrases, one answer on a click.
    The answer's letter comes from the seed, not from the author. */
