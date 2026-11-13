@@ -52,11 +52,10 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg,
-    rgba(255, 250, 244, 0.90) 0%,
-    rgba(255, 250, 244, 0.84) 30%,
-    rgba(255, 250, 244, 0.55) 46%,
-    rgba(255, 250, 244, 0.30) 58%,
-    rgba(255, 250, 244, 0) 68%);
+    rgba(255, 250, 244, 0.92) 0%,
+    rgba(255, 250, 244, 0.88) 26%,
+    rgba(255, 250, 244, 0.55) 38%,
+    rgba(255, 250, 244, 0) 48%);
 }
 
 /* The art has no empty half: the reader and his open graphic novel sit across the
