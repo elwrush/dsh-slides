@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your reading fluency is building &mdash; independent reading</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles, then this deck's own components (a re-scaffold overwrites
+       styles.css, so nothing of ours may live there) -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 ── the cover. The art carries the achievement; the type says it once.
+           The boy sits in the right half, so the type writes into the empty left
+           half rather than over him. -->
+      <section id="cover" class="bleed">
+        <img class="bleed-img" src="cover.jpg"
+             alt="Pen and ink drawing: a Thai schoolboy in uniform sits on the grass under a tree, absorbed in a paperback, a small dog asleep against his leg">
+        <div class="bleed-veil"></div>
+        <div class="cover-copy">
+          <p class="kicker">Independent reading</p>
+          <h1>Your reading fluency is building.</h1>
+          <p class="cover-sub">You should feel proud of yourself.</p>
+        </div>
+      </section>
+
+      <!-- 2 ── the three things that happen, in order. The kicker sits inside the
+           centred block so it stays attached to the rows it labels. -->
+      <section id="today">
+        <div class="content" style="justify-content:center;">
+          <p class="kicker">Today</p>
+          <div class="agenda-row">
+            <p class="agenda-num">1</p>
+            <p class="agenda-text">Read for 33 minutes.</p>
+          </div>
+          <div class="agenda-row">
+            <p class="agenda-num">2</p>
+            <p class="agenda-text">Write about the part you read today.</p>
+          </div>
+          <div class="agenda-row">
+            <p class="agenda-num">3</p>
+            <p class="agenda-text">I will collect it and give you feedback.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 ── the reading sit. 1980 seconds is thirty-three minutes, and that
+           number lives in this attribute and nowhere in the copy: the clock says
+           it. The timer never starts by itself, because only the teacher knows
+           when the room is ready. -->
+      <section id="read">
+        <div class="content" style="justify-content:center;">
+          <div style="display:grid; grid-template-columns:1fr auto; gap:64px; align-items:center;">
+            <div>
+              <p class="kicker">Silent reading</p>
+              <h1>Read.</h1>
+              <p class="imperative">No talking, please.</p>
+            </div>
+            <div class="timer" data-timer-seconds="1980" data-timer-label="reading time"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 ── the writing sit. One row per book, because four streams means four
+           tasks and a student must find the row that is theirs in a second. Every
+           row asks for a feeling and the cause of it, and the demand rises with the
+           book: one feeling for New Kid, the strongest loneliness for Hello,
+           Universe, two opposite feelings at once for Savvy. The New Kid row carries
+           its Thai rendering underneath, because that is the group reading the
+           graphics-only title. The 780 seconds are thirteen minutes. -->
+      <section id="write">
+        <div class="write-head">
+          <div>
+            <p class="kicker">Find your book &middot; answer that row</p>
+            <h1>Write.</h1>
+          </div>
+          <div class="timer" data-timer-seconds="780" data-timer-label="writing time"></div>
+        </div>
+        <div class="q-row">
+          <p class="q-book">New Kid</p>
+          <p class="q-task">You are Jordan. Think about everything that has happened to you in this story so far. Describe the event that embarrassed you most, and say why it made you feel that way.</p>
+          <p class="q-th" lang="th">คุณคือจอร์แดน นึกถึงทุกอย่างที่เกิดขึ้นกับคุณในเรื่องนี้จนถึงตอนนี้ อธิบายเหตุการณ์ที่ทำให้คุณอับอายที่สุด และอธิบายว่าทำไมเหตุการณ์นั้นทำให้คุณรู้สึกอย่างนั้น</p>
+        </div>
+        <div class="q-row">
+          <p class="q-book">Hello, Universe</p>
+          <p class="q-task">Pick one of the four children. Describe the moment today when that child felt most alone, and say why.</p>
+        </div>
+        <div class="q-row">
+          <p class="q-book">Savvy</p>
+          <p class="q-task">Describe a moment today when Mibs felt two opposite things at once. Explain both, and say which was stronger.</p>
+        </div>
+        <div class="q-row">
+          <p class="q-book">Own Book</p>
+          <p class="q-task">Write the title and author first. Then the Savvy task, for a character in your book.</p>
+        </div>
+        <p class="q-foot">Books open &middot; the feeling matters as much as the event.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+
+      // 16:9 at 1280x720, margin 0 — the house slide size, and the three keys the
+      // scaffold writes. reveal's own default is 960x700, which is nearly 4:3.
+      width: 1280,
+      height: 720,
+      margin: 0,
+
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      hash: true,
+      keyboard: true,
+      center: false,
+      touch: true,
+      loop: false,
+      fragments: true,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      viewDistance: 3
+    });
+  </script>
+</body>
+</html>

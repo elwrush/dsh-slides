@@ -1,0 +1,225 @@
+/* Deck-only components — Independent reading (M2/M3, 12-11-26).
+
+   Four slides and one job each: a cover, the rundown, a thirty-three-minute
+   reading sit, a thirteen-minute writing sit with the four tasks.
+
+   Sizes come only from the deck's ladder — 56 / 44 / 36 / 30 / 24 / 18 — and
+   each rung is at least 17% from its neighbour, so no two distinct sizes sit
+   inside the 12% near-pair test. 44pt exists only for the writing clock, which
+   has to share its slide with an h1 at 56 (21% apart). */
+
+/* One size for the h1 role. `styles.css` ships 48pt; the cover statement, the
+   "Read." and the "Write." are all the same role, so they are all 56pt. */
+.reveal h1 {
+  font-size: 56pt;
+  line-height: 1.08;
+}
+
+/* Names what the slide is for, above the title. */
+.reveal .kicker {
+  margin: 0 0 12px 0;
+  font-size: 18pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+/* ---- full-bleed cover -------------------------------------- */
+
+/* NO `position: relative` HERE: reveal positions every `.slides > section`
+   absolutely, and a relative section drops every later slide by a slide-height. */
+.reveal .slides section.bleed {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.bleed-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* A wash, not a scrim, and horizontal: the art leaves its whole left half empty,
+   so the type writes into that emptiness instead of covering the boy. It now runs
+   to 68% rather than 52% because the second line of the statement is longer than
+   the heading and its last word landed on the drawn leg; the far stops are light
+   (0.30 at 58%) so the pencil shading still shows through where the type sits,
+   while nothing unwashed sits under a letter. */
+.bleed-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(255, 250, 244, 0.90) 0%,
+    rgba(255, 250, 244, 0.84) 30%,
+    rgba(255, 250, 244, 0.55) 46%,
+    rgba(255, 250, 244, 0.30) 58%,
+    rgba(255, 250, 244, 0) 68%);
+}
+
+/* The type column is the picture's own empty quarter: this art puts the reader's
+   back, his book and the tree across the middle and right, and leaves the upper
+   left as pale sky. So the block is TOP-aligned rather than centred — centred, the
+   third line and the sub-line fell across the open book, which is the one part of
+   the drawing the picture is about. */
+.cover-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 52%;
+  padding: 48px 0 0 76px;
+  box-sizing: border-box;
+}
+
+.reveal .cover-copy h1 {
+  color: var(--maroon-30);
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* The second line of the same statement, one rung down the ladder: it answers the
+   heading rather than repeating it. 30pt is 47% below the h1 and 25% above the
+   body floor, so it is a rank of its own, not a near-pair. Maroon rather than
+   grey: the line sits over pencil shading, and the grey ink disappeared into it. */
+.reveal .cover-sub {
+  margin: 18px 0 0 0;
+  font-size: 30pt;
+  line-height: 1.3;
+  color: var(--maroon-30);
+  text-wrap: balance;
+}
+
+/* ---- the rundown ------------------------------------------- */
+
+.reveal .agenda-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 0 20px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .agenda-row:first-of-type {
+  border-top: 1px solid var(--line-color);
+}
+.reveal .agenda-num {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 36pt;
+  line-height: 1;
+  color: var(--accent-text-color);
+}
+.reveal .agenda-text {
+  margin: 0;
+  font-size: 30pt;
+  line-height: 1.3;
+}
+
+/* ---- a cue: the class acts now ------------------------------ */
+
+.reveal .imperative {
+  margin: 26px 0 0 0;
+  padding-left: 20px;
+  border-left: 6px solid var(--primary-color);
+  font-size: 24pt;
+  color: var(--accent-text-color);
+}
+
+/* ---- the four tasks ---------------------------------------- */
+
+/* The heading and the clock share one row at the top, so the list below gets the
+   full slide width: four complete instructions at 24pt need about 620px of line
+   length, and a clock column taken out of the middle of them cost a line on every
+   row. The heading block keeps its kicker, so "Write." is still labelled. */
+.reveal .write-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 10px;
+}
+
+/* Laid out as the table the class reads: book in the left column, its task in the
+   right. A grid rather than a <table> because a table's cells cannot be aligned on
+   the baseline of a 24pt line without fighting the element's own metrics, and this
+   is a two-column list, not tabular data.
+
+   The book column stays at 232px. "Hello, Universe" measures 278px unwrapped in
+   the 24pt serif, and giving it a single line costs 46px of the task column, which
+   pushes rows onto an extra line. It wraps to two lines instead, which matches the
+   two-line task beside it, so the rows still balance. */
+.reveal .q-row {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  gap: 0 24px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .q-row:first-of-type {
+  border-top: 1px solid var(--line-color);
+}
+.reveal .q-book {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 24pt;
+  line-height: 1.2;
+  color: var(--accent-text-color);
+}
+.reveal .q-task {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+
+/* The starter words in the A2 row are italic, and the italic is DECLARED rather
+   than inherited: in this deck a bare <em> computes to `font-style: normal`
+   whatever the browser's own sheet says. Over file:// every sheet reports itself
+   unreadable through `cssRules`, so the rule that flattens it cannot be named from
+   the document — the declaration is what works. Source Sans 3 ships a real italic
+   (styles.css declares the face), so this is a drawn italic, not a synthesised
+   slant. */
+.reveal .q-task em {
+  font-style: italic;
+}
+
+/* The Thai rendering of the New Kid prompt, directly under its English line. Thai
+   is not in the vendored Source Sans 3 subset, so it falls back to a Windows Thai
+   face — named here rather than left to the browser, because a silent fallback is
+   what turns a Thai line into boxes on a machine without the family. 20pt is above
+   the 18pt floor and 17% below the 24pt body, so it reads as support for the
+   English rather than a second instruction in its own right. */
+.reveal .q-th {
+  grid-column: 2;
+  margin: 4px 0 0 0;
+  font-family: "Leelawadee UI", "Tahoma", "Segoe UI", sans-serif;
+  font-size: 20pt;
+  line-height: 1.3;
+  color: var(--muted-color);
+}
+.reveal .q-foot {
+  margin: 6px 0 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+
+/* ---- the writing clock -------------------------------------- */
+
+/* The scaffolded readout is 100pt, sized for a slide where the clock is the only
+   thing on it. Here it shares the slide with a four-row list and an h1, so it
+   takes 44pt: 21% from the h1 above it, 22% from the 36pt numerals of the rundown
+   — both clear of the 12% near-pair test. The reading clock keeps the 100pt it
+   was designed for, because it has the slide to itself. */
+#write .timer-readout {
+  font-size: 44pt;
+  padding: 10px 20px;
+}
+#write .timer-btn {
+  font-size: 18pt;
+}
