@@ -21,25 +21,171 @@
       <!-- 1 ================================================================
            The drawing alone. No type at all, by request.
            ================================================================ -->
-      <section id="cover-art">
-        <div class="cover-plate">
-          <img src="img/bangkok-flood.jpg" alt="A pen-and-ink and watercolour drawing: three Thai secondary students in white shirts and navy shorts walk away from the viewer, knee-deep in brown floodwater down a Bangkok street. A shophouse row is on the left, a stalled taxi and a tuk-tuk on the right, power lines overhead, and a temple spire in the haze ahead.">
+      <section id="cover-art" data-auto-animate data-auto-animate-id="cover" data-transition="fade">
+        <div class="cover-plate" data-id="cover-plate">
+          <img data-id="cover-img" src="img/cover-flood.png" alt="An illustrated Bangkok street in heavy rain: three Thai secondary school students wade knee-deep through brown floodwater. One girl holds a pink umbrella, another holds her bag on her head, and a boy carries a bag on his head. Behind them are the BTS skytrain station, a Central department store sign, a Rama I road sign, a bus, a tuk-tuk and queuing traffic.">
         </div>
       </section>
 
       <!-- 2 ================================================================ -->
-      <section id="cover-text">
-        <div class="cover-plate">
-          <img src="img/bangkok-flood.jpg" alt="">
+      <section id="cover-text" data-auto-animate data-auto-animate-id="cover" data-transition="fade">
+        <div class="cover-plate" data-id="cover-plate">
+          <img data-id="cover-img" src="img/cover-flood.png" alt="">
         </div>
         <div class="caption-band">
-          <h1>Bangkok: will it survive?</h1>
+          <h1><span class="cover-kicker">BBC World Service &middot; Global Eye</span>Bangkok: will it survive?</h1>
           <p>Let's listen and discuss.</p>
         </div>
       </section>
 
       <!-- 3 ================================================================ -->
-      <section id="today">
+      <!-- 3 -->
+      <section id="break-before" class="break" data-state="is-break" data-transition="zoom">
+        <h2>Before we start</h2>
+        <p class="break-sub">How much knowledge of the world do you have?</p>
+      </section>
+
+      <!-- 4 -->
+      <section id="crest" data-transition="slide">
+        <p class="kicker">Assumption College Thonburi</p>
+        <div class="content" style="display: grid; grid-template-columns: 380px 1fr; gap: 56px; align-items: center;">
+          <img class="crest" src="img/act-crest.png" alt="The Assumption College Thonburi crest: a gold shield in four quarters, wreathed in green leaves, with scrolls reading Brothers of Saint Gabriel and Labor Vincit Omnia.">
+          <div>
+            <p class="cue">Labor Omnia Vincit. What does it mean?</p>
+            <div class="fragment">
+              <p class="latin-gloss">Hard work conquers everything.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section id="scientia" data-transition="fade">
+        <h2>A better motto</h2>
+        <div class="content">
+          <p class="scientia-intro">I agree that hard work is important. But I think this one matters more.</p>
+          <div class="fragment">
+            <div class="motto-card">
+              <p class="latin">Scientia Omnia Vincit</p>
+              <p class="latin-gloss">Knowledge overcomes all.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section id="interviews" data-transition="slide">
+        <h2>Two interviews</h2>
+        <div class="content">
+          <p class="interview-q"><strong>The question</strong> So, Pheem. Well done on your amazing university results. We're so happy to interview you for this regional policy position at the United Nations. To get started, can you tell us about Thailand's current refugee policy on the Thai-Burma border?</p>
+          <div class="interview-grid">
+            <div class="interview-card">
+              <p class="interview-label">Interview one</p>
+              <p class="interview-turn"><strong>Pheem:</strong> The refugee policy? Thailand? Um, um, I know this is a problem.</p>
+              <audio controls src="audio/interview-left.mp3"></audio>
+            </div>
+            <div class="interview-card interview-card-key">
+              <p class="interview-label">Interview two</p>
+              <p class="interview-turn"><strong>Pheem:</strong> Thailand has not signed the 1951 Refugee Convention, so there is no refugee law here. The government calls the border camps temporary shelters. More than 90,000 people live in nine of them, mostly Karen and Karenni from Myanmar. They need permission to leave the camps, and some have lived there since the 1980s. UNHCR can visit, but Thailand decides who may stay.</p>
+              <audio controls src="audio/interview-right.mp3"></audio>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section id="why-knowledge" data-transition="slide">
+        <h2>Why does it matter?</h2>
+        <div class="content">
+          <p>It is important that you have a good knowledge of the things that are happening in the world. Why? Think of two reasons.</p>
+          <div class="timers">
+            <div class="timer" data-timer-seconds="60" data-timer-label="two reasons, one minute"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section id="quiz-routine" data-transition="fade">
+        <h2>Every Monday</h2>
+        <div class="content">
+          <div class="swap">
+            <div class="swap-line">
+              <p>Every Monday, from now on, you will start the class with a short quiz: five questions about current events.</p>
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>Three will be the top world stories. Two will be the top stories in Thailand.</p>
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>The winner and the most improved at the end of the term will each get a cool prize, like a family pizza or a huge Swensen's sundae.</p>
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>You will be competing against all five classes I teach: M2-4A, M2-5A, M3-3A, M3-4A and M3-5A.</p>
+              <i class="fa-solid fa-users" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>Are you ready? Our first quiz will begin in a moment.</p>
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>You will have 15 seconds to answer each question. I will mark every answer and publish a leaderboard.</p>
+              <i class="fa-solid fa-stopwatch" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <!-- QUIZ: five questions, each with a bare 15-second countdown -->
+
+      <!-- quiz 1 -->
+      <section id="quiz-q1" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 1 of 5</p>
+        <h2>What reason is the US government giving for the grounding of flights on Friday?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 2 -->
+      <section id="quiz-q2" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 2 of 5</p>
+        <h2>Which three leaders will meet in Shenzhen, China, next week? And why are they going there?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 3 -->
+      <section id="quiz-q3" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 3 of 5</p>
+        <h2>The US is telling Ukraine it will have to give something to join NATO. Give what?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 4 -->
+      <section id="quiz-q4" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 4 of 5</p>
+        <h2>Which trade agreement will Thailand and China upgrade?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 5 -->
+      <section id="quiz-q5" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 5 of 5</p>
+        <h2>Why did the United Nations warn Thailand not to send five Uyghur men to China?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <section id="today" data-transition="slide">
         <h2>Today</h2>
         <div class="content">
           <div class="aim-grid-4">
@@ -71,10 +217,10 @@
            a "4 mm/year" sea-level figure for the Gulf, and any flood-depth
            chart drawn on 1/2/3 m when the published series is 1.11/1.70/2.21.
            ================================================================ -->
-      <section id="break-research" class="break" data-state="is-break">
+      <section id="break-research" data-transition="convex" class="break" data-state="is-break">
         <h2>What does the research show?</h2>
       </section>
-      <section id="research-exposure">
+      <section id="research-exposure" data-transition="slide">
         <h2>Bangkok would be hit hardest</h2>
         <div class="content" style="padding-bottom: 92px;">
           <p>The number of people who live on land that could be flooded in 2030, in millions:</p>
@@ -162,7 +308,7 @@
         <p class="chart-question" style="bottom: 52px;">What does this show &mdash; and what does it not show?</p>
         <p class="chart-source" style="left: 52px; right: auto; bottom: 16px;">Greenpeace East Asia (2021) &middot; 10-year coastal flood, high-emissions scenario</p>
       </section>
-      <section id="research-extent" style="display: flex; flex-direction: column;">
+      <section id="research-extent" data-transition="concave" style="display: flex; flex-direction: column;">
         <h2>Which parts of Bangkok would flood?</h2>
         <p style="margin: 4px 0 12px 0;">Red is land at risk from an annual flood in 2030.</p>
         <div class="map-frame">
@@ -174,7 +320,7 @@
       </section>
 
 
-      <section id="research-cost">
+      <section id="research-cost" data-transition="slide">
         <h2>What does one flood cost?</h2>
         <div class="content">
           <p>The 2011 floods, the worst in fifty years:</p>
@@ -199,12 +345,12 @@
 
 
       <!-- 4 ================================================================ -->
-      <section id="break-words" class="break" data-state="is-break">
+      <section id="break-words" data-transition="zoom" class="break" data-state="is-break">
         <h2>Let's learn some words</h2>
       </section>
 
       <!-- 5 ================================================================ -->
-      <section id="word-vulnerable">
+      <section id="word-vulnerable" data-transition="fade">
         <div class="content">
           <div class="word-wrap">
             <p class="word-label">Say it</p>
@@ -223,7 +369,7 @@
         </div>
       </section>
 
-      <section id="word-delta">
+      <section id="word-delta" data-transition="fade">
         <div class="content">
           <div class="word-wrap">
             <p class="word-label">Say it</p>
@@ -242,7 +388,7 @@
 
       
 
-      <section id="word-earmark">
+      <section id="word-earmark" data-transition="fade">
         <div class="content">
           <div class="word-wrap">
             <p class="word-label">Say it</p>
@@ -261,7 +407,7 @@
         </div>
       </section>
 
-      <section id="word-mangrove">
+      <section id="word-mangrove" data-transition="fade">
         <div class="content">
           <div class="word-wrap">
             <p class="word-label">Say it</p>
@@ -278,7 +424,7 @@
         </div>
       </section>
 
-      <section id="word-wetland">
+      <section id="word-wetland" data-transition="fade">
         <div class="content">
           <div class="word-wrap">
             <p class="word-label">Say it</p>
@@ -296,12 +442,12 @@
       </section>
 
 
-      <section id="break-knowledge" class="break" data-state="is-break">
+      <section id="break-knowledge" data-transition="concave" class="break" data-state="is-break">
         <h2>Let's build some knowledge</h2>
       </section>
 
       <!-- 12 =============================================================== -->
-      <section id="video-intro">
+      <section id="video-intro" data-transition="slide">
         <h2>We are going to watch a BBC news report</h2>
         <div class="content">
           <p>It is about Bangkok's <span class="thai">ความเปราะบาง</span> &mdash; its vulnerability &mdash; to flooding.</p>
@@ -311,12 +457,15 @@
       </section>
 
       <!-- 13 =============================================================== -->
-      <section id="part1-task">
+      <section id="part1-task" data-transition="slide">
         <p class="kicker">Part 1 &middot; 0:00&ndash;1:58</p>
         <h2>Part 1</h2>
         <div class="content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
           <div>
-            <p class="imperative">Copy the linear notes into your notebook.</p>
+            <div class="task-box">
+              <p class="task-label">In your notebook</p>
+              <p class="task-line">Copy the linear notes into your notebook.</p>
+            </div>
             <p>Some lines are already written in <strong>Part 1</strong>. As you watch, fill in the blanks.</p>
             <p><strong>No subtitles.</strong> You will listen to this part once.</p>
           </div>
@@ -332,10 +481,13 @@
       </section>
 
       <!-- 14 =============================================================== -->
-      <section id="part1-check">
+      <section id="part1-check" data-transition="fade">
         <h2>Check your notes with your partner</h2>
         <div class="content">
-          <p class="imperative">Compare what you wrote.</p>
+          <div class="task-box">
+            <p class="task-label">With your partner</p>
+            <p class="task-line">Compare what you wrote.</p>
+          </div>
           <p>If you need extra support, read the transcript to fill the blanks.</p>
           <div class="timers">
             <div class="timer" data-timer-seconds="90" data-timer-label="outline check, ninety seconds"></div>
@@ -344,7 +496,7 @@
       </section>
 
       <!-- 15 =============================================================== -->
-            <section id="part1-answers">
+            <section id="part1-answers" data-transition="fade">
         <h2>Part 1 &mdash; answers (1 of 2)</h2>
         <div class="content">
           <div class="notes">
@@ -375,7 +527,7 @@
         </div>
       </section>
 
-      <section id="part1-answers-2">
+      <section id="part1-answers-2" data-transition="fade">
         <h2>Part 1 &mdash; answers (2 of 2)</h2>
         <div class="content">
           <div class="notes">
@@ -405,18 +557,21 @@
       </section>
 
       <!-- 16 =============================================================== -->
-      <section id="break-solutions" class="break" data-state="is-break">
+      <section id="break-solutions" data-transition="convex" class="break" data-state="is-break">
         <h2>What solutions are being tried?</h2>
       </section>
 
       <!-- 17 =============================================================== -->
-      <section id="part2-task">
+      <section id="part2-task" data-transition="slide">
         <p class="kicker">Part 2 &middot; 2:02&ndash;4:00</p>
         <h2>Part 2</h2>
         <div class="content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
           <div>
             <p>The second part is about the ideas that have been tried, and rejected.</p>
-            <p class="imperative">Copy the mind map into your notebook.</p>
+            <div class="task-box">
+              <p class="task-label">In your notebook</p>
+              <p class="task-line">Copy the mind map into your notebook.</p>
+            </div>
             <p>Fill in the blank ovals as you watch.</p>
           </div>
           <div>
@@ -431,10 +586,13 @@
       </section>
 
       <!-- 18 =============================================================== -->
-      <section id="part2-check">
+      <section id="part2-check" data-transition="fade">
         <h2>Check your map with your partner</h2>
         <div class="content">
-          <p class="imperative">Compare what you wrote.</p>
+          <div class="task-box">
+            <p class="task-label">With your partner</p>
+            <p class="task-line">Compare what you wrote.</p>
+          </div>
           <p>If you need extra support, read the transcript.</p>
           <div class="timers">
             <div class="timer" data-timer-seconds="90" data-timer-label="map check, ninety seconds"></div>
@@ -443,7 +601,7 @@
       </section>
 
       <!-- 19 =============================================================== -->
-            <section id="part2-answers">
+            <section id="part2-answers" data-transition="fade">
         <h2>Part 2 &mdash; answers</h2>
         <div class="content">
           <div class="notes">
@@ -473,12 +631,12 @@
       </section>
 
       <!-- 20 =============================================================== -->
-      <section id="break-final-part" class="break" data-state="is-break">
+      <section id="break-final-part" data-transition="zoom" class="break" data-state="is-break">
         <h2>More solutions &mdash; and this time, no outlines</h2>
       </section>
 
       <!-- 21 =============================================================== -->
-      <section id="part3-intro">
+      <section id="part3-intro" data-transition="slide">
         <h2>Now we raise the difficulty</h2>
         <div class="content">
           <p>We will listen to the final part, but this time you will make your own notes.</p>
@@ -487,7 +645,7 @@
       </section>
 
       <!-- 22 =============================================================== -->
-      <section id="part3-play">
+      <section id="part3-play" data-transition="slide">
         <p class="kicker">Part 3 &middot; 4:02&ndash;5:20 &middot; two plays</p>
         <div class="content">
           <div class="video-frame" style="width: 700px;">
@@ -501,10 +659,13 @@
       </section>
 
       <!-- 23 =============================================================== -->
-      <section id="part3-check">
+      <section id="part3-check" data-transition="fade">
         <h2>Check your notes with your partner</h2>
         <div class="content">
-          <p class="imperative">Compare what you wrote.</p>
+          <div class="task-box">
+            <p class="task-label">With your partner</p>
+            <p class="task-line">Compare what you wrote.</p>
+          </div>
           <p>If you need extra support, read the transcript.</p>
           <div class="timers">
             <div class="timer" data-timer-seconds="90" data-timer-label="final notes check, ninety seconds"></div>
@@ -513,7 +674,7 @@
       </section>
 
       <!-- 24 =============================================================== -->
-                  <section id="part3-answers">
+                  <section id="part3-answers" data-transition="fade">
         <h2>Part 3 &mdash; a model outline (1 of 3)</h2>
         <div class="content">
           <div class="notes">
@@ -542,7 +703,7 @@
         </div>
       </section>
 
-            <section id="part3-answers-2">
+            <section id="part3-answers-2" data-transition="fade">
         <h2>Part 3 &mdash; a model outline (2 of 3)</h2>
         <div class="content">
           <div class="notes">
@@ -568,7 +729,7 @@
         </div>
       </section>
 
-      <section id="part3-answers-3">
+      <section id="part3-answers-3" data-transition="fade">
         <h2>Part 3 &mdash; a model outline (3 of 3)</h2>
         <div class="content">
           <div class="notes">
@@ -590,17 +751,20 @@
       </section>
 
       <!-- 25 =============================================================== -->
-      <section id="break-summary" class="break" data-state="is-break">
+      <section id="break-summary" data-transition="concave" class="break" data-state="is-break">
         <h2>Final task &mdash; summarise what you have learned</h2>
       </section>
 
       <!-- 26 =============================================================== -->
-      <section id="summary-task">
+      <section id="summary-task" data-transition="slide">
         <h2>One paragraph, with your partner</h2>
         <div class="content">
           <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: start;">
             <div>
-              <p class="imperative">Write a short summary of the report.</p>
+              <div class="task-box">
+              <p class="task-label">In your notebook</p>
+              <p class="task-line">Write a short summary of the report.</p>
+            </div>
               <ol class="qlist">
                 <li><span class="q-number">1</span><span>The risks Bangkok is facing.</span></li>
                 <li><span class="q-number">2</span><span>The solutions being suggested.</span></li>
@@ -614,7 +778,7 @@
           </div>
         </div>
       </section>
-      <section id="summary-model">
+      <section id="summary-model" data-transition="fade">
         <h2>One way to write it</h2>
         <div class="content">
           <div class="model-summary">
@@ -680,5 +844,48 @@
       Reveal.on('slidechanged', loadCurrentVideo);
     }());
   </script>
+    <script>
+      /* Bare quiz countdown. Starts on entry, stops at zero, no reset. */
+      (function () {
+        var beep = new Audio('audio/blip.mp3');
+        beep.preload = 'auto';
+        window.dshBeep = beep;   /* exposed so a session can prove the beep fired */
+
+        function start(slide) {
+          if (!slide) return;
+          /* A beep on entry, so the class knows the clock has started.
+             A rejected play() means the browser has had no gesture yet;
+             it is swallowed so the countdown still runs. */
+          if (slide.querySelector('.quiz-count')) {
+            try {
+              beep.currentTime = 0;
+              var pr = beep.play();
+              if (pr && pr.catch) pr.catch(function () {});
+            } catch (e) {}
+          }
+          slide.querySelectorAll('.quiz-count').forEach(function (n) {
+            if (n._t) { clearInterval(n._t); n._t = null; }
+            var left = parseInt(n.dataset.seconds || '15', 10);
+            n.textContent = left;
+            n._t = setInterval(function () {
+              left -= 1;
+              if (left <= 0) {
+                n.textContent = '0';
+                clearInterval(n._t); n._t = null;
+                /* Fifteen seconds gone: move on by itself. The short delay lets
+                   the class see the zero before the slide changes. */
+                if (Reveal.getCurrentSlide() === slide) {
+                  setTimeout(function () { Reveal.next(); }, 600);
+                }
+                return;
+              }
+              n.textContent = left;
+            }, 1000);
+          });
+        }
+        Reveal.on('slidechanged', function (e) { start(e.currentSlide); });
+        Reveal.on('ready', function (e) { start(e.currentSlide); });
+      })();
+    </script>
 </body>
 </html>

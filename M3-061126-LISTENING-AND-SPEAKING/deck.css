@@ -692,3 +692,246 @@
 }
 .reveal .notes ol ol ol ol ol > li::before { content: counter(note, lower-roman) "."; }
 .reveal .notes ol ol ol ol ol ol > li::before { content: counter(note, lower-alpha) "."; }
+
+/* ============================================================
+   THE COMPONENT KIT, ported from M3-101126-DISCUSSION — the deck
+   the teacher named the new standard (2026-11-15).
+
+   Additive only: nothing above this line changes. Every rule is
+   prefixed `.reveal` because styles.css sets `.reveal p, .reveal li`
+   at (0,1,1), which beats a bare class selector.
+   ============================================================ */
+
+/* Every slide where the class acts carries a box, and the box's
+   label says how they act. Maroon-95 fill, 6px maroon edge,
+   18pt uppercase label, 24pt steps. */
+.reveal .task-box {
+  margin-top: 14px;
+  padding: 14px 24px 16px 24px;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+.reveal .task-label {
+  margin: 0 0 8px 0;
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .task-line {
+  margin: 0 0 6px 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+.reveal .task-line:last-child { margin-bottom: 0; }
+
+/* A question the slide answers on a click. */
+.reveal .cue {
+  margin: 18px 0 0 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--accent-text-color);
+}
+
+/* The cover's kicker: the context line above the title. */
+.reveal #cover-text .cover-kicker {
+  display: block;
+  margin: 0 0 10px 0;
+  font-family: var(--body-font);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--maroon-40);
+}
+
+/* ---------- Cover: the type moves to the TOP ----------
+   The new drawing puts its three subjects in the lower third, exactly where
+   the old cream caption band sat, so the band would have covered their heads.
+   The storm sky is the empty third, so the band goes up there and inverts:
+   a dark gradient down from the top edge, white title, cream sub-line. */
+.reveal #cover-text .caption-band {
+  top: 0;
+  bottom: auto;
+  padding: 40px 60px 58px 60px;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 12, 18, 0.88) 0%,
+    rgba(10, 12, 18, 0.72) 55%,
+    rgba(10, 12, 18, 0) 100%
+  );
+}
+.reveal #cover-text h1 { color: #FFFFFF; }
+.reveal #cover-text .cover-kicker { color: var(--maroon-80); }
+.reveal #cover-text .caption-band p { color: var(--maroon-90); }
+
+/* ---------- The world-knowledge opening ---------- */
+.reveal .break-sub {
+  margin: 22px 0 0 0;
+  font-size: 30pt;
+  line-height: 1.3;
+  color: var(--maroon-90);
+}
+.reveal .crest { width: 100%; height: auto; display: block; }
+.reveal .latin {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 48pt;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--maroon-30);
+}
+.reveal .latin-gloss {
+  margin: 18px 0 0 0;
+  font-size: 30pt;
+  line-height: 1.25;
+  color: var(--neutral-10);
+}
+
+/* ---------- The two interviews ---------- */
+.reveal .interview-q {
+  margin: 0 0 8px 0;
+  font-size: 18pt;
+  line-height: 1.2;
+  color: var(--neutral-10);
+}
+.reveal .interview-q strong { color: var(--accent-text-color); letter-spacing: 0.06em; text-transform: uppercase; }
+.reveal .interview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.reveal .interview-card {
+  padding: 8px 16px 10px 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+.reveal .interview-card-key {
+  background: var(--maroon-95);
+  border-left: 6px solid var(--primary-color);
+}
+.reveal .interview-label {
+  margin: 0 0 4px 0;
+  font-size: 18pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .interview-turn {
+  margin: 0 0 8px 0;
+  font-size: 18pt;
+  line-height: 1.2;
+}
+.reveal .interview-turn strong { font-weight: 600; }
+.reveal .interview-card audio { display: block; width: 100%; height: 22px; }
+
+.reveal .content > audio {
+  width: 100%;
+  height: 36px;
+  margin-top: 18px;
+}
+
+/* ---------- Scientia: the motto lands in a card, on the house axis ---------- */
+.reveal .scientia-intro {
+  margin: 0 0 26px 0;
+  max-width: 880px;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+.reveal .motto-card {
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px 34px 30px 34px;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+.reveal .motto-card .latin { margin: 0 0 14px 0; }
+
+/* #scientia: the sentence and the card sit as one block on the slide's axis. */
+.reveal #scientia .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ---------- A line that is REPLACED, not stacked ----------
+   All the lines occupy one grid cell, so the block never changes height and
+   the slide does not jump. The first line is on screen at entry; each click
+   reveals the next and the rule below hides whichever came before it. */
+.reveal .swap {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.reveal .swap-line {
+  max-width: 1010px;
+}
+.reveal .swap-line p {
+  margin: 0 0 26px 0;
+  font-size: 24pt;
+  line-height: 1.32;
+}
+.reveal .swap-line i {
+  display: block;
+  font-size: 84pt;
+  line-height: 1;
+  color: var(--accent-text-color);
+}
+.reveal .swap > * {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+.reveal .swap > *:first-child { opacity: 1; }
+.reveal .swap > .fragment.visible { opacity: 1; }
+.reveal .swap > .fragment.visible:has(~ .fragment.visible) { opacity: 0; }
+.reveal .swap:has(> .fragment.visible) > *:first-child { opacity: 0; }
+
+/* #quiz-routine: one line at a time, hugging the header.
+   Proximity: the line belongs to the heading, so it sits 12px under it,
+   not at the slide's default 30px of block padding. */
+.reveal #quiz-routine .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 12px;
+}
+
+/* ---------- Quiz question slides: the question, and a bare clock ----------
+   No answer, no context, no source: the teacher marks it afterwards.
+   The countdown starts itself on slide entry and stops at zero; there is
+   no reset control by design. */
+.reveal .quiz-q h2 { max-width: 1120px; }
+.reveal .quiz-q .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 6px;
+}
+.reveal .quiz-count {
+  margin: auto 0 0 0;
+  font-family: var(--heading-font);
+  font-size: 100pt;
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--maroon-30);
+  font-variant-numeric: tabular-nums;
+}
