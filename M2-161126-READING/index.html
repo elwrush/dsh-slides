@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Number on the Gate</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 ================================================================
+           The drawing alone: the deck opens on the art, and the type arrives
+           on the next press. Same convention as lesson 1.
+           ================================================================ -->
+      <section id="cover-art" data-auto-animate data-auto-animate-id="cover" data-transition="fade">
+        <div class="cover-plate" data-id="cover-plate">
+          <img data-id="cover-img" src="img/cover-gate.png" alt="A line drawing of the gate of Assumption College Thonburi. Above it a screen reads PM 2.5 12 with a smiling face. Students in school uniform walk in through the gate.">
+        </div>
+      </section>
+
+      <!-- 2 ================================================================ -->
+      <section id="cover-text" data-auto-animate data-auto-animate-id="cover" data-transition="fade">
+        <div class="cover-plate" data-id="cover-plate">
+          <img data-id="cover-img" src="img/cover-gate.png" alt="">
+        </div>
+        <div class="caption-band">
+          <h1><span class="cover-kicker">CEL Mathayom &middot; Reading</span>The Number on the Gate</h1>
+          <p>A fantasy story about Thai students using Government to change the law.</p>
+        </div>
+      </section>
+
+      <!-- 3 ================================================================
+           The quiz is a segment of the lesson, so it is introduced as one: a
+           single heading on the maroon field, by the house convention.
+           ================================================================ -->
+      <section id="break-quiz" class="break" data-state="is-break" data-transition="zoom">
+        <h2>The Monday quiz</h2>
+      </section>
+
+      <!-- 4 ================================================================
+           The quiz routine, ported unchanged from
+           M3-061126-LISTENING-AND-SPEAKING. `.swap` stacks every line in one
+           grid cell and swaps them on each press, so the slide never grows.
+           ================================================================ -->
+      <section id="quiz-routine" data-transition="fade">
+        <h2>How it works</h2>
+        <div class="content">
+          <div class="swap">
+            <div class="swap-line">
+              <p>Every Monday, from now on, you will start the class with a short quiz: five questions about current events.</p>
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>Three will be the top world stories. Two will be the top stories in Thailand.</p>
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>The winner and the most improved at the end of the term will each get a cool prize, like a family pizza or a huge Swensen's sundae.</p>
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>You will be competing against all five classes I teach: M2-4A, M2-5A, M3-3A, M3-4A and M3-5A.</p>
+              <i class="fa-solid fa-users" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>Are you ready? Our first quiz will begin in a moment.</p>
+              <i class="fa-solid fa-play" aria-hidden="true"></i>
+            </div>
+            <div class="swap-line fragment">
+              <p>You will have 15 seconds to answer each question. I will mark every answer and publish a leaderboard.</p>
+              <i class="fa-solid fa-stopwatch" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 ================================================================
+           QUIZ: five questions, each with a bare 15-second countdown.
+           The question text is the quiz JSON's, word for word.
+           ================================================================ -->
+
+      <!-- quiz 1 -->
+      <section id="quiz-q1" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 1 of 5</p>
+        <h2>What reason is the US government giving for the grounding of flights on Friday?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 2 -->
+      <section id="quiz-q2" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 2 of 5</p>
+        <h2>Which three leaders will meet in Shenzhen, China, next week? And why are they going there?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 3 -->
+      <section id="quiz-q3" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 3 of 5</p>
+        <h2>The US is telling Ukraine it will have to give something to join NATO. Give what?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 4 -->
+      <section id="quiz-q4" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 4 of 5</p>
+        <h2>Which trade agreement will Thailand and China upgrade?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- quiz 5 -->
+      <section id="quiz-q5" class="quiz-q" data-transition="fade">
+        <p class="kicker">Question 5 of 5</p>
+        <h2>Why did the United Nations warn Thailand not to send five Uyghur men to China?</h2>
+        <div class="content">
+          <p class="quiz-count" data-seconds="15">15</p>
+        </div>
+      </section>
+
+      <!-- 6 ================================================================ -->
+      <section id="today" data-transition="slide">
+        <h2>Today</h2>
+        <div class="content">
+          <div class="aim-grid-4">
+            <div class="aim-card">
+              <span class="aim-num">1</span>
+              <p>Read a story about five students and a law.</p>
+            </div>
+            <div class="aim-card">
+              <span class="aim-num">2</span>
+              <p>Follow a bill from the first signature to the Royal Gazette.</p>
+            </div>
+            <div class="aim-card">
+              <span class="aim-num">3</span>
+              <p>Answer seven questions, then check them against the key.</p>
+            </div>
+            <div class="aim-card">
+              <span class="aim-num">4</span>
+              <p>Write the bill you would like to see in Thailand.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 =============================================================== -->
+      <section id="break-air" class="break" data-state="is-break" data-transition="zoom">
+        <h2>What do you know about PM2.5?</h2>
+      </section>
+
+      <!-- 8 ===============================================================
+           Three facts the class has to hold together, so all three are on
+           screen at once. `.swap` would show them one at a time.
+           =============================================================== -->
+      <section id="where-smoke" data-transition="slide">
+        <h2>Where the smoke comes from</h2>
+        <div class="content">
+          <ul>
+            <li><strong>Farmers</strong> burn the stubble left after the harvest. Most of that smoke reaches Bangkok in January and February.</li>
+            <li><strong>Traffic and factories</strong> add their own. It settles overnight, when the air is still.</li>
+            <li><strong>PM2.5</strong> is the part small enough to reach your lungs. At 15, the World Health Organization says the air is no longer safe.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 9 =============================================================== -->
+      <section id="break-ready" class="break" data-state="is-break" data-transition="zoom">
+        <h2>Get ready to read</h2>
+      </section>
+
+      <!-- 10 =============================================================== -->
+      <section id="before-start" data-transition="slide">
+        <h2>Before you start</h2>
+        <div class="content">
+          <ul>
+            <li>Read it once without stopping. You do not need every word.</li>
+            <li>One of the questions asks you to draw a flowchart. A flowchart looks like this:</li>
+            <li>Ask who has to do what. A law is a list of jobs for somebody.</li>
+          </ul>
+          <figure class="flow-sample">
+            <img src="img/flowchart-sample.png" alt="A flowchart of six empty boxes joined by arrows: two boxes on the top row running left to right, two on the second row running right to left, and two wide boxes underneath.">
+          </figure>
+        </div>
+      </section>
+
+      <!-- 11 =============================================================== -->
+      <section id="break-read" class="break" data-state="is-break" data-transition="zoom">
+        <h2>Read</h2>
+      </section>
+
+      <!-- 12 =============================================================== -->
+      <section id="silent-reading" data-transition="slide">
+        <h2>Silent reading</h2>
+        <div class="content">
+          <div class="task-box">
+            <p class="task-label">Silently</p>
+            <p class="task-line">Read the article on your sheet. The line numbers are in the margin.</p>
+          </div>
+          <div class="timers">
+            <div class="timer" data-timer-seconds="600" data-timer-label="silent reading, ten minutes"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13 =============================================================== -->
+      <section id="break-check" class="break" data-state="is-break" data-transition="zoom">
+        <h2>Check your comprehension</h2>
+      </section>
+
+      <!-- The questions are printed on the sheet, so the deck does not repeat them:
+           the class answers on paper and checks against the key handout. -->
+      <section id="check-answers" data-transition="slide">
+        <h2>Check your answers</h2>
+        <div class="content">
+          <div class="task-box">
+            <p class="task-label">With your partner</p>
+            <p class="task-line">Check your answers against the suggested key. Mark anything you got wrong, and say why.</p>
+          </div>
+          <div class="timers">
+            <div class="timer" data-timer-seconds="300" data-timer-label="checking answers, five minutes"></div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+      <!-- 14 =============================================================== -->
+      <section id="break-write" class="break" data-state="is-break" data-transition="zoom">
+        <h2>Write</h2>
+      </section>
+
+      <!-- 15 =============================================================== -->
+      <section id="writing-task" data-transition="slide">
+        <h2>Your own bill</h2>
+        <div class="content">
+          <p>The students in this article changed a law that affected them. Now choose a law you would like to see introduced in Thailand.</p>
+          <ul>
+            <li>What problem would your law fix, and who does it affect?</li>
+            <li>What three things would your law make people or the government do?</li>
+          </ul>
+          <div class="task-box">
+            <p class="task-label">In your notebook</p>
+            <p class="task-line">Write 100&ndash;120 words.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 =============================================================== -->
+      <section id="writing-time" data-transition="slide">
+        <h2>Writing time</h2>
+        <div class="content">
+          <div class="task-box">
+            <p class="task-label">In your notebook</p>
+            <p class="task-line">Write. If you finish, read it back and check the three jobs your law creates.</p>
+          </div>
+          <div class="timers">
+            <div class="timer" data-timer-seconds="720" data-timer-label="writing, twelve minutes"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false
+    });
+  </script>
+  <script>
+    /* Bare quiz countdown. Ported unchanged from M3-061126-LISTENING-AND-SPEAKING:
+       starts on entry, beeps once, holds 0.6s at zero and calls Reveal.next().
+       Both 'ready' and 'slidechanged' are hooked, because reveal fires no
+       slidechanged for the slide a cold load opens on. */
+    (function () {
+      var beep = new Audio('audio/blip.mp3');
+      beep.preload = 'auto';
+      window.dshBeep = beep;
+
+      function start(slide) {
+        if (!slide) return;
+        if (slide.querySelector('.quiz-count')) {
+          try {
+            beep.currentTime = 0;
+            var pr = beep.play();
+            if (pr && pr.catch) pr.catch(function () {});
+          } catch (e) {}
+        }
+        slide.querySelectorAll('.quiz-count').forEach(function (n) {
+          if (n._t) { clearInterval(n._t); n._t = null; }
+          var left = parseInt(n.dataset.seconds || '15', 10);
+          n.textContent = left;
+          n._t = setInterval(function () {
+            left -= 1;
+            if (left <= 0) {
+              n.textContent = '0';
+              clearInterval(n._t); n._t = null;
+              if (Reveal.getCurrentSlide() === slide) {
+                setTimeout(function () { Reveal.next(); }, 600);
+              }
+              return;
+            }
+            n.textContent = left;
+          }, 1000);
+        });
+      }
+      Reveal.on('slidechanged', function (e) { start(e.currentSlide); });
+      Reveal.on('ready', function (e) { start(e.currentSlide); });
+    })();
+  </script>
+</body>
+</html>
