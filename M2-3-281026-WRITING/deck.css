@@ -169,6 +169,38 @@
   color: var(--accent-text-color);
 }
 
+/* The pattern, held apart from the instruction above it. The same maroon-tinted
+   surface `.beat` gives the model story: on the sprint slide these four lines
+   are the only thing the class looks back at while it writes, and without a
+   box they read as two more paragraphs of instruction. */
+.reveal .pattern-box {
+  margin: 26px 0 0 0;
+  padding: 20px 26px 22px 26px;
+  box-sizing: border-box;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 5px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+.reveal .pattern-box p {
+  margin: 0;
+}
+.reveal .pattern-box p + p {
+  margin-top: 6px;
+}
+.reveal .pattern-box .pattern-lead {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+
+/* The sprint slide's column needs the foot of the scaffold's padding back: the
+   pattern box pushed it 28px past the stage before this. Selector carries the
+   id so it out-specifies `.reveal .slides section > .content` (0,3,1). */
+.reveal .slides section#go-five > .content {
+  padding-bottom: 12px;
+}
+
 /* The three example stories: one per line, big, hairline between. */
 .reveal .story-line {
   margin: 0;
@@ -191,10 +223,12 @@
 }
 
 /* One beat of the model: number, name, and the line that carries it.
-   The name column is a fixed width so a revealed name shifts nothing. */
+   The name column is a fixed width so a revealed name shifts nothing. 240px,
+   not 200: "Problem solved" measured 214px at 24pt and wrapped, which made
+   row 4 taller than its neighbours. */
 .beat-row {
   display: grid;
-  grid-template-columns: 54px 200px 1fr;
+  grid-template-columns: 54px 240px 1fr;
   gap: 20px;
   align-items: baseline;
   padding: 10px 0;
