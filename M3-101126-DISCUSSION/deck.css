@@ -1,0 +1,665 @@
+/* ============================================================
+   DECK-ONLY COMPONENTS — M3-101126-DISCUSSION
+
+   styles.css is the scaffold's and a re-scaffold overwrites it, so every
+   component this deck invents lives here instead. It is linked AFTER
+   styles.css.
+
+   EVERY RULE IS PREFIXED `.reveal`. `styles.css` sets
+   `.reveal p, .reveal li { font-size: 24pt }` at (0,1,1), which beats a bare
+   class selector at (0,1,0), so an unprefixed `.frame-use { font-size: 24pt }`
+   is silently dead and the text renders at body size.
+
+   TYPE LADDER — 24, 30, 36, 48, 56.
+
+   **18pt EXISTS IN THIS DECK FOR CITATIONS ONLY** — the `.bank-src` column,
+   which names who said the thing. Everything else is at least 24pt. Fine print
+   was used for labels, tags and transcript lines in the first draft and was
+   rejected on sight (user, 2026-11-09): *"never fine print unless it is a
+   citation"*. So a label, a move tag, an audio caption and a transcript line
+   are all 24pt now, and slides that outgrew the frame were SPLIT rather than
+   shrunk.
+   ============================================================ */
+
+/* ---------- 1. The cover: the drawing, then the drawing with the type ----------
+   Two slides, as in lesson 1 of this unit. The first carries no type at all,
+   so the sign in the drawing is read before anything covers it; the second
+   repeats the drawing under a caption band that fades up out of the paddy.
+   The band is a soft edge rather than a cut, so the sign's posts dissolve
+   into the paper instead of being sliced off by it. */
+.reveal #cover-art .cover-plate,
+.reveal #cover-text .cover-plate {
+  position: absolute;
+  inset: 0;
+}
+.reveal #cover-art .cover-plate img,
+.reveal #cover-text .cover-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.reveal #cover-text .caption-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 34px 60px 26px 60px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 248, 247, 0) 0%,
+    rgba(255, 248, 247, 0.86) 22%,
+    rgba(255, 248, 247, 0.97) 40%,
+    rgba(255, 248, 247, 0.97) 100%
+  );
+}
+/* The maroon bar that used to open the band is gone: the kicker below is
+   already a mark, and the bar cost 24px of band height that the drawing
+   needed. Measured: at 56pt on two lines the band stood 268px tall and its
+   top edge cut across the sign's face. One line at 56pt plus a 24pt kicker
+   is 215px, which clears the sign and lets only its posts dissolve into the
+   paper. */
+.reveal #cover-text .caption-band::before {
+  content: none;
+  display: none;
+}
+.reveal #cover-text h1 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.05;
+  color: var(--accent-text-color);
+}
+.reveal #cover-text .cover-kicker {
+  display: block;
+  margin: 0 0 10px 0;
+  font-family: var(--body-font);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--maroon-40);
+}
+.reveal #cover-text .caption-band p {
+  margin: 10px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+/* ---------- 2. Break slides ----------
+   56pt, not 44: the scaffold's own h1 is 48pt, so a 44pt break heading in the
+   same deck is a near-pair ERROR at 8.3%. The maroon field is painted on the
+   viewport as well, or a 16:9 slide inside a taller window shows cream bands
+   above and below every break. */
+.reveal .slides section.break {
+  background: var(--primary-color);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.break h2 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+}
+.reveal .slides section.break p {
+  margin: 16px 0 0 0;
+  font-size: 24pt;
+  color: var(--maroon-90);
+}
+/* A Thai gloss rides inside an English heading. Sarabun carries the taller
+   ascenders and descenders Thai needs, so on a break heading it is set one rung
+   down the ladder — 48pt against the 56pt Latin — and the pair then reads as
+   one line. A fractional size here would add a new rung and fail check-design. */
+.reveal .thai {
+  font-family: "Sarabun", "Leelawadee UI", "Tahoma", sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.reveal .slides section.break h2 .thai {
+  font-size: 48pt;
+}
+.reveal-viewport.is-break {
+  background-color: var(--primary-color);
+}
+
+/* ---------- 3. The parallel-example marker ----------
+   On screen for every slide of the rehearsal, so the class always knows which
+   question it is in. 24pt like everything else: a signpost the back row cannot
+   read is not a signpost. */
+.reveal .chip-parallel {
+  align-self: flex-start;
+  margin: 0 0 10px 0;
+  background: var(--blue-90);
+  color: var(--blue-20);
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- 4. Our question, and its two sides ---------- */
+.reveal .plan-question {
+  margin: 0;
+  padding: 14px 26px;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--text-color);
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-top: 5px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+.reveal .side-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+.reveal .side-card {
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 18px 24px;
+}
+.reveal .side-name {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  color: var(--accent-text-color);
+}
+.reveal .side-gloss {
+  margin: 8px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+
+/* ---------- 5. The E-R-P morph ----------
+   Three boxes that physically reorder across three auto-animated slides. The
+   boxes keep a fixed minimum height so that adding the sentence in stage three
+   fades text in rather than resizing the whole row, which would read as the
+   layout breaking rather than as the argument filling. The gloss and the worked
+   sentence reserve the same two lines. */
+.reveal .erp-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+}
+.reveal .erp-card {
+  flex: 1;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 22px 18px;
+}
+.reveal .erp-letter {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 48pt;
+  line-height: 1;
+  color: var(--primary-color);
+}
+.reveal .erp-word {
+  margin: 8px 0 0 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .erp-gloss {
+  margin: 6px 0 0 0;
+  min-height: 2.4em;
+  font-size: 24pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+.reveal .erp-say {
+  margin: 12px 0 0 0;
+  min-height: 2.4em;
+  font-size: 24pt;
+  line-height: 1.22;
+  color: var(--muted-color);
+}
+.reveal .erp-caption {
+  margin: 22px 0 0 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--accent-text-color);
+}
+
+/* ---------- 6. Evidence, strongest first ---------- */
+.reveal .tier {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 9px 20px;
+  margin-bottom: 10px;
+  border-radius: var(--box-radius);
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-left: 5px solid var(--neutral-90);
+}
+.reveal .tier:last-child {
+  margin-bottom: 0;
+}
+.reveal .tier-king {
+  background: var(--maroon-95);
+  border-left-color: var(--primary-color);
+}
+.reveal .tier-icon {
+  flex: none;
+  width: 44px;
+  text-align: center;
+  font-size: 30pt;
+  line-height: 1;
+  color: var(--muted-color);
+}
+.reveal .tier-king .tier-icon {
+  color: var(--primary-color);
+}
+.reveal .tier-name {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .tier-example {
+  margin: 2px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+
+/* ---------- 7. A model clip ----------
+   Every player is named in a <p> above it, because an unlabelled control could
+   be anything and the class has to know whose voice it is about to hear. */
+.reveal .audio-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 16px 0;
+}
+.reveal .audio-label {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--info-text-color);
+}
+.reveal .audio-row audio {
+  width: 100%;
+  max-width: 720px;
+}
+.reveal .quote-card {
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 16px 22px;
+}
+.reveal .quote-card-key {
+  background: var(--maroon-95);
+  border-left: 5px solid var(--primary-color);
+}
+.reveal .quote-who {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .quote-say {
+  margin: 6px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.22;
+}
+.reveal .quote-tag {
+  margin: 8px 0 0 0;
+  font-size: 24pt;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+.reveal .two-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+.reveal .col-head {
+  margin: 0 0 10px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+
+/* ---------- 8. The reading we set for the class ---------- */
+.reveal .reading-panel {
+  margin-top: 20px;
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 18px 26px;
+}
+.reveal .reading-panel p {
+  margin: 0 0 12px 0;
+  font-size: 24pt;
+  line-height: 1.28;
+}
+.reveal .reading-panel p:last-child {
+  margin-bottom: 0;
+}
+/* The sources line of a lesson text. 18pt because it is a citation, which is
+   the one thing in this deck allowed to be fine print. */
+.reveal .reading-panel p.src-line {
+  margin: 14px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.25;
+  color: var(--muted-color);
+}
+
+/* ---------- 9. The frames, and the moves they carry ---------- */
+.reveal .frame-row {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 26px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .frame-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .frame-form {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--accent-text-color);
+}
+.reveal .frame-use {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+
+/* ---------- 10. Three steps of a concession ---------- */
+.reveal .step-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .step-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--maroon-100);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1;
+}
+.reveal .step-row p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+
+/* ---------- 11. When to give ground ---------- */
+.reveal .test-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+.reveal .test-col {
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 16px 22px;
+}
+.reveal .test-col-yes {
+  background: var(--maroon-95);
+  border-top: 5px solid var(--primary-color);
+}
+.reveal .test-col-no {
+  border-top: 5px solid var(--neutral-90);
+}
+.reveal .test-head {
+  margin: 0 0 10px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .test-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.reveal .test-col li {
+  margin: 0 0 4px 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+
+/* ---------- 12. The six turns of the model exchange ----------
+   Three turns a slide, 24pt. Six turns at 24pt is two slides' worth; the first
+   draft set them at 18pt and that is the fine print the rule forbids. The move
+   name holds its own column so the eye can read the shape of the exchange down
+   the left edge without reading the English. */
+.reveal .move-row {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .move-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .move-tag {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--accent-text-color);
+}
+.reveal .move-say {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.25;
+}
+.reveal .move-say b {
+  font-weight: 600;
+  color: var(--info-text-color);
+}
+
+/* ---------- 13. Our evidence, and who said it ----------
+   The two columns are the point of the slide: the left one is what the class
+   can say, the right one is what makes it checkable. **This is the one place
+   18pt is allowed in the deck** — it is the citation, and a citation is the
+   only thing that may be smaller than the body. */
+.reveal .bank-row {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .bank-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .bank-what {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+.reveal .bank-src {
+  margin: 0;
+  font-size: 18pt;
+  line-height: 1.25;
+  color: var(--muted-color);
+}
+
+/* ---------- 14. The plan, evidence first ----------
+   Four cells, and the position is the THIRD: the grid is the lesson's argument
+   laid out as a page, and a student who fills it left to right has chosen a
+   side only after reading the evidence. */
+.reveal .plan-grid-erp {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+.reveal .plan-cell {
+  display: flex;
+  flex-direction: column;
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 14px 16px 16px 16px;
+}
+.reveal .plan-cell-position {
+  background: var(--maroon-95);
+  border-top: 5px solid var(--primary-color);
+}
+.reveal .plan-cell .erp-letter {
+  font-size: 36pt;
+}
+.reveal .plan-cell .plan-word {
+  margin: 4px 0 0 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.reveal .plan-hint {
+  margin: 10px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.22;
+  color: var(--muted-color);
+}
+
+/* ---------- 15. A box for every slide where the class acts ----------
+   The label names the mode, so nobody reaches for a pen when the task is
+   spoken, or speaks when it is written. */
+.reveal .task-box {
+  margin-top: 16px;
+  padding: 14px 24px 16px 24px;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+.reveal .task-label {
+  margin: 0 0 8px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .task-line {
+  margin: 0 0 6px 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+.reveal .task-line:last-child {
+  margin-bottom: 0;
+}
+/* The vendored reset leaves <i> upright, because every icon on the deck is an <i>.
+   A word the worksheet prints in italic therefore needs saying again here — Task 1
+   quotes the sheet's two column names, which are italic on paper. */
+.reveal .task-line i,
+.reveal .task-line em {
+  font-style: italic;
+}
+
+/* ---------- 16. A cue asks before the answer arrives ---------- */
+.reveal .cue {
+  margin: 20px 0 0 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--accent-text-color);
+}
+
+/* ---------- 17. Content sits centred ---------- */
+.reveal .slides section > .content {
+  justify-content: center;
+}
+
+/* A footnote is body copy here, not a citation slot: styles.css ships it at
+   18pt and the deck's rule is that only a citation may be that small. */
+.reveal .slides section > .footnote {
+  font-size: 24pt;
+  line-height: 1.2;
+}
+
+/* ---------- 18. A task beside its clock ---------- */
+.reveal .discuss-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.reveal .discuss-grid .task-box {
+  margin-top: 0;
+}
+
+/* The discussion flowchart, shown full width but never taller than the stage
+   allows: it is a reference picture, not a page. */
+.reveal .flow-img {
+  display: block;
+  max-height: 330px;
+  width: auto;
+  margin: 10px auto 0 auto;
+}
+
+/* The closing slide carries two lines. Centred, the deck's .content leaves a
+   quarter of the stage blank above them; pinned to the top the instruction sits
+   where it is read. */
+.reveal .slides section#homework > .content,
+.reveal .slides section#practice > .content {
+  justify-content: flex-start;
+  padding-top: 28px;
+}
+
+/* Kati's complaint fills the stage on its own; the player under it needs the
+   7px the default audio-row margin was spending. */
+.reveal .slides section#speak-prep .audio-row { margin-bottom: 0; }
+.reveal .slides section#speak-prep .audio-row audio { max-width: 520px; }
+.reveal .slides section#speak-prep .reading-panel { margin-top: 12px; padding: 14px 22px; }
