@@ -1,0 +1,397 @@
+/* Deck-only components — Let's add shape to your story (creative writing, lesson 2).
+
+   styles.css is the scaffold's file and a re-scaffold overwrites it, so anything
+   this deck adds of its own lives here and is linked after it.
+
+   Components and their names are ported from the house standard design plane,
+   `M3-101126-DISCUSSION`: `.task-box` with `.task-label` / `.task-line`, the
+   circular `.step-num` row, the gradient `.caption-band` on a cover, and a
+   centred `.content`. Its rule holds here too — **nothing is smaller than 24pt
+   except quoted matter**, which is the one thing this deck sets at 18pt.
+
+   Sizes come only from the ladder — 56 / 44 / 36 / 30 / 24 / 18 — so no two
+   distinct sizes sit inside the 12% near-pair test. */
+
+/* No h1 override any more. The standard plane puts every break heading on an
+   <h2> at 56pt, which leaves the scaffold's 48pt h1 unused and so removes the
+   44-vs-48 near-pair this deck used to dodge by flattening h1 to 44pt. The
+   cover's 56pt h1 is the deck's only h1. */
+
+/* The vendored reset leaves <em> upright, because every icon in the scaffold is
+   an <i>. Without this the film's title prints roman and reads as a failed edit. */
+.reveal em {
+  font-style: italic;
+}
+
+/* Content sits centred, as in the standard plane. A slide whose content fills
+   the frame is unaffected; a short one stops hanging off the top edge. */
+.reveal .slides section > .content {
+  justify-content: center;
+}
+
+/* ===========================================
+   COVER — the drawing alone, then the drawing under the title.
+
+   Two slides, as in lesson 1 of this unit: the first carries no type at all, so
+   the drawing is read before anything covers it. The band is a soft edge rather
+   than a cut, so the film's own banner dissolves into the paper instead of being
+   sliced across.
+   =========================================== */
+/* A full-bleed cover needs no padding: both children are positioned against the
+   section, and the scaffold's 40px top padding puts the content-box origin below
+   the top edge, which makes a plate that reaches the top read as 40px of
+   overflow to `check-overflow`. Nothing sits in flow on this slide. */
+.reveal .slides section#cover-text {
+  padding: 0 !important;
+}
+
+.reveal #cover-text .cover-plate {
+  position: absolute;
+  inset: 0;
+}
+.reveal #cover-text .cover-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal #cover-text .caption-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 34px 60px 26px 60px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 248, 247, 0) 0%,
+    rgba(255, 248, 247, 0.88) 20%,
+    rgba(255, 248, 247, 0.98) 38%,
+    rgba(255, 248, 247, 0.98) 100%
+  );
+}
+.reveal #cover-text h1 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.05;
+  color: var(--accent-text-color);
+}
+.reveal #cover-text .cover-kicker {
+  display: block;
+  margin: 0 0 10px 0;
+  font-family: var(--body-font);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--maroon-40);
+}
+.reveal #cover-text .caption-band p {
+  margin: 10px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+/* ===========================================
+   TEXT BLOCKS
+   =========================================== */
+
+/* The one sentence that ties this lesson to the last one. */
+.reveal .lead {
+  margin: 0 0 28px 0;
+  font-size: 30pt;
+  line-height: 1.3;
+}
+
+/* A numbered row: the circle is the mark, and the rule across the top makes the
+   set read as one list. Ported from the standard plane. */
+.reveal .step-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .step-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--maroon-100);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1;
+}
+.reveal .step-row p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.25;
+}
+
+/* ===========================================
+   THE TASK BOX — the class writes this down now.
+
+   It has exactly one meaning, so it never appears for something that is only
+   said aloud. The label names the mode at 24pt: a signpost the back row cannot
+   read is not a signpost, and 18pt labels were rejected as fine print.
+   =========================================== */
+.reveal .task-box {
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+  padding: 14px 24px 16px 24px;
+}
+.reveal .task-label {
+  margin: 0 0 10px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .task-line {
+  margin: 0 0 6px 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+.reveal .task-line:last-child {
+  margin-bottom: 0;
+}
+.reveal .task-line .n {
+  display: inline-block;
+  width: 40px;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+
+/* ===========================================
+   BREAK SLIDES — the punctuation marks.
+   56pt on the maroon field, from the standard plane. The field is painted on the
+   viewport too (`data-state="is-break"`), or a 16:9 slide inside a taller window
+   shows cream bands above and below every break.
+   =========================================== */
+.reveal .slides section.break {
+  background: var(--primary-color);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.break h2 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+}
+.reveal-viewport.is-break {
+  background-color: var(--primary-color);
+}
+
+/* ===========================================
+   THE ARC — slide 5
+   Drawn rather than photographed: the six labels have to sit ON the line, and
+   the class copies the shape, so it is a line and not an illustration.
+   =========================================== */
+.reveal .arc-svg {
+  display: block;
+  width: 100%;
+  height: 360px;
+  margin: 0 0 14px 0;
+}
+.reveal .arc-svg .arc-line {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+.reveal .arc-svg text {
+  font-family: var(--body-font);
+  font-size: 32px;
+  font-weight: 600;
+  fill: var(--text-color);
+}
+.reveal .arc-svg .arc-num {
+  font-family: var(--heading-font);
+  fill: var(--primary-color);
+}
+
+/* ===========================================
+   ONE ELEMENT PER SLIDE — the layout does not move between the six.
+
+   Fixed two columns: the drawing and its clock on the left, the words and the
+   instruction on the right. 400px, not 340: the clock's readout is set at 100pt
+   and is wider than 340, so at 340 it spilled sideways into the text column.
+   =========================================== */
+.reveal .element-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 0 44px;
+  align-items: start;
+}
+
+/* 250px is 400 at the drawing's own 1.6 ratio. */
+.reveal .element-art {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid var(--card-border);
+}
+
+/* The portrait drawing on the guess slide is 0.8, so it sets its own height. */
+.reveal .character-art {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--card-border);
+}
+
+.reveal .element-claim {
+  margin: 0 0 14px 0;
+  font-size: 30pt;
+  line-height: 1.25;
+}
+
+/* Two lines reserved whichever way the model sentence breaks, so the task box
+   below sits at the same height on all six slides. */
+.reveal .element-model {
+  margin: 0 0 20px 0;
+  min-height: 2.6em;
+  font-size: 24pt;
+  line-height: 1.3;
+  color: var(--muted-color);
+}
+
+/* Not a <ul>: the scaffold's bullet is an absolutely positioned ::before, and a
+   rule beside the sentence is the mark this deck uses everywhere else. The
+   padding is vertical only, so the three rules meet and read as one line. */
+.reveal .element-part {
+  margin: 0;
+  padding: 6px 0 6px 16px;
+  border-left: 3px solid var(--line-color);
+  font-size: 24pt;
+  line-height: 1.3;
+}
+
+.reveal .element-grid .timer {
+  margin-top: 16px;
+}
+
+/* ===========================================
+   THE ARC IN CINDERELLA, OUTLINED — slide 7
+   Six rows, one per part, at 24pt.
+   =========================================== */
+.reveal .arc-row {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 0 26px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-color);
+}
+.reveal .arc-row:last-of-type {
+  border-bottom: 0;
+}
+.reveal .arc-part {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+.reveal .arc-line {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+
+/* ===========================================
+   THE SAME SIX ROWS, IN HER OWN WORDS — slide 8
+
+   The right-hand column is the tape's transcript, word for word, and it is the
+   one thing in this deck set below 24pt: quoting 1,050 characters back at the
+   class cannot be done at body size inside one frame, and a transcript is quoted
+   matter rather than copy the class is taught from. The labels stay at 24pt.
+   =========================================== */
+.reveal .tape-head {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 10px 0;
+}
+.reveal .audio-label {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--info-text-color);
+  white-space: nowrap;
+}
+.reveal .tape-head audio {
+  flex: 1;
+  min-width: 0;
+}
+.reveal .tape-row {
+  display: grid;
+  grid-template-columns: 186px 1fr;
+  gap: 0 22px;
+  align-items: baseline;
+  padding: 4px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .tape-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .tape-part {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--accent-text-color);
+}
+.reveal .tape-say {
+  margin: 0;
+  font-size: 18pt;
+  line-height: 1.2;
+}
+
+/* ===========================================
+   SLIDE 4 — the trailer, and the guess that follows the drawing.
+   =========================================== */
+.reveal .trailer {
+  display: block;
+  width: 780px;
+  height: 439px;
+  margin: 0 auto;
+  background: #000;
+  border: 1px solid var(--card-border);
+}
+.reveal .after-watch {
+  margin: 22px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.3;
+  color: var(--muted-color);
+}
+
+/* The answer to the guess on slide 4, held back until the class has offered one. */
+.reveal .reveal-answer {
+  margin: 28px 0 0 0;
+  font-size: 30pt;
+  line-height: 1.3;
+  color: var(--accent-text-color);
+}

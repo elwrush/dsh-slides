@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's add shape to your story</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Deck-only components. Loaded after styles.css so it wins, and kept out of
+       styles.css because a re-scaffold overwrites that file. -->
+  <link rel="stylesheet" href="deck.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="vendor/chartjs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- THE COVER — the drawing, and the title on a click -->
+      <section id="cover-text" data-transition="fade">
+        <div class="cover-plate">
+          <img src="img/arc.png" alt="A hand-drawn map of a story's arc on one long musical stave: exposition and inciting incident on the left, rising action climbing to a climax above the clouds, then falling action and resolution on the right, all illustrated with Doraemon and his friends.">
+        </div>
+        <div class="caption-band fragment fade-in">
+          <h1><span class="cover-kicker">Creative writing &middot; Lesson 2</span>Let's add shape to your story.</h1>
+          <p>Introducing the narrative arc</p>
+        </div>
+      </section>
+
+      <!-- TODAY -->
+      <section id="today">
+        <h2>Today</h2>
+        <div class="content">
+          <p class="lead">Last lesson you wrote a story of fifty words. This lesson you outline that same story against the arc.</p>
+          <div class="step-row">
+            <span class="step-num">1</span>
+            <p>Find out what a narrative arc means.</p>
+          </div>
+          <div class="step-row">
+            <span class="step-num">2</span>
+            <p>Write the arc outline for your story.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DO YOU KNOW THESE TWO? -->
+      <section id="characters">
+        <h2>Do you know these two?</h2>
+        <div class="content">
+          <div class="element-grid">
+            <img class="character-art" src="img/characters.jpg" alt="A pen and ink and watercolour drawing of Doraemon, a round blue robot cat with a red collar and a golden bell, standing beside Nobita, a boy in round glasses and a yellow shirt.">
+            <div>
+              <div class="task-box">
+                <p class="task-label">Out loud</p>
+                <p class="task-line"><span class="n">1</span>Who are they? Say their names.</p>
+                <p class="task-line"><span class="n">2</span>Do you know their new film?</p>
+              </div>
+              <div class="fragment" data-fragment-index="0">
+                <p class="reveal-answer">Doraemon and Nobita, from <em>Nobita's Earth Symphony</em>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE TRAILER -->
+      <section id="trailer">
+        <h2>Watch the trailer.</h2>
+        <div class="content">
+          <video class="trailer" controls preload="metadata" src="video/trailer.mp4"></video>
+          <p class="after-watch">While you watch, look for the moment the trouble starts. Keep your eye on the action, because the clip is not in English.</p>
+        </div>
+      </section>
+
+      <!-- THE ARC ITSELF -->
+      <section id="arc">
+        <h2>The narrative arc</h2>
+        <div class="content">
+          <svg class="arc-svg" viewBox="0 0 1160 360" role="img" aria-label="A line that runs flat, steps up, climbs to a peak and falls again, with the six parts of a story labelled in their places along it.">
+            <path class="arc-line" d="M 30 300 L 190 300 L 268 276 L 620 110 L 1020 290 L 1130 290" />
+            <text x="110" y="262" text-anchor="middle"><tspan class="arc-num">1</tspan> Exposition</text>
+            <text x="300" y="342" text-anchor="middle"><tspan class="arc-num">2</tspan> Inciting incident</text>
+            <text x="341" y="194" transform="rotate(-28 341 194)" text-anchor="middle"><tspan class="arc-num">3</tspan> Rising action</text>
+            <text x="620" y="78" text-anchor="middle"><tspan class="arc-num">4</tspan> Climax</text>
+            <text x="807" y="227" transform="rotate(24 807 227)" text-anchor="middle"><tspan class="arc-num">5</tspan> Falling action</text>
+            <text x="1100" y="342" text-anchor="end"><tspan class="arc-num">6</tspan> Resolution</text>
+          </svg>
+          <div class="task-box">
+            <p class="task-label">In your notebook</p>
+            <p class="task-line"><span class="n">1</span>Turn your page sideways.</p>
+            <p class="task-line"><span class="n">2</span>Draw the arc, and label its six parts.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIVIDER — INTO THE EXAMPLE -->
+      <section id="break-cinderella" class="break" data-state="is-break">
+        <h2>Let's look at the Cinderella narrative arc</h2>
+      </section>
+
+      <!-- THE ARC, IN ONE LINE PER PART -->
+      <section id="cinderella">
+        <h2>The arc in Cinderella</h2>
+        <div class="content">
+          <div class="arc-row">
+            <span class="arc-part">Exposition</span>
+            <span class="arc-line">She works for her stepmother and stepsisters.</span>
+          </div>
+          <div class="arc-row">
+            <span class="arc-part">Inciting incident</span>
+            <span class="arc-line">An invitation to the ball arrives.</span>
+          </div>
+          <div class="arc-row">
+            <span class="arc-part">Rising action</span>
+            <span class="arc-line">Her fairy godmother sends her to the ball, with a warning.</span>
+          </div>
+          <div class="arc-row">
+            <span class="arc-part">Climax</span>
+            <span class="arc-line">At midnight she runs, and loses a slipper.</span>
+          </div>
+          <div class="arc-row">
+            <span class="arc-part">Falling action</span>
+            <span class="arc-line">The prince searches with the slipper.</span>
+          </div>
+          <div class="arc-row">
+            <span class="arc-part">Resolution</span>
+            <span class="arc-line">The slipper fits. They marry.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE SAME SIX ROWS, IN HER OWN WORDS, WITH THE TAPE -->
+      <section id="cinderella-words">
+        <h2>The words she uses</h2>
+        <div class="content">
+          <div class="tape-head">
+            <p class="audio-label">Listen</p>
+            <audio controls preload="metadata" src="audio/cinderella.mp3"></audio>
+          </div>
+          <div class="tape-row">
+            <span class="tape-part">Exposition</span>
+            <span class="tape-say">Cinderella's mother died. Her father married again, and the new wife had two daughters of her own. They took the house for themselves and gave Cinderella the work: the fire, the floors, the washing. She slept in the kitchen, in the ashes.</span>
+          </div>
+          <div class="tape-row">
+            <span class="tape-part">Inciting incident</span>
+            <span class="tape-say">One morning an invitation came to the door. The king was giving a ball, and every young woman in the kingdom was asked to come. Her sisters read it twice, and told her she could not.</span>
+          </div>
+          <div class="tape-row">
+            <span class="tape-part">Rising action</span>
+            <span class="tape-say">She was still in the kitchen that evening when a woman stood in front of her, in grey light. The woman gave her a coach, a dress, and one warning. Leave before midnight. Cinderella went, and she danced with the prince, and she forgot the warning.</span>
+          </div>
+          <div class="tape-row">
+            <span class="tape-part">Climax</span>
+            <span class="tape-say">Then the clock began to strike. She ran, and one glass slipper stayed behind on the step.</span>
+          </div>
+          <div class="tape-row">
+            <span class="tape-part">Falling action</span>
+            <span class="tape-say">The next day the prince walked the kingdom with the slipper in his hand. Every woman in the country tried it on. At Cinderella's house her sisters pushed her aside and tried first. Neither of them could get a foot into it.</span>
+          </div>
+          <div class="tape-row">
+            <span class="tape-part">Resolution</span>
+            <span class="tape-say">Then the slipper went on Cinderella. They were married in the spring.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPOSITION -->
+      <section id="exposition">
+        <h2>Exposition</h2>
+        <div class="content">
+          <div class="element-grid">
+            <div>
+              <img class="element-art" src="img/c-exposition.jpg" alt="Cinderella, in a worn apron, sweeps ash from a hearth in a bare kitchen, while two fine dresses hang on a hook behind her.">
+              <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
+            </div>
+            <div>
+              <p class="element-claim">The world before the trouble starts.</p>
+              <p class="element-model">In Cinderella: she works for her stepmother and her two stepsisters.</p>
+              <p class="element-part">Who the story is about.</p>
+              <p class="element-part">Where and when it happens.</p>
+              <p class="element-part">What is normal for them.</p>
+              <div class="task-box">
+                <p class="task-label">In your notebook &middot; your story</p>
+                <p class="task-line"><span class="n">1</span>Draw one picture of your exposition.</p>
+                <p class="task-line"><span class="n">2</span>Write two sentences: what is normal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INCITING INCIDENT -->
+      <section id="inciting">
+        <h2>Inciting incident</h2>
+        <div class="content">
+          <div class="element-grid">
+            <div>
+              <img class="element-art" src="img/c-inciting.jpg" alt="Cinderella kneels on a stone floor to pick up a heavy cream invitation card, a broom dropped beside her.">
+              <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
+            </div>
+            <div>
+              <p class="element-claim">The thing that breaks the normal world.</p>
+              <p class="element-model">In Cinderella: an invitation to the ball arrives.</p>
+              <p class="element-part">It is one event, on one day.</p>
+              <p class="element-part">It happens to your main character.</p>
+              <p class="element-part">After it, they cannot go back.</p>
+              <div class="task-box">
+                <p class="task-label">In your notebook &middot; your story</p>
+                <p class="task-line"><span class="n">1</span>Draw the moment it happens.</p>
+                <p class="task-line"><span class="n">2</span>Write two sentences: what has changed?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RISING ACTION -->
+      <section id="rising">
+        <h2>Rising action</h2>
+        <div class="content">
+          <div class="element-grid">
+            <div>
+              <img class="element-art" src="img/c-rising.jpg" alt="Cinderella in a blue ballgown sits inside a gilt pumpkin coach while a small round woman in a grey cloak raises a wand beside the open door.">
+              <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
+            </div>
+            <div>
+              <p class="element-claim">The trouble gets worse, step by step.</p>
+              <p class="element-model">In Cinderella: the godmother sends her to the ball, but she must leave by midnight.</p>
+              <p class="element-part">Two or three things go wrong.</p>
+              <p class="element-part">Each one narrows the choice.</p>
+              <p class="element-part">The last one is the worst.</p>
+              <div class="task-box">
+                <p class="task-label">In your notebook &middot; your story</p>
+                <p class="task-line"><span class="n">1</span>Draw one of the steps.</p>
+                <p class="task-line"><span class="n">2</span>Write two sentences: what is going wrong?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLIMAX -->
+      <section id="climax">
+        <h2>Climax</h2>
+        <div class="content">
+          <div class="element-grid">
+            <div>
+              <img class="element-art" src="img/c-climax.jpg" alt="Cinderella runs down wide stone steps at night, one bare foot on the step, a glass slipper left behind her, a tall clock striking twelve.">
+              <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
+            </div>
+            <div>
+              <p class="element-claim">The moment your character cannot avoid.</p>
+              <p class="element-model">In Cinderella: the clock strikes twelve and she runs, because the magic ends.</p>
+              <p class="element-part">The highest point of trouble.</p>
+              <p class="element-part">A decision, or a discovery.</p>
+              <p class="element-part">It cannot be undone.</p>
+              <div class="task-box">
+                <p class="task-label">In your notebook &middot; your story</p>
+                <p class="task-line"><span class="n">1</span>Draw the climax.</p>
+                <p class="task-line"><span class="n">2</span>Write two sentences: what do they do?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FALLING ACTION -->
+      <section id="falling">
+        <h2>Falling action</h2>
+        <div class="content">
+          <div class="element-grid">
+            <div>
+              <img class="element-art" src="img/c-falling.jpg" alt="A young man in a dark blue coat kneels to hold a glass slipper up to Cinderella, with two women in fine dresses watching from a doorway.">
+              <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
+            </div>
+            <div>
+              <p class="element-claim">What happens because of the climax.</p>
+              <p class="element-model">In Cinderella: the prince searches with the slipper, because she left it behind.</p>
+              <p class="element-part">The consequences arrive.</p>
+              <p class="element-part">Loose ends are closed.</p>
+              <p class="element-part">The tension goes out of it.</p>
+              <div class="task-box">
+                <p class="task-label">In your notebook &middot; your story</p>
+                <p class="task-line"><span class="n">1</span>Draw the falling action.</p>
+                <p class="task-line"><span class="n">2</span>Write two sentences: what is the result?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESOLUTION -->
+      <section id="resolution">
+        <h2>Resolution</h2>
+        <div class="content">
+          <div class="element-grid">
+            <div>
+              <img class="element-art" src="img/c-resolution.jpg" alt="Cinderella in a plain white dress walks out through tall doors into morning light, hand in hand with the prince.">
+              <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
+            </div>
+            <div>
+              <p class="element-claim">The world after the trouble is over.</p>
+              <p class="element-model">In Cinderella: the slipper fits, and they marry.</p>
+              <p class="element-part">The trouble is finished.</p>
+              <p class="element-part">What is different now.</p>
+              <p class="element-part">One line is enough.</p>
+              <div class="task-box">
+                <p class="task-label">In your notebook &middot; your story</p>
+                <p class="task-line"><span class="n">1</span>Draw the ending.</p>
+                <p class="task-line"><span class="n">2</span>Write two sentences: how does it end?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEXT -->
+      <section id="next" class="break" data-state="is-break">
+        <h2>Next lesson, you write the story.</h2>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script src="vendor/reveal-plugins/chart/plugin.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element, so it
+       costs a deck that uses none nothing but the request. See references/timers.md. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
