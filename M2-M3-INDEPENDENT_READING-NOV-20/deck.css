@@ -1,0 +1,152 @@
+/* Deck-only components — Independent reading (M2-M3, 20-11-26).
+
+   Two slides and one job each: read for thirty-three minutes, then answer one
+   question about the book.
+
+   Sizes come only from the ladder 56 / 40 / 28 / 24, and each rung is at least
+   17% from its neighbour, so nothing trips the 12% near-pair test. 24pt is the
+   floor and also the label size: this deck has no small print, because the only
+   reader is a class at the back of a room. */
+
+.reveal h1 {
+  font-size: 56pt;
+  line-height: 1.08;
+  margin: 0 0 12px 0;
+}
+
+/* Names what the slide is for, above the title. */
+.reveal .kicker {
+  margin: 0 0 8px 0;
+  font-size: 24pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+/* Body copy. 28pt: three sentences of instruction, read from the back of the room
+   rather than from the desk. */
+.reveal .lede {
+  margin: 0;
+  font-size: 28pt;
+  line-height: 1.32;
+}
+
+/* A cue — what the class does now, in the accent colour and without a rule: the
+   task box on the same slide already carries the weight, and two marked blocks
+   compete. */
+.reveal .cue {
+  margin: 14px 0 0 0;
+  font-size: 28pt;
+  line-height: 1.32;
+  color: var(--accent-text-color);
+}
+
+/* ---- slide 1: the clock ------------------------------------- */
+
+/* The shipped timer stacks a 100pt readout over a two-tile button grid. A row is
+   what this slide wants: the pill of digits, then Start and Replay beside it. The
+   readout keeps the component's own state colours, so running, urgent and finished
+   still show; only its shape, size and width are overridden. */
+.reveal .clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0;
+}
+
+.reveal .clock .timer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* min-width: 0 because the component reserves 3em for a 100pt readout, which is
+   what overflows a narrower column sideways instead of shrinking. */
+.reveal .clock .timer-readout {
+  min-width: 0;
+  padding: 6px 34px;
+  border-radius: 999px;
+  background: var(--maroon-90);
+  border-color: var(--maroon-90);
+  color: var(--maroon-30);
+  font-size: 56pt;
+}
+
+.reveal .clock .timer-controls {
+  display: flex;
+  gap: 14px;
+}
+
+.reveal .clock .timer-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 24pt;
+}
+
+/* ---- slide 2: the question ---------------------------------- */
+
+/* Two columns, because this slide carries five sentences and one column pushes the
+   last of them past the foot of a 720px stage. The left states the question and
+   the encouragement, the right carries the task box and the permission, so the part
+   the class writes from has its own side of the slide. */
+.reveal .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 56px;
+  align-items: start;
+}
+
+/* Tone-94 fill with a border: the tint alone measures 1.11:1 against the
+   background and vanishes on a projector, so the maroon left edge is what makes
+   it read as the task rather than as a quotation. */
+.reveal .task-box {
+  margin: 0;
+  padding: 18px 26px 20px 24px;
+  background: var(--neutral-94);
+  border: 1px solid var(--card-border);
+  border-left: 8px solid var(--primary-color);
+}
+
+.reveal .task-label {
+  margin: 0 0 6px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+
+.reveal .task-line {
+  margin: 0;
+  font-size: 28pt;
+  line-height: 1.32;
+}
+
+/* The permission. It belongs to the reader rather than to the question, so it sits
+   outside the box in muted ink. */
+.reveal .foot {
+  margin: 16px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.32;
+  color: var(--muted-color);
+}
+
+/* ---- slide 2: the writing clock ----------------------------- */
+
+/* The same pill, one rung down. On slide 1 the clock is the subject; here the
+   question is, and a 56pt readout beside a 56pt "Question" would make two things
+   shout at once. 40pt keeps it 43% over the body and 29% under the heading. */
+.reveal #question .clock {
+  margin: 18px 0 0 0;
+}
+
+.reveal #question .clock .timer-readout {
+  font-size: 40pt;
+  padding: 4px 28px;
+}
+
+.reveal #question .foot {
+  margin: 16px 0 0 0;
+}

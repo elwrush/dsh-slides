@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read for 33 minutes</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+  <!-- Custom styles, then this deck's own components (a re-scaffold overwrites
+       styles.css, so nothing of ours may live there) -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 ── the whole instruction, and the clock. The teacher's own words, cut
+           into a heading and a body so the room can read it from the back: "Quiet
+           please." is the cue, the rest is what happens at the end. The pill is
+           1980 seconds — thirty-three minutes — and it starts only when pressed. -->
+      <section id="read">
+        <div class="content" style="justify-content:center;">
+          <div class="two-col" style="grid-template-columns:1.45fr 0.55fr;">
+            <div>
+              <p class="kicker">Independent reading</p>
+              <h1>Quiet please.</h1>
+              <p class="lede">Read for 33 minutes. At the end you will need to answer a question about what you&rsquo;ve been reading. I will put feedback onto the grade website for you.</p>
+            </div>
+            <div class="clock">
+              <div class="timer" data-timer-seconds="1980" data-timer-label="reading time"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 ── the question, in two columns: the left names the question and says
+           what has been achieved so far; the right carries the task box and, below
+           it, the permission to change books. One column pushed the last sentence
+           past the foot of the slide. -->
+      <section id="question">
+        <div class="content" style="justify-content:center;">
+          <div class="two-col">
+            <div>
+              <h1>Question</h1>
+              <p class="lede">You have been reading a book in class now for a few weeks. Congratulations! You are on your way to becoming a reader.</p>
+              <p class="cue">So how does it feel? Answer the question below.</p>
+              <div class="clock">
+                <div class="timer" data-timer-seconds="780" data-timer-label="writing time"></div>
+              </div>
+            </div>
+            <div>
+              <div class="task-box">
+                <p class="task-label">In your notebook</p>
+                <p class="task-line">What do you think about the book after reading for a few weeks? Say what you think and give reasons and examples to support your opinion.</p>
+              </div>
+              <p class="foot">If you don&rsquo;t like the book, that&rsquo;s fine. Bring your own next week (I will have to approve it).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <!-- Countdown timers. Inert unless the deck contains a .timer element. -->
+  <script src="vendor/timer/timer.js"></script>
+  <script>
+    Reveal.initialize({
+
+      // 16:9 at 1280x720, margin 0 — the house slide size. reveal's own default is
+      // 960x700, which is nearly 4:3 and silently breaks every layout here.
+      width: 1280,
+      height: 720,
+      margin: 0,
+
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      hash: true,
+      keyboard: true,
+      center: false,
+      touch: true,
+      loop: false,
+      fragments: true,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      viewDistance: 3
+    });
+  </script>
+</body>
+</html>
