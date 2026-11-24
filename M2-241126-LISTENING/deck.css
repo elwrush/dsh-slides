@@ -1,0 +1,657 @@
+/* ============================================================
+   DECK-ONLY COMPONENTS — M2 Listening · Human-like robots
+
+   styles.css is the scaffold's and a re-scaffold overwrites it, so every
+   component this deck invents lives here. It is linked AFTER styles.css.
+
+   EVERY RULE IS PREFIXED `.reveal`. `styles.css` sets
+   `.reveal p, .reveal li { font-size: 24pt }` at (0,1,1), which beats a bare
+   class selector at (0,1,0), so an unprefixed `.fill { font-size: 24pt }` is
+   silently dead and the text renders at body size.
+
+   TYPE LADDER — 56 / 44 / 36 / 30 / 24 / 18.
+   18pt appears in exactly two places: the "Open in YouTube" line and the
+   transcript pointer under a Task 4 answer. Both are citations. Everything the
+   class reads is 24pt or larger.
+   ============================================================ */
+
+/* ---------- 0a. IPA ----------
+   The scaffold's Source Sans 3 is a latin subset and carries none of ˈ ʃ ə ɜ ː
+   ɪ æ, so a phonemic transcription would silently fall back to a system face
+   and the deck would stop being self-contained. Charis SIL is vendored for it
+   and reached only through `.phonemic`. */
+@font-face {
+  font-family: "Charis IPA";
+  src: url("vendor/fonts/CharisSIL-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+.reveal .phonemic {
+  font-family: "Charis IPA", "Charis SIL", Georgia, serif;
+}
+
+/* ---------- 0. The chip is a label, so it is not fine print ---------- */
+.reveal .chip {
+  align-self: flex-start;
+  font-size: 24pt;
+  padding: 4px 16px;
+}
+
+/* ---------- 1. The cover: the drawing, then the drawing under the type ----------
+   Two slides. The first carries no type at all, so the desk and the two faces
+   are looked at before a caption covers the bottom of the drawing; the second
+   repeats the drawing under a band that fades up out of it.
+   The band is a gradient rather than a cut, so the bottom of the drawing
+   dissolves into the paper instead of being sliced off by a rule. */
+.reveal #cover-art .cover-plate,
+.reveal #cover-text .cover-plate {
+  position: absolute;
+  inset: 0;
+}
+.reveal #cover-art .cover-plate img,
+.reveal #cover-text .cover-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+.reveal #cover-text .caption-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 34px 60px 26px 60px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 248, 247, 0) 0%,
+    rgba(255, 248, 247, 0.86) 22%,
+    rgba(255, 248, 247, 0.97) 42%,
+    rgba(255, 248, 247, 0.97) 100%
+  );
+}
+.reveal #cover-text h1 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.05;
+  color: var(--accent-text-color);
+}
+.reveal #cover-text .cover-kicker {
+  display: block;
+  margin: 0 0 10px 0;
+  font-family: var(--body-font);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--maroon-40);
+}
+.reveal #cover-text .caption-band p.cover-sub {
+  margin: 10px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+/* ---------- 2. Break slides ----------
+   One heading, 56pt, on the maroon field. No sub-line and no number: the break
+   is a punctuation mark, not a slide with a message on it.
+
+   THE FIELD IS ONE COLOUR, IN TWO PLACES. `data-background-color` paints the
+   viewport, and this rule paints the 16:9 slide sitting inside it; when the two
+   maroons differ by a tone the seam shows as a darker band above and below the
+   slide on a 16:10 or 4:3 screen. Both are `--maroon-30` (#7A2D34) — the same
+   maroon the cover title is set in. */
+.reveal .slides section.break {
+  background: var(--maroon-30);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.break h2 {
+  margin: 0;
+  max-width: 1040px;
+  font-size: 56pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+}
+
+/* ---------- 3. Content sits centred when a slide has little on it ---------- */
+.reveal .slides section > .content {
+  justify-content: center;
+}
+.reveal .lede {
+  margin: 0 0 14px 0;
+  font-size: 30pt;
+  line-height: 1.3;
+}
+
+/* ---------- 4. A box for every slide where the class acts ----------
+   The label names the mode, so nobody reaches for a pen when the task is
+   spoken, or speaks when it is written. */
+.reveal .task-box {
+  margin-top: 14px;
+  padding: 14px 24px 16px 24px;
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+.reveal .task-label {
+  margin: 0 0 8px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .task-line {
+  margin: 0 0 6px 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+.reveal .task-line:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 5. The timer, as a pill ----------
+   The scaffold's timer is a column: a 100pt readout over two buttons. That is
+   right when the clock IS the slide. Here the clock sits beside a task, so the
+   readout is capped at 36pt and the whole thing is one rounded row. The
+   readout keeps `min-width` in em, so its width still follows its own type
+   size and the pill cannot twitch as the digits change. */
+.reveal .timer.timer-pill {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.reveal .timer-pill .timer-readout {
+  flex: 0 0 auto;
+  min-width: 2.6em;
+  padding: 4px 22px;
+  border-radius: 999px;
+  font-size: 36pt;
+}
+.reveal .timer-pill .timer-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.reveal .timer-pill .timer-btn {
+  padding: 6px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ---------- 6. The video player ----------
+   One frame size, used on every player slide, so the picture does not jump as
+   the class moves through the tasks. */
+.reveal .video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  overflow: hidden;
+}
+.reveal .video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.reveal .video-wide {
+  align-self: center;
+  width: 860px;
+  max-width: 100%;
+}
+.reveal .video-link {
+  margin: 10px 0 0 0;
+  font-size: 18pt;
+  color: var(--muted-color);
+}
+
+/* The instructions on the left, the player on the right. The player column is
+   fixed so the frame is the same size on every task slide.
+
+   THE SELECTOR HAS TO NAME `.content`, NOT JUST `.task-grid`. `styles.css`
+   writes `.reveal .slides section > .content { display: flex }` at (0,3,1),
+   which beats `.reveal .task-grid` at (0,2,0) — the grid is silently dead and
+   the two columns stack, putting the player under the text and 50px off the
+   bottom of the slide. Matching the scaffold's own selector and then winning on
+   cascade order is the only way through. */
+.reveal .slides section > .content.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 540px;
+  gap: 36px;
+  align-items: start;
+  width: 100%;
+}
+
+/* ---------- 7. A gap that fills in place ----------
+   THE BLANK IS THE WIDTH OF ITS ANSWER, and that is what stops the sentence
+   moving. A fragment keeps its space while it is hidden (only its opacity
+   changes), so the underline reserves exactly the width the word will take and
+   nothing reflows at the click. The earlier version reserved a fixed 120px and
+   centred the word inside it, which left short answers floating — "white with
+   [   fear   ] ." — with a gap either side and another before the full stop.
+   The padding is 5px so the punctuation still touches the word. */
+.reveal .fill {
+  font-size: 24pt;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+.reveal .fill:last-child {
+  margin-bottom: 0;
+}
+.reveal .slot {
+  display: inline-block;
+  line-height: 1.2;
+  vertical-align: baseline;
+  text-align: center;
+  border-bottom: 2px solid var(--maroon-40);
+  padding: 0 2px;
+}
+.reveal .slot .fragment {
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+
+/* ---------- 8. Words to know: three stages, one word a slide ----------
+   Say it (the phonemic script alone, and the class repeats it) → Spell it (the
+   word, its part of speech) → Use it (the word in a sentence). The three stages
+   accumulate down one left-aligned column rather than replacing each other, so
+   the class can still see the sound while it reads the spelling.
+
+   No heading on these slides: the "Words to know" break slide introduces the
+   section, exactly as it does in the M3 deck this component is ported from. */
+.reveal .word-wrap {
+  width: 100%;
+  text-align: left;
+  align-self: center;
+}
+.reveal .word-label {
+  margin: 0 0 6px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+.reveal .phonemic {
+  display: inline-block;
+  margin: 0 0 18px 0;
+  padding: 6px 28px;
+  font-size: 56pt;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: var(--info-text-color);
+  background: var(--blue-95);
+  border: 1px solid var(--blue-70);
+  border-radius: var(--box-radius);
+}
+.reveal .target-word {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin: 0 0 16px 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 44pt;
+  line-height: 1.1;
+  color: var(--text-color);
+}
+.reveal .word-pos {
+  font-family: var(--body-font);
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+.reveal .vocab-use {
+  margin: 18px 0 0 0;
+  /* Wide enough that the longest "Use it" line — the facial expressions one —
+     sets on a single line. At 900px it broke after "she was", leaving one word
+     alone on the last line, which reads as a mistake rather than as an ending. */
+  max-width: 1080px;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+/* The word under discussion, so the eye finds it inside the sentence. */
+.reveal .gap-word {
+  background: var(--maroon-95);
+  border: 2px solid var(--maroon-40);
+  border-radius: 6px;
+  padding: 0 8px;
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+/* ---------- 9. The word bank ---------- */
+.reveal .wordbank {
+  margin: 16px 0 0 0;
+  padding: 12px 24px;
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  font-size: 24pt;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- 10. The seven sentences, before and after the sort ----------
+   The rows carry a data-id, so reveal's auto-animate tweens them from the
+   printed order into the correct one. Text does not tween, so the number in
+   each row swaps instantly while the row itself travels.
+
+   THE COLOUR BELONGS TO THE SENTENCE, NOT TO THE SLOT. Seven pastel backers,
+   assigned by a class on the row, so a sentence keeps its colour as it moves.
+   Colouring by `nth-child` instead would paint the first slot pink on both
+   slides, and the tween would look like seven objects changing colour rather
+   than seven objects changing place — which is exactly the thing the exercise
+   is asking the class to follow. Each backer is a light tint of a hue the
+   palette already carries, and the text stays `--neutral-10` on all seven. */
+.reveal .order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  width: 100%;
+}
+.reveal .order-row {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 8px 22px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+.reveal .order-row.c-1 { background: #FFDADA; }  /* maroon-90 */
+.reveal .order-row.c-2 { background: #D3E4FF; }  /* blue-90 */
+.reveal .order-row.c-3 { background: #FFE9BC; }  /* highlight, lifted a step */
+.reveal .order-row.c-4 { background: #CFF3DC; }  /* mint */
+.reveal .order-row.c-5 { background: #E6E1FA; }  /* lilac */
+.reveal .order-row.c-6 { background: #FFE0CC; }  /* peach */
+.reveal .order-row.c-7 { background: #D8F0F2; }  /* aqua */
+.reveal .order-num {
+  margin: 0;
+  font-size: 30pt;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  color: var(--accent-text-color);
+}
+.reveal .order-row p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.15;
+}
+
+/* ---------- 11. A quotation, and what it is an example of ---------- */
+.reveal .quote-card {
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+  padding: 14px 24px;
+}
+.reveal .quote-tag {
+  margin: 0 0 6px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .quote-say {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+
+/* ---------- 12. True / false / not given ---------- */
+.reveal .reading-panel {
+  margin: 0 0 4px 0;
+  padding: 14px 24px;
+  background: var(--neutral-96);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+.reveal .reading-panel p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+.reveal .tfn-row {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 24px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .tfn-row:last-child {
+  border-bottom: 0;
+}
+.reveal .tfn-say {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.25;
+}
+.reveal .verdict {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 18px;
+  border-radius: 999px;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  white-space: nowrap;
+}
+/* `.content` is a flex column, whose children stretch across it by default. A
+   verdict pill that stretches is a bar, not a pill, so a verdict sitting
+   straight on the slide is pinned to its own width. Inside a `.tfn-row` the
+   pill is a grid item and this does not apply. */
+.reveal .slides section > .content > .verdict {
+  align-self: flex-start;
+}
+.reveal .verdict-true {
+  background: var(--positive-90);
+  color: var(--positive-20);
+}
+.reveal .verdict-false {
+  background: var(--negative-90);
+  color: var(--negative-20);
+}
+.reveal .verdict-ng {
+  background: var(--blue-90);
+  color: var(--blue-20);
+}
+
+/* ---------- 13. One statement, its verdict, and why ---------- */
+.reveal .statement {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 36pt;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+.reveal .explain {
+  margin: 18px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+.reveal .cite {
+  margin: 22px 0 0 0;
+  font-size: 18pt;
+  line-height: 1.25;
+  color: var(--muted-color);
+}
+
+/* ---------- 14. An educated guess, beside the picture it is made from ---------- */
+.reveal .infer-grid {
+  display: grid;
+  grid-template-columns: 560px 1fr;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+}
+.reveal .infer-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+.reveal .infer-q {
+  margin: 0 0 16px 0;
+  font-size: 36pt;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--accent-text-color);
+}
+
+/* ---------- 15. A question and its answer, one pair per row ---------- */
+.reveal .qa-row {
+  padding: 8px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .qa-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .qa-q {
+  margin: 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.reveal .qa-a {
+  margin: 4px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.2;
+  color: var(--muted-color);
+}
+
+/* ---------- 16. The five moves of a discussion ---------- */
+.reveal .step-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .step-row:last-of-type {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--maroon-100);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1;
+}
+.reveal .step-row p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.2;
+}
+
+/* ---------- 17. The question the class has to answer ---------- */
+.reveal .plan-question {
+  margin: 0;
+  padding: 16px 28px;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--text-color);
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-top: 5px solid var(--primary-color);
+  border-radius: var(--box-radius);
+}
+
+/* ---------- 18. Speed dating: the picture, and one line about it ----------
+   Same selector problem as the task grid: this one has to out-specify the
+   scaffold's `.reveal .slides section > .content`. */
+.reveal .slides section > .content.dating-grid {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  gap: 44px;
+  align-items: center;
+  width: 100%;
+}
+.reveal .side-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+
+/* ---------- 19. The seven faces, full width ---------- */
+.reveal .emotion-plate {
+  width: 100%;
+  height: 500px;
+}
+.reveal .emotion-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.reveal .big-cue {
+  margin: 16px 0 0 0;
+  font-size: 36pt;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--accent-text-color);
+}
+
+/* ---------- 20. The three questions under Today ---------- */
+.reveal .ask-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 10px;
+}
+.reveal .ask {
+  margin: 0;
+  padding: 18px 10px;
+  text-align: center;
+  font-size: 36pt;
+  font-weight: 600;
+  color: var(--accent-text-color);
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-radius: var(--box-radius);
+}
+
+/* The imperative is the sentence the class is meant to leave with. */
+.reveal .imperative {
+  margin: 22px 0 0 0;
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--accent-text-color);
+}
