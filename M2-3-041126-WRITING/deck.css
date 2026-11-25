@@ -330,7 +330,29 @@
 }
 
 /* ===========================================
-   THE SAME SIX ROWS, IN THE NARRATOR'S OWN WORDS — slide 6
+   THE TRAM STILL — one picture, one slide, no type.
+
+   A 447px square on a 16:9 stage: contained and centred rather than bled, so the
+   arm and the web line are not cropped away. No padding, because the plate is the
+   whole slide and a 40px inset would push it out of the frame.
+   =========================================== */
+.reveal .slides section#tram {
+  padding: 0 !important;
+}
+.reveal #tram .content {
+  justify-content: center;
+  align-items: center;
+}
+.reveal .still {
+  display: block;
+  width: 640px;
+  height: 640px;
+  object-fit: contain;
+  border: 1px solid var(--card-border);
+}
+
+/* ===========================================
+   THE SAME SIX ROWS, IN THE NARRATOR'S OWN WORDS — slide 7
 
    The right-hand column is the tape's transcript, word for word, and it is the
    one thing in this deck set below 24pt: quoting 1,150 characters back at the
