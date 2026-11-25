@@ -1,0 +1,370 @@
+/* Deck-only components — Apply your creative writing skill to the Cambridge task.
+
+   styles.css is the scaffold's file and a re-scaffold overwrites it, so anything
+   this deck adds of its own lives here and is linked after it.
+
+   Components and their names are ported from the house standard design plane,
+   `M3-101126-DISCUSSION`, by way of `M2-3-241126-EDITING`: the gradient
+   `.caption-band` on a cover, the circular `.step-num` row, and the maroon
+   `.break` field. Its rule holds here — nothing is smaller than 24pt except
+   quoted matter, and there is none on these six slides.
+
+   Sizes come only from the ladder — 100 / 56 / 36 / 30 / 24 — so no two distinct
+   sizes sit inside the 12% near-pair test. */
+
+/* The vendored reset leaves <em> upright, because every icon in the scaffold is
+   an <i>. Without this a quoted word prints roman and reads as a failed edit. */
+.reveal em {
+  font-style: italic;
+}
+
+/* Content sits centred, as in the standard plane: a short slide stops hanging
+   off the top edge, and a full one is unaffected. */
+.reveal .slides section > .content {
+  justify-content: center;
+}
+
+/* ===========================================
+   COVER — the drawing alone, then the drawing under the title.
+
+   Two slides, so the class reads the picture before anything covers it. The band
+   is a soft edge rather than a cut, so the picture's own foreground dissolves
+   into the paper instead of being sliced across.
+
+   A full-bleed cover needs no padding: both children are positioned against the
+   section, and the scaffold's 40px top padding puts the content-box origin below
+   the top edge, which makes a plate that reaches the top read as 40px of
+   overflow to `check-overflow`. Nothing sits in flow on either slide.
+   =========================================== */
+.reveal .slides section#cover,
+.reveal .slides section#cover-title,
+.reveal .slides section.plate {
+  padding: 0 !important;
+}
+
+.reveal .cover-plate {
+  position: absolute;
+  inset: 0;
+}
+.reveal .cover-plate img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reveal .caption-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 34px 60px 26px 60px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 248, 247, 0) 0%,
+    rgba(255, 248, 247, 0.88) 20%,
+    rgba(255, 248, 247, 0.98) 38%,
+    rgba(255, 248, 247, 0.98) 100%
+  );
+}
+.reveal .caption-band h1 {
+  margin: 0;
+  font-size: 56pt;
+  line-height: 1.05;
+  color: var(--accent-text-color);
+}
+.reveal .cover-kicker {
+  display: block;
+  margin: 0 0 10px 0;
+  font-family: var(--body-font);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--maroon-40);
+}
+.reveal .caption-band p {
+  margin: 10px 0 0 0;
+  font-size: 24pt;
+  line-height: 1.15;
+  color: var(--text-color);
+}
+
+/* ===========================================
+   TODAY — the list sits under its heading.
+
+   Centring this content put the void between the heading and the list rather
+   than below it, because the heading is a flow sibling outside `.content`: the
+   two rows were centred in what was left, leaving 200px of nothing under
+   "Today" and another 280px under the list. Anchoring the list to the top makes
+   the three lines read as one block.
+   =========================================== */
+.reveal .slides section#today > .content {
+  justify-content: flex-start;
+  padding-top: 24px;
+}
+
+/* ===========================================
+   THE STEP ROW — two things today, numbered.
+
+   The circle is the mark, and the rule across the top makes the pair read as one
+   list. Ported from the standard plane.
+   =========================================== */
+.reveal .step-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--card-border);
+}
+.reveal .step-row:last-child {
+  border-bottom: 1px solid var(--card-border);
+}
+.reveal .step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: var(--maroon-100);
+  font-size: 24pt;
+  font-weight: 600;
+  line-height: 1;
+}
+.reveal .step-row p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.25;
+}
+
+/* ===========================================
+   BREAK SLIDE — the punctuation mark.
+   56pt on the maroon field, from the standard plane. The field is painted on the
+   viewport too (`data-state="is-break"`), or a 16:9 slide inside a taller window
+   shows cream bands above and below.
+   =========================================== */
+.reveal .slides section.break {
+  background: var(--primary-color);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+}
+.reveal .slides section.break h2 {
+  margin: 0;
+  max-width: 1060px;
+  font-size: 56pt;
+  line-height: 1.12;
+  color: #FFFFFF;
+}
+.reveal-viewport.is-break {
+  background-color: var(--primary-color);
+}
+
+/* ===========================================
+   THE STEM — the paper's own rubric, set as a card.
+
+   The four lines are the order the real question prints them in: what the
+   teacher asked for, the rule about the first sentence, the sentence itself,
+   then the instruction to write. The class meets the format here, not later.
+   =========================================== */
+.reveal .stem-card {
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+  padding: 26px 34px 30px 34px;
+}
+.reveal .stem-note,
+.reveal .stem-label,
+.reveal .stem-ask {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+.reveal .stem-note,
+.reveal .stem-ask {
+  color: var(--muted-color);
+}
+.reveal .stem-label {
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--accent-text-color);
+}
+.reveal .stem-quote {
+  margin: 10px 0 24px 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 36pt;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+/* ===========================================
+   THE PANELS — one beat per slide.
+
+   The name of the beat is printed inside the panel, in the cartoon's own yellow
+   label, so the slide does not repeat it. The slide carries two things only: the
+   picture and the one line saying what the beat is for.
+
+   620 x 460 for the picture: the crops run from 374 to 533 wide, so the box is
+   sized for the widest and each panel is contained inside it, anchored left so
+   every picture starts on the same margin. A fixed width with `height: auto`
+   would have made the climax panel a different height from the other five.
+
+   The gap is 52px and the picture column is fixed, so the text column takes the
+   rest (about 488px) and wraps a 12-word line to two or three lines at 30pt.
+   =========================================== */
+.reveal .panel-grid {
+  display: grid;
+  grid-template-columns: 620px 1fr;
+  gap: 0 52px;
+  align-items: center;
+}
+
+/* No border-radius: the drawing carries its own black frame, and `contain`
+   leaves transparent space that a rounded box would round for no reason. */
+.reveal .panel-img {
+  display: block;
+  width: 100%;
+  height: 460px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.reveal .panel-text {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+
+/* ===========================================
+   PANEL 1 — the worked beat.
+
+   The other five panels carry the picture and one line. This one carries a
+   second and third block, so it needs a reading order rather than three things
+   set side by side: the function line becomes the heading across the top, and
+   the picture sits under it beside the task and the example.
+
+   The picture is 580 wide and `height: auto`, not the 620 x 460 contained box
+   the other five use. That is 482px tall: the largest it can be and still clear
+   the bottom of the slide under a two-line heading.
+   =========================================== */
+.reveal .beat-grid {
+  display: grid;
+  grid-template-columns: 580px 1fr;
+  gap: 0 52px;
+  /* `start`, not `center`: the panel's frame then sits on the same line as the
+     first line of type, which is the only edge the eye has on this slide. */
+  align-items: start;
+}
+
+.reveal .beat-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.reveal .beat-rule {
+  margin: 0 0 18px 0;
+  font-size: 24pt;
+  line-height: 1.35;
+}
+
+/* The example sits in the same card as a task box, because it is the thing the
+   class compares its own opening paragraph against. */
+.reveal .beat-example {
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+  padding: 16px 22px 16px 22px;
+}
+.reveal .beat-example p {
+  margin: 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+
+/* ===========================================
+   THE TIMED TASK — the work on the left, the clock on the right.
+
+   One grid for both timed slides, so the clock is in the same place each time
+   the class looks up. 420px for the clock column, not 400: the readout is 100pt
+   with a 3em minimum width, so it needs 400px and a column exactly that wide
+   leaves it nothing to spare.
+   =========================================== */
+.reveal .timer-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 0 44px;
+  align-items: start;
+}
+
+/* The one line that says what the three minutes are for. */
+.reveal .plan-ask {
+  margin: 0 0 22px 0;
+  font-size: 24pt;
+  line-height: 1.35;
+}
+
+/* A stem card holding the sentence alone has one child, and the stacked layout
+   above leaves it margins meant for a card with a label above and an
+   instruction below. */
+.reveal .stem-card > .stem-quote:only-child {
+  margin: 0;
+}
+
+/* ===========================================
+   THE TASK BOX — the class acts on this now.
+
+   Ported from the standard plane: the label names the mode at 24pt, because a
+   signpost the back row cannot read is not a signpost.
+   =========================================== */
+.reveal .task-box {
+  background: var(--maroon-95);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--primary-color);
+  border-radius: var(--box-radius);
+  padding: 20px 26px 22px 26px;
+}
+.reveal .task-label {
+  margin: 0 0 12px 0;
+  font-size: 24pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text-color);
+}
+.reveal .task-line {
+  margin: 0 0 8px 0;
+  font-size: 24pt;
+  line-height: 1.3;
+}
+.reveal .task-line:last-child {
+  margin-bottom: 0;
+}
+
+/* ===========================================
+   THE TIMER, AS A PILL.
+
+   The scaffold ships a rectangular readout with a 100pt figure. A capsule reads
+   as a clock rather than as another card, and the controls are rounded to match
+   so the whole component is one shape.
+   =========================================== */
+.reveal .timer .timer-readout {
+  border-radius: 999px;
+  padding: 20px 34px;
+}
+.reveal .timer .timer-btn {
+  border-radius: 999px;
+}
