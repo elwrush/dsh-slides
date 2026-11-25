@@ -103,6 +103,15 @@
   background-color: #000000;
 }
 
+/* The navigation arrows are drawn in `currentColor` and sit OUTSIDE the scaled
+   slide, at the foot of the viewport, so they take their colour from the chrome
+   and not from the section. Reveal only turns them white for a slide that carries
+   `data-background-color`; this deck paints its black in CSS, so the flip is
+   written here. Without it the forward arrow is black on black on the cover. */
+.reveal-viewport.is-dark .reveal .controls {
+  color: #FFFFFF;
+}
+
 /* ===========================================
    TEXT BLOCKS
    =========================================== */
