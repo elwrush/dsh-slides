@@ -25,13 +25,15 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- THE COVER — the drawing, and the title on a click -->
-      <section id="cover-text" data-transition="fade">
-        <div class="cover-plate">
-          <img src="img/arc.png" alt="A hand-drawn map of a story's arc on one long musical stave: exposition and inciting incident on the left, rising action climbing to a climax above the clouds, then falling action and resolution on the right, all illustrated with Doraemon and his friends.">
+      <!-- THE POSTER — the lesson opens on it, and the title arrives on a click.
+           Contained, never cropped: it is a portrait on a landscape stage, and the
+           poster's own black is the slide's field. -->
+      <section id="poster" data-state="is-dark" data-transition="fade">
+        <div class="poster-plate">
+          <img src="img/poster.png" alt="The 1979 Alien film poster: one upright egg cracked along a seam of green light, a field of eggs below it, and the line In space no one can hear you scream printed across the middle.">
         </div>
-        <div class="caption-band fragment fade-in">
-          <h1><span class="cover-kicker">Creative writing &middot; Lesson 2</span>Let's add shape to your story.</h1>
+        <div class="poster-title fragment fade-in">
+          <h1><span class="cover-kicker">Creative writing &middot; Lesson 2</span>Let's add shape to<br>your story.</h1>
           <p>Introducing the narrative arc</p>
         </div>
       </section>
@@ -49,35 +51,6 @@
             <span class="step-num">2</span>
             <p>Write the arc outline for your story.</p>
           </div>
-        </div>
-      </section>
-
-      <!-- DO YOU KNOW THESE TWO? -->
-      <section id="characters">
-        <h2>Do you know these two?</h2>
-        <div class="content">
-          <div class="element-grid">
-            <img class="character-art" src="img/characters.jpg" alt="A pen and ink and watercolour drawing of Doraemon, a round blue robot cat with a red collar and a golden bell, standing beside Nobita, a boy in round glasses and a yellow shirt.">
-            <div>
-              <div class="task-box">
-                <p class="task-label">Out loud</p>
-                <p class="task-line"><span class="n">1</span>Who are they? Say their names.</p>
-                <p class="task-line"><span class="n">2</span>Do you know their new film?</p>
-              </div>
-              <div class="fragment" data-fragment-index="0">
-                <p class="reveal-answer">Doraemon and Nobita, from <em>Nobita's Earth Symphony</em>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- THE TRAILER -->
-      <section id="trailer">
-        <h2>Watch the trailer.</h2>
-        <div class="content">
-          <video class="trailer" controls preload="metadata" src="video/trailer.mp4"></video>
-          <p class="after-watch">While you watch, look for the moment the trouble starts. Keep your eye on the action, because the clip is not in English.</p>
         </div>
       </section>
 
@@ -103,72 +76,72 @@
       </section>
 
       <!-- DIVIDER — INTO THE EXAMPLE -->
-      <section id="break-cinderella" class="break" data-state="is-break">
-        <h2>Let's look at the Cinderella narrative arc</h2>
+      <section id="break-spiderman" class="break" data-state="is-break">
+        <h2>Let's look at the Spider-Man narrative arc</h2>
       </section>
 
       <!-- THE ARC, IN ONE LINE PER PART -->
-      <section id="cinderella">
-        <h2>The arc in Cinderella</h2>
+      <section id="spiderman">
+        <h2>The arc in Spider-Man</h2>
         <div class="content">
           <div class="arc-row">
             <span class="arc-part">Exposition</span>
-            <span class="arc-line">She works for her stepmother and stepsisters.</span>
+            <span class="arc-line">He is a shy senior in Queens, and Mary Jane has never spoken to him.</span>
           </div>
           <div class="arc-row">
             <span class="arc-part">Inciting incident</span>
-            <span class="arc-line">An invitation to the ball arrives.</span>
+            <span class="arc-line">A spider in the genetics laboratory bites his hand.</span>
           </div>
           <div class="arc-row">
             <span class="arc-part">Rising action</span>
-            <span class="arc-line">Her fairy godmother sends her to the ball, with a warning.</span>
+            <span class="arc-line">Uncle Ben is shot, and the Goblin offers him a place beside him.</span>
           </div>
           <div class="arc-row">
             <span class="arc-part">Climax</span>
-            <span class="arc-line">At midnight she runs, and loses a slipper.</span>
+            <span class="arc-line">The Goblin cuts the cable and makes him choose between Mary Jane and the children.</span>
           </div>
           <div class="arc-row">
             <span class="arc-part">Falling action</span>
-            <span class="arc-line">The prince searches with the slipper.</span>
+            <span class="arc-line">The glider takes Norman, and Harry blames Spider-Man for it.</span>
           </div>
           <div class="arc-row">
             <span class="arc-part">Resolution</span>
-            <span class="arc-line">The slipper fits. They marry.</span>
+            <span class="arc-line">He tells Mary Jane he can only be her friend, and walks away.</span>
           </div>
         </div>
       </section>
 
-      <!-- THE SAME SIX ROWS, IN HER OWN WORDS, WITH THE TAPE -->
-      <section id="cinderella-words">
-        <h2>The words she uses</h2>
+      <!-- THE SAME SIX ROWS, IN THE NARRATOR'S OWN WORDS, WITH THE TAPE -->
+      <section id="spiderman-words">
+        <h2>The words the narrator uses</h2>
         <div class="content">
           <div class="tape-head">
             <p class="audio-label">Listen</p>
-            <audio controls preload="metadata" src="audio/cinderella.mp3"></audio>
+            <audio controls preload="metadata" src="audio/spiderman.mp3"></audio>
           </div>
           <div class="tape-row">
             <span class="tape-part">Exposition</span>
-            <span class="tape-say">Cinderella's mother died. Her father married again, and the new wife had two daughters of her own. They took the house for themselves and gave Cinderella the work: the fire, the floors, the washing. She slept in the kitchen, in the ashes.</span>
+            <span class="tape-say">Peter Parker is seventeen. He lives in Queens with his aunt and uncle. He is clever, and he is not popular. Mary Jane Watson has never spoken to him.</span>
           </div>
           <div class="tape-row">
             <span class="tape-part">Inciting incident</span>
-            <span class="tape-say">One morning an invitation came to the door. The king was giving a ball, and every young woman in the kingdom was asked to come. Her sisters read it twice, and told her she could not.</span>
+            <span class="tape-say">On a school trip to a genetics laboratory, a spider drops onto his hand and bites it. He goes home sick, and in the morning his glasses are useless: he can see the clock across the room.</span>
           </div>
           <div class="tape-row">
             <span class="tape-part">Rising action</span>
-            <span class="tape-say">She was still in the kitchen that evening when a woman stood in front of her, in grey light. The woman gave her a coach, a dress, and one warning. Leave before midnight. Cinderella went, and she danced with the prince, and she forgot the warning.</span>
+            <span class="tape-say">Peter lets a thief run past him with the takings, and that night the same thief shoots Uncle Ben in the street. Norman Osborn tests his own experiment on himself, becomes the Green Goblin, and offers Peter a place beside him.</span>
           </div>
           <div class="tape-row">
             <span class="tape-part">Climax</span>
-            <span class="tape-say">Then the clock began to strike. She ran, and one glass slipper stayed behind on the step.</span>
+            <span class="tape-say">On the bridge the Goblin cuts the cable and gives him a choice: Mary Jane, or the tram full of children. Peter catches them both.</span>
           </div>
           <div class="tape-row">
             <span class="tape-part">Falling action</span>
-            <span class="tape-say">The next day the prince walked the kingdom with the slipper in his hand. Every woman in the country tried it on. At Cinderella's house her sisters pushed her aside and tried first. Neither of them could get a foot into it.</span>
+            <span class="tape-say">In a warehouse the Goblin beats him and calls the glider to finish him. Peter jumps aside, and the glider takes Norman instead. Harry sees Spider-Man standing over his father.</span>
           </div>
           <div class="tape-row">
             <span class="tape-part">Resolution</span>
-            <span class="tape-say">Then the slipper went on Cinderella. They were married in the spring.</span>
+            <span class="tape-say">At the funeral Peter tells Mary Jane that he can only ever be her friend. Then he walks away.</span>
           </div>
         </div>
       </section>
@@ -179,12 +152,12 @@
         <div class="content">
           <div class="element-grid">
             <div>
-              <img class="element-art" src="img/c-exposition.jpg" alt="Cinderella, in a worn apron, sweeps ash from a hearth in a bare kitchen, while two fine dresses hang on a hook behind her.">
+              <img class="element-art" src="img/s-exposition.jpg" alt="A boy in a checked shirt stands at the back of a school bus holding his books, while a red-haired girl laughs with her friends at the front.">
               <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
             </div>
             <div>
               <p class="element-claim">The world before the trouble starts.</p>
-              <p class="element-model">She works for her stepmother and her two stepsisters.</p>
+              <p class="element-model">He is a shy senior at a Queens high school, and Mary Jane has never spoken to him.</p>
               <p class="element-part">Who the story is about.</p>
               <p class="element-part">Where and when it happens.</p>
               <p class="element-part">What is normal for them.</p>
@@ -204,12 +177,12 @@
         <div class="content">
           <div class="element-grid">
             <div>
-              <img class="element-art" src="img/c-inciting.jpg" alt="Cinderella kneels on a stone floor to pick up a heavy cream invitation card, a broom dropped beside her.">
+              <img class="element-art" src="img/s-inciting.jpg" alt="A lean teenage boy in a laboratory leans over the bench, a dark spider on the back of his hand, glass tanks of green light behind him.">
               <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
             </div>
             <div>
               <p class="element-claim">The thing that breaks the normal world.</p>
-              <p class="element-model">An invitation to the ball arrives.</p>
+              <p class="element-model">On a school trip, a spider in the genetics laboratory bites his hand.</p>
               <p class="element-part">It is one event, on one day.</p>
               <p class="element-part">It happens to your main character.</p>
               <p class="element-part">After it, they cannot go back.</p>
@@ -229,12 +202,12 @@
         <div class="content">
           <div class="element-grid">
             <div>
-              <img class="element-art" src="img/c-rising.jpg" alt="Cinderella in a blue ballgown sits inside a gilt pumpkin coach while a small round woman in a grey cloak raises a wand beside the open door.">
+              <img class="element-art" src="img/s-rising.jpg" alt="A green armoured figure stands with his arms out on a small bat-shaped glider above a night street parade, a green balloon on fire and the crowd running below.">
               <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
             </div>
             <div>
               <p class="element-claim">The trouble gets worse, step by step.</p>
-              <p class="element-model">The godmother sends her to the ball, but she must leave by midnight, otherwise the spell breaks.</p>
+              <p class="element-model">Uncle Ben is shot, and the Goblin offers him a place beside him.</p>
               <p class="element-part">Two or three things go wrong.</p>
               <p class="element-part">Each one narrows the choice.</p>
               <p class="element-part">The last one is the worst.</p>
@@ -254,12 +227,12 @@
         <div class="content">
           <div class="element-grid">
             <div>
-              <img class="element-art" src="img/c-climax.jpg" alt="Cinderella runs down wide stone steps at night, one bare foot on the step, a glass slipper left behind her, a tall clock striking twelve.">
+              <img class="element-art" src="img/s-climax.jpg" alt="A red cable car hangs from the cable of a great bridge at night, a figure in a red and blue suit holding the cable, with the green armoured figure circling on his glider.">
               <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
             </div>
             <div>
               <p class="element-claim">The moment your character cannot avoid.</p>
-              <p class="element-model">The clock strikes twelve and she runs, because the magic has ended and she will soon be back in her apron.</p>
+              <p class="element-model">The Goblin cuts the cable and makes him choose between Mary Jane and the children.</p>
               <p class="element-part">The highest point of trouble.</p>
               <p class="element-part">A decision, or a discovery.</p>
               <p class="element-part">It cannot be undone.</p>
@@ -279,12 +252,12 @@
         <div class="content">
           <div class="element-grid">
             <div>
-              <img class="element-art" src="img/c-falling.jpg" alt="A young man in a dark blue coat kneels to hold a glass slipper up to Cinderella, with two women in fine dresses watching from a doorway.">
+              <img class="element-art" src="img/s-falling.jpg" alt="A wrecked warehouse at night, a shattered green glider on the floor beside a cracked metal mask, with dust hanging in a shaft of light.">
               <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
             </div>
             <div>
               <p class="element-claim">What happens because of the climax.</p>
-              <p class="element-model">The prince searches with the slipper because he has fallen in love with the woman who wore it.</p>
+              <p class="element-model">The glider takes Norman, and Harry blames Spider-Man for it.</p>
               <p class="element-part">The consequences arrive.</p>
               <p class="element-part">Loose ends are closed.</p>
               <p class="element-part">The tension goes out of it.</p>
@@ -304,12 +277,12 @@
         <div class="content">
           <div class="element-grid">
             <div>
-              <img class="element-art" src="img/c-resolution.jpg" alt="Cinderella in a plain white dress walks out through tall doors into morning light, hand in hand with the prince.">
+              <img class="element-art" src="img/s-resolution.jpg" alt="A young man in a dark suit stands at a wet cemetery gate in the rain, looking back at a red-haired girl waiting under a black umbrella.">
               <div class="timer" data-timer-seconds="600" data-timer-label="ten minutes"></div>
             </div>
             <div>
               <p class="element-claim">The world after the trouble is over.</p>
-              <p class="element-model">The slipper fits, and they marry.</p>
+              <p class="element-model">He tells Mary Jane he can only be her friend, and walks away.</p>
               <p class="element-part">The trouble is finished.</p>
               <p class="element-part">What is different now.</p>
               <p class="element-part">One line is enough.</p>

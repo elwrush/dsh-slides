@@ -5,20 +5,20 @@
 
    Components and their names are ported from the house standard design plane,
    `M3-101126-DISCUSSION`: `.task-box` with `.task-label` / `.task-line`, the
-   circular `.step-num` row, the gradient `.caption-band` on a cover, and a
-   centred `.content`. Its rule holds here too — **nothing is smaller than 24pt
-   except quoted matter**, which is the one thing this deck sets at 18pt.
+   circular `.step-num` row, and a centred `.content`. Its rule holds here too —
+   **nothing is smaller than 24pt except quoted matter**, which is the one thing
+   this deck sets at 18pt.
 
    Sizes come only from the ladder — 56 / 44 / 36 / 30 / 24 / 18 — so no two
    distinct sizes sit inside the 12% near-pair test. */
 
-/* No h1 override any more. The standard plane puts every break heading on an
-   <h2> at 56pt, which leaves the scaffold's 48pt h1 unused and so removes the
-   44-vs-48 near-pair this deck used to dodge by flattening h1 to 44pt. The
-   cover's 56pt h1 is the deck's only h1. */
+/* No h1 override. The standard plane puts every break heading on an <h2> at
+   56pt, which leaves the scaffold's 48pt h1 unused and so removes the 44-vs-48
+   near-pair this deck used to dodge by flattening h1 to 44pt. The cover's 56pt
+   h1 is the deck's only h1. */
 
 /* The vendored reset leaves <em> upright, because every icon in the scaffold is
-   an <i>. Without this the film's title prints roman and reads as a failed edit. */
+   an <i>. Without this a film's title prints roman and reads as a failed edit. */
 .reveal em {
   font-style: italic;
 }
@@ -30,69 +30,77 @@
 }
 
 /* ===========================================
-   COVER — the drawing alone, then the drawing under the title.
+   COVER — the poster, then the title on a click.
 
-   Two slides, as in lesson 1 of this unit: the first carries no type at all, so
-   the drawing is read before anything covers it. The band is a soft edge rather
-   than a cut, so the film's own banner dissolves into the paper instead of being
-   sliced across.
+   The poster is portrait (667x1000, 0.667) on a 16:9 stage, and it is CONTAINED,
+   never cropped: the teacher opens the lesson on it and the whole frame is the
+   subject. Its own black is the slide's field, so the deck's cream disappears for
+   one slide rather than boxing the poster on four sides.
+
+   The title is a separate box to the right of the poster, not a band across it,
+   for the same reason: nothing covers the frame. Both children are positioned
+   against the section and nothing sits in flow, so the scaffold's 40px padding
+   comes off — left on, a plate that reaches the top edge reads as 40px of
+   overflow to `check-overflow`.
    =========================================== */
-/* A full-bleed cover needs no padding: both children are positioned against the
-   section, and the scaffold's 40px top padding puts the content-box origin below
-   the top edge, which makes a plate that reaches the top read as 40px of
-   overflow to `check-overflow`. Nothing sits in flow on this slide. */
-.reveal .slides section#cover-text {
+.reveal .slides section#poster {
   padding: 0 !important;
+  background: #000000;
 }
 
-.reveal #cover-text .cover-plate {
+/* height 100% and width auto keeps the poster's own 0.667 ratio at 480x720. */
+.reveal #poster .poster-plate {
   position: absolute;
-  inset: 0;
-}
-.reveal #cover-text .cover-plate img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.reveal #cover-text .caption-band {
-  position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 34px 60px 26px 60px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 248, 247, 0) 0%,
-    rgba(255, 248, 247, 0.88) 20%,
-    rgba(255, 248, 247, 0.98) 38%,
-    rgba(255, 248, 247, 0.98) 100%
-  );
+  height: 100%;
 }
-.reveal #cover-text h1 {
+.reveal #poster .poster-plate img {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* 520px is clear of the poster's 480px plus a 40px gutter. */
+.reveal #poster .poster-title {
+  position: absolute;
+  top: 0;
+  left: 520px;
+  right: 56px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.reveal #poster h1 {
   margin: 0;
   font-size: 56pt;
   line-height: 1.05;
-  color: var(--accent-text-color);
+  color: #FFFFFF;
 }
-.reveal #cover-text .cover-kicker {
+.reveal #poster .cover-kicker {
   display: block;
-  margin: 0 0 10px 0;
+  margin: 0 0 14px 0;
   font-family: var(--body-font);
   font-size: 24pt;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--maroon-40);
+  color: var(--maroon-80);
 }
-.reveal #cover-text .caption-band p {
-  margin: 10px 0 0 0;
+.reveal #poster .poster-title p {
+  margin: 18px 0 0 0;
   font-size: 24pt;
   line-height: 1.15;
-  color: var(--text-color);
+  color: var(--maroon-90);
+}
+
+/* The poster's black has to reach the window edges, or a stage inside a taller
+   window shows cream bands above and below it. `data-state` puts this class on
+   the viewport, as it does for the break slides. */
+.reveal-viewport.is-dark {
+  background-color: #000000;
 }
 
 /* ===========================================
@@ -201,7 +209,7 @@
 }
 
 /* ===========================================
-   THE ARC — slide 5
+   THE ARC — slide 3
    Drawn rather than photographed: the six labels have to sit ON the line, and
    the class copies the shape, so it is a line and not an illustration.
    =========================================== */
@@ -242,23 +250,14 @@
   align-items: start;
 }
 
-/* 250px is 400 at the drawing's own 1.6 ratio. */
+/* The beat drawings are 2048x1152, so 225px is the 400px column's own height at
+   that ratio and nothing is cropped. */
 .reveal .element-art {
   display: block;
   width: 100%;
-  height: 250px;
+  height: 225px;
   object-fit: cover;
   object-position: center;
-  border: 1px solid var(--card-border);
-}
-
-/* The portrait drawing on the guess slide is 0.8, so it sets its own height. */
-.reveal .character-art {
-  display: block;
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  object-position: center top;
   border: 1px solid var(--card-border);
 }
 
@@ -268,9 +267,9 @@
   line-height: 1.25;
 }
 
-/* Three lines reserved whichever way the model sentence breaks — the climax and
-   the falling action run to three lines and the inciting incident to one — so the
-   task box below sits at the same height on all six slides. */
+/* Three lines reserved whichever way the model sentence breaks — the climax runs
+   to three lines and the inciting incident to one — so the task box below sits at
+   the same height on all six slides. */
 .reveal .element-model {
   margin: 0 0 20px 0;
   min-height: 3.9em;
@@ -295,7 +294,7 @@
 }
 
 /* ===========================================
-   THE ARC IN CINDERELLA, OUTLINED — slide 7
+   THE ARC IN SPIDER-MAN, OUTLINED — slide 5
    Six rows, one per part, at 24pt.
    =========================================== */
 .reveal .arc-row {
@@ -322,10 +321,10 @@
 }
 
 /* ===========================================
-   THE SAME SIX ROWS, IN HER OWN WORDS — slide 8
+   THE SAME SIX ROWS, IN THE NARRATOR'S OWN WORDS — slide 6
 
    The right-hand column is the tape's transcript, word for word, and it is the
-   one thing in this deck set below 24pt: quoting 1,050 characters back at the
+   one thing in this deck set below 24pt: quoting 1,150 characters back at the
    class cannot be done at body size inside one frame, and a transcript is quoted
    matter rather than copy the class is taught from. The labels stay at 24pt.
    =========================================== */
@@ -369,30 +368,4 @@
   margin: 0;
   font-size: 18pt;
   line-height: 1.2;
-}
-
-/* ===========================================
-   SLIDE 4 — the trailer, and the guess that follows the drawing.
-   =========================================== */
-.reveal .trailer {
-  display: block;
-  width: 780px;
-  height: 439px;
-  margin: 0 auto;
-  background: #000;
-  border: 1px solid var(--card-border);
-}
-.reveal .after-watch {
-  margin: 22px 0 0 0;
-  font-size: 24pt;
-  line-height: 1.3;
-  color: var(--muted-color);
-}
-
-/* The answer to the guess on slide 4, held back until the class has offered one. */
-.reveal .reveal-answer {
-  margin: 28px 0 0 0;
-  font-size: 30pt;
-  line-height: 1.3;
-  color: var(--accent-text-color);
 }
