@@ -311,7 +311,7 @@
   grid-template-columns: 300px 1fr;
   gap: 0 26px;
   align-items: baseline;
-  padding: 12px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--line-color);
 }
 .reveal .arc-row:last-of-type {
@@ -363,7 +363,7 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  margin: 0 0 10px 0;
+  margin: 0 0 4px 0;
 }
 .reveal .audio-label {
   margin: 0;
@@ -382,7 +382,7 @@
   grid-template-columns: 186px 1fr;
   gap: 0 22px;
   align-items: baseline;
-  padding: 4px 0;
+  padding: 2px 0;
   border-top: 1px solid var(--card-border);
 }
 .reveal .tape-row:last-child {
@@ -398,5 +398,5 @@
 .reveal .tape-say {
   margin: 0;
   font-size: 18pt;
-  line-height: 1.2;
+  line-height: 1.16;
 }
