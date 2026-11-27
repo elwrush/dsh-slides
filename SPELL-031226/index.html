@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spelling test 2 - 3 Dec 2026</title>
+
+  <!-- Vendored assets: this deck needs no network to render -->
+  <link rel="stylesheet" href="vendor/reveal/reset.css">
+  <link rel="stylesheet" href="vendor/reveal/reveal.css">
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="cover" class="spelling-cover">
+        <div class="spelling-title-block">
+          <h1>Spelling Bee</h1>
+          <p class="spelling-subhead">Show us what you've got</p>
+        </div>
+      </section>
+
+      <section id="rules">
+        <h2>Get ready</h2>
+        <div class="content">
+          <p class="text-lg">You will be asked to spell <strong>7 words</strong>. 4 words will be at your CEFR level, 2 will be one band above your current level, and one will be two bands above your current level.</p>
+          <p class="text-lg">You will hear each word twice, followed by a context sentence. You will have <strong>5 seconds</strong> to write each word.</p>
+        </div>
+      </section>
+
+      <section id="test-m2" class="section-divider">
+        <h1>Spelling bee, M2.</h1>
+        <p class="imperative">Spell the seven words you hear.</p>
+        <p class="test-audio-label">Test M2 audio</p>
+        <audio controls preload="metadata" src="audio/test-m2.mp3"></audio>
+      </section>
+
+      <section id="test-m3" class="section-divider">
+        <h1>Spelling bee, M3.</h1>
+        <p class="imperative">Spell the seven words you hear.</p>
+        <p class="test-audio-label">Test M3 audio</p>
+        <audio controls preload="metadata" src="audio/test-m3.mp3"></audio>
+      </section>
+
+      <section id="done" class="section-divider">
+        <h1>All done.</h1>
+        <p>Give your paper to the teacher.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal/reveal.js"></script>
+  <script>
+    /* width/height/margin are not optional: reveal.js's own default is
+       960x700, which silently overflows a 16:9 layout. */
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: false,
+      slideNumber: false,
+      hash: true,
+      transition: 'fade',
+      center: false,
+      autoSlide: 0
+    });
+  </script>
+</body>
+</html>
