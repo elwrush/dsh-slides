@@ -459,10 +459,12 @@
 }
 /* `.content` is a flex column, whose children stretch across it by default. A
    verdict pill that stretches is a bar, not a pill, so a verdict sitting
-   straight on the slide is pinned to its own width. Inside a `.tfn-row` the
-   pill is a grid item and this does not apply. */
+   straight on the slide is pinned to its own width and lifted clear of the
+   statement's descenders. Inside a `.tfn-row` the pill is a grid item and this
+   does not apply. */
 .reveal .slides section > .content > .verdict {
   align-self: flex-start;
+  margin-top: 16px;
 }
 .reveal .verdict-true {
   background: var(--positive-90);
